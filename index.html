@@ -11,7 +11,7 @@
     <body>
         <header>
             <img src="Resources/Svg/logo.svg" alt="Sofari" width="200" height="70">
-            <nav class="main-navigation-bar">
+            <nav id="navbar">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="Exercise1/categories.html">Advertisements</a></li>
@@ -22,73 +22,101 @@
         </header>
 
         <main>
-            <section class="benefits-features">
-                <h2>Why Choose Sofari</h2>
-                <p>At Sofari, we're dedicated to simplifying your shopping and browsing experience from the comfort of your home. Our platform offers a wide range of items, including properties, household items, vehicles, job vacancies, technology products, and sports gear. Here's why Sofari is the ideal place to explore:</p>
+            <section id="introduction">
+              <h2>Why Choose Sofari</h2>
+              <p>At Sofari, we're dedicated to <em>simplifying</em> your shopping and browsing experience from the comfort of your home.
+                  Our platform offers a wide range of items, including <b>properties</b>, <b>household items</b>, <b>vehicles</b>, <b>job vacancies</b>, <b>technology products</b>, and <b>sports gear</b>. </p>
+                
+              <p>Here's why Sofari is the <em>ideal</em> place to explore:
                 <ul>
                   <li><strong>Comprehensive Listings:</strong> Find all advertisements in one place.</li>
                   <li><strong>Ease of Use:</strong> Our user-friendly interface allows you to effortlessly navigate through diverse categories.</li>
                   <li><strong>Verified Listings:</strong> We verify and ensure the authenticity of listings for your peace of mind.</li>
                   <li><strong>Unparalleled Convenience:</strong> Browse, inquire, and shop for a wide variety of items right from your sofa!</li>
                 </ul>
-              </section>
+              </p>
+            </section>
 
-              <section class="testimonials">
+            <section id="testimonials">
                 <h2>What Our Users Say</h2>
-                <article class="testimonial">
-                  <!--We are not using <q> or <blockquote> as the content does not come from a different website. The reviews contain what our users said about us-->
-                  <p>"Sofari has made my house hunting journey a breeze. I found the perfect property within days. Highly recommended!"</p> 
-                  <p>- Lisa S.</p>
+
+                <article>
+                  <h3>The perfect property</h3>
+                  <p>
+                    <q>"Sofari has made my house hunting journey a breeze. I found the <b>perfect property</b> within days. <em>Highly recommended</em>!"</q> <br> 
+                    <span class="editor">Lisa S.</span>
+                  </p>
                   <time datetime="2023-10-14">October 14, 2023</time>
                 </article>
-                <article class="testimonial">
-                  <p>"As a job seeker, Sofari's job listings were a game-changer. I landed my dream job thanks to this platform!"</p>
-                  <p>- David R.</p>
+
+                <article>
+                  <h3>The job of your dreams</h3>  
+                  <p>
+                    <q>"As a job seeker, Sofari's job listings were a <em>game-changer</em>. I landed my <b>dream job</b> thanks to this platform!"</q>
+                    <span class="editor">David R.</span>
+                  </p>
                   <time datetime="2023-10-13">October 13, 2023</time>
                 </article>
-                <article class="testimonial">
-                  <p>"Sofari is my go-to place for buying and selling tech gadgets. It's efficient and hassle-free." </p>
-                  <p>- Emily T.</p>
+
+                <article>
+                  <h3>Must-have tech gadgets</h3>  
+                  <p>
+                    <q>"Sofari is my go-to place for buying and selling <b>tech gadgets</b>. It's <em>efficient and hassle-free</em>." </q>
+                    <span class="editor">Emily T.</span>
+                  </p>
                   <time datetime="2023-10-12">October 12, 2023</time>
                 </article>
-                <article class="testimonial">
-                  <p>"The wide selection of sports gear on Sofari is incredible. I've found great deals for my favorite activities." </p>
-                  <p>- Mark L.</p>
+
+                <article>
+                  <h3>Incredible sports equipment</h3>  
+                  <p>
+                    <q>"The wide selection of <b>sports gear</b> on Sofari is <em>incredible</em>. I've found great deals for my favorite activities." </q>
+                    <span class="editor">Mark L.</span>
+                  </p>
                   <time datetime="2023-10-11">October 11, 2023</time>
                 </article>
+
               </section>
           </main>
 
         <footer>
-                  
-          <h2>About Us</h2>
+          <div id="upper-footer">
+            <div>  
+              <h2>About Us</h2>
               <p>Sofari connects consumers with diverse product offerings in an immersive and interactive manner. What you're looking for is just a few clicks away!</p>
-          <div class="social">
-              <a href="https://www.facebook.com">Facebook</a>
-              <a href="https://www.instagram.com">Instagram</a>
-              <a href="https://twitter.com">Twitter</a>
+              
+              <ul id="social-media">
+                <li><a href="https://www.facebook.com">Facebook</a></li>
+                <li><a href="https://www.instagram.com">Instagram</a></li>
+                <li><a href="https://twitter.com">Twitter</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h2>Contact Us</h2>
+              <address>
+                <strong>Sofari</strong><br>
+                Eleutherias 12, Nea Ionia<br>
+                Athens, Greece 14231<br>
+                Phone: <a href="tel:+302101234567">(+30) 210-123-4567</a><br>
+                Email: <a href="mailto:sofari@gmail.com">sofari@gmail.com</a>
+              </address>
+            </div>
           </div>
-        
 
+          <hr>
 
-          <h2>Contact Us</h2>
-          <address>
-            <strong>Sofari</strong><br>
-            Eleutherias 12, Nea Ionia<br>
-            Athens, Greece 14231<br>
-            Phone: <a href="tel:+302101234567">(+30) 210-123-4567</a><br>
-            Email: <a href="mailto:sofari@gmail.com">sofari@gmail.com</a>
-          </address>
-
-          <ul>
-            <li>Terms of Use</li>
-            <li>Privacy Policy</li>
-            <li>Cookies Policy</li>
-          </ul>
-
-          <small>
-            Copyright © 2023 <a href="index.html"> Sofari Retail S.A</a>. All Rights Reserved.
-          </small>
+          <div id="lower-footer">
+            <small>
+              Copyright © 2023 <a href="index.html"> Sofari Retail S.A</a>. All Rights Reserved.
+            </small>
+            <ul>
+              <li>Terms of Use</li>
+              <li>Privacy Policy</li>
+              <li>Cookies Policy</li>
+            </ul>
+          </div>
+          
       </footer>
     </body>
 </html>
