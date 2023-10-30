@@ -11,15 +11,15 @@
         <link rel="stylesheet" href="../Web-Dev/Exercise 2/stylesheet.css">
         <!-- Add icon library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
     </head>
     <body>
         <header class="top-header">
             <img src="Resources/Svg/logo.svg" alt="Sofari" width="200" height="70">
             
-            <div class="search-bar">
+            <div id="search-bar">
               <img class="search-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljk2NiA1Ni45NjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMgIHMxMC4zMTgsMjMsMjMsMjNjNC43NjEsMCw5LjI5OC0xLjQzNiwxMy4xNzctNC4xNjJsMTMuNjYxLDE0LjIwOGMwLjU3MSwwLjU5MywxLjMzOSwwLjkyLDIuMTYyLDAuOTIgIGMwLjc3OSwwLDEuNTE4LTAuMjk3LDIuMDc5LTAuODM3QzU2LjI1NSw1NC45ODIsNTYuMjkzLDUzLjA4LDU1LjE0Niw1MS44ODd6IE0yMy45ODQsNmM5LjM3NCwwLDE3LDcuNjI2LDE3LDE3cy03LjYyNiwxNy0xNywxNyAgcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
-              <input class="search" placeholder="Search" type="search" >
-              <img class="clear-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxLjk3NiA1MS45NzYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxLjk3NiA1MS45NzY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8cGF0aCBkPSJNNDQuMzczLDcuNjAzYy0xMC4xMzctMTAuMTM3LTI2LjYzMi0xMC4xMzgtMzYuNzcsMGMtMTAuMTM4LDEwLjEzOC0xMC4xMzcsMjYuNjMyLDAsMzYuNzdzMjYuNjMyLDEwLjEzOCwzNi43NywwICAgQzU0LjUxLDM0LjIzNSw1NC41MSwxNy43NCw0NC4zNzMsNy42MDN6IE0zNi4yNDEsMzYuMjQxYy0wLjc4MSwwLjc4MS0yLjA0NywwLjc4MS0yLjgyOCwwbC03LjQyNS03LjQyNWwtNy43NzgsNy43NzggICBjLTAuNzgxLDAuNzgxLTIuMDQ3LDAuNzgxLTIuODI4LDBjLTAuNzgxLTAuNzgxLTAuNzgxLTIuMDQ3LDAtMi44MjhsNy43NzgtNy43NzhsLTcuNDI1LTcuNDI1Yy0wLjc4MS0wLjc4MS0wLjc4MS0yLjA0OCwwLTIuODI4ICAgYzAuNzgxLTAuNzgxLDIuMDQ3LTAuNzgxLDIuODI4LDBsNy40MjUsNy40MjVsNy4wNzEtNy4wNzFjMC43ODEtMC43ODEsMi4wNDctMC43ODEsMi44MjgsMGMwLjc4MSwwLjc4MSwwLjc4MSwyLjA0NywwLDIuODI4ICAgbC03LjA3MSw3LjA3MWw3LjQyNSw3LjQyNUMzNy4wMjIsMzQuMTk0LDM3LjAyMiwzNS40NiwzNi4yNDEsMzYuMjQxeiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+              <input placeholder="Explore the world of possibilities..." type="search" >
             </div>  
 
             <nav id="navbar">
@@ -34,18 +34,21 @@
 
         <main>
             <section id="introduction">
-              <h2>Why Choose Sofari</h2>
-              <p>At Sofari, we're dedicated to <em>simplifying</em> your shopping and browsing experience from the comfort of your home.
-                  Our platform offers a wide range of items, including <b>properties</b>, <b>household items</b>, <b>vehicles</b>, <b>job vacancies</b>, <b>technology products</b>, and <b>sports gear</b>. </p>
-                
-              <p>Here's why Sofari is the <em>ideal</em> place to explore:
-                <ul>
-                  <li><strong>Comprehensive Listings:</strong> Find all advertisements in one place.</li>
-                  <li><strong>Ease of Use:</strong> Our user-friendly interface allows you to effortlessly navigate through diverse categories.</li>
-                  <li><strong>Verified Listings:</strong> We verify and ensure the authenticity of listings for your peace of mind.</li>
-                  <li><strong>Unparalleled Convenience:</strong> Browse, inquire, and shop for a wide variety of items right from your sofa!</li>
-                </ul>
-              </p>
+              <img src="Resources/Images/index1.jpg" alt="Woman sitting on sofa" width="100%">
+              <div>
+                <h2>Why Choose Sofari</h2>
+                <p>At Sofari, we're dedicated to <em>simplifying</em> your shopping and browsing experience from the comfort of your home.
+                    Our platform offers a wide range of items, including <b>properties</b>, <b>household items</b>, <b>vehicles</b>, <b>job vacancies</b>, <b>technology products</b>, and <b>sports gear</b>. </p>
+                  
+                <p>Here's why Sofari is the <em>ideal</em> place to explore:
+                  <ul>
+                    <li><span class="fa-solid fa-circle-check"></span><strong>Comprehensive Listings:</strong> Find all advertisements in one place.</li>
+                    <li><span class="fa-solid fa-circle-check"></span><strong>Ease of Use:</strong> Our user-friendly interface allows you to effortlessly navigate through diverse categories.</li>
+                    <li><span class="fa-solid fa-circle-check"></span><strong>Verified Listings:</strong> We verify and ensure the authenticity of listings for your peace of mind.</li>
+                    <li><span class="fa-solid fa-circle-check"></span><strong>Unparalleled Convenience:</strong> Browse, inquire, and shop for a wide variety of items right from your sofa!</li>
+                  </ul>
+                </p>
+              </div>
             </section>
 
             <section id="testimonials">
@@ -54,7 +57,7 @@
                 <article>
                   <h3>The perfect property</h3>
                   <p>
-                    <q>"Sofari has made my house hunting journey a breeze. I found the <b>perfect property</b> within days. <em>Highly recommended</em>!"</q> <br> 
+                    <q>Sofari has made my house hunting journey a breeze. I found the <b>perfect property</b> within days. <em>Highly recommended</em>!</q>
                     <span class="editor">Lisa S.</span>
                   </p>
                   <time datetime="2023-10-14">October 14, 2023</time>
@@ -63,7 +66,7 @@
                 <article>
                   <h3>The job of your dreams</h3>  
                   <p>
-                    <q>"As a job seeker, Sofari's job listings were a <em>game-changer</em>. I landed my <b>dream job</b> thanks to this platform!"</q>
+                    <q>As a job seeker, Sofari's job listings were a <em>game-changer</em>. I landed my <b>dream job</b> thanks to this platform!</q>
                     <span class="editor">David R.</span>
                   </p>
                   <time datetime="2023-10-13">October 13, 2023</time>
@@ -72,7 +75,7 @@
                 <article>
                   <h3>Must-have tech gadgets</h3>  
                   <p>
-                    <q>"Sofari is my go-to place for buying and selling <b>tech gadgets</b>. It's <em>efficient and hassle-free</em>." </q>
+                    <q>Sofari is my go-to place for buying and selling <b>tech gadgets</b>. It's <em>efficient and hassle-free</em>.</q>
                     <span class="editor">Emily T.</span>
                   </p>
                   <time datetime="2023-10-12">October 12, 2023</time>
@@ -81,7 +84,7 @@
                 <article>
                   <h3>Incredible sports equipment</h3>  
                   <p>
-                    <q>"The wide selection of <b>sports gear</b> on Sofari is <em>incredible</em>. I've found great deals for my favorite activities." </q>
+                    <q>The wide selection of <b>sports gear</b> on Sofari is <em>incredible</em>. I've found great deals for my favorite activities.</q>
                     <span class="editor">Mark L.</span>
                   </p>
                   <time datetime="2023-10-11">October 11, 2023</time>
@@ -136,3 +139,10 @@
         </footer>
     </body>
 </html>
+
+
+Image by <a href="https://www.freepik.com/free-photo/woman-sitting-upside-down-soda-holding-laptop-her-lap_6882018.htm#page=2&query=couch%20laptop&position=26&from_view=search&track=ais">Freepik</a>
+
+Image by <a href="https://www.freepik.com/free-photo/side-view-woman-smiling-while-sitting-sofa-looking-laptop_6882009.htm#page=3&query=couch%20laptop&position=3&from_view=search&track=ais">Freepik</a>
+
+Image by <a href="https://www.freepik.com/free-photo/young-beautiful-woman-having-online-meeting_18954789.htm#page=8&query=couch%20laptop&position=12&from_view=search&track=ais">Freepik</a>

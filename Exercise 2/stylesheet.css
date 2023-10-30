@@ -14,7 +14,8 @@ body {
     right: 0rem;
     border-radius: 0rem 0rem 1rem 1rem;
     position: fixed;
-    width: 100%
+    width: 100%;
+    z-index: 6;
 }
 
 .top-header > img {
@@ -53,12 +54,64 @@ body {
 }
 
 main {
-    margin-top: 10rem;
+    margin-top: 5rem;
 }
 
 
+#introduction > div {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    max-width: 27%;
 
-.search-bar {
+    backdrop-filter: blur(16px) saturate(130%);
+    background-color: rgba(255, 255, 255, 0.40);
+    border-radius: 1rem;
+    border: 1px solid rgba(93, 105, 121, 0.3);
+    box-shadow: 0.1rem 0.1rem 1rem rgba(93, 105, 121, 0.3);
+
+    padding: 2rem;
+}
+
+#introduction ul {
+    list-style-type: none;
+}
+
+#testimonials > article {
+    background-color: rgb(251, 210, 155);
+    border-radius: 1rem;
+    float: left;
+    max-width: 20%;
+    padding: 2rem;
+    margin: 2rem;
+}
+
+#testimonials article:hover, #testimonials article:focus{
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    transform: scale(1.15);
+    position: relative;
+    z-index: 5;
+  }
+
+#testimonials article:hover:nth-child(2n) {
+    transform:rotate(4deg);
+    position:relative;
+    top:5px;
+  }
+#testimonials article:hover:nth-child(2n+1){
+    transform:rotate(-3deg);
+    position:relative;
+    top:-5px;
+  }
+
+#testimonials .editor {
+    display: block;
+    font-family: 'Reenie Beanie';
+    font-size: 2rem;
+}
+
+
+#search-bar {
     position: relative;
     display: flex;
     min-width: 30rem;
@@ -66,23 +119,15 @@ main {
 
 .search-icon {
     position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 14px;
+    width: 1rem;
+    align-self: center;
+    padding: 0.5rem;
 }
 
- .clear-icon {
-    position: absolute;
-    top: 10px;
-    right: 8px;
-    width: 10px;
-    cursor: pointer;
-} 
-
-.search {
+#search-bar > input {
     border: 1px solid grey;
     border-radius: 2rem;
-    height: 2rem;
+    height: 2.5rem;
     width: 100%;
     padding: 2px 23px 2px 30px;
     outline: 0;
@@ -91,6 +136,7 @@ main {
 
 footer {
     background-color: whitesmoke;
+    clear: both;
 }
 
 #upper-footer {
