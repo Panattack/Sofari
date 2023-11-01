@@ -195,9 +195,9 @@ footer {
     padding-right: 10rem;
 }
 
-#upper-footer > div {
+/* #upper-footer > div {
     float: left;
-}
+} */
 
 #upper-footer > div > p {
     max-width: 20em;
@@ -208,6 +208,9 @@ footer {
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+
+#social-media{
     display: flex;
 }
 
@@ -234,7 +237,7 @@ footer {
 }
 
 /* Style all font awesome icons */
-.fa {
+#social-media .fa {
     padding: 1rem;
     font-size: 3rem;
     text-align: center;
@@ -247,27 +250,23 @@ footer {
 }
   
 /* Add a hover effect if you want */
-.fa:hover {
+#social-media .fa:hover {
     opacity: 0.7;
 }
 
-/*Set a specific color for each brand */
-
 /* Facebook */
-/* .fa-facebook {
-    background: #3B5998;
+.fa-facebook {
+    color: white;
 }
 
 /* Twitter */
-/* .fa-twitter {
-    background: #55ACEE;
+.fa-twitter {
+    color: white;
 }
 
 .fa-instagram {
-    background: #531921; 
-}*/
-
-
+    color: white;
+}
 
 .highlight {
     background-color: var(--primary-color-faded);
