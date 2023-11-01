@@ -185,6 +185,7 @@ main {
 footer {
     background-color: var(--secondary-color);
     clear: both;
+    bottom: 0;
 }
 
 #upper-footer {
@@ -363,4 +364,57 @@ ul.subcategories {
 
 ul.subcategories li {
     margin: 5px 0;
+}
+/* Style the articles */
+.profile {
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+    overflow: hidden; /* Clear float within profile */
+}
+
+/* Style the images within the articles */
+.profile img {
+    width: 150px;
+    height: 200px;
+    border: 0.2rem solid #000;
+    border-radius: 1rem;
+    float: left; /* Float to the left for two-column layout */
+    margin-right: 20px;
+}
+
+/* Style the profile details (text) */
+.profile-details {
+    overflow: hidden; /* Clear float */
+}
+
+/* Style the header in each article */
+.profile header {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+/* Style the h2 element inside the header */
+.profile h2 {
+    font-size: 1.5rem;
+}
+
+/* Style the unordered lists in the profile details */
+.profile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the list items in the unordered lists */
+.profile ul li {
+    margin-bottom: 1rem;
+}
+
+/* Style the paragraphs in the articles */
+.profile p {
+    font-size: 1rem;
 }

@@ -1,0 +1,25 @@
+/* Reset default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the social icons container */
+.social-icons {
+    text-align: center;
+    margin: 20px;
+}
+
+/* Style the Font Awesome icon */
+.fa {
+    font-size: 48px;
+    color: #3b5998; /* Facebook blue color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Add a hover effect for the icon */
+.fa:hover {
+    color: #1877f2; /* Facebook dark blue color */
+}
