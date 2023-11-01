@@ -1,9 +1,18 @@
+:root{
+    --primary-color:  rgb(252,176,75);
+    --primary-color-faded: rgb(251, 210, 155);
+    --secondary-color: whitesmoke;
+    --tertiary-color: rgb(34,28,53);
+}
+
+
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: 'Manjari', sans-serif;
 }
 
 .top-header {
-    background-color: rgb(252,176,75);
+    background-color: var(--primary-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,32 +40,51 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(252,176,75);
 }
 
 #navbar li {
     float: left;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
 }
 
 #navbar li a {
     display: block;
-    color: rgb(34,28,53);
+    color: var(--tertiary-color);
+    border-radius: 1rem;
     text-align: center;
-    padding: 14px 16px;
+    padding: 0.8rem;
     text-decoration: none;
+
+    background-color: var(--primary-color);
+    transition: background-color 0.1s;
 }
 
-/* Change the link color to #111 (black) on hover */
+/* Change the link color on hover */
 #navbar li a:hover {
     color: white;
-    background-color: rgb(34,28,53);
+    background-color: var(--tertiary-color);
     border-radius: 1rem;
+}
+
+#navbar li a + .fas {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+
+    font-size: 1rem; /* Adjust the icon size as needed */
+    margin-left: 0.3rem;
+}
+
+
+#navbar li a:hover + .fas{
+    color: var(--tertiary-color);
 }
 
 main {
     margin-top: 5rem;
 }
-
 
 #introduction > div {
     position: absolute;
@@ -77,8 +105,24 @@ main {
     list-style-type: none;
 }
 
+#introduction ul li::before {
+    content: "\2713";
+    font-family: "Font Awesome 5 Free";
+    font-size: large;
+    color: var(--tertiary-color);
+    /* padding: 0 10px 0 0; */
+
+    /* margin-right: 10px; Adjust spacing between the icon and text */
+    position: absolute; /* Position the icon absolutely */
+    left: 3rem;
+}
+
+#introduction ul li + li {
+    margin-top: 1rem;
+}
+
 #testimonials > article {
-    background-color: rgb(251, 210, 155);
+    background-color: var(--primary-color-faded);
     border-radius: 1rem;
     float: left;
     max-width: 20%;
@@ -135,7 +179,7 @@ main {
 }
 
 footer {
-    background-color: whitesmoke;
+    background-color: var(--secondary-color);
     clear: both;
 }
 
@@ -207,21 +251,113 @@ footer {
     opacity: 0.7;
 }
 
-/* Set a specific color for each brand */
+/*Set a specific color for each brand */
 
 /* Facebook */
-.fa-facebook {
-    /* background: #3B5998; */
-    color: white;
+/* .fa-facebook {
+    background: #3B5998;
 }
 
 /* Twitter */
-.fa-twitter {
-    /* background: #55ACEE; */
-    color: white;
+/* .fa-twitter {
+    background: #55ACEE;
 }
 
 .fa-instagram {
-    /* background: #531921; */
+    background: #531921; 
+}*/
+
+
+
+.highlight {
+    background-color: var(--primary-color-faded);
+    border-radius: 0.5rem;
+    display: inline-block;
+    padding: 0.2rem;
+}
+
+
+
+
+
+
+
+
+
+.card {
+    perspective: 1000px;
+    width: 300px;
+    height: 300px;
+    border-radius: 2rem; /*Rounded corners */
+    overflow: hidden;
+    padding: 0.7rem;
+    background-color: var(--primary-color);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    align-self: center;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-top: 10px;
+    position: absolute;
+    top: -0.7rem;
+    left: 0rem;
+    right: 0rem;
+    background-color: var(--tertiary-color);
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 2rem 2rem 0rem 0rem;
+
     color: white;
+}
+
+ul.subcategories {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.subcategories li {
+    margin: 5px 0;
 }

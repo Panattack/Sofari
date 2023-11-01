@@ -8,133 +8,167 @@
         <meta name="author" content="Alviona Mancho, Panagiotis Triantafillidis">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="../Resources/Images/web_logo.png" type="image">
-        <link rel="stylesheet" href="../Web-Dev/Exercise 2/stylesheet.css">
+        <link rel="stylesheet" href="stylesheet.css">
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- External fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;400" rel="stylesheet">
     </head>
     <body>
-        <header>
-          <img src="../Resources/Svg/logo.svg" alt="Sofari" width="200" height="70">
-            <nav id="navbar">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../Exercise1/categories.html">Advertisements</a></li>
-                    <li><a href="../Exercise1/aboutUs.html">About Us</a></li>
-                    <li><a href="../Exercise1/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+      <header class="top-header">
+        <img src="../Resources/Svg/logo.svg" alt="Sofari" width="200" height="70">
+        
+        <div id="search-bar">
+          <img class="search-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljk2NiA1Ni45NjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMgIHMxMC4zMTgsMjMsMjMsMjNjNC43NjEsMCw5LjI5OC0xLjQzNiwxMy4xNzctNC4xNjJsMTMuNjYxLDE0LjIwOGMwLjU3MSwwLjU5MywxLjMzOSwwLjkyLDIuMTYyLDAuOTIgIGMwLjc3OSwwLDEuNTE4LTAuMjk3LDIuMDc5LTAuODM3QzU2LjI1NSw1NC45ODIsNTYuMjkzLDUzLjA4LDU1LjE0Niw1MS44ODd6IE0yMy45ODQsNmM5LjM3NCwwLDE3LDcuNjI2LDE3LDE3cy03LjYyNiwxNy0xNywxNyAgcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+          <input placeholder="Explore the world of possibilities..." type="search" >
+        </div>  
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a><span class="fas fa-home"></span></li>
+                <li><a href="Exercise 2/categories.html">Advertisements</a><span class="fas fa-shopping-bag"></span></li>
+                <li><a href="Exercise 2/aboutUs.html">About Us</a><span class="fas fa-comments"></span></li>
+                <li><a href="Exercise 2/contact.html">Contact</a><span class="fas fa-address-card"></span></li>
+            </ul>
+        </nav>
+    </header>
 
         <main>
-          <div>
-            <header>
-              <img src="../Resources/Images/properties.jpg" alt="Properties" style="width:300px;height:300px;">
-              <h2>Properties</h2>
-            </header>
-            <nav>
-              <ul class="subcategories">
-                <li>Commercial properties for sale</li>
-                <li>Homes for rent</li>
-                <li>Homes for sale</li>
-                <li>Land for sale</li>
-                <li>Parking for rent</li>
-                <li>Parking for sale</li>
-                <li>Student accommodation</li>
-              </ul>
-            </nav>
+
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="../Resources/Images/properties.jpg" alt="Properties">
+              </div>
+              <div class="card-back">
+                <nav>
+                  <h2>Properties</h2>
+                  <ul class="subcategories">
+                    <li>Commercial properties for sale</li>
+                    <li>Homes for rent</li>
+                    <li>Homes for sale</li>
+                    <li>Land for sale</li>
+                    <li>Parking for rent</li>
+                    <li>Parking for sale</li>
+                    <li>Student accommodation</li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="../Resources/Images/home_interior.jpg" alt="Home">
+              </div>
+              <div class="card-back">
+                <nav>
+                  <h2>Home</h2>
+                  <ul class="subcategories">
+                    <li>Antiques & Artwork</li>
+                    <li>Building Materials</li>
+                    <li>Decor</li>
+                    <li>Electrical Appliances</li>
+                    <li>Electricians, Plumbers, Craftsmen</li>
+                    <li>Furniture</li>
+                    <li>Household Items</li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <header>
-              <img src="../Resources/Images/home_interior.jpg" alt="Home" style="width:300px;height:300px;">
-              <h2>Home</h2>
-            </header>
-            <nav>
-              <ul class="subcategories">
-                <li>Antiques & Artwork</li>
-                <li>Building Materials</li>
-                <li>Decor</li>
-                <li>Electrical Appliances</li>
-                <li>Electricians, Plumbers, Craftsmen</li>
-                <li>Furniture</li>
-                <li>Household Items</li>
-              </ul>
-            </nav>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="../Resources/Images/vehicles.jpg" alt="Vehicles">
+              </div>
+              <div class="card-back">
+                <nav>
+                  <h2>Vehicles</h2>
+                  <ul class="subcategories">
+                    <li>Aircraft</li>
+                    <li>Automobiles</li>
+                    <li>Boats</li>
+                    <li>Commercial Vehicles</li>
+                    <li><a href="../Exercise 1/motorcycles.html">Motorcycles</a></li>
+                    <li>Parts and Accessories</li>
+                    <li>RVs (Recreational Vehicles)</li>
+                    <li>Taxi</li>
+                    <li>Various Vehicles</li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
           </div>
 
-
-          <div>
-            <header>
-              <img src="../Resources/Images/vehicles.jpg" alt="Vehicles" style="width:300px;height:300px;">
-              <h2>Vehicles</h2>
-            </header>
-            <nav>
-              <ul class="subcategories">
-                <li>Aircraft</li>
-                <li>Automobiles</li>
-                <li>Boats</li>
-                <li>Commercial Vehicles</li>
-                <li><a href="../Exercise 1/motorcycles.html">Motorcycles</a></li>
-                <li>Parts and Accessories</li>
-                <li>RVs (Recreational Vehicles)</li>
-                <li>Taxi</li>
-                <li>Various Vehicles</li>
-              </ul>
-            </nav>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="../Resources/Images/jobs.jpg" alt="Jobs">
+              </div>
+              <div class="card-back">
+                <nav>
+                  <h2>Jobs</h2>
+                  <ul class="subcategories">
+                    <li>Commerce</li>
+                    <li>Construction</li>
+                    <li>Entrepreneurship</li>
+                    <li>Executives</li>
+                    <li>Information Technology</li>
+                    <li>Lessons</li>
+                    <li>Office Support</li>
+                    <li>Sports</li>
+                    <li>Various Services</li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
           </div>
 
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="../Resources/Images/technology.jpg" alt="Technology">
+              </div>
+              <div class="card-back">
+                <nav>
+                  <h2>Technology</h2>
+                  <ul class="subcategories">
+                    <li>Audio Systems</li>
+                    <li>Computer Peripherals</li>
+                    <li><a href="../Exercise 1/computers.html">Computers</a></li>
+                    <li>Mobile Phones</li>
+                    <li>Photography</li>
+                    <li>Televisions</li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="../Resources/Images/sports.jpg" alt="Sports">
+              </div>
+              <div class="card-back">
+                <nav>
+                  <h2>Sports</h2>
+                  <ul class="subcategories">
+                    <li>Bicycles</li>
+                    <li>Exercise Equipment</li>
+                    <li>Ski & Snowboarding</li>
+                    <li>Other Sports</li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
 
-          <div>
-            <header>
-              <img src="../Resources/Images/jobs.jpg" alt="Jobs" style="width:300px;height:300px;">
-              <h2>Jobs</h2>
-            </header>
-            <nav>
-              <ul class="subcategories">
-                <li>Catering</li>
-                <li>Commerce</li>
-                <li>Construction</li>
-                <li>Craftsmen</li>
-                <li>Entrepreneurship</li>
-                <li>Executives</li>
-                <li>Information Technology</li>
-                <li>Lessons</li>
-                <li>Office Support</li>
-                <li>Sports</li>
-                <li>Various Services</li>
-              </ul>
-            </nav>
-          </div>
-            
-          <div>
-            <header>
-              <img src="../Resources/Images/technology.jpg" alt="Technology" style="width:300px;height:300px;">
-              <h2>Technology</h2>
-            </header>
-            <nav>
-              <ul class="subcategories">
-                <li>Audio Systems</li>
-                <li>Computer Peripherals</li>
-                <li><a href="../Exercise 1/computers.html">Computers</a></li>
-                <li>Mobile Phones</li>
-                <li>Photography</li>
-                <li>Televisions</li>
-              </ul>
-            </nav>
-          </div>
-            
-          <div>
-            <header>
-              <img src="../Resources/Images/sports.jpg" alt="Sports" style="width:300px;height:300px;">
-              <h2>Sports</h2>
-            </header>
-              <nav>
-                <ul class="subcategories">
-                  <li>Bicycles</li>
-                  <li>Exercise Equipment</li>
-                  <li>Ski & Snowboarding</li>
-                  <li>Other Sports</li>
-                </ul>
-              </nav>
-          </div> 
         </main>
 
         <footer>
@@ -166,7 +200,7 @@
 
           <div id="lower-footer">
             <small>
-              Copyright © 2023 <a href="../index.html"> Sofari Retail S.A</a>. All Rights Reserved.
+              Copyright Â© 2023 <a href="../index.html"> Sofari Retail S.A</a>. All Rights Reserved.
             </small>
             <ul>
               <li>Terms of Use</li>
