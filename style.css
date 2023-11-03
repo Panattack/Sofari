@@ -5,21 +5,23 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-/* Style the social icons container */
-.social-icons {
-    text-align: center;
-    margin: 20px;
+.profile {
+    position: relative;
 }
 
-/* Style the Font Awesome icon */
-.fa {
-    font-size: 48px;
-    color: #3b5998; /* Facebook blue color */
-    text-decoration: none;
-    transition: color 0.3s;
+.ad-info-price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
 }
 
-/* Add a hover effect for the icon */
-.fa:hover {
-    color: #1877f2; /* Facebook dark blue color */
+.big-numbers {
+    font-size: 1.2em; /* Adjust the size as needed */
+}
+
+.small-numbers {
+    font-size: 0.8em; /* Adjust the size as needed */
+    position: relative;
+    top: -0.2em; /* Adjust the positioning as needed */
 }
