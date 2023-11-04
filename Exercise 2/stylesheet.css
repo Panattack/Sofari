@@ -543,30 +543,6 @@ ul.subcategories li {
 }
 
 /* Computers & Motorcycles */
-/* .ad-info-price {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-}
-.big-numbers, .small-numbers {
-    font-weight:300;
-    font-size: small;
-} */
-
-/* .big-numbers.new{
-    font-size: 1.2em; /* Adjust the size as needed 
-    color: darkgoldenrod;
-    font-weight: bold;
-}
-
-.small-numbers.new{
-    font-size: 0.8em; /* Adjust the size as needed 
-    position: relative;
-    top: -0.2em; /* Adjust the positioning as needed 
-    color: darkgoldenrod;
-    font-weight: bold;
-} */
-
 .ads-products > .ad-product > div > span {
   display: block;
   word-wrap: break-word;
@@ -731,7 +707,7 @@ ul.subcategories li {
 .custom-checkbox {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .custom-checkbox input[type="checkbox"] {
@@ -740,17 +716,17 @@ ul.subcategories li {
 
 .custom-checkbox .checkmark {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #007BFF;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--primary-color);
     background-color: white;
-    border-radius: 3px;
+    border-radius: 5px;
     margin-right: 10px;
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkmark {
-    background-color: #007BFF;
-    border: 2px solid #007BFF;
+    background-color: var(--primary-color-dark);
+    border: 1px solid var(--primary-color-dark);
 }
 
 /* Style the custom checkboxes text */
@@ -766,10 +742,12 @@ ul.subcategories li {
 }
 
 /* Hide the default summary triangle icon */
-.filter-details summary::-webkit-details-marker {
+/* .filter-details summary::-webkit-details-marker {
     display: none;
-}
+} */
 
+
+/*Speicific product details*/
 .history-nav {
     background-color: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
