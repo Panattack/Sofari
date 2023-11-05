@@ -29,7 +29,7 @@
 
             <nav id="navbar">
                 <ul>
-                    <li><a href="index.html">Home</a><span class="fas fa-home"></span></li>
+                    <li><a href="../index.html">Home</a><span class="fas fa-home"></span></li>
                     <li><a href="../Exercise 2/categories.html">Advertisements</a><span class="fas fa-shopping-bag"></span></li>
                     <li><a href="../Exercise 2/aboutUs.html">About Us</a><span class="fas fa-comments"></span></li>
                     <li><a href="../Exercise 2/contact.html">Contact</a><span class="fas fa-address-card"></span></li>
@@ -38,39 +38,184 @@
         </header>
 
         <main>
+            <header class="history-nav">
+                <ul>
+                    <li><a href="../index.html"><span class="fas fa-home"></span></a></li>
+                    <li><a href="../Exercise 2/categories.html">Advertisements</a></li>
+                    <li>Computers</li>
+                </ul>
+            </header>
 
             <aside class="filters">
-                <details class="filter-details">
+                <details open>
                     <summary>Price</summary>
-                    <div class="filter-content">
-                        <div class="price-range">
-                            <input type="range" id="priceSlider" min="0" max="2000" value="0">
-                            <div class="price-labels">
-                                <span class="min-price-label">Min: $0</span>
-                                <span class="max-price-label">Max: $2000</span>
-                            </div>
+                    <div class="price-range">
+                        <input type="range" min="275" max="800" value="800" class="slider" id="price-slider">
+                        <div class = "price-labels">
+                            <span class="min-price-label">275€</span>
+                            <span class="max-price-label">800€</span>
                         </div>
                     </div>
                 </details>
-            
-                <details class="filter-details">
-                    <summary>Computer Type</summary>
-                    <div class="filter-content vertical-checkboxes">
-                        <label class="custom-checkbox">
-                            <input type="checkbox" id="appleFilter">
-                            <span class="checkmark"></span>
-                            Apple
-                        </label>
-                        <label class="custom-checkbox">
-                            <input type="checkbox" id="hpFilter">
-                            <span class="checkmark"></span>
-                            HP
-                        </label>
-                        <!-- Add more custom checkboxes for other computer types vertically -->
+                
+
+                <details open>
+                    <summary>Type</summary>
+                    <div>
+                        <input type="checkbox" id="laptop-filter" name="type-filter" value="Laptop">
+                        <label for="laptop-filter">Laptop</label><br>
+
+                        <input type="checkbox" id="desktop-filter" name="desktop-filter" value="Desktop">
+                        <label for="desktop-filter">Desktops</label><br>
                     </div>
                 </details>
             
-                <!-- Add more filter details as needed -->
+                <details open>
+                    <summary>Manufacturer</summary>
+                    <div>
+                        <input type="checkbox" id="apple-filter" name="manuf-filter" value="Apple">
+                        <label for="apple-filter">Apple</label><br>
+
+                        <input type="checkbox" id="dell-filter" name="manuf-filter" value="Dell">
+                        <label for="dell-filter">Dell</label><br>
+
+                        <input type="checkbox" id="hp-filter" name="manuf-filter" value="HP">
+                        <label for="hp-filter">HP</label><br>
+
+                        <input type="checkbox" id="lenovo-filter" name="manuf-filter" value="Lenovo">
+                        <label for="lenovo-filter">Lenovo</label><br>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Disk Capacity</summary>
+                    <div>
+                        <input type="checkbox" id="1TB-filter" name="disk-filter" value="1TB">
+                        <label for="1TB-filter">Above 1TB</label><br>
+
+                        <input type="checkbox" id="501GB-filter" name="disk-filter" value="501GB">
+                        <label for="501GB-filter">501GB - 1TB</label><br>
+
+                        <input type="checkbox" id="201GB-filter" name="disk-filter" value="201GB">
+                        <label for="201GB-filter">201GB - 500GB</label><br>
+
+                        <input type="checkbox" id="200GB-filter" name="disk-filter" value="200GB">
+                        <label for="200GB-filter">Under 200GB</label><br>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>RAM</summary>
+                    <div>
+                        <input type="checkbox" id="16GB-filter" name="ram-filter" value="16GB">
+                        <label for="16GB-filter">16GB</label><br>
+
+                        <input type="checkbox" id="8GB-filter" name="ram-filter" value="8GB">
+                        <label for="8GB-filter">8GB</label><br>
+
+                        <input type="checkbox" id="4GB-filter" name="ram-filter" value="4GB">
+                        <label for="4GB-filter">4GB</label><br>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>CPU Brand</summary>
+                    <div>
+                        <input type="checkbox" id="amd-filter" name="cpu-brand-filter" value="AMD">
+                        <label for="amd-filter">AMD</label><br>
+
+                        <input type="checkbox" id="apple-filter" name="cpu-brand-filter" value="Apple">
+                        <label for="apple">Apple</label><br>
+
+                        <input type="checkbox" id="qualcomm" name="cpu-brand-filter" value="Qualcomm">
+                        <label for="qualcomm">Qualcomm</label><br>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Display Size</summary>
+                    <div>
+                      <input type="checkbox" id="13-inch-display" name="display-filter" value="13-inch">
+                      <label for="13-inch-display">13-inch</label><br>
+                  
+                      <input type="checkbox" id="15-inch-display" name="display-filter" value="15-inch">
+                      <label for="15-inch-display">15-inch</label><br>
+                  
+                      <input type="checkbox" id="17-inch-display" name="display-filter" value="17-inch">
+                      <label for="17-inch-display">17-inch</label><br>
+                    </div>
+                </details>
+                
+                <details open>
+                <summary>Display Resolution</summary>
+                <div>
+                    <input type="checkbox" id="hd-display" name="resolution-filter" value="HD">
+                    <label for="hd-display">HD</label><br>
+                
+                    <input type="checkbox" id="full-hd-display" name="resolution-filter" value="Full HD">
+                    <label for="full-hd-display">Full HD</label><br>
+                
+                    <input type="checkbox" id="4k-display" name="resolution-filter" value="4K">
+                    <label for="4k-display">4K</label><br>
+                </div>
+                </details>
+
+                <details open>
+                    <summary>Graphics Card</summary>
+                    <div>
+                      <input type="checkbox" id="nvidia-graphics" name="graphics-filter" value="NVIDIA">
+                      <label for="nvidia-graphics">NVIDIA Graphics</label><br>
+                  
+                      <input type="checkbox" id="amd-graphics" name="graphics-filter" value="AMD">
+                      <label for="amd-graphics">AMD Graphics</label><br>
+                  
+                      <input type="checkbox" id="integrated-graphics" name="graphics-filter" value="Integrated">
+                      <label for="integrated-graphics">Integrated Graphics</label><br>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Operating System</summary>
+                    <div>
+                      <input type="checkbox" id="windows-os" name="os-filter" value="Windows">
+                      <label for="windows-os">Windows</label><br>
+                  
+                      <input type="checkbox" id="macos-os" name="os-filter" value="macOS">
+                      <label for="macos-os">macOS</label><br>
+                  
+                      <input type="checkbox" id="linux-os" name="os-filter" value="Linux">
+                      <label for="linux-os">Linux</label><br>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Battery Life</summary>
+                    <div>
+                      <input type="checkbox" id="4-hours-battery" name="battery-filter" value="4 Hours or Less">
+                      <label for="4-hours-battery">4 Hours or Less</label><br>
+                  
+                      <input type="checkbox" id="8-hours-battery" name="battery-filter" value="4-8 Hours">
+                      <label for="8-hours-battery">4-8 Hours</label><br>
+                  
+                      <input type="checkbox" id="12-hours-battery" name="battery-filter" value="8-12 Hours">
+                      <label for="12-hours-battery">8-12 Hours</label><br>
+                    </div>
+                  </details>
+
+                  <details open>
+                    <summary>Ports and Connectivity</summary>
+                    <div>
+                      <input type="checkbox" id="usb-c-port" name="port-filter" value="USB-C">
+                      <label for="usb-c-port">USB-C Port</label><br>
+                  
+                      <input type="checkbox" id="hdmi-port" name="port-filter" value="HDMI">
+                      <label for="hdmi-port">HDMI Port</label><br>
+                  
+                      <input type="checkbox" id="thunderbolt-port" name="port-filter" value="Thunderbolt">
+                      <label for="thunderbolt-port">Thunderbolt Port</label><br>
+                    </div>
+                  </details>
+                
             </aside>
             
             <div class="ads-products">
@@ -114,7 +259,7 @@
                         <span class="ad-details-code"><b>Code: </b>5392028112</span> 
                         <span class="ad-info-price">600<sup>,00€</sup></span>
                         <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
-                        <p> For sale, a high-performance <em>gaming</em> PC that's ready to power your gaming and computing needs. This PC features a robust configuration, including an <i>AMD Ryzen 5 3600 6-Core Processor</i> and <i>1TB M.2 NVMe SSD</i>. It is in excellent condition. </p>
+                        <p> For sale, a high-performance <em>gaming</em> PC that's ready to power your gaming and computing needs. This PC features a robust configuration, including an <i>AMD Ryzen 5 3600 6-Core Processor</i> and <i>1TB M.2 NVMe SSD</i>.</p>
                         <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time datetime="2023-09-19">September 19, 2023</time></span>
                         <span class="ad-details-location"><span class="fas fa-map-marker"></span>Kavala</span>
                     </div>
@@ -145,7 +290,7 @@
                         <span class="ad-info-price">275<sup>,99€</sup></span>
                         <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
                         <p> For sale, a Lenovo desktop <i>i3 9100 9th generation</i>, <i>24" monitor</i> (Good condition, works perfectly). Lenovo keyboard and mouse, <em>plus</em> a video call camera.
-                            Purchased from Kotsovolos at the beginning of the pandemic, primarily for schoolwork.</p>
+                            Purchased from Kotsovolos at the beginning of the pandemic...</p>
                         <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time datetime="2023-10-06">October 6, 2023</time></span>
                         <span class="ad-details-location"><span class="fas fa-map-marker"></span>Penteli</span>
                     </div>

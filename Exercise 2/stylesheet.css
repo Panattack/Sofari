@@ -107,7 +107,7 @@ body {
 }
 
 main {
-    margin-top: 6rem;
+    margin-top: 8rem;
 }
 
 #introduction > div {
@@ -445,7 +445,7 @@ ul.subcategories li {
     font-size: 1rem;
 }
 
-/* ------------------------------------------------------ */
+/* ------------------------- Form PAGE ----------------------------- */
 
 #report_problem {
     background-color: white;
@@ -542,34 +542,16 @@ ul.subcategories li {
     color: white;
 }
 
-/* Computers & Motorcycles */
-/* .ad-info-price {
-    position: absolute;
-    top: 5%;
-    right: 5%;
+/* ------------------------- Computers & Motorcycles PAGE  ----------------------------- */
+.ads-products{
+  float: left;
+  width: 80%; /* Adjust the width as needed */
+  padding: 1rem;
+  box-sizing: border-box;
 }
-.big-numbers, .small-numbers {
-    font-weight:300;
-    font-size: small;
-} */
-
-/* .big-numbers.new{
-    font-size: 1.2em; /* Adjust the size as needed 
-    color: darkgoldenrod;
-    font-weight: bold;
-}
-
-.small-numbers.new{
-    font-size: 0.8em; /* Adjust the size as needed 
-    position: relative;
-    top: -0.2em; /* Adjust the positioning as needed 
-    color: darkgoldenrod;
-    font-weight: bold;
-} */
 
 .ads-products > .ad-product > div > span {
   display: block;
-  word-wrap: break-word;
 }
 
 .ad-product {
@@ -622,8 +604,12 @@ ul.subcategories li {
   display: block;
 }
 
-.ad-info-price sup {
+.ad-info-price > s > sup {
   font-size: 0.5rem;
+}
+
+.ad-info-price > sup {
+  font-size: 1rem;
 }
 
 .ads-products > .ad-product .add-cart-button {
@@ -646,34 +632,60 @@ ul.subcategories li {
     box-sizing: border-box;
 }
 
-.ads-products{
-    float: left;
-    width: 80%; /* Adjust the width as needed */
-    padding: 1rem;
-    box-sizing: border-box;
+.filters > details {
+  border-top: 1px solid gainsboro;
+  padding: 1rem;
+  cursor: pointer;
 }
 
-.vertical-checkboxes {
+.filters > details > summary {
+  background-color: rgb(217, 237, 252);
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+.filters summary{
+  list-style-type: none;
+}
+
+.filters summary::before {
+  content: "\f107"; /* The Unicode character for the "+" icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  margin-right: 1rem;
+}
+
+.filters > details[open] > summary::before {
+  content: "\f107"; /* The Unicode character for the "-" icon in Font Awesome */
+  font-family: "Font Awesome 5 Free";
+  margin-right: 1rem;
+}
+
+
+.filters input[type="checkbox"], .filters input[type="checkbox"] + label {
+  cursor: pointer;
+}
+
+/* .vertical-checkboxes {
     display: flex;
     flex-direction: column;
-}
-/* Style the filter details separation */
-.filter-details {
-    border-top: 1px solid #E0E0E0;
-    margin-top: 10px;
-    padding-top: 10px;
-}
-
-/* Style the filter details separation */
-.filter-details {
-    border-top: 1px solid #E0E0E0;
-    margin-top: 10px;
-    padding-top: 10px;
-}
+} */
 
 /* Style the price range slider */
 .price-range {
     position: relative;
+}
+
+.price-range > .price-labels > .min-price-label, .price-range > .price-labels > .max-price-label {
+  font-weight: normal;
+  border: 1px solid gainsboro;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+
+.price-labels {
+  margin-top: 1rem;
 }
 
 .slider {
@@ -718,20 +730,13 @@ ul.subcategories li {
 .price-labels {
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
-}
-
-.min-price-label, .max-price-label {
-    width: 45%;
-    text-align: center;
-    font-weight: bold;
 }
 
 /* Style the custom checkboxes */
 .custom-checkbox {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .custom-checkbox input[type="checkbox"] {
@@ -740,17 +745,17 @@ ul.subcategories li {
 
 .custom-checkbox .checkmark {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #007BFF;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--primary-color);
     background-color: white;
-    border-radius: 3px;
+    border-radius: 5px;
     margin-right: 10px;
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkmark {
-    background-color: #007BFF;
-    border: 2px solid #007BFF;
+    background-color: var(--primary-color-dark);
+    border: 1px solid var(--primary-color-dark);
 }
 
 /* Style the custom checkboxes text */
@@ -761,15 +766,12 @@ ul.subcategories li {
 /* Additional styling to enhance the look */
 .custom-checkbox label {
     font-size: 16px;
-    color: #333;
+    color: var(--primary-color-dark);
     cursor: pointer;
 }
 
-/* Hide the default summary triangle icon */
-.filter-details summary::-webkit-details-marker {
-    display: none;
-}
 
+/*Specific product details*/
 .history-nav {
     background-color: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -797,6 +799,11 @@ ul.subcategories li {
      align-items: center;
      margin-right: 1rem;
  }
+
+ /* .history-nav li::before {
+  content: "\f061"; 
+  font-family: "Font Awesome 5 Free";
+} */
  
  .history-nav li a {
      display: block;
@@ -837,8 +844,10 @@ ul.subcategories li {
     border: 1px solid black;
     
   } */
+
+  
   .product-header {
-    margin: 15rem 0rem 5rem 0rem;
+    margin: 12rem 0rem 3rem 0rem;
   }
 
   .product-header > img {
@@ -975,7 +984,7 @@ ul.subcategories li {
     color: white;
   }
 
-  .product-desc .contact-button:hover, .product-header.add-cart-button:hover {
+  .product-desc .contact-button:hover, .product-header .add-cart-button:hover {
     background-color: var(--primary-color-dark);
   }
 
@@ -983,7 +992,7 @@ ul.subcategories li {
     transform: scale(1.1);
 }
 
-.product-desc .add-favorite-button, .product-header .add-bookmark-button {
+.product-desc .add-favorite-button, .product-desc .add-bookmark-button {
     background-color: white;
     border: 1px solid var(--primary-color);
     border-radius: 50%;
