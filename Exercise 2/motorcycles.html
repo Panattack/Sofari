@@ -38,75 +38,117 @@
         </header>
 
         <main>
-            <article>
-                <header>
-                    <img src="../Resources/Images/Yamaha_YZF_R1.png" alt="Yamaha YZF R1"  width="126" height="96">
-                    <h2>Yamaha YZF R1</h2>
-                </header>
-                <div>
-                    <span class="ad-info-code">code: 3545637892</span>
-                    <span class="ad-info-price">14,500 €</span>
-                    <span class="ad-info-area">Glyfada</span>
-                    <p> The Yamaha YZF R1 is a <em>high-performance</em> sportbike known for its powerful <i>998cc inline-four engine<i> and advanced electronics. It features cutting-edge technology, sharp handling, and a sleek design. </p>
-                    <time datetime="2023-10-10">October 10, 2023</time>
-                </div>
-            </article>
+
+            <aside class="filters">
+                <details class="filter-details">
+                    <summary>Price</summary>
+                    <div class="filter-content">
+                        <div class="price-range">
+                            <input type="range" id="priceSlider" min="0" max="2000" value="0">
+                            <div class="price-labels">
+                                <span class="min-price-label">Min: $0</span>
+                                <span class="max-price-label">Max: $2000</span>
+                            </div>
+                        </div>
+                    </div>
+                </details>
             
-            <article>
-                <header>
-                    <img src="../Resources/Images/Harley-Davidson_Sportster_Iron_883.png" alt="Harley-Davidson Sportster Iron 883"  width="126" height="96">
-                    <h2>Harley-Davidson Sportster Iron 883</h2>
-                </header>
-                <div>
-                    <span class="ad-info-code">code: 3590238600</span>
-                    <span class="ad-info-price"><s>10,000 €</s>9,500 €</span>
-                    <span class="ad-info-area">Voula</span>
-                    <p> The Harley-Davidson Sportster Iron 883 is a classic cruiser with a rugged, minimalist design. It's powered by an <i>883cc V-twin engine</i>, offering a <em>comfortable</em> and <em>relaxed</em> riding experience. </p>
-                    <time datetime="2020-01-18">January 18, 2020</time>
-                </div>
-            </article>
+                <details class="filter-details">
+                    <summary>Motorcycle brand</summary>
+                    <div class="filter-content vertical-checkboxes">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="appleFilter">
+                            <span class="checkmark"></span>
+                            Apple
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="hpFilter">
+                            <span class="checkmark"></span>
+                            HP
+                        </label>
+                        <!-- Add more custom checkboxes for other computer types vertically -->
+                    </div>
+                </details>
+            </aside>
+            
 
-            <article>
-                <header>
-                    <img src="../Resources/Images/BMW_S1000RR.png" alt="BMW S1000RR"  width="126" height="96">
-                    <h2>BMW S1000RR</h2>
-                </header>
-                <div>
-                    <span class="ad-info-code">code: 3510009114</span>
-                    <span class="ad-info-price">18,750 €</span>
-                    <span class="ad-info-area">Agrinio</span>
-                    <p> The BMW S1000RR is a superbike designed for speed and precision. It boasts a <i>999cc inline-four engine</i>, advanced electronics, and a sleek, aerodynamic profile that makes it perfect for the track or the road. </p>
-                    <time datetime="2022-02-08">February 08, 2022</time>
-                </div>
-            </article>
+            <div class="ads-products">
+                
+                <article class="ad-product">
+                    <header>
+                        <img src="../Resources/Images/Yamaha_YZF_R1.png" alt="Yamaha YZF R1"  width="126" height="96">
+                        <h2>Yamaha YZF R1</h2>
+                    </header>
+                    <div>
+                        <span class="ad-details-code"><b>Code: </b>3545637892</span>
+                        <span class="ad-info-price">14.500<sup>,00€</sup></span>
+                        <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+                        <p> The Yamaha YZF R1 is a high-performance sportbike known for its powerful 998cc inline-four engine and advanced electronics. It features cutting-edge technology, sharp handling, and a sleek design. </p>
+                        <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time datetime="2023-08-10">October 10, 2023</time></span>
+                        <span class="ad-details-location"><span class="fas fa-map-marker"></span>Glyfada</span>
+                    </div>
+                </article>
 
-            <article>
-                <header>
-                    <img src="../Resources/Images/Kawasaki_Ninja_650.png" alt="Kawasaki Ninja 650"  width="126" height="96">
-                    <h2>Kawasaki Ninja 650</h2>
-                </header>
-                <div>
-                    <span class="ad-info-code">code: 3563450019</span>
-                    <span class="ad-info-price"><s>8,000 €</s>7.200 €</span>
-                    <span class="ad-info-area">Kozani</span>
-                    <p> The Kawasaki Ninja 650 is a <em>versatile</em> and <em>approachable</em> sportbike suitable for riders of various experience levels. It features a <i>649cc parallel-twin engine</i>, comfortable ergonomics, and a sporty design. </p>
-                    <time datetime="2019-03-24">March 24, 2019</time>
-                </div>
-            </article>
+                <article class="ad-product">
+                    <header>
+                        <img src="../Resources/Images/Harley-Davidson_Sportster_Iron_883.png" alt="Harley-Davidson Sportster Iron 883"  width="126" height="96">
+                        <h2>Harley-Davidson Sportster Iron 883</h2>
+                    </header>
+                    <div>
+                        <span class="ad-details-code"><b>Code: </b>3590238600</span>
+                        <span class="ad-info-price"><s>10.000<sup>,00€</sup></s>9.500<sup>,00€</sup></span>
+                        <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+                        <p> The Harley-Davidson Sportster Iron 883 is a classic cruiser with a rugged, minimalist design. It's powered by an 883cc V-twin engine, offering a comfortable and relaxed riding experience. </p>
+                        <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time datetime="2023-08-10">January 18, 2020</time></span>
+                        <span class="ad-details-location"><span class="fas fa-map-marker"></span>Voula</span>
+                    </div>
+                </article>
 
-            <article class="advertisement">
-                <header>
-                    <img src="../Resources/Images/Ducati_Scrambler_Icon.png" alt="Ducati Scrambler Icon"  width="126" height="96">
-                    <h2>Ducati Scrambler Icon</h2>
-                </header>
-                <div>
-                    <span class="ad-info-code">code: 3501128320</span>
-                    <span class="ad-info-price">10.950 €</span>
-                    <span class="ad-info-area">Alimos</span>
-                    <p>  The Ducati Scrambler Icon is a modern classic with a retro, scrambler-style look. It's equipped with a <i>803cc L-twin engine</i>, offering a blend of style and performance that's <em>perfect</em> for city and off-road riding. </p>
-                    <time datetime="2020-03-01">March 01, 2020</time>
-                </div>
-            </article>
+                <article class="ad-product">
+                    <header>
+                        <img src="../Resources/Images/BMW_S1000RR.png" alt="BMW S1000RR"  width="126" height="96">
+                        <h2>BMW S1000RR</h2>
+                    <div>
+                        <span class="ad-details-code"><b>Code:</b> 3510009114</span>
+                        <span class="ad-info-price">18.750<sup>,00€</sup></span>
+                        <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+                        <p> The BMW S1000RR is a superbike designed for speed and precision. It boasts a 999cc inline-four engine, advanced electronics, and a sleek, aerodynamic profile that makes it perfect for the track or the road. </p>
+                        <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time datetime="2023-08-10">February 08, 2022</time></span>
+                        <span class="ad-details-location"><span class="fas fa-map-marker"></span>Agrinio</span>
+                    </div>
+                </article>
+
+                <article class="ad-product">
+                    <header>
+                        <img src="../Resources/Images/Kawasaki_Ninja_650.png" alt="Kawasaki Ninja 650"  width="126" height="96">
+                        <h2>Kawasaki Ninja 650</h2>
+                    </header>
+                    <div>
+                        <span class="ad-details-code"><b>Code:</b> 3563450019</span>
+                        <span class="ad-info-price"><s>8.000<sup>,00€</sup></s>7.200<sup>,00€</sup></span>
+                        <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+                        <p> The Kawasaki Ninja 650 is a versatile and approachable sportbike suitable for riders of various experience levels. It features a 649cc parallel-twin engine, comfortable ergonomics, and a sporty design. </p>
+                        <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time datetime="2023-08-10">March 24, 2019</time></span>
+                        <span class="ad-details-location"><span class="fas fa-map-marker"></span>Kozani</span>
+                    </div>
+                </article>
+
+                <article class="ad-product">
+                    <header>
+                        <img src="../Resources/Images/Ducati_Scrambler_Icon.png" alt="Ducati Scrambler Icon"  width="126" height="96">
+                        <h2>Ducati Scrambler Icon</h2>
+                    </header>
+                    <div>
+                        <span class="ad-details-code"><b>Code: </b>3501128320</span> 
+                        <span class="ad-info-price">10.950<sup>,00€</sup></span>
+                        <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+                        <p>  The Ducati Scrambler Icon is a modern classic with a retro, scrambler-style look. It's equipped with a 803cc L-twin engine, offering a blend of style and performance that's perfect for city and off-road riding. </p>
+                        <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time datetime="2023-09-19">March 01, 2020</time></span>
+                        <span class="ad-details-location"><span class="fas fa-map-marker"></span>Alimos</span>
+                    </div>
+                </article>
+            </div>
+            
         </main>
 
         <footer>
@@ -116,9 +158,9 @@
                 <p>Sofari connects consumers with diverse product offerings in an immersive and interactive manner. What you're looking for is just a few clicks away!</p>
                 
                 <ul id="social-media">
-                  <li><a href="https://www.facebook.com">Facebook</a></li>
-                  <li><a href="https://www.instagram.com">Instagram</a></li>
-                  <li><a href="https://twitter.com">Twitter</a></li>
+                  <li><a href="https://www.facebook.com" class="fa fa-facebook"></a></li>
+                  <li><a href="https://www.instagram.com" class="fa fa-instagram"></a></li>
+                  <li><a href="https://twitter.com" class="fa fa-twitter"></a></li>
                 </ul>
               </div>
               
@@ -126,25 +168,29 @@
                 <h2>Contact Us</h2>
                 <address>
                   <strong>Sofari</strong><br>
-                  Eleutherias 12, Nea Ionia<br>
-                  Athens, Greece 14231<br>
-                  Phone: <a href="tel:+302101234567">(+30) 210-123-4567</a><br>
-                  Email: <a href="mailto:sofari@gmail.com">sofari@gmail.com</a>
+                  <span>Eleutherias 12, Nea Ionia</span><br>
+                  <span>Athens, Greece 14231</span><br>
+                  <span>Phone:</span><a href="tel:+302101234567">(+30) 210-123-4567</a><br>
+                  <span>Email:</span><a href="mailto:sofari@gmail.com">sofari@gmail.com</a>
                 </address>
               </div>
-            </div>
-  
-            <hr>
-  
-            <div id="lower-footer">
-              <small>
-                Copyright © 2023 <a href="../index.html"> Sofari Retail S.A</a>. All Rights Reserved.
-              </small>
+            
+            <div>
+              <h2>Legal info</h2>
               <ul>
                 <li>Terms of Use</li>
                 <li>Privacy Policy</li>
                 <li>Cookies Policy</li>
               </ul>
+            </div>
+          </div>
+
+            <hr>
+
+            <div id="lower-footer">
+              <small>
+                Copyright © 2023 <a href="../index.html"> Sofari Retail S.A</a>. All Rights Reserved.
+              </small>
             </div>
             
         </footer>
