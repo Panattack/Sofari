@@ -6,6 +6,29 @@
     --tertiary-color: rgb(34,28,53);
 }
 
+/*------------------------General settings------------------------*/
+
+/* Set the color of the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+}
+
+/* Set the color of the scrollbar track (the background) */
+::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+
+/* Set the width of the scrollbar track */
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+.highlight {
+  background-color: var(--primary-color-faded);
+  border-radius: 0.5rem;
+  display: inline-block;
+  padding: 0.2rem;
+}
 
 body {
     /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
@@ -46,13 +69,14 @@ body {
 }
 
 #search-bar > input {
-    border: 1px solid grey;
+    border: 1px solid gainsboro;
     border-radius: 2rem;
     height: 2.5rem;
     width: 100%;
-    padding: 2px 23px 2px 30px;
+    padding: 0.5rem 2rem 0.5rem 2rem;
     outline: 0;
-    background-color: #f5f5f5;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
 #navbar {
@@ -110,6 +134,134 @@ main {
     margin-top: 8rem;
 }
 
+main.homepage {
+    margin-top: 6rem;
+}
+
+footer {
+  background-color: var(--secondary-color);
+  clear: both;
+  bottom: 0;
+}
+
+#upper-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+#upper-footer > div {
+max-width: 20%;
+}
+
+#upper-footer h2 {
+border-bottom: 3px solid var(--primary-color);
+width: fit-content;
+padding: 0rem 0rem 0.5rem 0rem;
+}
+
+#upper-footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#social-media{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Style all font awesome icons */
+#social-media .fab {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  transition: color 0.3s ease-in;
+  transition: box-shadow 0.2s ease-in;
+  margin: 0.5rem;
+}
+
+#social-media .fab:hover {
+box-shadow: rgba(0, 0, 0, 0.30) 2.4px 2.4px 3.2px;
+}
+
+#social-media .fa-facebook-square:hover {
+background: linear-gradient(45deg,#1877F2, #5f9ced );
+}
+
+#social-media .fa-instagram:hover {
+background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF);
+}
+
+#social-media .fa-twitter:hover {
+background: linear-gradient(45deg, #1DA1F2, #76c9fd );
+}
+
+#social-media .fa-linkedin:hover {
+background: linear-gradient(45deg, #0077B5, #00A0DC);
+}
+
+#social-media .fa-spotify:hover {
+background: linear-gradient(45deg, #1DB954, #69d48e);
+}
+
+#upper-footer address a{
+text-decoration: none;
+color: black;
+transition: color 0.2s ease;
+font-weight: bold;
+font-style: normal;
+}
+
+#upper-footer address a:hover{
+color: var(--primary-color-dark);
+}
+
+#policy li{
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+#policy li a{
+text-decoration: none;
+color: black;
+padding: 0.3rem;
+border-radius: 0.2rem;
+transition: 0.1s ease-in;
+}
+
+#policy li a:hover{
+background-color: white;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+color: var(--primary-color-dark)
+}
+
+#lower-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#lower-footer small {
+  display: inline-block;
+}
+
+#lower-footer a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.1s ease-in;
+}
+
+#lower-footer a:hover {
+  color: var(--primary-color-dark);
+}
+
+/*------------------------Home Page------------------------*/
 #introduction > div {
     position: absolute;
     top: 20%;
@@ -134,15 +286,18 @@ main {
     font-family: "Font Awesome 5 Free";
     font-size: large;
     color: var(--tertiary-color);
-    /* padding: 0 10px 0 0; */
-
-    /* margin-right: 10px; Adjust spacing between the icon and text */
-    position: absolute; /* Position the icon absolutely */
-    left: 3rem;
+    margin-right: 0.2rem;
 }
 
 #introduction ul li + li {
     margin-top: 1rem;
+}
+
+#testimonials h2 {
+  border-bottom: 2px solid var(--primary-color);
+  width: fit-content;
+  font-family: 'Reenie Beanie';
+  font-size: xx-large;
 }
 
 #testimonials article {
@@ -160,20 +315,20 @@ main {
 
 #testimonials article:hover, #testimonials article:focus{
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-    transform: scale(1.15);
+    transform: scale(1.10);
     position: relative;
     z-index: 5;
   }
 
 #testimonials article:hover:nth-of-type(2n) {
-    transform:rotate(4deg);
+    transform:rotate(3deg);
     position:relative;
-    top:5px;
+    top: 0.6rem;
   }
 #testimonials article:hover:nth-of-type(2n+1){
-    transform:rotate(-3deg);
+    transform:rotate(-2deg);
     position:relative;
-    top:-5px;
+    top: -0.6rem;
   }
 
 #testimonials .editor {
@@ -183,107 +338,12 @@ main {
 }
 
 
-footer {
-    background-color: var(--secondary-color);
-    clear: both;
-    bottom: 0;
-}
-
-#upper-footer {
-    display: flex;
-    background-size: cover;
-    background-repeat: no-repeat;
-    top: 0rem;
-    left: 0rem;
-    right: 0rem;
-    justify-content: space-between;
-    padding-left: 10rem;
-    padding-right: 10rem;
-}
-
-
-#upper-footer > div > p {
-    max-width: 20em;
-}
-
-#upper-footer ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-#social-media{
-    display: flex;
-}
-
-#upper-footer li{
-    text-align: center;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    text-decoration: none;
-}
-
-#lower-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-#lower-footer small {
-    display: inline-block;
-}
-
-#lower-footer li a {
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Style all font awesome icons */
-#social-media .fa {
-    padding: 1rem;
-    font-size: 3rem;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-    background-color: black;
-
-    width: 1rem;
-    height: 1rem;
-}
-  
-/* Add a hover effect if you want */
-#social-media .fa:hover {
-    opacity: 0.7;
-}
-
-/* Facebook */
-.fa-facebook {
-    color: white;
-}
-
-/* Twitter */
-.fa-twitter {
-    color: white;
-}
-
-.fa-instagram {
-    color: white;
-}
-
-.highlight {
-    background-color: var(--primary-color-faded);
-    border-radius: 0.5rem;
-    display: inline-block;
-    padding: 0.2rem;
-}
-
-
+/*------------------------Advertisements Page------------------------*/
 .ad-card {
-    perspective: 1000px;
-    width: 300px;
-    height: 300px;
-    border-radius: 2rem; /*Rounded corners */
+    perspective: 60rem;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 1rem; /*Rounded corners */
     overflow: hidden;
     padding: 0.4rem;
     background-color: var(--primary-color);
@@ -314,7 +374,7 @@ footer {
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    border-radius: 2rem;
+    border-radius: 1rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
@@ -327,7 +387,7 @@ footer {
 }
 
 .ad-card-back {
-    background-color: var(--secondary-color);
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -337,12 +397,12 @@ footer {
 .ad-card img {
     width: 100%;
     height: 100%;
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
 
 .ad-card h2 {
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 1.4rem;
+    margin-top: 0.6rem;
     position: absolute;
     top: -0.7rem;
     left: 0rem;
@@ -350,8 +410,7 @@ footer {
     background-color: var(--tertiary-color);
     padding: 0.5rem;
     text-align: center;
-    border-radius: 2rem 2rem 0rem 0rem;
-
+    border-radius: 1rem 1rem 0rem 0rem;
     color: white;
 }
 
@@ -361,10 +420,19 @@ ul.subcategories {
 }
 
 ul.subcategories li {
-    margin: 5px 0;
+    margin: 0.5rem 0;
 }  
 
-/* ----------------------------------------------------------------------------------------- */
+ul.subcategories li a {
+  text-decoration: none;
+  color: black;
+}
+
+ul.subcategories li a:hover {
+  color: var(--primary-color-dark);
+}
+
+/*------------------------About Us Page------------------------*/
 /* #team {
     float: left;
     background-color: aquamarine;
@@ -404,12 +472,12 @@ ul.subcategories li {
 
 /* Style the images within the articles */
 .profile img {
-    width: 150px;
-    height: 200px;
+    width: 10rem;
+    height: 12.5rem;
     border: 0.2rem solid #000;
     border-radius: 1rem;
     float: left; /* Float to the left for two-column layout */
-    margin-right: 20px;
+    margin-right: 1rem;
 }
 
 /* Style the profile details (text) */
@@ -445,7 +513,7 @@ ul.subcategories li {
     font-size: 1rem;
 }
 
-/* ------------------------- Form PAGE ----------------------------- */
+/* ------------------------- Form Page ----------------------------- */
 
 #report_problem {
     background-color: white;
@@ -466,7 +534,7 @@ ul.subcategories li {
   }
   
   #report_problem legend {
-    font-size: 20px;
+    font-size: 1.4rem;
     font-weight: bold;
     color: var(--tertiary-color);
     border-bottom: 2px solid var(--primary-color-faded);
@@ -476,7 +544,7 @@ ul.subcategories li {
   
   #report_problem label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
     font-weight: bold;
     color: var(--primary-color-dark);
   }
@@ -486,12 +554,16 @@ ul.subcategories li {
   #report_problem textarea {
     width: 100%;
     padding: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
     border: 1px solid gainsboro;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     background-color: #f9f9f9;
     color: #333;
     box-sizing: border-box;
+  }
+
+  #report_problem textarea {
+    resize: none;
   }
   
   #report_problem input:hover, 
@@ -511,10 +583,10 @@ ul.subcategories li {
 
   #report_problem button {
     border: 1px solid transparent;
-    height: 38px;
-    line-height: 38px;
-    width: 100px;
-    border-radius: 19px;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    width: 6.3rem;
+    border-radius: 1.2rem;
     cursor: pointer; 
   }
 
@@ -651,13 +723,13 @@ ul.subcategories li {
 }
 
 .filters summary::before {
-  content: "\f107"; /* The Unicode character for the "+" icon in Font Awesome */
+  content: "\f107";
   font-family: "Font Awesome 5 Free";
   margin-right: 1rem;
 }
 
 .filters > details[open] > summary::before {
-  content: "\f107"; /* The Unicode character for the "-" icon in Font Awesome */
+  content: "\f106";
   font-family: "Font Awesome 5 Free";
   margin-right: 1rem;
 }
@@ -690,8 +762,8 @@ ul.subcategories li {
 
 .slider {
     width: 100%;
-    height: 10px;
-    border-radius: 5px;
+    height: 0.6rem;
+    border-radius: 0.3rem;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
@@ -707,7 +779,7 @@ ul.subcategories li {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 5px;
+    height: 0.3rem;
     background: darkgoldenrod;
     outline: none;
     opacity: 0.7;
@@ -718,8 +790,8 @@ ul.subcategories li {
 #priceSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 1.3rem;
+    height: 1.3rem;
     background: url('../Resources/Images/euro.png') no-repeat;
     background-size: cover;
     cursor: pointer;
@@ -749,8 +821,8 @@ ul.subcategories li {
     height: 1rem;
     border: 1px solid var(--primary-color);
     background-color: white;
-    border-radius: 5px;
-    margin-right: 10px;
+    border-radius: 0.3rem;
+    margin-right: 0.6rem;
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .checkmark {
@@ -765,7 +837,7 @@ ul.subcategories li {
 
 /* Additional styling to enhance the look */
 .custom-checkbox label {
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--primary-color-dark);
     cursor: pointer;
 }
@@ -1014,8 +1086,6 @@ ul.subcategories li {
     transform: scale(1.1);
   }
 
-
-
   .product-specs {
     width: 50%;
     background-color: white;
@@ -1024,7 +1094,6 @@ ul.subcategories li {
     padding: 1rem;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     margin: 2rem;
-
 }
 
 .spec-table {
@@ -1033,10 +1102,14 @@ ul.subcategories li {
     margin-bottom: 1rem;
     border-radius: 1rem;
   }
-  
+
+  .spec-table td:nth-child(2) {
+    width: 30%; /* Set a fixed width for the second column (adjust as needed) */
+}
+
   .spec-table th, .spec-table td {
     border-bottom: 1px solid gainsboro;
-    padding: 8px;
+    padding: 0.5rem;
     text-align: left;
   }
   
@@ -1048,7 +1121,7 @@ ul.subcategories li {
   /* Style the summary elements with rounded corners and rounded plus sign */
   .product-specs details > summary {
     background-color: rgba(251, 210, 155, 0.7);
-    padding: 10px;
+    padding: 0.6rem;
     cursor: pointer;
     font-weight: bold;
     position: relative;
