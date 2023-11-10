@@ -1,3 +1,4 @@
+/* Define the variables of the color palette */
 :root{
     --primary-color:  rgb(252,176,75);
     --primary-color-dark: rgb(232, 134, 6);
@@ -23,6 +24,7 @@
   width: 0.3rem;
 }
 
+/* Make specific words & phrases appear as highlighted, using another color and rounded border */
 .highlight {
   background-color: var(--primary-color-faded);
   border-radius: 0.5rem;
@@ -30,11 +32,13 @@
   padding: 0.2rem;
 }
 
+/* Set the font settings for the text of the body in every page */
 body {
     /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
     font-family: 'Manjari', sans-serif;
 }
 
+/* Set the background color of the header and organize the layout of it's content. Last add rounded borders to the bottom of the header */
 .top-header {
     background-color: var(--primary-color);
     display: flex;
@@ -51,16 +55,19 @@ body {
     z-index: 6;
 }
 
+/* Set the padding of the image logo  */
 .top-header > img {
     padding: 1rem 1rem 1rem 3rem;
 } 
 
+/* Set the settings of the layout, width and position of search bar */
 #search-bar {
     position: relative;
     display: flex;
     min-width: 30rem;
 }
 
+/* Set the layout, padding, position and width of the search icon inside the search bar */
 .search-icon {
     position: absolute;
     width: 1rem;
@@ -68,6 +75,7 @@ body {
     padding: 0.5rem;
 }
 
+/* Create the shape for the input search bar, the color , the shadow and the spaces inside and outside */
 #search-bar > input {
     border: 1px solid gainsboro;
     border-radius: 2rem;
@@ -79,24 +87,28 @@ body {
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
+/* Set a space of 5rem from the space on the right of the navigation bar */
 #navbar {
    margin-right: 5rem;
 }
 
+/* Set no bullets to the content of the navigation bar */
 #navbar > ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
+/* Set the categories of the navigation bar to the left position, and center the icons with the title of the links */
 #navbar li {
-    float: left;
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
+  float: left;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
 }
 
+/* Customize & decorate the links in the navigation bar */
 #navbar li a {
     display: block;
     color: var(--tertiary-color);
@@ -116,6 +128,7 @@ body {
     border-radius: 1rem;
 }
 
+/* Customize & decorate the icons of the title of the links */
 #navbar li a + .fas {
     text-align: center;
     text-decoration: none;
@@ -125,40 +138,47 @@ body {
     margin-left: 0.3rem;
 }
 
-
+/* Change the color of the icon in case of hovering on the link */
 #navbar li a:hover + .fas{
     color: var(--tertiary-color);
 }
 
+/* Set margin top to 8rem for main */
 main {
     margin-top: 8rem;
 }
 
+/* For the main of the index.html site smaller space to have no visible space from the header */
 main.homepage {
     margin-top: 6rem;
 }
 
+/* Customize the coordinates of footer and decorate its color */
 footer {
   background-color: var(--secondary-color);
   clear: both;
   bottom: 0;
 }
 
+/* Set the spaces between the content of the upper footer in the horizontal axis */
 #upper-footer {
   display: flex;
   justify-content: space-around;
 }
 
+/*  Set a limit to width of the "About Us" section of the upper header */
 #upper-footer > div {
 max-width: 20%;
 }
 
+/* Customize the width and padding of the h2 header of the upper footer and its color */
 #upper-footer h2 {
 border-bottom: 3px solid var(--primary-color);
 width: fit-content;
 padding: 0rem 0rem 0.5rem 0rem;
 }
 
+/* Set no bullets for the content of the list */
 #upper-footer ul {
   list-style-type: none;
   margin: 0;
@@ -166,6 +186,7 @@ padding: 0rem 0rem 0.5rem 0rem;
   overflow: hidden;
 }
 
+/* Define the layout of the section of the social media section with space around it's content in the center */
 #social-media{
   display: flex;
   justify-content: space-around;
@@ -186,30 +207,37 @@ padding: 0rem 0rem 0.5rem 0rem;
   margin: 0.5rem;
 }
 
+/* Set the shadow of the box when hover at the icons on the social media */
 #social-media .fab:hover {
 box-shadow: rgba(0, 0, 0, 0.30) 2.4px 2.4px 3.2px;
 }
 
+/* Define the color of the facebook icon when hover */
 #social-media .fa-facebook-square:hover {
 background: linear-gradient(45deg,#1877F2, #5f9ced );
 }
 
+/* Define the color of the instagram icon when hover */
 #social-media .fa-instagram:hover {
 background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF);
 }
 
+/* Define the color of the twitter icon when hover */
 #social-media .fa-twitter:hover {
 background: linear-gradient(45deg, #1DA1F2, #76c9fd );
 }
 
+/* Define the color of the linkedin icon when hover */
 #social-media .fa-linkedin:hover {
 background: linear-gradient(45deg, #0077B5, #00A0DC);
 }
 
+/* Define the color of the spotify icon when hover */
 #social-media .fa-spotify:hover {
 background: linear-gradient(45deg, #1DB954, #69d48e);
 }
 
+/* Decorate the links on the address tag in the contact us section */
 #upper-footer address a{
 text-decoration: none;
 color: black;
@@ -218,14 +246,17 @@ font-weight: bold;
 font-style: normal;
 }
 
+/* Change the color of the links on the address tag in the contact us section when hover */
 #upper-footer address a:hover{
 color: var(--primary-color-dark);
 }
 
+/* Set a padding to the content of the policy section */
 #policy li{
   padding: 0.5rem 0rem 0.5rem 0rem;
 }
 
+/* In the policy section, customize the borders to make them circular set the padding and the transition in seconds, but also define the color of the text */
 #policy li a{
 text-decoration: none;
 color: black;
@@ -234,12 +265,14 @@ border-radius: 0.2rem;
 transition: 0.1s ease-in;
 }
 
+/* Decorate the the links of the policy section when hover */
 #policy li a:hover{
 background-color: white;
 box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 color: var(--primary-color-dark)
 }
 
+/* Set the display of the lower footer to flex and center the content */
 #lower-footer {
   display: flex;
   justify-content: center;
@@ -247,26 +280,26 @@ color: var(--primary-color-dark)
   height: 100%;
 }
 
-#lower-footer small {
-  display: inline-block;
-}
-
+/* Set the color to black and no decoration to the text and add smoothness on the transition */
 #lower-footer a {
   text-decoration: none;
   color: black;
   transition: color 0.1s ease-in;
 }
 
+/* Set the color of the text after hovering to the link in the lower footer */
 #lower-footer a:hover {
   color: var(--primary-color-dark);
 }
 
-.floating-buttons {
+/* Set the width, height and general position of the floating button to relative */
+.floating-button {
   position: relative;
   width: 100%;
   height: 100vh; /* You can adjust the height as needed */
 }
 
+/* Set the content of the floating button, the position of the add-card button to fixed and set the bottom and right to suitable coordinates. Also define the color, width and height of the button and make it circular */
 .add-cart-float-button{
   position: fixed;
   bottom: 3rem;
@@ -274,13 +307,14 @@ color: var(--primary-color-dark)
   background-color: var(--primary-color);
   color: white;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
+/* Set the background color after hovering the add card */
 .add-cart-float-button:hover{
   background-color: var(--primary-color-dark);
 }
@@ -660,6 +694,8 @@ color: var(--primary-color-faded);
 }
 
 /* ------------------------- Computers & Motorcycles PAGE  ----------------------------- */
+
+/* Set to the left the content and define the width, padding and border are included in the width */
 .ads-products{
   float: left;
   width: 80%; /* Adjust the width as needed */
@@ -667,10 +703,12 @@ color: var(--primary-color-faded);
   box-sizing: border-box;
 }
 
+/* For every span tag inside the product, set the display to block in order to change lines */
 .ads-products > .ad-product > div > span {
   display: block;
 }
 
+/* Customize the advertisement of the product with the color, padding & margin and make the borders circular.*/
 .ad-product {
     border: 1px solid gainsboro;
     border-radius: 1rem;
@@ -683,19 +721,23 @@ color: var(--primary-color-faded);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+/* Set the shadow of the box when hover the advertisment of the product */
 .ad-product:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
+/* Set the color to black of the link of the product */
 .ad-product > header a {
   text-decoration: none;
   color: black;
 }
 
+/* Set the color to black of the link of the product when hover on it*/
 .ad-product > header a:hover {
   color: var(--primary-color-dark);
 }
 
+/* Set the */
 .ad-product img {
     width: 13rem;
     height: 10rem;
@@ -705,6 +747,7 @@ color: var(--primary-color-faded);
     margin-right: 20px;
 }
 
+/* Define the position to absolute so that it will be in the right top position, customize it and decorate it with one of the color variables*/
 .ad-info-price {
   position: absolute;
   top: 2rem;
@@ -713,22 +756,25 @@ color: var(--primary-color-faded);
   color: var(--primary-color-dark);
 }
 
-
-.ad-info-price > s{
+/* Make black the color of the old price and customize it */
+.ad-info-price > s {
   font-size: 1rem;
   opacity: 0.6;
   color: black;
   display: block;
 }
 
+/* Minimize the font size of the digits after the ',' in every old price */
 .ad-info-price > s > sup {
   font-size: 0.5rem;
 }
 
+/* Minimize the font size of the digits after the ',' in every new price */
 .ad-info-price > sup {
   font-size: 1rem;
 }
 
+/* Customize the content of the button in the card, set the coordinates to the bottom and the right, set the position to absolute to have its intented place with the coordinates, make it circular and decorate it with color */
 .ads-products > .ad-product .add-cart-button {
   border-radius: 2rem;
   width: fit-content;
@@ -738,10 +784,12 @@ color: var(--primary-color-faded);
   background-color: var(--primary-color);
 }
 
+/* Change the color of the button in the advertisement of the product when hover on it */
 .ads-products > .ad-product .add-cart-button:hover {
   background-color: var(--primary-color-dark);
 }
 
+/* Set the filters to left of the screen, with 20% of width, with border-box applying padding on the width */
 .filters {
     float: left;
     width: 20%; /* Adjust the width as needed */
@@ -749,12 +797,14 @@ color: var(--primary-color-faded);
     box-sizing: border-box;
 }
 
+/* Customize the cursor to pointer when is in the filter. Also ad padding and customize the top of the border of the details in color and width */
 .filters > details {
   border-top: 1px solid gainsboro;
   padding: 1rem;
   cursor: pointer;
 }
 
+/* Make the border circular, set the font size to bold and add padding and margin */
 .filters > details > summary {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
@@ -762,23 +812,26 @@ color: var(--primary-color-faded);
   border-radius: 0.5rem;
 }
 
+/* Delete the default arrows of the summary */
 .filters summary{
   list-style-type: none;
 }
 
+/* Set the down arrow when the filter is closed */
 .filters summary::before {
-  content: "\f107";
+  content: "\f107"; /* The Unicode character for the down-arrow icon in Font Awesome */
   font-family: "Font Awesome 5 Free";
   margin-right: 1rem;
 }
 
+/* Set the up arrow when the filter is closed */
 .filters > details[open] > summary::before {
-  content: "\f106";
+  content: "\f106"; /* The Unicode character for the down-arrow icon in Font Awesome */
   font-family: "Font Awesome 5 Free";
   margin-right: 1rem;
 }
 
-
+/* Set the cursor to pointer when hover on the label of the checkbox in filter */
 .filters input[type="checkbox"], .filters input[type="checkbox"] + label {
   cursor: pointer;
 }
@@ -793,6 +846,7 @@ color: var(--primary-color-faded);
     position: relative;
 }
 
+/* Make the border max price box circular, set padding and customize the border and color it */
 .price-range > .price-labels > .min-price-label, .price-range > .price-labels > .max-price-label {
   font-weight: normal;
   border: 1px solid gainsboro;
@@ -800,60 +854,46 @@ color: var(--primary-color-faded);
   border-radius: 0.2rem;
 }
 
+/* Define the margin on top od the price labels */
 .price-labels {
   margin-top: 1rem;
 }
 
+/* Customize the slider width & height of the slider, make the transition of the movement on the slider smooth, customize the background */
 .slider {
-    width: 100%;
-    height: 0.6rem;
-    border-radius: 0.3rem;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-  }
-  
-  .slider:hover {
-    opacity: 1;
-  }
-  
-  #priceSlider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 0.3rem;
-    background: darkgoldenrod;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+  width: 100%;
+  height: 0.6rem;
+  border-radius: 0.3rem;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
 }
 
-#priceSlider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 1.3rem;
-    height: 1.3rem;
-    background: url('../Resources/Images/euro.png') no-repeat;
-    background-size: cover;
-    cursor: pointer;
-    border-radius: 50%;
+/* Restore the opacity of the slider when hover on it */
+.slider:hover {
+  opacity: 1;
 }
 
-/* Styling for the price labels */
+/* Change the cursor to pointer when hover on the thumb of the slider */
+.slider::-webkit-slider-thumb {
+  cursor: pointer;
+}
+
+/* Customize the position for the price labels so that there will be spaces around them */
 .price-labels {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Style the custom checkboxes */
+/* Customize the position for the custom checkbox so that its content will be in the center */
 .custom-checkbox {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
+
 
 .custom-checkbox input[type="checkbox"] {
     display: none;
