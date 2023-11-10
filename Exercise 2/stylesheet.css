@@ -895,7 +895,7 @@ color: var(--primary-color-faded);
 }
 
 
-.custom-checkbox input[type="checkbox"] {
+/* .custom-checkbox input[type="checkbox"] {
     display: none;
 }
 
@@ -912,7 +912,7 @@ color: var(--primary-color-faded);
 .custom-checkbox input[type="checkbox"]:checked + .checkmark {
     background-color: var(--primary-color-dark);
     border: 1px solid var(--primary-color-dark);
-}
+} */
 
 /* Style the custom checkboxes text */
 .custom-checkbox span {
