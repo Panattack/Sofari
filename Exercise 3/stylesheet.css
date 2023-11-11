@@ -56,7 +56,8 @@ input[type="checkbox"], input[type="range"]{
   .top-header {
     background-color: var(--primary-color);
     display: flex;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    justify-content: space-around;
     align-items: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -70,14 +71,16 @@ input[type="checkbox"], input[type="range"]{
   }
   
   /* Set the padding of the logo image */
-  .top-header > img {
+  .top-header > img  {
     padding: 1rem 1rem 1rem 3rem;
   } 
   
-  /* Set the settings of the position and width of search bar */
+  /* Set the settings of the layout, width and position of search bar */
   #search-bar {
     position: relative;
-    min-width: 30rem;
+    display: flex;
+    flex: 0 1 30rem; 
+    min-width: 17.3rem;
   }
   
   /* Set the layout, padding, position and width of the search icon inside the search bar */
@@ -102,7 +105,8 @@ input[type="checkbox"], input[type="range"]{
   
   /* Set a right margin for the navigation bar for spacing */
   #navbar {
-   margin-right: 5rem;
+   display: flex;
+   flex-flow: row wrap;
   }
   
   /* Remove default unordered list style settings (bullets) for the navigation bar */
@@ -222,18 +226,36 @@ footer {
   background-color: var(--secondary-color);
   clear: both;
   bottom: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+/* Set the horizontal rule width to 100% */
+hr {
+  width: 100%;
 }
 
 /* Set the spaces between the content of the upper footer in the horizontal axis */
 #upper-footer {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-around;
 }
 
 /* Set a limit to the width of the "About Us" section of the upper footer */
-#upper-footer > div {
-max-width: 20%;
+#upper-footer > * {
+  flex: 0 1 auto;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
 }
+
+#upper-footer :first-child p {
+  max-width: 20rem;
+}
+
 
 /* Customize the width and padding of the h2 header of the upper footer and its color */
 #upper-footer h2 {
@@ -254,7 +276,8 @@ padding: 0rem 0rem 0.5rem 0rem;
 distribute the elements horizontally with equal spacing around them and center them vertically */
 #social-media{
   display: flex;
-  justify-content: space-around;
+  flex-flow: row wrap;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -333,12 +356,10 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 color: var(--primary-color-dark)
 }
  
-/* Set the display of the lower footer to flex and center the content both vertically and horizontally */
+/* Center align the lower footer text */
 #lower-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
+  text-align: center;
 }
 
 /* Remove default anchor link decoration settings for the lower footer, set the text color to
@@ -414,6 +435,12 @@ coordinates; Define the color, width and height of the button and make it circul
   margin-top: 1rem;
 }
 
+#testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 100px);
+}
+
 /* Underline the header of the testimonials section using the border */
 #testimonials h2 {
 border-bottom: 2px solid var(--primary-color);
@@ -427,12 +454,6 @@ width: fit-content;
   max-width: 20%;
   padding: 2rem;
   margin: 2rem;
-  float: left;
-}
-
-/* Clear float for every third article to create a new row */
-#testimonials > article:nth-of-type(3n + 1) {
-  clear: left;
 }
 
 /* On hover of the article elements within the testimonials section, apply a shadow and scale-up to show an effect */
