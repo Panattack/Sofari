@@ -157,6 +157,55 @@ set a right margin to add a slight space between them and center the items verti
   #navbar li a:hover + .fas{
     color: var(--tertiary-color);
   }
+
+  /* Styles for the history navigation bar, including its background color, box shadow for a subtle elevation effect, 
+padding, margin from the top, border, position as fixed at the top creating a sticky navigation effect, and a high z-index for layering*/
+.history-nav {
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 1rem 1rem 0.5rem 1rem;
+  margin-top: 6rem;
+  border: 2px solid white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+/* Styles for the unordered list within the history navigation;
+Remove default list styles, set margin and padding to zero and hide any overflow */
+.history-nav > ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+}
+
+/* Style the histiry navigation list items to be displayed horizontally with a bit of space between them */
+.history-nav li {
+   float: left;
+   margin-right: 1rem;
+}
+
+/* .history-nav li::before {
+content: "\f061"; 
+font-family: "Font Awesome 5 Free";
+} */
+
+/* Styles for the anchor links within list items;
+Set them as block elements, remove default text decoration and set their color to black with a slightly reduced opacity */
+.history-nav li a {
+   display: block;
+   text-decoration: none;
+   color: black;
+   opacity: 0.7;
+}
+
+/* Change the anchor link color to a darker shade on hover */
+.history-nav li a:hover {
+  color: var(--primary-color-dark);
+}
   
   /* Set top margin to 8rem for main */
   main {
@@ -988,55 +1037,6 @@ Add a subtle border for each label, round the corners and add padding */
 
 
 /* ------------------------- Specific computer Page  ----------------------------- */
-
-/* Styles for the history navigation bar, including its background color, box shadow for a subtle elevation effect, 
-padding, margin from the top, border, position as fixed at the top creating a sticky navigation effect, and a high z-index for layering*/
-.history-nav {
-  background-color: white;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  padding: 1rem 1rem 0.5rem 1rem;
-  margin-top: 6rem;
-  border: 2px solid white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-}
-
-/* Styles for the unordered list within the history navigation;
-Remove default list styles, set margin and padding to zero and hide any overflow */
-.history-nav > ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   overflow: hidden;
-}
-
-/* Style the histiry navigation list items to be displayed horizontally with a bit of space between them */
-.history-nav li {
-   float: left;
-   margin-right: 1rem;
-}
-
-/* .history-nav li::before {
-content: "\f061"; 
-font-family: "Font Awesome 5 Free";
-} */
-
-/* Styles for the anchor links within list items;
-Set them as block elements, remove default text decoration and set their color to black with a slightly reduced opacity */
-.history-nav li a {
-   display: block;
-   text-decoration: none;
-   color: black;
-   opacity: 0.7;
-}
-
-/* Change the anchor link color to a darker shade on hover */
-.history-nav li a:hover {
-  color: var(--primary-color-dark);
-}
  
 /* Set a top margin for the product header */
 .product-header {
