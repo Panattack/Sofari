@@ -8,6 +8,9 @@
 }
 
 /*------------------------General settings------------------------*/
+html{
+  scroll-behavior: smooth;
+}
 
 /* Set the color of the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
@@ -1265,6 +1268,11 @@ Set a border and rounded corners, set the margin and padding and clear float to 
 }
 
 /* ----------------------- Carousel --------------------- */
+.carousel-slider img:target {
+  scroll-margin-top: 1rem; /* Reset scroll margin for targeted section */
+  scroll-padding-top: 0; /* Reset scroll padding for targeted section */
+}
+
 
 .carousel {
 	padding: 2rem;
@@ -1278,7 +1286,7 @@ Set a border and rounded corners, set the margin and padding and clear float to 
 
 .carousel-slider {
 	display: flex;
-	aspect-ratio: 	702 / 943;
+	/* aspect-ratio: 	702 / 943; */
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
@@ -1297,6 +1305,8 @@ Set a border and rounded corners, set the margin and padding and clear float to 
 	flex: 0 0 100%;
 	scroll-snap-align: start;
 	object-fit: cover;
+  width: 20rem;
+  height: 30rem;
 }
 
 .carousel-slider-nav {
@@ -1314,7 +1324,7 @@ Set a border and rounded corners, set the margin and padding and clear float to 
 	height: 0.5rem;
 	border-radius: 50%;
 	background-color: #fff;
-	opacity: 0.75;
+	opacity: 0.6;
 	transition: opacity ease 250ms;
 }
 
@@ -1334,23 +1344,23 @@ Set a border, a box shadow and rounded corners and set the margin and padding */
 
 /* Remove the default text decoration for the anchor links within product details section 
 and specify another text color */
-.product-details a {
+.product-details p a {
   text-decoration: none;
   color: #1d8bf2;
 }
 
 /* Change the color to a lighter one for already visited links */
-.product-details a:visited {
+.product-details p a:visited {
   color: #62adf3
 }
 
 /* Change the color on hover */
-.product-details a:hover {
+.product-details p a:hover {
   color: var(--primary-color-dark);
 }
 
 /* Add a padding and a bottom border to show some movement for active links */
-.product-details a:active {
+.product-details p a:active {
   padding: 0rem 0.2rem;
   border-bottom: 2px solid var(--primary-color-dark);
 }
