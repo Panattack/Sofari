@@ -56,25 +56,38 @@
         <article>
             <header class="product-header">
                 <img src="../Resources/Images/apple-macbook-pro.jpg" alt="Photo 1" width="600" height="400">
-                <div class="ad-details">
-                    <h2>Apple Macbook Pro 13 m1 2020 8gb/256gb</h2>
-                    <span class="ad-details-code">Code: 5348130689</span>
+
+                <article class="ad-details">
+                    <header class="ad-details-title">
+                        <h2>Apple Macbook Pro 13 m1 2020 8gb/256gb</h2>
+                        <span class="ad-details-code">Code: 5348130689</span>
+                    </header>
+
                     <div class="ad-details-badges">
                         <span class="certified">Certified</span>
                         <span class="shipping">Shipping options</span>
                     </div>
+
                     <span class="ad-details-price"><s>900<sup>,00€</sup></s>800<sup>,00€</sup><span
                             class="fas fa-caret-down"></span></span>
-                    <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time
-                            datetime="2023-09-02">September 2, 2023</time></span>
-                    <span class="ad-details-editted"><span class="fas fa-pencil-alt"></span>Editted: <time
-                            datetime="2023-10-05">October 5, 2023</time></span>
-                    <span class="ad-details-location"><span class="fas fa-map-marker"></span>Crete</span>
+
+                    <div class="ad-details-posted-editted-location">
+                        <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time
+                                datetime="2023-09-02">September 2, 2023</time></span>
+                        <span class="ad-details-editted"><span class="fas fa-pencil-alt"></span>Editted: <time
+                                datetime="2023-10-05">October 5, 2023</time></span>
+                        <span class="ad-details-location"><span class="fas fa-map-marker"></span>Crete</span>
+                    </div>
+
                     <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping
                         cart</button>
-                    <span class="ad-details-views"><span class="fas fa-eye"></span>67 views</span>
-                    <span class="ad-details-watching"><span class="fas fa-eye"></span>6 watching</span>
-                </div>
+
+                    <div class="ad-details-views-watching">
+                        <span class="ad-details-views"><span class="fas fa-eye"></span>67 views</span>
+                        <span class="ad-details-watching"><span class="fas fa-eye"></span>6 watching</span>
+                    </div>
+                </article>
+
             </header>
 
             <section class="product-desc">
@@ -99,8 +112,10 @@
                     opportunity to own this <em>exceptional</em> MacBook Pro for all your computing needs!
                     For inquiries or to make a purchase, feel free to contact me.</p>
 
-                <button class="contact-button"><a href="mailto:john@hotmail.com">Contact Owner</a></button>
-                <button class="add-favorite-button"><span class="far fa-heart"></span></button>
+                <div class="ad-desc-buttons">
+                    <button class="contact-button"><a href="mailto:john@hotmail.com">Contact Owner</a></button>
+                    <button class="add-favorite-button"><span class="far fa-heart"></span></button>
+                </div>
 
             </section>
 
@@ -132,39 +147,68 @@
                     released by <a href="https://www.apple.com/">Apple</a> in late 2020.
                     It introduced a significant change in the MacBook lineup by featuring Apple's custom-designed M1
                     chip, which marks a shift away from Intel processors in Apple's laptops.
+                </p>
 
                 <ul>
-                    <li><strong>Processor:</strong> The most notable feature of this MacBook Pro is its M1 chip. The M1
-                        is an ARM-based <abbr title="system-on-a-chip">Soc</abbr> designed by <a
-                            href="https://www.apple.com/">Apple</a>, which provides impressive performance, energy
-                        efficiency, and integration with macOS. It has an 8-core CPU (4 high-performance cores and 4
-                        high-efficiency cores) and an 8-core GPU.</p>
-                    <li><strong>Display:</strong> The MacBook Pro 13 M1 features a 13.3-inch Retina display with a
-                        resolution of 2560 x 1600 pixels. It offers excellent color accuracy, brightness, and sharpness,
-                        making it ideal for creative professionals and everyday users.</p>
-                    <li><strong>Memory (RAM):</strong> The "8GB" in the model name indicates that this MacBook Pro comes
-                        with 8 gigabytes of <abbr title="Random Access Memory">RAM</abbr>. This is the base RAM
-                        configuration, and while it's suitable for many tasks, if you have demanding workloads, you
-                        might consider upgrading to 16GB for improved multitasking performance.</p>
-                    <li><strong>Storage:</strong> The "256GB" in the model name refers to the <abbr
-                            title="solid-state drive">SSD</abbr> storage capacity. It provides fast storage access and
-                        can be used to store your files, applications, and the macOS operating system.</p>
-                    <li><strong>Design:</strong> The MacBook Pro 13 M1 retains the sleek and iconic design that <a
-                            href="https://www.apple.com/">Apple</a> is known for. It's lightweight, portable, and
-                        features a unibody aluminum enclosure with a Space Gray or Silver finish.</p>
-                    <li><strong>Battery Life:</strong> One of the standout features of the M1 MacBook Pro is its
-                        exceptional battery life. The M1 chip's energy efficiency allows for extended usage on a single
-                        charge, making it suitable for on-the-go use.</p>
-                    <li><strong>Operating System:</strong> It comes with macOS, which offers a user-friendly interface,
-                        a wide range of productivity and creativity software, and seamless integration with other <a
-                            href="https://www.apple.com/">Apple</a> devices and services.</p>
-                    <li><strong>Performance:</strong> The M1 chip provides remarkable performance, excelling in tasks
-                        like video editing, software development, and content creation. It can handle demanding
-                        applications with ease.</p>
-                    <li><strong>Fanless Design:</strong> The M1 MacBook Pro is fanless, which means it operates silently
-                        without a cooling fan, making it a quiet and efficient device.
+                    <li>
+                        <p><strong>Processor:</strong>
+                            The most notable feature of this MacBook Pro is its M1 chip. The M1
+                            is an ARM-based <abbr title="system-on-a-chip">Soc</abbr> designed by <a
+                                href="https://www.apple.com/">Apple</a>, which provides impressive performance, energy
+                            efficiency, and integration with macOS. It has an 8-core CPU (4 high-performance cores and 4
+                            high-efficiency cores) and an 8-core GPU.</p>
+                    </li>
+                    <li>
+                        <p><strong>Display:</strong>
+                            The MacBook Pro 13 M1 features a 13.3-inch Retina display with a
+                            resolution of 2560 x 1600 pixels. It offers excellent color accuracy, brightness, and
+                            sharpness,
+                            making it ideal for creative professionals and everyday users.</p>
+                    </li>
+                    <li>
+                        <p><strong>Memory (RAM):</strong>
+                            The "8GB" in the model name indicates that this MacBook Pro comes
+                            with 8 gigabytes of <abbr title="Random Access Memory">RAM</abbr>. This is the base RAM
+                            configuration, and while it's suitable for many tasks, if you have demanding workloads, you
+                            might consider upgrading to 16GB for improved multitasking performance.</p>
+                    </li>
+                    <li>
+                        <p><strong>Storage:</strong>
+                            The "256GB" in the model name refers to the <abbr title="solid-state drive">SSD</abbr>
+                            storage capacity. It provides fast storage access and
+                            can be used to store your files, applications, and the macOS operating system.</p>
+                    </li>
+                    <li>
+                        <p><strong>Design:</strong>
+                            The MacBook Pro 13 M1 retains the sleek and iconic design that <a
+                                href="https://www.apple.com/">Apple</a> is known for. It's lightweight, portable, and
+                            features a unibody aluminum enclosure with a Space Gray or Silver finish.</p>
+                    </li>
+                    <li>
+                        <p><strong>Battery Life:</strong>
+                            One of the standout features of the M1 MacBook Pro is its
+                            exceptional battery life. The M1 chip's energy efficiency allows for extended usage on a
+                            single
+                            charge, making it suitable for on-the-go use.</p>
+                    </li>
+                    <li>
+                        <p><strong>Operating System:</strong>
+                            It comes with macOS, which offers a user-friendly interface,
+                            a wide range of productivity and creativity software, and seamless integration with other <a
+                                href="https://www.apple.com/">Apple</a> devices and services.</p>
+                    </li>
+                    <li>
+                        <p><strong>Performance:</strong>
+                            The M1 chip provides remarkable performance, excelling in tasks
+                            like video editing, software development, and content creation. It can handle demanding
+                            applications with ease.</p>
+                    </li>
+                    <li>
+                        <p><strong>Fanless Design:</strong>
+                            The M1 MacBook Pro is fanless, which means it operates silently
+                            without a cooling fan, making it a quiet and efficient device.</p>
+                    </li>
                 </ul>
-                </p>
 
             </section>
 
