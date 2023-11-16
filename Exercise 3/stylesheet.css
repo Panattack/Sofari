@@ -8,7 +8,7 @@
 }
 
 /*------------------------General settings------------------------*/
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -78,8 +78,6 @@ body {
   justify-content: space-around;
   align-items: center;
   border-radius: 0rem 0rem 1rem 1rem;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .lower-header {
@@ -1056,26 +1054,28 @@ it close to bottom right corner, round its corners and set a background color */
   display: flex;
   flex-flow: column nowrap;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
   width: 20%;
   padding: 1rem;
   box-sizing: border-box;
 }
 
 /* Styles for details elements within the filters;
-Add padding and a subtle top border for separation and set the cursor to pointer */
+Add padding and a subtle top border for separation and set the width to 100% to expand the
+border */
 .filters>details {
   border-top: 1px solid gainsboro;
   padding: 1rem;
-  cursor: pointer;
+  width: 100%;
 }
 
 /* Styles for the summary of the details within the filters;
-Set the font weight to bold and add padding and margin */
+Set the font weight to bold, add padding and margin and set the cursor to pointer */
 .filters>details>summary {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 /* Remove the default arrow icons of the summary */
@@ -1097,6 +1097,23 @@ Set the font weight to bold and add padding and margin */
   /* The Unicode character for the up-arrow icon in Font Awesome */
   font-family: "Font Awesome 5 Free";
   margin-right: 1rem;
+}
+
+.checkboxes {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 0.2rem;
+}
+
+.checkbox-input-label-pair {
+  display: flex;
+  flex-flow: row nowrap;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+.filters input[type="checkbox"] {
+  margin-top: 0rem;
 }
 
 /* Set the cursor to pointer when hover on the filters checkboxes and their labels */
@@ -1158,25 +1175,50 @@ Add a subtle border for each label, round the corners and add padding */
 
 /* Set a top margin for the product header */
 .product-header {
+  display: flex;
+  flex-flow: row wrap;
+  /* grid-auto-flow: row wrap; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  column-gap: 5rem;
+  /*justify-content: space-around; */
   margin: 12rem 0rem 3rem 0rem;
 }
 
 /* Set a left margin for the product image in the product header and round its corners */
 .product-header>img {
-  margin-left: 10%;
+  align-self: center;
+  justify-self: right;
   border-radius: 0.5rem;
 }
 
 /* Float the advertisement details to the right so that they appear next to the product image 
 and set a right margin */
 .ad-details {
-  float: right;
-  margin-right: 10%;
+  align-self: center;
+  justify-self: left;
+  width: 600px;
+  display: grid;
+  grid-template-columns: auto, auto;
+  grid-template-areas:
+    'productTitle productTitle'
+    'productBadges productBadges'
+    'productPost productPrice'
+    'productButton productButton'
+    'productViews productViews';
+  row-gap: 1rem;
 }
 
 /* Set the display of all spans within the advertisement details to block */
-.ad-details>span {
+.ad-details>div>span {
   display: block;
+}
+
+.ad-details-title {
+  grid-area: productTitle;
+}
+
+.ad-details-title h2 {
+  margin: 0rem;
 }
 
 /* Reduce the color opacity of the advertisement code (within the advertisement 
@@ -1185,9 +1227,11 @@ details part of the advertisement header) */
   opacity: 0.7;
 }
 
-/* Set a top and bottom margin for the group of badges (e.g. 'Certified', 'Shipping options' etc.) */
 .ad-details-badges {
-  margin: 1rem 0rem;
+  display: flex;
+  flex-flow: row nowrap;
+  column-gap: 0.5rem;
+  grid-area: productBadges;
 }
 
 /* Styles for all badges within the advertisement details (e.g. 'Certified', 'Shipping options' etc.);
@@ -1218,6 +1262,9 @@ Set the font weight and size, apply a padding and round the corners  */
   text-align: right;
   color: var(--primary-color-dark);
   display: block;
+  grid-area: productPrice;
+  align-self: center;
+  justify-self: end;
 }
 
 /* Styles for the strikethrough price (previous price);
@@ -1242,6 +1289,21 @@ Set a red color to indicate the price drop and enlarge the size of the icon */
   font-size: 3rem;
 }
 
+.ad-details-posted-editted-location {
+  grid-area: productPost;
+  align-self: center;
+  justify-self: start;
+}
+
+.ad-details .add-cart-button {
+  grid-column: span 2;
+  border-radius: 2rem;
+}
+
+.ad-details-views-watching {
+  grid-area: productViews;
+}
+
 /* Set a black color and reduced opacity for the views and watching elements */
 .ad-details-views,
 .ad-details-watching {
@@ -1264,118 +1326,7 @@ Set a border and rounded corners, set the margin and padding and clear float to 
   border-radius: 1rem;
   padding: 2rem;
   margin: 2rem;
-  clear: both;
-}
-
-/* ----------------------- Carousel --------------------- */
-.carousel-slider img:target {
-  scroll-margin-top: 1rem; /* Reset scroll margin for targeted section */
-  scroll-padding-top: 0; /* Reset scroll padding for targeted section */
-}
-
-
-.carousel {
-	padding: 2rem;
-}
-
-.carousel-slider-wrapper {
-	position: relative;
-	max-width: 25rem;
-	margin: 0 auto;
-}
-
-.carousel-slider {
-	display: flex;
-	/* aspect-ratio: 	702 / 943; */
-	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;
-	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-	border-radius: 0.5rem;
-	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
-	scrollbar-width: none; /* Hide scrollbar Firefox */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.carousel-slider::-webkit-scrollbar {
-	display: none;
-}
-
-.carousel-slider img {
-	flex: 0 0 100%;
-	scroll-snap-align: start;
-	object-fit: cover;
-  width: 20rem;
-  height: 30rem;
-}
-
-.carousel-slider-nav {
-	display: flex;
-	column-gap: 1rem;
-	position: absolute;
-	bottom: 1.25rem;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 1;
-}
-
-.carousel-slider-nav a {
-	width: 0.5rem;
-	height: 0.5rem;
-	border-radius: 50%;
-	background-color: #fff;
-	opacity: 0.6;
-	transition: opacity ease 250ms;
-}
-
-.carousel-slider-nav a:hover {
-	opacity: 1;
-}
-/* -------------------------------------------------------- */
-/* Styles for the product details;
-Set a border, a box shadow and rounded corners and set the margin and padding */
-.product-details {
-  border: 1px solid gainsboro;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  margin: 2rem;
-}
-
-/* Remove the default text decoration for the anchor links within product details section 
-and specify another text color */
-.product-details p a {
-  text-decoration: none;
-  color: #1d8bf2;
-}
-
-/* Change the color to a lighter one for already visited links */
-.product-details p a:visited {
-  color: #62adf3
-}
-
-/* Change the color on hover */
-.product-details p a:hover {
-  color: var(--primary-color-dark);
-}
-
-/* Add a padding and a bottom border to show some movement for active links */
-.product-details p a:active {
-  padding: 0rem 0.2rem;
-  border-bottom: 2px solid var(--primary-color-dark);
-}
-
-/* Remove the default text decoration for the abbreviations within product details section */
-.product-details abbr {
-  text-decoration: none;
-}
-
-/* Add a bottom border to h2 headings in the product description, product details, and specifications 
-sections for a visual separation */
-.product-desc>h2,
-.product-details>h2,
-.product-specs>h2 {
-  border-bottom: 1px solid gainsboro;
+  /* clear: both; */
 }
 
 /* Common styles for contact button in the product description section and add-to-cart buttons;
@@ -1390,13 +1341,6 @@ Set a color background, padding and margin, no border, and a smooth transformati
   transition: transform 0.2s;
   display: inline-block;
   margin: 1rem 0rem;
-}
-
-/* More specific styles to the add-to-cart button in the product header, such as border-radius 
-and a full width */
-.product-header .add-cart-button {
-  border-radius: 2rem;
-  width: 100%
 }
 
 /* Add space to the right of the shopping cart icon for proper alignment */
@@ -1443,8 +1387,13 @@ for a smooth transformation effect */
   transition: transform 0.2s;
   color: var(--primary-color);
   /* Icon color */
-  display: inline-block;
-  margin-left: 1rem;
+  /* display: inline-block; */
+  /* margin-left: 1rem; */
+  /* display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-items: center;
+  column-gap: 0rem; */
 }
 
 /* Set the hover effect for the add-to-favorite button, changing its color to white, background color
@@ -1454,6 +1403,154 @@ to a darker shade of the primary color, and applying a scale transformation for 
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   transform: scale(1.1);
+}
+
+.ad-desc-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  column-gap: 1rem;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Styles for the product details;
+Set a border, a box shadow and rounded corners and set the margin and padding */
+.product-details {
+  border: 1px solid gainsboro;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 1fr, auto;
+  grid-template-areas:
+    'detailsHeading detailsHeading'
+    'generalParagraph carousel'
+    'specificBulletPoints carousel';
+  column-gap: 2rem;
+}
+
+.product-details h2 {
+  grid-area: detailsHeading;
+}
+
+.carousel {
+  grid-area: carousel;
+}
+
+.product-details>p {
+  grid-area: generalParagraph;
+  margin-top: 0rem;
+}
+
+.product-details>ul {
+  grid-area: specificBulletPoints;
+}
+
+/* ----------------------- Carousel --------------------- */
+
+.carousel-slider-wrapper {
+  position: relative;
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+.carousel-slider {
+  display: flex;
+  /* aspect-ratio: 	702 / 943; */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+  border-radius: 0.5rem;
+  -ms-overflow-style: none;
+  /* Hide scrollbar IE and Edge */
+  scrollbar-width: none;
+  /* Hide scrollbar Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.carousel-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slider img {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+  width: 20rem;
+  height: 30rem;
+}
+
+/* .carousel-slider img:target {
+  scroll-margin-top: 1rem;
+  /* Reset scroll margin for targeted image 
+  scroll-padding-top: 0;
+  /* Reset scroll padding for targeted image 
+} */
+
+.carousel-slider-nav {
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.carousel-slider-nav a {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.6;
+  transition: opacity ease 250ms;
+}
+
+.carousel-slider-nav a:hover {
+  opacity: 1;
+}
+
+/* Set the alignment for the paragraphs describing the product characteristics */
+.product-details p {
+  text-align: justify;
+}
+
+/* Remove the default text decoration for the anchor links within product details section 
+and specify another text color */
+.product-details p a {
+  text-decoration: none;
+  color: #1d8bf2;
+}
+
+/* Change the color to a lighter one for already visited links */
+.product-details p a:visited {
+  color: #62adf3
+}
+
+/* Change the color on hover */
+.product-details p a:hover {
+  color: var(--primary-color-dark);
+}
+
+/* Add a padding and a bottom border to show some movement for active links */
+.product-details p a:active {
+  padding: 0rem 0.2rem;
+  border-bottom: 2px solid var(--primary-color-dark);
+}
+
+/* Remove the default text decoration for the abbreviations within product details section */
+.product-details abbr {
+  text-decoration: none;
+}
+
+/* Add a bottom border to h2 headings in the product description, product details, and specifications 
+sections for a visual separation */
+.product-desc>h2,
+.product-details>h2,
+.product-specs>h2 {
+  border-bottom: 1px solid gainsboro;
 }
 
 /* Styles for the container of the product specifications;
@@ -1477,9 +1574,14 @@ Collapse the borders and round the corners, set the width to 100% and define a b
   margin-bottom: 1rem;
 }
 
-/* Set a fixed width for the second column of the product specifications table, for alignment purposes */
-.spec-table td:nth-child(2) {
-  width: 30%;
+.spec-table tr {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+
+.spec-table th, .spec-table td {
+  text-align: left;
 }
 
 /* Styles for both table header (th) and table data cells (td) in the product specifications table;
