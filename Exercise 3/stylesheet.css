@@ -1381,7 +1381,7 @@ sections for a visual separation */
 /* Common styles for contact button in the product description section and add-to-cart buttons;
 Set a color background, padding and margin, no border, and a smooth transformation effect */
 .product-desc .contact-button,
-.add-cart-button {
+.add-favorite-button {
   background-color: var(--primary-color);
   color: white;
   padding: 0.8rem 1.6rem;

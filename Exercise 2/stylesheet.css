@@ -948,19 +948,20 @@ it close to bottom right corner, round its corners and set a background color */
 }
 
 /* Styles for details elements within the filters;
-Add padding and a subtle top border for separation and set the cursor to pointer */
+Add padding and a subtle top border for separation and set the cursor to pointer and width to 100% to expand the border */
 .filters > details {
   border-top: 1px solid gainsboro;
   padding: 1rem;
-  cursor: pointer;
+  width: 100%;
 }
 
 /* Styles for the summary of the details within the filters;
-Set the font weight to bold and add padding and margin */
+Set the font weight to bold and add padding and margin and set the cursor to pointer */
 .filters > details > summary {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 /* Remove the default arrow icons of the summary */
@@ -1185,6 +1186,11 @@ and specify another text color */
   text-decoration: none;
 }
 
+/* Set the alignment for the paragraphs describing the product characteristics */
+.product-details p {
+  text-align: justify;
+}
+
 /* Add a bottom border to h2 headings in the product description, product details, and specifications 
 sections for a visual separation */
 .product-desc > h2, .product-details > h2, .product-specs > h2 {
@@ -1287,8 +1293,8 @@ Collapse the borders and round the corners, set the width to 100% and define a b
   margin-bottom: 1rem;
 }
 
-/* Set a fixed width for the second column of the product specifications table, for alignment purposes */
-.spec-table td:nth-child(2) {
+/* Set a fixed width for the table data of the product specifications table, for alignment purposes */
+.spec-table td{
   width: 30%;
 }
 
