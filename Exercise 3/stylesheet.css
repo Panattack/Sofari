@@ -57,6 +57,8 @@ input[type="range"] {
 body {
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-family: 'Manjari', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 /* Set the background color of the header and organize the layout of its content. Last add rounded borders to the bottom of the header */
@@ -67,7 +69,7 @@ body {
   top: 0rem;
   left: 0rem;
   right: 0rem;
-  position: fixed;
+  position: sticky;
   width: 100%;
   z-index: 6;
 }
@@ -236,6 +238,7 @@ the image and the header */
 
 /* Customize the coordinates of footer and decorate its color */
 footer {
+  position: relative;
   grid-area: footer;
   background-color: var(--secondary-color);
   clear: both;
@@ -243,7 +246,7 @@ footer {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  margin-top: 2rem;
+  /* height: fit-content; */
 }
 
 /* Set the horizontal rule width to 100% */
@@ -261,7 +264,6 @@ hr {
 /* Set a limit to the width of the "About Us" section of the upper footer */
 #upper-footer>* {
   flex: 0 1 auto;
-
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
@@ -373,7 +375,7 @@ the transition in seconds and define the color of the text */
 
 /* Center align the lower footer text */
 #lower-footer {
-  height: 100%;
+  /* height: 100%; */
   text-align: center;
 }
 
@@ -412,19 +414,66 @@ coordinates; Define the color, width and height of the button and make it circul
   background-color: var(--primary-color-dark);
 }
 
-/* .wrapper {
+.wrapper {
   display: grid;
-  grid-template-columns: 1fr, 3fr, 1fr;
-} */
+  grid-template-columns: 1fr 3fr 1fr;
+  /* grid-template-rows: auto, 1fr, auto; */
+  row-gap: 3rem;
+  /* min-height: 100vh; */
+}
 
-/* .wrapper-index {
-  grid-template-areas: 
-  'header header header'
-  'introduction introduction introduction'
-  'testimonials testimonials testimonials'
-  'footer footer footer'
+.wrapper-index {
+  row-gap: 0;
+  grid-template-areas:
+    'header header header'
+    'introduction introduction introduction'
+    'testimonials testimonials testimonials'
+    'footer footer footer'
   ;
-} */
+}
+
+.wrapper-categories {
+  grid-template-areas:
+    'header header header'
+    'categories categories categories'
+    'footer footer footer'
+  ;
+}
+
+.wrapper-about-us {
+  grid-template-areas:
+    'header header header'
+    'members members members'
+    'footer footer footer'
+  ;
+}
+
+.wrapper-contact {
+  grid-template-areas:
+    'header header header'
+    '. reportProblemForm .'
+    'footer footer footer'
+  ;
+}
+
+.wrapper-advertisements {
+  column-gap: 4rem;
+  grid-template-areas:
+    'header header header'
+    'filters products products'
+    'footer footer footer'
+  ;
+}
+
+.wrapper-computer {
+  grid-template-areas:
+    'header header header'
+    '. productHeader .'
+    'productDesc productDesc productDesc'
+    'productDetails productDetails productDetails'
+    '. productSpecs .'
+    'footer footer footer';
+}
 
 /*------------------------Home Page------------------------*/
 
@@ -472,7 +521,7 @@ coordinates; Define the color, width and height of the button and make it circul
 
 .comments {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: space-around;
 }
@@ -531,6 +580,7 @@ make the name appear as handwritten */
 /*------------------------Advertisements Page------------------------*/
 
 .ad-categories {
+  grid-area: categories;
   /* margin-top: 10rem; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -669,6 +719,7 @@ ul.subcategories li a:hover {
 
 /* Set the layout for the team members so that will be in the same row, align in the center along with their content */
 .members {
+  grid-area: members;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -812,13 +863,14 @@ a background color, align the social media icons (i.e. text) to the center */
 /* Styles for the overall form providing a clean appearance; Set a white background, a subtle border, 
 rounded corners, padding inside, a box shadow for a lifted 3D effect, and a margin around the form*/
 #report_problem {
+  grid-area: reportProblemForm;
+  justify-self: center;
   background-color: white;
   border: 1px solid gainsboro;
   border-radius: 1rem;
   padding: 1rem;
   width: fit-content;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  margin: 6rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -943,6 +995,7 @@ is hovered, for interactive feedback */
 /* Styles for the product advertisements;
 Float the advertisements to the left of the filters and define the width, padding and border are included in the width */
 .ads-products {
+  grid-area: products;
   display: flex;
   flex-flow: column nowrap;
   row-gap: 1rem;
@@ -1075,12 +1128,13 @@ it close to bottom right corner, round its corners and set a background color */
 
 /* Float the filters to the left for two-column layout, set the width to 20%, and add padding a padding */
 .filters {
+  grid-area: filters;
   display: flex;
   flex-flow: column nowrap;
   align-items: start;
   justify-content: start;
-  width: 20%;
-  padding: 1rem;
+  /* width: 20%; */
+  margin-left: 1rem;
   box-sizing: border-box;
 }
 
@@ -1199,13 +1253,13 @@ Add a subtle border for each label, round the corners and add padding */
 
 /* Set a top margin for the product header */
 .product-header {
+  grid-area: productHeader;
   display: flex;
   flex-flow: row wrap;
   /* grid-auto-flow: row wrap; */
   /* grid-template-columns: repeat(2, 1fr); */
-  column-gap: 5rem;
+  justify-content: space-around;
   /*justify-content: space-around; */
-  margin: 12rem 0rem 3rem 0rem;
 }
 
 /* Set a left margin for the product image in the product header and round its corners */
@@ -1346,11 +1400,11 @@ product header (e.g. in computers-5348130689-details page) and in advertisements
 /* Styles for the product/advertisement description;
 Set a border and rounded corners, set the margin and padding and clear float to create a new row */
 .product-desc {
+  grid-area: productDesc;
   border: 1px solid var(--primary-color);
   border-radius: 1rem;
   padding: 2rem;
-  margin: 2rem;
-  /* clear: both; */
+  margin: 0 2rem 0 2rem;
 }
 
 /* Common styles for contact button in the product description section and add-to-cart buttons;
@@ -1440,12 +1494,13 @@ to a darker shade of the primary color, and applying a scale transformation for 
 /* Styles for the product details;
 Set a border, a box shadow and rounded corners and set the margin and padding */
 .product-details {
+  grid-area: productDetails;
   border: 1px solid gainsboro;
   border-radius: 1rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  margin: 2rem;
   display: grid;
+  margin: 0 2rem 0 2rem;
   grid-template-columns: 1fr, auto;
   grid-template-areas:
     'detailsHeading detailsHeading'
@@ -1581,12 +1636,11 @@ sections for a visual separation */
 Set the width, define a border with a light color and round the corners, set a margin and a padding 
 and apply a box shadow */
 .product-specs {
-  width: 50%;
+  grid-area: productSpecs;
   border: 1px solid gainsboro;
   border-radius: 1rem;
   padding: 1rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  margin: 2rem;
 }
 
 /* Styles for the product specifications table;
@@ -1604,7 +1658,8 @@ Collapse the borders and round the corners, set the width to 100% and define a b
   align-items: center;
 }
 
-.spec-table th, .spec-table td {
+.spec-table th,
+.spec-table td {
   text-align: left;
 }
 
