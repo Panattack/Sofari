@@ -7,6 +7,24 @@
   --tertiary-color: rgb(34, 28, 53);
 }
 
+@font-face {
+  font-family: 'Manjari';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/manjari/v11/k3kQo8UPMOBO2w1UfdnoLg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'ReenieBeanie';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/reeniebeanie/v20/z7NSdR76eDkaJKZJFkkjuvWxXPq1qw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
 /*------------------------General settings------------------------*/
 html {
   scroll-behavior: smooth;
@@ -451,7 +469,7 @@ coordinates; Define the color, width and height of the button and make it circul
 .wrapper-contact {
   grid-template-areas:
     'header header header'
-    '. reportProblemForm .'
+    '. reportProblemForm faq'
     'footer footer footer'
   ;
 }
@@ -460,7 +478,7 @@ coordinates; Define the color, width and height of the button and make it circul
   column-gap: 4rem;
   grid-template-areas:
     'header header header'
-    'filters products products'
+    'filters products supplementaryContent'
     'footer footer footer'
   ;
 }
@@ -573,7 +591,7 @@ coordinates; Define the color, width and height of the button and make it circul
 make the name appear as handwritten */
 #testimonials .editor {
   display: block;
-  font-family: 'Reenie Beanie';
+  font-family: 'ReenieBeanie', sans-serif;
   font-size: 2rem;
 }
 
@@ -990,6 +1008,14 @@ is hovered, for interactive feedback */
   color: white;
 }
 
+.faq {
+  grid-area: faq;
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem 0 0 1rem;
+}
+
 /* ------------------------- Computers & Motorcycles Page  ----------------------------- */
 
 /* Styles for the product advertisements;
@@ -1246,6 +1272,14 @@ Add a subtle border for each label, round the corners and add padding */
 .price-labels {
   display: flex;
   justify-content: space-between;
+}
+
+.supplementary-content {
+  grid-area: supplementaryContent;
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem 0 0 1rem;
 }
 
 
