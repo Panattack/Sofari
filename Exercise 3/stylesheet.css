@@ -5,6 +5,7 @@
   --primary-color-faded: rgb(251, 210, 155);
   --secondary-color: whitesmoke;
   --tertiary-color: rgb(34, 28, 53);
+  --tertiary-color-faded: rgb(66, 61, 79);
 }
 
 @font-face {
@@ -1009,12 +1010,52 @@ is hovered, for interactive feedback */
   color: white;
 }
 
+/* Styles for the faq section next to the contact form;
+Give it a name as a grid area to be able to use it in the grid container;
+Apply a box-shadow, round the corners and set some padding;
+Set the display to column nowrap flex and set a gap between the details elements it contains (i.e. the questions and answers) */
 .faq {
   grid-area: faq;
-  background-color: var(--secondary-color);
-  padding: 1rem;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 1rem 0 0 1rem;
+  padding: 1.3rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 1rem;
+}
+
+/* Center-align the faq section's and slightly reduce the default font-size */
+.faq h2 {
+  text-align: center;
+  font-size: medium;
+}
+
+/* Styles for the summary within faq details; 
+Apply a background color, round the corners, set a padding, set the width and define a smooth color transition
+(on hover); Left-align the text, remove the default icons and set the cursor to pointer */
+.faq summary {
+  background-color: var(--secondary-color);
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  width: 100%;
+  transition: background-color 0.3s;
+  text-align: left;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+/* Change (darken) the color of the summary on hover */
+.faq summary:hover {
+  background-color: #d8d8d8;
+}
+
+/* Remove the margin and apply padding in the paragraphs of the faq details; Set a left border with a subtle 
+color to enhance readability */
+.faq p {
+  margin: 0;
+  padding: 0.7rem;
+  border-left: 1px solid gainsboro;
 }
 
 /* ------------------------- Computers & Motorcycles Page  ----------------------------- */
