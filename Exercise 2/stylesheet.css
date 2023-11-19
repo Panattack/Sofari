@@ -1,10 +1,10 @@
 /* Define the variables of the color palette */
-:root{
-    --primary-color:  rgb(252,176,75);
-    --primary-color-dark: rgb(232, 134, 6);
-    --primary-color-faded: rgb(251, 210, 155);
-    --secondary-color: whitesmoke;
-    --tertiary-color: rgb(34,28,53);
+:root {
+  --primary-color: rgb(252, 176, 75);
+  --primary-color-dark: rgb(232, 134, 6);
+  --primary-color-faded: rgb(251, 210, 155);
+  --secondary-color: whitesmoke;
+  --tertiary-color: rgb(34, 28, 53);
 }
 
 /*------------------------General settings------------------------*/
@@ -12,179 +12,187 @@
 /* Set the color of the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary-color);
-  }
-  
-  /* Set the color of the scrollbar track (the background) */
-  ::-webkit-scrollbar-track {
+}
+
+/* Set the color of the scrollbar track (the background) */
+::-webkit-scrollbar-track {
   background-color: var(--secondary-color);
-  }
-  
-  /* Set the width of the scrollbar track */
-  ::-webkit-scrollbar {
+}
+
+/* Set the width of the scrollbar track */
+::-webkit-scrollbar {
   width: 0.3rem;
-  }
-  
-  /* Make specific words and phrases appear as highlighted, using another color and rounded border */
-  .highlight {
+}
+
+/* Make specific words and phrases appear as highlighted, using another color and rounded border */
+.highlight {
   background-color: var(--primary-color-faded);
   border-radius: 0.5rem;
   display: inline-block;
   padding: 0.2rem;
-  }
+}
 
-  /* Specify a text selection color */
-::-moz-selection { /* Code for Firefox*/ 
-  background-color: #d8d8d8; /* Muted background color for selected text */
+/* Specify a text selection color */
+::-moz-selection {
+  /* Code for Firefox*/
+  background-color: #d8d8d8;
+  /* Muted background color for selected text */
 }
 
 ::selection {
-  background-color: #d8d8d8; /* Muted background color for selected text */
+  background-color: #d8d8d8;
+  /* Muted background color for selected text */
 }
 
 /* Set a common accent color for all checkbox and range input elements on the website */
-input[type="checkbox"], input[type="range"]{
+input[type="checkbox"],
+input[type="range"] {
   accent-color: var(--primary-color);
 }
-  
-  /* Set the font family for the text of the body in every page */
-  body {
-    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-    font-family: 'Manjari', sans-serif;
-  }
-  
-  /* Set the background color of the header and organize the layout of its content. Last add rounded borders to the bottom of the header */
-  .top-header {
-    background-color: var(--primary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    top: 0rem;
-    left: 0rem;
-    right: 0rem;
-    border-radius: 0rem 0rem 1rem 1rem;
-    position: fixed;
-    width: 100%;
-    z-index: 6;
-  }
-  
-  /* Set the padding of the logo image */
-  .top-header > img {
-    padding: 1rem 1rem 1rem 3rem;
-  } 
-  
-  /* Set the settings of the position and width of search bar */
-  #search-bar {
-    position: relative;
-    min-width: 30rem;
-  }
-  
-  /* Set the layout, padding, position and width of the search icon inside the search bar */
-  .search-icon {
-    position: absolute;
-    width: 1rem;
-    align-self: center;
-    padding: 0.5rem;
-  }
-  
-  /* Create the shape for the input search bar, set the color, the shadow and the spacing inside and outside */
-  #search-bar > input {
-    border: 1px solid gainsboro;
-    border-radius: 2rem;
-    height: 2.5rem;
-    width: 100%;
-    padding: 0.5rem 2rem 0.5rem 2rem;
-    outline: 0;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-  }
-  
-  /* Set a right margin for the navigation bar for spacing */
-  #navbar {
-   margin-right: 5rem;
-  }
-  
-  /* Remove default unordered list style settings (bullets) for the navigation bar */
-  #navbar > ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  /* Display the list item elements of the navigation bar horizontally and next to each other,
-set a right margin to add a slight space between them and center the items vertically */
-  #navbar li {
-    float: left;
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
-  }
-  
-  /* Customize and decorate the links in the navigation bar */
-  #navbar li a {
-    display: block;
-    color: var(--tertiary-color);
-    border-radius: 1rem;
-    text-align: center;
-    padding: 0.8rem;
-    text-decoration: none;
-  
-    background-color: var(--primary-color);
-    transition: background-color 0.1s;
-  }
-  
-/* Change the link color on hover */
-  #navbar li a:hover {
-    color: white;
-    background-color: var(--tertiary-color);
-    border-radius: 1rem;
-  }
-  
-  /* Customize and decorate the icons of the title of the links */
-  #navbar li a + .fas {
-    text-align: center;
-    text-decoration: none;
-    color: white;
-  
-    font-size: 1rem; /* Adjust the icon size as needed */
-    margin-left: 0.3rem;
-  }
-  
-  /* Change the color of the icon in case of hovering on the link */
-  #navbar li a:hover + .fas{
-    color: var(--tertiary-color);
-  }
 
-  /* Styles for the history navigation bar, including its background color, box shadow for a subtle elevation effect, 
-padding, margin from the top, border, position as fixed at the top creating a sticky navigation effect, and a high z-index for layering*/
+/* Set the font family for the text of the body in every page */
+body {
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: 'Manjari', sans-serif;
+}
+
+/* Set the background color of the header and organize the layout of its content. Last add rounded borders to the bottom of the header.Make it fixed to always be on the top */
+.top-header {
+  background-color: var(--primary-color);
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  border-radius: 0rem 0rem 1rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 6;
+}
+
+/* Set the padding of the logo image */
+.top-header>img {
+  padding: 1rem 1rem 1rem 3rem;
+}
+
+/* Set the background color for the upper header.Also make it flex to position its element in the center. Lastly, make circular border */
+.upper-header {
+  background-color: var(--primary-color);
+  margin: 1rem 0 1rem 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+
+/* Set the settings of the position and width of search bar */
+#search-bar {
+  position: relative;
+  min-width: 30rem;
+}
+
+/* Set the layout, padding, position and width of the search icon inside the search bar */
+.search-icon {
+  position: absolute;
+  width: 1rem;
+  align-self: center;
+  padding: 0.8rem;
+}
+
+/* Create the shape for the input search bar, set the color, the shadow and the spacing inside and outside */
+#search-bar>input {
+  border: 1px solid gainsboro;
+  border-radius: 2rem;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  outline: 0;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+/* Set a right margin for the navigation bar for spacing */
+#navbar {
+  margin-right: 5rem;
+}
+
+/* Remove default unordered list style settings (bullets) for the navigation bar */
+#navbar>ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Display the list item elements of the navigation bar horizontally and next to each other,
+set a right margin to add a slight space between them and center the items vertically */
+#navbar li {
+  float: left;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+/* Customize and decorate the links in the navigation bar. Also align the text inside it and add some padding.Make it's border circular */
+#navbar li a {
+  display: block;
+  color: var(--tertiary-color);
+  border-radius: 1rem;
+  text-align: center;
+  padding: 0.8rem;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  transition: background-color 0.1s;
+}
+
+/* Change the link color on hover on navigation bar */
+#navbar li a:hover {
+  color: white;
+  background-color: var(--tertiary-color);
+  border-radius: 1rem;
+}
+
+/* Customize and decorate the icons of the title of the links on navigation bar*/
+#navbar li a+.fas {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+
+  font-size: 1rem;
+  /* Adjust the icon size as needed */
+  margin-left: 0.3rem;
+}
+
+/* Change the color of the icon in case of hovering on the link */
+#navbar li a:hover+.fas {
+  color: var(--tertiary-color);
+}
+
+/* Styles for the history navigation bar, including its background color, box shadow for a subtle elevation effect, 
+padding from the top, border, wifth to 100% of it's parent, and a high z-index for layering*/
 .history-nav {
   background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 1rem 1rem 0.5rem 1rem;
-  margin-top: 6rem;
   border: 2px solid white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   z-index: 5;
 }
 
 /* Styles for the unordered list within the history navigation;
 Remove default list styles, set margin and padding to zero and hide any overflow */
-.history-nav > ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   overflow: hidden;
+.history-nav>ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-/* Style the histiry navigation list items to be displayed horizontally with a bit of space between them */
+/* Style the history navigation list items to be displayed horizontally with a bit of space between them */
 .history-nav li {
-   float: left;
-   margin-right: 1rem;
+  float: left;
+  margin-right: 1rem;
 }
 
 /* .history-nav li::before {
@@ -195,28 +203,28 @@ font-family: "Font Awesome 5 Free";
 /* Styles for the anchor links within list items;
 Set them as block elements, remove default text decoration and set their color to black with a slightly reduced opacity */
 .history-nav li a {
-   display: block;
-   text-decoration: none;
-   color: black;
-   opacity: 0.7;
+  display: block;
+  text-decoration: none;
+  color: black;
+  opacity: 0.7;
 }
 
 /* Change the anchor link color to a darker shade on hover */
 .history-nav li a:hover {
   color: var(--primary-color-dark);
 }
-  
-  /* Set top margin to 8rem for main */
-  main {
-    margin-top: 8rem;
-  }
-  
-  /* For the main of the index.html page set a smaller space to have no visible space between 
+
+/* Set top margin to 8rem for main */
+main {
+  margin-top: 8rem;
+}
+
+/* For the main of the index.html page set a smaller space to have no visible space between 
 the image and the header */
-  main.homepage {
-    margin-top: 6rem;
-  }
-  
+main.homepage {
+  margin-top: 6rem;
+}
+
 /* Customize the coordinates of footer and decorate its color */
 footer {
   background-color: var(--secondary-color);
@@ -231,15 +239,15 @@ footer {
 }
 
 /* Set a limit to the width of the "About Us" section of the upper footer */
-#upper-footer > div {
-max-width: 20%;
+#upper-footer>div {
+  max-width: 20%;
 }
 
 /* Customize the width and padding of the h2 header of the upper footer and its color */
 #upper-footer h2 {
-border-bottom: 3px solid var(--primary-color);
-width: fit-content;
-padding: 0rem 0rem 0.5rem 0rem;
+  border-bottom: 3px solid var(--primary-color);
+  width: fit-content;
+  padding: 0rem 0rem 0.5rem 0rem;
 }
 
 /* Remove default unordered list style settings (bullets) for the upper footer */
@@ -249,10 +257,10 @@ padding: 0rem 0rem 0.5rem 0rem;
   padding: 0;
   overflow: hidden;
 }
-  
+
 /* Set the social media (within the upper footer) to be displayed in an horizontal row,
 distribute the elements horizontally with equal spacing around them and center them vertically */
-#social-media{
+#social-media {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -274,65 +282,65 @@ distribute the elements horizontally with equal spacing around them and center t
 
 /* Define the color of the facebook icon on hover */
 #social-media .fa-facebook-square:hover {
-background: linear-gradient(45deg,#1877F2, #5f9ced );
+  background: linear-gradient(45deg, #1877F2, #5f9ced);
 }
 
 /* Define the color of the instagram icon on hover */
 #social-media .fa-instagram:hover {
-background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF);
+  background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF);
 }
-  
+
 /* Define the color of the twitter icon on hover */
 #social-media .fa-twitter:hover {
-  background: linear-gradient(45deg, #1DA1F2, #76c9fd );
-  }
-  
-  /* Define the color of the linkedin icon on hover */
-  #social-media .fa-linkedin:hover {
+  background: linear-gradient(45deg, #1DA1F2, #76c9fd);
+}
+
+/* Define the color of the linkedin icon on hover */
+#social-media .fa-linkedin:hover {
   background: linear-gradient(45deg, #0077B5, #00A0DC);
-  }
-  
-  /* Define the color of the spotify icon on hover */
-  #social-media .fa-spotify:hover {
+}
+
+/* Define the color of the spotify icon on hover */
+#social-media .fa-spotify:hover {
   background: linear-gradient(45deg, #1DB954, #69d48e);
-  }
-  
-  /* Decorate the anchor links of the address element within the upper footer */
-  #upper-footer address a{
+}
+
+/* Decorate the anchor links of the address element within the upper footer */
+#upper-footer address a {
   text-decoration: none;
   color: black;
   transition: color 0.2s ease;
   font-weight: bold;
   font-style: normal;
-  }
-  
-  /* Change the color of the anchor links of the address element within the upper footer on hover */
-  #upper-footer address a:hover{
+}
+
+/* Change the color of the anchor links of the address element within the upper footer on hover */
+#upper-footer address a:hover {
   color: var(--primary-color-dark);
-  }
-  
+}
+
 /* Set a padding to each list element of the policy section within the upper footer */
-#policy li{
+#policy li {
   padding: 0.5rem 0rem 0.5rem 0rem;
 }
 
 /* In the policy section within the upper footer, customize the borders to make them circular set the padding and 
 the transition in seconds and define the color of the text */
-#policy li a{
-text-decoration: none;
-color: black;
-padding: 0.3rem;
-border-radius: 0.2rem;
-transition: 0.1s ease-in;
+#policy li a {
+  text-decoration: none;
+  color: black;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  transition: 0.1s ease-in;
 }
 
 /* Decorate the anchor links of the policy section (within the upper footer) on hover */
-#policy li a:hover{
-background-color: white;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-color: var(--primary-color-dark)
+#policy li a:hover {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  color: var(--primary-color-dark)
 }
- 
+
 /* Set the display of the lower footer to flex and center the content both vertically and horizontally */
 #lower-footer {
   display: flex;
@@ -357,7 +365,7 @@ black and add smoothness to the transition */
 /* Styles for the content of the floating button;
 Set the position of the add-to-cart floating button to fixed and set the bottom and right to suitable 
 coordinates; Define the color, width and height of the button and make it circular */
-.add-cart-float-button{
+.add-cart-float-button {
   position: fixed;
   bottom: 3rem;
   right: 2rem;
@@ -372,15 +380,14 @@ coordinates; Define the color, width and height of the button and make it circul
 }
 
 /* Set a darker background color after hovering on the add-card floating button */
-.add-cart-float-button:hover{
+.add-cart-float-button:hover {
   background-color: var(--primary-color-dark);
 }
-
 
 /*------------------------Home Page------------------------*/
 
 /* Apply frosted glass effect on introduction text */
-#introduction > div {
+#introduction>div {
   position: absolute;
   top: 20%;
   right: 5%;
@@ -410,14 +417,14 @@ coordinates; Define the color, width and height of the button and make it circul
 }
 
 /* Spacing between list items */
-#introduction ul li + li {
+#introduction ul li+li {
   margin-top: 1rem;
 }
 
 /* Underline the header of the testimonials section using the border */
 #testimonials h2 {
-border-bottom: 2px solid var(--primary-color);
-width: fit-content;
+  border-bottom: 2px solid var(--primary-color);
+  width: fit-content;
 }
 
 /* Style article elements within the testimonials section to appear like light-orange cards next to each other */
@@ -431,12 +438,13 @@ width: fit-content;
 }
 
 /* Clear float for every third article to create a new row */
-#testimonials > article:nth-of-type(3n + 1) {
+#testimonials>article:nth-of-type(3n + 1) {
   clear: left;
 }
 
 /* On hover of the article elements within the testimonials section, apply a shadow and scale-up to show an effect */
-#testimonials article:hover, #testimonials article:focus{
+#testimonials article:hover,
+#testimonials article:focus {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transform: scale(1.10);
   position: relative;
@@ -451,7 +459,7 @@ width: fit-content;
 }
 
 /* Apply a different movement (slight clockwise rotation and downward shift) for odd-numbered articles on hover */
-#testimonials article:hover:nth-of-type(2n+1){
+#testimonials article:hover:nth-of-type(2n+1) {
   transform: rotate(-2deg);
   position: relative;
   top: -0.6rem;
@@ -487,7 +495,7 @@ set perspective to make the card flip look more realistic */
 }
 
 /* Clear float for every third card to create a new row */
-.ad-card:nth-of-type(3n+1){
+.ad-card:nth-of-type(3n+1) {
   clear: left;
 }
 
@@ -508,7 +516,8 @@ by 180 degrees, creating a flip effect */
 
 /* Common styles for both the front and back faces of the card; hide the back face when not facing the viewer, 
 add a border-radius and a box-shadow for a subtle 3D effect */
-.ad-card-front, .ad-card-back {
+.ad-card-front,
+.ad-card-back {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -569,17 +578,17 @@ ul.subcategories {
 /* Add a margin of 0.5rem above and below each list item */
 ul.subcategories li {
   margin: 0.5rem 0;
-}  
+}
 
 /* Styles for anchor links within list items; Remove the default text decoration and set the text color to black */
 ul.subcategories li a {
-text-decoration: none;
-color: black;
+  text-decoration: none;
+  color: black;
 }
 
 /* Styles for anchor links within list items when hovered over; Change the text color to a darker shade */
 ul.subcategories li a:hover {
-color: var(--primary-color-dark);
+  color: var(--primary-color-dark);
 }
 
 
@@ -588,7 +597,7 @@ color: var(--primary-color-dark);
 /* Styles for the profiles of the team members; Set their position to relative to affect position settings 
 of the elements that are descendants; Set width and height, make corners rounded, set margins, hide any overflow
 and display the profiles next to each other (using left float) */
-.profile{
+.profile {
   position: relative;
   width: 25rem;
   height: auto;
@@ -600,7 +609,7 @@ and display the profiles next to each other (using left float) */
 
 /* Set the width and height of the profile images, apply a horizontal shift to the left (-25px), and add a 
 transition effect for a smooth animation */
-.profile img{
+.profile img {
   width: 25rem;
   height: auto;
   transform: translateX(-25px);
@@ -608,16 +617,16 @@ transition effect for a smooth animation */
 }
 
 /* On hover of the profile, reset the horizontal shift of the image to zero, creating a slight movement */
-.profile:hover img{
+.profile:hover img {
   transform: translateX(0);
 }
 
 /* Styles for the profile details within the profile; Set the width, height, and absolute positioning and set a 
 background color to apply a semitransparent black mask on the image giving a modern effect */
-.profile .profile-details{
+.profile .profile-details {
   width: 90%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 0;
   left: 0;
@@ -630,16 +639,16 @@ bottom: 1%;
 
 /* Styles for the header within the profile details; Add a border at the top, set the width to 
 fit the content (so that the border covers only the content), and position it absolutely close to the top right corner */
-.profile-details header{
-border-top: 2px solid white;
-width: fit-content;
-position: absolute;
-right: 2rem;
-top: 2rem;
+.profile-details header {
+  border-top: 2px solid white;
+  width: fit-content;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
 }
 
 /* Make the name of the team member bold to stand out and transform it to uppercase */
-.profile-details h3{
+.profile-details h3 {
   font-weight: bold;
   color: white;
   text-transform: uppercase;
@@ -647,7 +656,7 @@ top: 2rem;
 
 /* Set the role of the team member to start on a new line of its own (using block display), adjust the 
 bottom margin and color the text white and set the text transformation to capitalize */
-.profile-details .role{
+.profile-details .role {
   display: block;
   color: white;
   margin-bottom: 1rem;
@@ -659,7 +668,7 @@ align the description text (justify);
 Position the description absolutely to the bottom of its containing element, translate the element vertically by 
 100% of its own height, effectively hiding it below its containing element initially;
 Set transitions to achieve smooth animations */
-.profile-details .description{
+.profile-details .description {
   width: 18rem;
   position: absolute;
   bottom: -20px;
@@ -673,21 +682,21 @@ Set transitions to achieve smooth animations */
 
 /* Styles for the profile description within the profile when hovered; 
 Reset the vertical translation to zero, revealing the description on hover */
-.profile:hover .description{
+.profile:hover .description {
   transform: translateY(0);
 }
 
 /* Styles for anchor links within the profile description within the profile;
 Remove the default text decoration and set the text color */
 .profile-details .description a {
-text-decoration: none;
-color: var(--primary-color-faded);
+  text-decoration: none;
+  color: var(--primary-color-faded);
 }
 
 /* Styles for the social media unordered list of a team member's profile; 
 Remove the default list style and position it absolutely to the top right corner, set the width and height and 
 a background color, align the social media icons (i.e. text) to the center */
-.profile ul.social-media{
+.profile ul.social-media {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -701,21 +710,20 @@ a background color, align the social media icons (i.e. text) to the center */
 }
 
 /* Add a margin above and below each list item of the social media of the profile */
-.profile ul.social-media li{
+.profile ul.social-media li {
   margin: 20px 0;
 }
 
 /* Set the text color to white and add padding to the top and bottom of each social media link of the profile */
-.profile ul.social-media li a{
+.profile ul.social-media li a {
   color: white;
   padding: 0.5rem 0rem;
 }
 
 /* Remove the default text decoration for the social media links */
-.profile ul.social-media li a{
+.profile ul.social-media li a {
   text-decoration: none;
 }
-
 
 /* ------------------------- Form Page ----------------------------- */
 
@@ -763,8 +771,8 @@ Display as block elements for proper spacing, with a bottom margin, bold text, a
 
 /* Consistent styles for form input elements; Set a 100% width, a suitable padding and bottom margin for spacing,
  a subtle border and slight border radius, and adjust the background color and the text color*/
-#report_problem input, 
-#report_problem select, 
+#report_problem input,
+#report_problem select,
 #report_problem textarea {
   width: 100%;
   padding: 1rem;
@@ -782,16 +790,16 @@ Display as block elements for proper spacing, with a bottom margin, bold text, a
 }
 
 /* Highlight the border color on hover for better user feedback.*/
-#report_problem input:hover, 
-#report_problem select:hover, 
+#report_problem input:hover,
+#report_problem select:hover,
 #report_problem textarea:hover {
   border-color: var(--primary-color);
 }
 
 /* When input elements are in focus the border color changes, the default outline is removed, and a box shadow 
 is added for a focused appearance */
-#report_problem input:focus, 
-#report_problem select:focus, 
+#report_problem input:focus,
+#report_problem select:focus,
 #report_problem textarea:focus {
   border-color: var(--primary-color-faded);
   outline: none;
@@ -805,7 +813,7 @@ is added for a focused appearance */
   line-height: 2.4rem;
   width: 6.3rem;
   border-radius: 1.2rem;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 /* More specific styles for the submit button within the form;
@@ -827,7 +835,7 @@ Set the background color and a border, as well as a smooth transition effect */
   background-color: white;
   border: 1px solid var(--primary-color);
   transition: .2s all ease-in-out;
-} 
+}
 
 /* Darken the background color and the border and change the text color, when the reset button 
 is hovered, for interactive feedback */
@@ -842,29 +850,29 @@ is hovered, for interactive feedback */
 
 /* Styles for the product advertisements;
 Float the advertisements to the left of the filters and define the width, padding and border are included in the width */
-.ads-products{
-  float: left; 
-  width: 80%; 
+.ads-products {
+  float: left;
+  width: 80%;
   padding: 1rem;
   box-sizing: border-box;
 }
 
 /* For every span tag within the product advertisement, set the display to block in order to place it in a new row of its own */
-.ads-products > .ad-product > div > span {
+.ads-products>.ad-product>div>span {
   display: block;
 }
 
 /* Customize the product advertisement with a background color and box shadow, set a padding and a margin and round the corners */
 .ad-product {
-    border: 1px solid gainsboro;
-    border-radius: 1rem;
-    padding: 2rem;
-    background-color: white;
-    margin: 1rem;
-    overflow: hidden;
-    position: relative;
-    transition: 0.2s;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border: 1px solid gainsboro;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: white;
+  margin: 1rem;
+  overflow: hidden;
+  position: relative;
+  transition: 0.2s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 /* Set the box shadow of the product advertisment on hover */
@@ -873,24 +881,24 @@ Float the advertisements to the left of the filters and define the width, paddin
 }
 
 /* Remove the default text decoration of the anchor link to the product page and set the color to black */
-.ad-product > header a {
+.ad-product>header a {
   text-decoration: none;
   color: black;
 }
 
 /* Change the color of the link on hover */
-.ad-product > header a:hover {
+.ad-product>header a:hover {
   color: var(--primary-color-dark);
 }
 
 /* Set a common size (width and height) for all product images within product advertisements, round the corners 
 of the images and float them to left for a two-column layout */
 .ad-product img {
-    width: 13rem;
-    height: 10rem;
-    border-radius: 0.5rem;
-    float: left;  
-    margin-right: 20px;
+  width: 13rem;
+  height: 10rem;
+  border-radius: 0.5rem;
+  float: left;
+  margin-right: 20px;
 }
 
 /* Define the position of the price to absolute and place it close to the top right corner of its container and 
@@ -906,7 +914,7 @@ set a larger font size and a color to make it evident */
 /* Styles for the strikethrough price (previous price);
 Set a smaller font size that that of the current price, make it black, reduce the color opacity
 and display it as a block */
-.ad-info-price > s {
+.ad-info-price>s {
   font-size: 1rem;
   opacity: 0.6;
   color: black;
@@ -914,18 +922,18 @@ and display it as a block */
 }
 
 /* Set a smaller font size for the decimal part (superscript) of the previous prices */
-.ad-info-price > s > sup {
+.ad-info-price>s>sup {
   font-size: 0.5rem;
 }
 
 /* Set a smaller font size for the decimal part (superscript) of the current prices */
-.ad-info-price > sup {
+.ad-info-price>sup {
   font-size: 1rem;
 }
 
 /* Customize the add-to-cart button within the product advertisement, position it absolutely and place 
 it close to bottom right corner, round its corners and set a background color */
-.ads-products > .ad-product .add-cart-button {
+.ads-products>.ad-product .add-cart-button {
   border-radius: 2rem;
   width: fit-content;
   position: absolute;
@@ -935,21 +943,21 @@ it close to bottom right corner, round its corners and set a background color */
 }
 
 /* On hover, change the color of the add-to-cart button within the product advertisement */
-.ads-products > .ad-product .add-cart-button:hover {
+.ads-products>.ad-product .add-cart-button:hover {
   background-color: var(--primary-color-dark);
 }
 
 /* Float the filters to the left for two-column layout, set the width to 20%, and add padding a padding */
 .filters {
-    float: left;
-    width: 20%;
-    padding: 1rem;
-    box-sizing: border-box;
+  float: left;
+  width: 20%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 /* Styles for details elements within the filters;
 Add padding and a subtle top border for separation and set the cursor to pointer and width to 100% to expand the border */
-.filters > details {
+.filters>details {
   border-top: 1px solid gainsboro;
   padding: 1rem;
   width: 100%;
@@ -957,7 +965,7 @@ Add padding and a subtle top border for separation and set the cursor to pointer
 
 /* Styles for the summary of the details within the filters;
 Set the font weight to bold and add padding and margin and set the cursor to pointer */
-.filters > details > summary {
+.filters>details>summary {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
@@ -965,37 +973,41 @@ Set the font weight to bold and add padding and margin and set the cursor to poi
 }
 
 /* Remove the default arrow icons of the summary */
-.filters summary{
+.filters summary {
   list-style-type: none;
 }
 
 /* Add the Font Awesome down-arrow icon when the filter is closed */
 .filters summary::before {
-  content: "\f107"; /* The Unicode character for the down-arrow icon in Font Awesome */
+  content: "\f107";
+  /* The Unicode character for the down-arrow icon in Font Awesome */
   font-family: "Font Awesome 5 Free";
   margin-right: 1rem;
 }
 
 /* Add the Font Awesome up-arrow icon when the filter is open */
-.filters > details[open] > summary::before {
-  content: "\f106"; /* The Unicode character for the up-arrow icon in Font Awesome */
+.filters>details[open]>summary::before {
+  content: "\f106";
+  /* The Unicode character for the up-arrow icon in Font Awesome */
   font-family: "Font Awesome 5 Free";
   margin-right: 1rem;
 }
 
 /* Set the cursor to pointer when hover on the filters checkboxes and their labels */
-.filters input[type="checkbox"], .filters input[type="checkbox"] + label {
+.filters input[type="checkbox"],
+.filters input[type="checkbox"]+label {
   cursor: pointer;
 }
 
 /* Styles for the price range slider */
 .price-range {
-    position: relative;
+  position: relative;
 }
 
 /* Styles for the min and max price labels as defined by the price range slider;
 Add a subtle border for each label, round the corners and add padding */
-.price-range > .price-labels > .min-price-label, .price-range > .price-labels > .max-price-label {
+.price-range>.price-labels>.min-price-label,
+.price-range>.price-labels>.max-price-label {
   font-weight: normal;
   border: 1px solid gainsboro;
   padding: 0.5rem;
@@ -1037,14 +1049,14 @@ Add a subtle border for each label, round the corners and add padding */
 
 
 /* ------------------------- Specific computer Page  ----------------------------- */
- 
+
 /* Set a top margin for the product header */
 .product-header {
   margin: 12rem 0rem 3rem 0rem;
 }
 
 /* Set a left margin for the product image in the product header and round its corners */
-.product-header > img {
+.product-header>img {
   margin-left: 10%;
   border-radius: 0.5rem;
 }
@@ -1057,7 +1069,7 @@ and set a right margin */
 }
 
 /* Set the display of all spans within the advertisement details to block */
-.ad-details > span{ 
+.ad-details>span {
   display: block;
 }
 
@@ -1074,7 +1086,7 @@ details part of the advertisement header) */
 
 /* Styles for all badges within the advertisement details (e.g. 'Certified', 'Shipping options' etc.);
 Set the font weight and size, apply a padding and round the corners  */
-.ad-details-badges > * {
+.ad-details-badges>* {
   font-weight: bold;
   font-size: small;
   padding: 0.7rem 1rem;
@@ -1082,18 +1094,18 @@ Set the font weight and size, apply a padding and round the corners  */
 }
 
 /* Set specific background and font colors (greenish) for the 'Certified' badge */
-.ad-details-badges > .certified {
+.ad-details-badges>.certified {
   background-color: rgb(194, 234, 194);
-  color:  rgb(65, 87, 65);
+  color: rgb(65, 87, 65);
 }
 
 /* Set specific background and font colors (bluish) for the 'Shipping options' badge */
-.ad-details-badges > .shipping {
+.ad-details-badges>.shipping {
   background-color: rgb(190, 221, 245);
-  color:  rgb(4, 89, 154);
+  color: rgb(4, 89, 154);
 }
 
- /* Styles for the price in the advertisement details;
+/* Styles for the price in the advertisement details;
  Set a larger font-size, right-align the price, define a color to make it evident and display it as block */
 .ad-details-price {
   font-size: 3rem;
@@ -1105,7 +1117,7 @@ Set the font weight and size, apply a padding and round the corners  */
 /* Styles for the strikethrough price (previous price);
 Set a smaller font size that that of the current price, make it black, reduce the color opacity
 and display it as a block */
-.ad-details-price > s{
+.ad-details-price>s {
   font-size: 2rem;
   color: black;
   opacity: 0.6;
@@ -1127,20 +1139,21 @@ Set a red color to indicate the price drop and enlarge the size of the icon */
 /* Set a black color and reduced opacity for the views and watching elements */
 .ad-details-views,
 .ad-details-watching {
-color: black;
-opacity: 0.6;
+  color: black;
+  opacity: 0.6;
 }
 
 /* Set a right margin for spacing all the font awesome icons that appear in the
 product header (e.g. in computers-5348130689-details page) and in advertisements pages
 (e.g. in computers and motorcycles pages)*/
-.product-header .fas, .ads-products .fas {
+.product-header .fas,
+.ads-products .fas {
   margin-right: 0.5rem;
 }
 
 /* Styles for the product/advertisement description;
 Set a border and rounded corners, set the margin and padding and clear float to create a new row */
-.product-desc{
+.product-desc {
   border: 1px solid var(--primary-color);
   border-radius: 1rem;
   padding: 2rem;
@@ -1167,7 +1180,7 @@ and specify another text color */
 
 /* Change the color to a lighter one for already visited links */
 .product-details a:visited {
-  color:#62adf3
+  color: #62adf3
 }
 
 /* Change the color on hover */
@@ -1193,13 +1206,16 @@ and specify another text color */
 
 /* Add a bottom border to h2 headings in the product description, product details, and specifications 
 sections for a visual separation */
-.product-desc > h2, .product-details > h2, .product-specs > h2 {
+.product-desc>h2,
+.product-details>h2,
+.product-specs>h2 {
   border-bottom: 1px solid gainsboro;
 }
 
 /* Common styles for contact button in the product description section and add-to-cart buttons;
 Set a color background, padding and margin, no border, and a smooth transformation effect */
-.product-desc .contact-button, .add-cart-button {
+.product-desc .contact-button,
+.add-cart-button {
   background-color: var(--primary-color);
   color: white;
   padding: 0.8rem 1.6rem;
@@ -1235,7 +1251,8 @@ and a full width */
 
 /* Set the hover effect for both the contact button in the product description and the 
 add-to-cart button in the product header, darkening the background color */
-.product-desc .contact-button:hover, .product-header .add-cart-button:hover {
+.product-desc .contact-button:hover,
+.product-header .add-cart-button:hover {
   background-color: var(--primary-color-dark);
 }
 
@@ -1258,7 +1275,8 @@ for a smooth transformation effect */
   cursor: pointer;
   font-size: 1rem;
   transition: transform 0.2s;
-  color: var(--primary-color); /* Icon color */
+  color: var(--primary-color);
+  /* Icon color */
   display: inline-block;
   margin-left: 1rem;
 }
@@ -1294,14 +1312,15 @@ Collapse the borders and round the corners, set the width to 100% and define a b
 }
 
 /* Set a fixed width for the table data of the product specifications table, for alignment purposes */
-.spec-table td{
+.spec-table td {
   width: 30%;
 }
 
 /* Styles for both table header (th) and table data cells (td) in the product specifications table;
 Set a solid line at the bottom to separate rows, add a padding around the content inside cells
 and align the content to the left */
-.spec-table th, .spec-table td {
+.spec-table th,
+.spec-table td {
   border-bottom: 1px solid gainsboro;
   padding: 0.5rem;
   text-align: left;
@@ -1315,7 +1334,7 @@ and align the content to the left */
 /* Style the summary elements within the product specifications with a background color, 
 rounded top corners (top left and top right corners), make the text bold, apply a padding and 
 define the cursor to be a pointer */
-.product-specs details > summary {
+.product-specs details>summary {
   background-color: rgba(251, 210, 155, 0.7);
   padding: 0.6rem;
   cursor: pointer;
@@ -1326,25 +1345,27 @@ define the cursor to be a pointer */
 
 /* Remove the default list-style for the summary element within the product specifications, ensuring 
 it doesn't display a bullet point */
-.product-specs details > summary{
+.product-specs details>summary {
   list-style-type: none;
 }
 
 /* Add a Font Awesome icon (plus sign) before the content of the summary element and set a right margin for spacing */
-.product-specs details > summary::before {
-  content: "\f067"; /* The Unicode character for the "+" icon in Font Awesome */
+.product-specs details>summary::before {
+  content: "\f067";
+  /* The Unicode character for the "+" icon in Font Awesome */
   font-family: "Font Awesome 5 Free";
   margin-right: 1rem;
 }
 
 /* Change the icon to a minus sign when the details are open */
-.product-specs details[open] > summary::before {
-  content: "\f068"; /* The Unicode character for the "-" icon in Font Awesome */
+.product-specs details[open]>summary::before {
+  content: "\f068";
+  /* The Unicode character for the "-" icon in Font Awesome */
   font-family: "Font Awesome 5 Free";
 }
 
 /* Remove border-radius when the details are closed and there is a sibling details element to
 ensure a smooth transition in border-radius when switching between open and closed states of details */
-.product-specs details:not([open]) + details > summary {
+.product-specs details:not([open])+details>summary {
   border-radius: 0rem;
 }
