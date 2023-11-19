@@ -885,6 +885,7 @@ rounded corners, padding inside, a box shadow for a lifted 3D effect, and a marg
 #report_problem {
   grid-area: reportProblemForm;
   justify-self: center;
+  align-self: start;
   background-color: white;
   border: 1px solid gainsboro;
   border-radius: 1rem;
@@ -1318,10 +1319,58 @@ Add a subtle border for each label, round the corners and add padding */
 
 .supplementary-content {
   grid-area: supplementaryContent;
-  background-color: var(--secondary-color);
-  padding: 1rem;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 1rem 0 0 1rem;
+  padding: 1.3rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 1rem;
+
+  align-self: start;
+}
+
+.latest-trends,
+.tips {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.latest-trends ul,
+.tips ul {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 1rem;
+  padding: 0;
+}
+
+.latest-trends li {
+  list-style-type: none;
+  background-color: rgb(216, 216, 216);
+  border-radius: 0.5rem;
+}
+
+.latest-trends li a {
+  background-color: var(--secondary-color);
+  color: black;
+  border-radius: 0.5rem;
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: all 0.2s; 
+}
+
+/* Change the color on hover */
+.latest-trends li a:hover {
+  color: var(--primary-color-dark);
+  transform: rotate(3deg);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.tips li {
+  border-bottom: 1px solid gainsboro;
+  padding: 0.2rem;
+  list-style: none;
 }
 
 
