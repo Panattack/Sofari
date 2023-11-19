@@ -539,20 +539,25 @@ coordinates; Define the color, width and height of the button and make it circul
   margin-top: 1rem;
 }
 
+
 .comments {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+  flex-flow: row wrap;
+  align-items: stretch;
   justify-content: space-around;
 }
 
-.testimonials {
+#testimonials {
   grid-area: testimonials;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 /* Underline the header of the testimonials section using the border */
 #testimonials h2 {
   border-bottom: 2px solid var(--primary-color);
+  padding: 0.5rem;
   width: fit-content;
 }
 
@@ -561,9 +566,11 @@ coordinates; Define the color, width and height of the button and make it circul
   background-color: var(--primary-color-faded);
   border-radius: 1rem;
   padding: 2rem;
-  flex: 0 1 30rem;
-  min-width: 15rem;
+  flex: 1 0 15rem;
+  max-width: 30rem;
   margin: 2rem;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 /* On hover of the article elements within the testimonials section, apply a shadow and scale-up to show an effect */
@@ -595,6 +602,10 @@ make the name appear as handwritten */
   display: block;
   font-family: 'ReenieBeanie', sans-serif;
   font-size: 2rem;
+}
+
+#testimonials article time {
+  margin-top: auto;
 }
 
 /*------------------------Advertisements Page------------------------*/
