@@ -103,6 +103,17 @@ body {
   border-radius: 0rem 0rem 1rem 1rem;
 }
 
+.logo {
+  width: 12.5rem;
+  height: 4.5rem;
+}
+
+/* Make the lower header flex in row layout so that every content of the lower header is aside of each other */
+.logo {
+  width: 12.5rem;
+  height: 4.5rem;
+}
+
 /* Make the lower header flex in row layout so that every content of the lower header is aside of each other */
 .lower-header {
   display: flex;
@@ -555,6 +566,10 @@ coordinates; Define the color, width and height of the button and make it circul
   grid-area: introduction;
 }
 
+#introduction img {
+  width: 100%;
+}
+
 /* Apply frosted glass effect on introduction text */
 #introduction>div {
   position: absolute;
@@ -653,13 +668,13 @@ coordinates; Define the color, width and height of the button and make it circul
 /* Change the font of the editor's name for each article element within the testimonials section; 
 make the name appear as handwritten */
 #testimonials .editor {
-  display: block;
   font-family: 'ReenieBeanie', sans-serif;
   font-size: 2rem;
+  margin-top: auto;
 }
 
 #testimonials article time {
-  margin-top: auto;
+  margin-top: 0;
 }
 
 /*------------------------Advertisements Page------------------------*/
@@ -689,11 +704,6 @@ set perspective to make the card flip look more realistic */
   background-color: var(--primary-color);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-
-/* Clear float for every third card to create a new row */
-/* .ad-card:nth-of-type(3n+1) {
-  clear: left;
-} */
 
 /* Styles for the inner content of the cards to make the card flip look more realistic 
 using a 3D effect and a smooth transformation */
@@ -1091,7 +1101,7 @@ Set the display to column nowrap flex and set a gap between the details elements
   row-gap: 1rem;
 }
 
-/* Center-align the faq section's and slightly reduce the default font-size */
+/* Center-align the faq section's heading and slightly reduce the default font-size */
 .faq h2 {
   text-align: center;
   font-size: medium;
@@ -1164,6 +1174,11 @@ Float the advertisements to the left of the filters and define the width, paddin
   position: relative;
   transition: 0.2s;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.ad-product img {
+  width: 8;
+  height: 6;
 }
 
 /* Set the box shadow of the product advertisment on hover */
@@ -1422,7 +1437,7 @@ Add a subtle border for each label, round the corners and add padding */
   display: block;
   text-decoration: none;
   padding: 0.5rem;
-  transition: all 0.2s; 
+  transition: all 0.2s;
 }
 
 /* Change the color on hover */
@@ -1457,6 +1472,8 @@ Add a subtle border for each label, round the corners and add padding */
   align-self: center;
   justify-self: right;
   border-radius: 0.5rem;
+  width: 38rem;
+  height: 25rem;
 }
 
 /* Float the advertisement details to the right so that they appear next to the product image 
@@ -1464,7 +1481,7 @@ and set a right margin */
 .ad-details {
   align-self: center;
   justify-self: left;
-  width: 600px;
+  width: 38rem;
   display: grid;
   grid-template-columns: auto, auto;
   grid-template-areas:

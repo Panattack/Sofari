@@ -737,6 +737,8 @@ rounded corners, padding inside, a box shadow for a lifted 3D effect, and a marg
   width: fit-content;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   margin: 6rem;
+
+  float: left;
 }
 
 /* Styles for each fieldset inside the form, to provide visual separation; 
@@ -845,14 +847,61 @@ is hovered, for interactive feedback */
   color: white;
 }
 
+/* Styles for the faq section next to the contact form;
+Apply a box-shadow, round the corners and set some padding;
+Set the display to column nowrap flex and set a gap between the details elements it contains (i.e. the questions and answers) */
+.faq {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.3rem;
+  float: left;
+  width: 20%;
+}
+
+.faq details {
+  margin-top: 1rem;
+}
+
+/* Center-align the faq section's heading and slightly reduce the default font-size */
+.faq h2 {
+  text-align: center;
+  font-size: medium;
+}
+
+/* Styles for the summary within faq details; 
+Apply a background color, round the corners, set a padding, set the width and define a smooth color transition
+(on hover); Left-align the text, remove the default icons and set the cursor to pointer */
+.faq summary {
+  background-color: var(--secondary-color);
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  transition: background-color 0.3s;
+  text-align: left;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+/* Change (darken) the color of the summary on hover */
+.faq summary:hover {
+  background-color: #d8d8d8;
+}
+
+/* Remove the margin and apply padding in the paragraphs of the faq details; Set a left border with a subtle 
+color to enhance readability */
+.faq p {
+  margin: 0;
+  padding: 0.7rem;
+  border-left: 1px solid gainsboro;
+}
+
 
 /* ------------------------- Computers & Motorcycles Page  ----------------------------- */
 
 /* Styles for the product advertisements;
-Float the advertisements to the left of the filters and define the width, padding and border are included in the width */
-.ads-products {
-  float: left;
-  width: 80%;
+Float the next to the filters and define the width, padding and border are included in the width */
+.ads-products{
+  float: left; 
+  width: 55%; 
   padding: 1rem;
   box-sizing: border-box;
 }
@@ -894,11 +943,16 @@ Float the advertisements to the left of the filters and define the width, paddin
 /* Set a common size (width and height) for all product images within product advertisements, round the corners 
 of the images and float them to left for a two-column layout */
 .ad-product img {
-  width: 13rem;
-  height: 10rem;
-  border-radius: 0.5rem;
-  float: left;
-  margin-right: 20px;
+    width: 13rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    float: left;  
+    margin-right: 1.3rem;
+}
+
+/* Remove the default margin of the heading */
+.ad-product h2 {
+  margin: 0;
 }
 
 /* Define the position of the price to absolute and place it close to the top right corner of its container and 
@@ -947,7 +1001,7 @@ it close to bottom right corner, round its corners and set a background color */
   background-color: var(--primary-color-dark);
 }
 
-/* Float the filters to the left for two-column layout, set the width to 20%, and add padding a padding */
+/* Float the filters to the left for three-column layout, set the width to 20%, and add a padding */
 .filters {
   float: left;
   width: 20%;
@@ -1045,6 +1099,53 @@ Add a subtle border for each label, round the corners and add padding */
 .price-labels {
   display: flex;
   justify-content: space-between;
+}
+
+.supplementary-content {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.3rem;
+  width: 20%;
+  float: left;
+}
+
+.latest-trends ul,
+.tips ul {
+  padding: 0;
+}
+
+.latest-trends li,
+.tips li {
+  margin-top: 1rem;
+}
+
+.latest-trends li {
+  list-style-type: none;
+  background-color: rgb(216, 216, 216);
+  border-radius: 0.5rem;
+}
+
+.latest-trends li a {
+  background-color: var(--secondary-color);
+  color: black;
+  border-radius: 0.5rem;
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: all 0.2s; 
+}
+
+/* Change the color on hover */
+.latest-trends li a:hover {
+  color: var(--primary-color-dark);
+  transform: rotate(3deg);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.tips li {
+  border-bottom: 1px solid gainsboro;
+  padding: 0.2rem;
+  list-style: none;
 }
 
 
