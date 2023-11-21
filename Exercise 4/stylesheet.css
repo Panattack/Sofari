@@ -521,6 +521,7 @@ coordinates; Define the color, width and height of the button and make it circul
     'footer footer footer'
   ;
 }
+
 /*The wrapper of the motorcycles.html & computers.html. The template is the header to be on the top of the page. The filters will be on the second row on the left column, the advertisements on the second column in the middle and the supplementary content on the second column on the right column. Last the footer on the third row 
       1      2       3
 1   Header on all columns
@@ -1704,8 +1705,7 @@ Set a border, a box shadow and rounded corners and set the margin and padding */
   padding: 2rem;
   margin: 0 2rem 0 2rem;
   display: grid;
-  grid-template-columns: minmax(auto, 80%) minmax(auto, 20%);
-  /* grid-template-columns: minmax(auto, 3fr) minmax(auto, 1fr); */
+  grid-template-columns: minmax(auto, 3fr) minmax(auto, 1fr);
   grid-template-areas:
     'detailsHeading detailsHeading'
     'generalParagraph carousel'
@@ -1920,3 +1920,80 @@ ensure a smooth transition in border-radius when switching between open and clos
 .product-specs details:not([open])+details>summary {
   border-radius: 0rem;
 }
+
+
+
+
+@media (max-width: 400px) {
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+    min-height: 100vh;
+  }
+
+  .wrapper-index {
+    row-gap: 0;
+    grid-template-areas:
+      'header'
+      'introduction'
+      'testimonials'
+      'footer'
+    ;
+  }
+
+  .wrapper-categories {
+    grid-template-areas:
+      'header'
+      'categories'
+      'footer'
+    ;
+  }
+
+  .ad-categories {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .wrapper-about-us {
+    grid-template-areas:
+      'header'
+      'members'
+      'footer'
+    ;
+  }
+
+  .wrapper-contact {
+    grid-template-areas:
+      'header'
+      'reportProblemForm'
+      'faq'
+      'footer'
+    ;
+  }
+
+  .wrapper-advertisements {
+    column-gap: 4rem;
+    grid-template-areas:
+      'header'
+      'filters'
+      'products'
+      'supplementaryContent'
+      'footer'
+    ;
+  }
+
+  .wrapper-computer {
+    grid-template-areas:
+      'header'
+      'productHeader'
+      'productDesc'
+      'productDetails'
+      'productSpecs'
+      'footer';
+  }
+}
+
+
+@media (max-width: 700px) {}
