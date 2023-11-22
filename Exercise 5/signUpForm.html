@@ -67,7 +67,7 @@
 
                     <label for="city">City</label>
                     <input type="text" id="city" name="city" maxlength="20" placeholder="e.g. Nea Ionia"
-                    autocomplete="address-level2" required>
+                        autocomplete="address-level2" required>
 
                     <label for="postal_code">ZIP or postal code: </label>
                     <input type="text" id="postal_code" name="postal_code" maxlength="5" placeholder="e.g. 12345"
@@ -615,7 +615,6 @@
                 </p>
             </fieldset>
 
-
             <fieldset>
                 <legend>Contact Options:</legend>
 
@@ -629,6 +628,88 @@
                 <label for="whats_app">WhatsApp</label><br>
             </fieldset>
 
+            <fieldset>
+                <legend>Questions:</legend>
+
+                <label>1. Which of these advertisement types are you more interested?</label>
+                <div class="checkboxes">
+                    <!-- Question 1: Advertisement Types -->
+                    <input type="checkbox" id="properties" name="user_preference" value="properties">
+                    <label for="properties">Properties</label>
+                    <input type="checkbox" id="home" name="user_preference" value="home">
+                    <label for="home">Home</label>
+                    <input type="checkbox" id="venicles" name="user_preference" value="venicles">
+                    <label for="venicles">Viber</label>
+                    <input type="checkbox" id="jobs" name="user_preference" value="jobs">
+                    <label for="jobs">Jobs</label>
+                    <input type="checkbox" id="technology" name="user_preference" value="technology">
+                    <label for="technology">Technology</label>
+                    <input type="checkbox" id="sports" name="user_preference" value="sports">
+                    <label for="sports">Sports</label>
+                </div>
+
+                <!-- Question 2: Preferred Job Position (Dropdown Selection) -->
+                <label for="jobPosition">2. What is your preferred job position?</label>
+                <select id="jobPosition" name="jobPosition" required>
+                    <option value="developer">Developer</option>
+                    <option value="designer">Designer</option>
+                    <option value="manager">Manager</option>
+                    <option value="analyst">Analyst</option>
+                    <!-- Add more job positions as needed -->
+                </select>
+                <br>
+
+                <!-- Question 3: Preferred way of working (Checkbox Selection) -->
+                <label>3. Which is your preferred way of working?</label>
+                <div>
+                    <input type="checkbox" id="on-site" name="preference_wway_of_work" value="on-site">
+                    <label for="on-site">On-Site</label>
+
+                    <input type="checkbox" id="remote" name="preference_wway_of_work" value="remote">
+                    <label for="remote">Remote</label>
+
+                    <input type="checkbox" id="hybrid" name="preference_wway_of_work" value="hybrid">
+                    <label for="location3">Hybrid</label>
+                    <!-- Add more locations as needed -->
+                </div>
+                <br>
+
+                <!-- Question 4: Types of Vehicles Used (Checkbox Selection) -->
+                <label>4. What types of vehicles do you usually use?</label>
+                <div>
+                    <input type="checkbox" id="vehicleAircraft" name="vehicleTypes[]" value="Aircraft">
+                    <label for="vehicleAircraft">Aircraft</label>
+
+                    <input type="checkbox" id="vehicleAutomobiles" name="vehicleTypes[]" value="Automobiles">
+                    <label for="vehicleAutomobiles">Automobiles</label>
+
+                    <input type="checkbox" id="vehicleBoats" name="vehicleTypes[]" value="Boats">
+                    <label for="vehicleBoats">Boats</label>
+
+                    <input type="checkbox" id="vehicleCommercial" name="vehicleTypes[]" value="Commercial Vehicles">
+                    <label for="vehicleCommercial">Commercial Vehicles</label>
+
+                    <input type="checkbox" id="vehicleMotorcycles" name="vehicleTypes[]" value="Motorcycles">
+                    <label for="vehicleMotorcycles">Motorcycles</label>
+
+                    <input type="checkbox" id="vehicleTaxi" name="vehicleTypes[]" value="Taxi">
+                    <label for="vehicleTaxi">Taxi</label>
+
+                    <input type="checkbox" id="vehicleOther" name="vehicleTypes[]" value="Other">
+                    <label for="vehicleOther">Other</label>
+                    <!-- Add more vehicle types as needed -->
+                </div>
+                <br>
+
+                <!-- Question 5: Additional Interests -->
+                <label for="additionalInterests">5. Any other specific preferences or interests you would like to
+                    mention?</label>
+                <textarea id="additionalInterests" name="additionalInterests" rows="4"></textarea>
+                <br>
+
+                <!-- Submit Button -->
+                <input type="submit" value="Submit">
+            </fieldset>
         </form>
 
         <!-- <aside class="faq">
