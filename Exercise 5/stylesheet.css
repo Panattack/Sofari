@@ -27,9 +27,9 @@
 
 
 /*------------------------General settings------------------------*/
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
 /* Set the color of the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
@@ -90,7 +90,7 @@ body {
   right: 0rem;
   position: sticky;
   width: 100%;
-  z-index: 6;
+  /* z-index: 6; */
 }
 
 /* Set the background color for the upper header.Also make it flex to position its element in the center. Lastly, make circular border */
@@ -441,7 +441,7 @@ coordinates; Define the color, width and height of the button and make it circul
   border-radius: 50%;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 /* Set a darker background color after hovering on the add-card floating button */
@@ -649,7 +649,7 @@ coordinates; Define the color, width and height of the button and make it circul
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transform: scale(1.10);
   position: relative;
-  z-index: 5;
+  /* z-index: 5; */
 }
 
 /* Apply a movement (slight counterclockwise rotation and upward shift) for even-numbered articles on hover */
@@ -958,8 +958,8 @@ a background color, align the social media icons (i.e. text) to the center */
 
 /* Styles for the overall form providing a clean appearance; Set a white background, a subtle border, 
 rounded corners, padding inside, a box shadow for a lifted 3D effect, and a margin around the form*/
-#report_problem {
-  grid-area: reportProblemForm;
+form {
+  /* grid-area: reportProblemForm; */
   justify-self: center;
   align-self: start;
   background-color: white;
@@ -974,14 +974,14 @@ rounded corners, padding inside, a box shadow for a lifted 3D effect, and a marg
 }
 
 /* Set the layout of the form button so that they will be in the same row */
-#report_problem>buttons {
+form>buttons {
   display: flex;
   flex-flow: row wrap;
 }
 
 /* Styles for each fieldset inside the form, to provide visual separation; 
 Set a subtle border, rounded corners, the padding and a bottom margin for spacing */
-#report_problem fieldset {
+form fieldset {
   border: 1px solid gainsboro;
   border-radius: 1rem;
   padding: 1rem;
@@ -993,7 +993,7 @@ Set a subtle border, rounded corners, the padding and a bottom margin for spacin
 
 /* Make the legend within each fieldset bold, set a larger font and a bottom-border to make it evident and
 adjust margins and paddings for spacing*/
-#report_problem legend {
+form legend {
   font-size: 1.4rem;
   font-weight: bold;
   color: var(--tertiary-color);
@@ -1004,7 +1004,7 @@ adjust margins and paddings for spacing*/
 
 /* Style the labels associated with form elements for better readability;
 Display as block elements for proper spacing, with a bottom margin, bold text, and a dark color*/
-#report_problem label {
+form p>label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
@@ -1013,9 +1013,9 @@ Display as block elements for proper spacing, with a bottom margin, bold text, a
 
 /* Consistent styles for form input elements; Set a 100% width, a suitable padding and bottom margin for spacing,
  a subtle border and slight border radius, and adjust the background color and the text color*/
-#report_problem input,
-#report_problem select,
-#report_problem textarea {
+form input:not([type="checkbox"]):not([type="radio"]),
+form select,
+form textarea {
   width: 100%;
   padding: 1rem;
   margin-bottom: 0.5rem;
@@ -1027,29 +1027,29 @@ Display as block elements for proper spacing, with a bottom margin, bold text, a
 }
 
 /* Disable the ability to resize the textarea so that */
-#report_problem textarea {
+form textarea {
   resize: none;
 }
 
 /* Highlight the border color on hover for better user feedback.*/
-#report_problem input:hover,
-#report_problem select:hover,
-#report_problem textarea:hover {
+form input:not([type="checkbox"]):not([type="radio"]):hover,
+form select:hover,
+form textarea:hover {
   border-color: var(--primary-color);
 }
 
 /* When input elements are in focus the border color changes, the default outline is removed, and a box shadow 
 is added for a focused appearance */
-#report_problem input:focus,
-#report_problem select:focus,
-#report_problem textarea:focus {
+form input:not([type="checkbox"]):not([type="radio"]):focus,
+form select:focus,
+form textarea:focus {
   border-color: var(--primary-color-faded);
   outline: none;
   box-shadow: 0 0 5px var(--primary-color);
 }
 
 /* Styles for buttons within the form; Set a transparent border, fixed height and width, rounded corners,  and a cursor*/
-#report_problem button {
+form button {
   border: 1px solid transparent;
   height: 2.4rem;
   line-height: 2.4rem;
@@ -1060,20 +1060,20 @@ is added for a focused appearance */
 
 /* More specific styles for the submit button within the form;
 Set the background color, a smooth transition effect, and white text color */
-#report_problem button[type="submit"] {
+form button[type="submit"] {
   background: var(--primary-color);
   color: white;
   transition: .2s all ease-in-out;
 }
 
 /* Change the color of the submit button to a dark shade on hover */
-#report_problem button[type="submit"]:hover {
+form button[type="submit"]:hover {
   background-color: var(--primary-color-dark);
 }
 
 /* More specific styles for the reset button within the form;
 Set the background color and a border, as well as a smooth transition effect */
-#report_problem button[type="reset"] {
+form button[type="reset"] {
   background-color: white;
   border: 1px solid var(--primary-color);
   transition: .2s all ease-in-out;
@@ -1081,7 +1081,7 @@ Set the background color and a border, as well as a smooth transition effect */
 
 /* Darken the background color and the border and change the text color, when the reset button 
 is hovered, for interactive feedback */
-#report_problem button[type="reset"]:hover {
+form button[type="reset"]:hover {
   background-color: var(--primary-color-dark);
   border: 1px solid var(--primary-color-dark);
   color: white;
@@ -1336,13 +1336,13 @@ Set the font weight to bold, add padding and margin and set the cursor to pointe
   align-items: center;
 }
 
-.filters input[type="checkbox"] {
+input[type="checkbox"] {
   margin-top: 0rem;
 }
 
 /* Set the cursor to pointer when hover on the filters checkboxes and their labels */
-.filters input[type="checkbox"],
-.filters input[type="checkbox"]+label {
+input[type="checkbox"],
+input[type="checkbox"]+label {
   cursor: pointer;
 }
 
@@ -1779,7 +1779,7 @@ Set a border, a box shadow and rounded corners and set the margin and padding */
   bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .carousel-slider-nav a {
