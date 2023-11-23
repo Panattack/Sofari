@@ -1921,9 +1921,6 @@ ensure a smooth transition in border-radius when switching between open and clos
   border-radius: 0rem;
 }
 
-
-
-
 @media (max-width: 400px) {
 
   .wrapper {
