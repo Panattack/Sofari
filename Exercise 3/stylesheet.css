@@ -153,16 +153,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
-/* 
-   Styling for the unordered list directly under the navbar.
-   - 'display: flex;' turns the list items into a flex container.
-   - 'flex-flow: row wrap;' sets a flex layout with a horizontal flow that wraps to the next line if needed.
-   - 'align-items: center;' centers items vertically within the flex container.
-   - 'justify-content: space-between;' evenly distributes items along the main axis, maximizing space between them.
-   - 'list-style-type: none;' removes default list styles (e.g., bullets).
-   - 'margin: 0;' and 'padding: 0;' reset margin and padding to ensure consistent spacing.
-   - 'overflow: hidden;' hides any content that might overflow the container.
-*/
+/* Remove default unordered list style settings (bullets) for the navigation bar. Also turn the list items into a flex container using flex display in the horizontal axis and hide the content which overflows */
 #navbar>ul {
   display: flex;
   flex-flow: row wrap;
@@ -226,16 +217,8 @@ padding, margin from the top, border, position as fixed at the top creating a st
   width: 100%;
 }
 
-/* 
-   Styling for the unordered list within the history navigation section.
-   - 'list-style-type: none;' removes default list styles such as bullets.
-   - 'margin: 0;' and 'padding: 0;' reset margin and padding for consistent spacing.
-   - 'overflow: hidden;' hides any content that might overflow the container.
-   - 'display: flex;' turns the list items into a flex container.
-   - 'flex-flow: row wrap;' sets a flex layout with a horizontal flow that wraps to the next line if needed.
-   - 'column-gap: 1rem;' adds a 1rem gap between list items horizontally.
-   - 'align-items: center;' centers items vertically within the flex container.
-*/
+/* Styles for the unordered list within the history navigation;
+Remove default list styles, set margin and padding to zero and hide any overflow.Turn the ul into a flex container and center its content on the horizontal axis */
 .history-nav>ul {
   list-style-type: none;
   margin: 0;
@@ -424,7 +407,7 @@ black and add smoothness to the transition */
 /* Styles for the content of the floating button;
 Set the position of the add-to-cart floating button to fixed and set the bottom and right to suitable 
 coordinates; Define the color, width and height of the button and make it circular 
-Set the z-index to make it pop above the other content*/
+Set the z-index to make it pop above the other content */
 .add-cart-float-button {
   position: fixed;
   bottom: 3rem;
@@ -679,10 +662,9 @@ make the name appear as handwritten */
 
 /*------------------------Advertisements Page------------------------*/
 
-/* Define the grid area of the ad-categories to help on setting the grid layout, set the space between it's content */
+/* Define the grid area of the ad-categories to help on setting the grid layout, set the space between it's content and center its items */
 .ad-categories {
   grid-area: categories;
-  /* margin-top: 10rem; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
@@ -743,7 +725,7 @@ and horizontally. The rotateY(0deg) ensures that the front face is initially vis
   transform: rotateY(0deg);
 }
 
-/* More specific styles fot the front face of the card;  use flexbox to center the content both vertically. The rotateY(180deg) ensures that the back face is initially hidden */
+/* More specific styles fot the front face of the card;  use flexbox to organize the content vertically. The rotateY(180deg) ensures that the back face is initially hidden */
 .ad-card-back {
   display: flex;
   flex-flow: column nowrap;
@@ -828,8 +810,7 @@ and display the profiles next to each other using flex */
   display: flex;
 }
 
-/* Set the width and height of the profile images, apply a horizontal shift to the left (-25px), and add a 
-transition effect for a smooth animation */
+/* Set the width and height of the profile images, apply a horizontal shift to the left (-25px), and add a transition effect for a smooth animation */
 .profile img {
   width: 25rem;
   height: auto;
@@ -842,8 +823,7 @@ transition effect for a smooth animation */
   transform: translateX(0);
 }
 
-/* Styles for the profile details within the profile; Set the width, height, and absolute positioning and set a 
-background color to apply a semitransparent black mask on the image giving a modern effect */
+/* Styles for the profile details within the profile; Set the width, height, and absolute positioning and set a background color to apply a semitransparent black mask on the image giving a modern effect */
 .profile .profile-details {
   width: 90%;
   height: 100%;
@@ -853,8 +833,7 @@ background color to apply a semitransparent black mask on the image giving a mod
   left: 0;
 }
 
-/* Styles for the header within the profile details; Add a border at the top, set the width to 
-fit the content (so that the border covers only the content), and position it absolutely close to the top right corner */
+/* Styles for the header within the profile details; Add a border at the top, set the width to fit the content (so that the border covers only the content), and position it absolutely close to the top right corner */
 .profile-details header {
   border-top: 2px solid white;
   width: fit-content;
@@ -870,8 +849,7 @@ fit the content (so that the border covers only the content), and position it ab
   text-transform: uppercase;
 }
 
-/* Set the role of the team member to start on a new line of its own (using block display), adjust the 
-bottom margin and color the text white and set the text transformation to capitalize */
+/* Set the role of the team member to start on a new line of its own (using block display), adjust the bottom margin and color the text white and set the text transformation to capitalize */
 .profile-details .role {
   display: block;
   color: white;
@@ -944,8 +922,7 @@ a background color, align the social media icons (i.e. text) to the center */
 
 /* ------------------------- Form Page ----------------------------- */
 
-/* Styles for the overall form providing a clean appearance; Set a white background, a subtle border, 
-rounded corners, padding inside, a box shadow for a lifted 3D effect, and a margin around the form. Make it flex in order to organize its content on the vertical axis */
+/* Styles for the overall form providing a clean appearance; Set a white background, a subtle border, rounded corners, padding inside, a box shadow for a lifted 3D effect, and a margin around the form. Make it flex in order to organize its content on the vertical axis */
 #report_problem {
   grid-area: reportProblemForm;
   justify-self: center;
@@ -979,8 +956,7 @@ Set a subtle border, rounded corners, the padding and a bottom margin for spacin
   flex-flow: column nowrap;
 }
 
-/* Make the legend within each fieldset bold, set a larger font and a bottom-border to make it evident and
-adjust margins and paddings for spacing*/
+/* Make the legend within each fieldset bold, set a larger font and a bottom-border to make it evident and adjust margins and paddings for spacing*/
 #report_problem legend {
   font-size: 1.4rem;
   font-weight: bold;
@@ -991,7 +967,7 @@ adjust margins and paddings for spacing*/
 }
 
 /* Style the labels associated with form elements for better readability;
-Display as block elements for proper spacing, with a bottom margin, bold text, and a dark color*/
+Display as block elements for proper spacing, with a bottom margin, bold text, and a dark color */
 #report_problem label {
   display: block;
   margin-bottom: 0.5rem;
@@ -1000,7 +976,7 @@ Display as block elements for proper spacing, with a bottom margin, bold text, a
 }
 
 /* Consistent styles for form input elements; Set a 100% width, a suitable padding and bottom margin for spacing,
- a subtle border and slight border radius, and adjust the background color and the text color*/
+ a subtle border and slight border radius, and adjust the background color and the text color */
 #report_problem input,
 #report_problem select,
 #report_problem textarea {
@@ -1026,8 +1002,7 @@ Display as block elements for proper spacing, with a bottom margin, bold text, a
   border-color: var(--primary-color);
 }
 
-/* When input elements are in focus the border color changes, the default outline is removed, and a box shadow 
-is added for a focused appearance */
+/* When input elements are in focus the border color changes, the default outline is removed, and a box shadow is added for a focused appearance */
 #report_problem input:focus,
 #report_problem select:focus,
 #report_problem textarea:focus {
@@ -1036,7 +1011,7 @@ is added for a focused appearance */
   box-shadow: 0 0 5px var(--primary-color);
 }
 
-/* Styles for buttons within the form; Set a transparent border, fixed height and width, rounded corners,  and a cursor*/
+/* Styles for buttons within the form; Set a transparent border, fixed height and width, rounded corners and a cursor */
 #report_problem button {
   border: 1px solid transparent;
   height: 2.4rem;
@@ -1067,8 +1042,7 @@ Set the background color and a border, as well as a smooth transition effect */
   transition: .2s all ease-in-out;
 }
 
-/* Darken the background color and the border and change the text color, when the reset button 
-is hovered, for interactive feedback */
+/* Darken the background color and the border and change the text color, when the reset button is hovered, for interactive feedback */
 #report_problem button[type="reset"]:hover {
   background-color: var(--primary-color-dark);
   border: 1px solid var(--primary-color-dark);
@@ -1097,8 +1071,7 @@ Set the display to column nowrap flex and set a gap between the details elements
 }
 
 /* Styles for the summary within faq details; 
-Apply a background color, round the corners, set a padding, set the width and define a smooth color transition
-(on hover); Left-align the text, remove the default icons and set the cursor to pointer */
+Apply a background color, round the corners, set a padding, set the width and define a smooth color transition (on hover); Left-align the text, remove the default icons and set the cursor to pointer */
 .faq summary {
   background-color: var(--secondary-color);
   border-radius: 0.5rem;
@@ -1115,8 +1088,7 @@ Apply a background color, round the corners, set a padding, set the width and de
   background-color: #d8d8d8;
 }
 
-/* Remove the margin and apply padding in the paragraphs of the faq details; Set a left border with a subtle 
-color to enhance readability */
+/* Remove the margin and apply padding in the paragraphs of the faq details; Set a left border with a subtle color to enhance readability */
 .faq p {
   margin: 0;
   padding: 0.7rem;
@@ -1177,14 +1149,8 @@ Make the advertisements be on flex to organize the its content on the vertical a
   color: var(--primary-color-dark);
 }
 
-/* 
-   Styling for the product image within the advertisement.
-   - 'grid-area: productImage;' positions the image within a specific grid area.
-   - 'align-self: start;' aligns the image to the start (top) of the grid area.
-   - 'width: 13rem;' sets the width of the image to 13rem.
-   - 'height: 10rem;' sets the height of the image to 10rem.
-   - 'border-radius: 0.5rem;' rounds the corners of the image with a 0.5rem radius.
-*/
+/* Set a common size (width and height) for all product images within product advertisements, round the corners 
+of the images and align it to the left. Make circular borders and set the grid area to define the element for the grid layout */
 .ad-product img {
   grid-area: productImage;
   align-self: start;
@@ -1193,13 +1159,13 @@ Make the advertisements be on flex to organize the its content on the vertical a
   border-radius: 0.5rem;
 }
 
-/* Set the grid area for the title of the ad product and set the title on the left */
+/* Set the grid area for the title of the ad product and align the title on the left of the grid cell */
 .ad-product-title {
   align-self: start;
   grid-area: productTitle;
 }
 
-/* Set the grid area for the description of the ad product and set the content of the text on the left */
+/* Set the grid area for the description of the ad product and align the description on the left of the grid cell */
 .ad-mini-description {
   text-align: start;
   grid-area: productDesc;
@@ -1210,13 +1176,7 @@ Make the advertisements be on flex to organize the its content on the vertical a
   grid-area: productDetails;
 }
 
-/* 
-   Styling for the price information within the advertisement.
-   - 'grid-area: productPrice;' positions the element within a specific grid area.
-   - 'font-size: 2rem;' sets the font size to 2rem for increased visibility.
-   - 'color: var(--primary-color-dark);' applies a color using the dark variant of the primary color variable.
-   - 'justify-self: self-end;' aligns the element to the end (right) of its grid area.
-*/
+/* Define the position of the price to absolute and place it close to the top right corner of its container and set a larger font size and a color to make it evident. Set the grid area to position the element within the specified grid area */
 .ad-info-price {
   grid-area: productPrice;
   font-size: 2rem;
@@ -1230,8 +1190,7 @@ Make the advertisements be on flex to organize the its content on the vertical a
 }
 
 /* Styles for the strikethrough price (previous price);
-Set a smaller font size that that of the current price, make it black, reduce the color opacity
-and display it as a block */
+Set a smaller font size that that of the current price, make it black, reduce the color opacity and display it as a block */
 .ad-info-price>s {
   font-size: 1rem;
   opacity: 0.6;
@@ -1249,14 +1208,7 @@ and display it as a block */
   font-size: 1rem;
 }
 
-/* 
-   Styling for the 'Add to Cart' button within an advertisement product.
-   - 'grid-area: productButton;' positions the button within a specific grid area.
-   - 'border-radius: 2rem;' rounds the corners of the button with a 2rem radius.
-   - 'width: fit-content;' adjusts the width of the button to fit its content.
-   - 'background-color: var(--primary-color);' sets the background color using the primary color variable.
-   - 'justify-self: self-end;' aligns the button to the end (right) of its grid area.
-*/
+/* Define the grid area to position the element to the specified cell. Make its borders circular and set the width to fit on the content. Center the element to the left of the horizontal axis andset a background color */
 .ads-products>.ad-product .add-cart-button {
   grid-area: productButton;
   border-radius: 2rem;
@@ -1270,16 +1222,7 @@ and display it as a block */
   background-color: var(--primary-color-dark);
 }
 
-/* 
-   Styling for a container with filters.
-   - 'grid-area: filters;' positions the container within a specific grid area.
-   - 'display: flex;' establishes a flex container for the filter items.
-   - 'flex-flow: column nowrap;' arranges filter items in a single column without wrapping.
-   - 'align-items: start;' aligns items at the start (left) of the cross axis.
-   - 'justify-content: start;' aligns items at the start (top) of the main axis.
-   - 'margin-left: 1rem;' provides a 1rem left margin for spacing.
-   - 'box-sizing: border-box;' includes padding and border in the element's total width and height.
-*/
+/* Set the grid area in order to position the filters to the specified cell. Make its display flex to center organize its content on the vertical axis and align its items to the start of the cell */
 .filters {
   grid-area: filters;
   display: flex;
@@ -1344,7 +1287,7 @@ Set the font weight to bold, add padding and margin and set the cursor to pointe
   align-items: center;
 }
 
-/* Set for every checkbox in the filters a spce on the top */
+/* Set for every checkbox in the filters a space on the top */
 .filters input[type="checkbox"] {
   margin-top: 0rem;
 }
@@ -1403,7 +1346,7 @@ Add a subtle border for each label, round the corners and add padding */
   justify-content: space-between;
 }
 
-/* Define the grid area for the grid layout on the general grid of the page, set diaply flex to order the content on the vertical axis, make the border circular . Add some padding and gap between its items*/
+/* Define the grid area for the grid layout on the general grid of the page, set display flex to order the content on the vertical axis, make the border circular . Add some padding and gap between its items*/
 .supplementary-content {
   grid-area: supplementaryContent;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -1468,13 +1411,7 @@ Add a subtle border for each label, round the corners and add padding */
 
 /* ------------------------- Specific computer Page  ----------------------------- */
 
-/* 
-   Styling for the product header container.
-   - 'grid-area: productHeader;' positions the container within a specific grid area.
-   - 'display: flex;' establishes a flex container for the header items.
-   - 'flex-flow: row wrap;' sets a flex layout with a horizontal flow that wraps to the next line if needed.
-   - 'justify-content: space-around;' evenly distributes items along the main axis with equal space around them.
-*/
+/* Set the grid area for the product header in order to position it to the specified grid cell. Make its display flex to organize its items to the horizontal axis with space around them */
 .product-header {
   grid-area: productHeader;
   display: flex;
@@ -1491,16 +1428,7 @@ Add a subtle border for each label, round the corners and add padding */
   height: 25rem;
 }
 
-/* 
-   Styling for the advertisement details container.
-   - 'align-self: center;' centers the container along the cross-axis.
-   - 'justify-self: left;' aligns the container to the left along the main axis.
-   - 'width: 38rem;' sets a fixed width for the container.
-   - 'display: grid;' establishes a grid layout for the container.
-   - 'grid-template-columns: auto, auto;' creates two auto-sized columns in the grid.
-   - 'grid-template-areas:' defines named grid areas for better organization.
-   - 'row-gap: 1rem;' adds a 1rem gap between rows in the grid.
-*/
+/* Align the advertisement details across the horizntal and vertical axis and define a width;Set the display to grid and define the layout using the template. */
 .ad-details {
   align-self: center;
   justify-self: left;
@@ -1567,7 +1495,7 @@ Set the font weight and size, apply a padding and round the corners  */
 }
 
 /* Styles for the price in the advertisement details;
- Set a larger font-size, right-align the price, define a color to make it evident and display it as block. Define the grid area to help of the grid layout of the ad details */
+ Set a larger font-size, right-align the price, define a color to make it evident and display it as block. Define the grid area to place it in its pre defined cell within the grid layout */
 .ad-details-price {
   font-size: 3rem;
   text-align: right;
@@ -1579,8 +1507,7 @@ Set the font weight and size, apply a padding and round the corners  */
 }
 
 /* Styles for the strikethrough price (previous price);
-Set a smaller font size that that of the current price, make it black, reduce the color opacity
-and display it as a block */
+Set a smaller font size that that of the current price, make it black, reduce the color opacity and display it as a block */
 .ad-details-price>s {
   font-size: 2rem;
   color: black;
@@ -1593,8 +1520,7 @@ and display it as a block */
   font-size: 1rem;
 }
 
-/* Styles for the caret down icon; 
-Set a red color to indicate the price drop and enlarge the size of the icon */
+/* Styles for the caret down icon; Set a red color to indicate the price drop and enlarge the size of the icon */
 .fa-caret-down {
   color: rgb(223, 15, 15);
   font-size: 3rem;
@@ -1607,20 +1533,13 @@ Set a red color to indicate the price drop and enlarge the size of the icon */
   justify-self: start;
 }
 
-/* 
-   Styling for the add to cart button within the ad details section.
-   - The button spans two grid columns for layout consistency.
-   - A border-radius of 2rem is applied for a rounded appearance.
-*/
+/* Span the add-cart-button to two columns of the grid; Round its corners */
 .ad-details .add-cart-button {
   grid-column: span 2;
   border-radius: 2rem;
 }
-/* 
-   Styling for the product views indicator within the ad details section.
-   - The element is placed in the grid area named 'productViews'.
-   - This helps in organizing and positioning elements within the layout of the ad details.
-*/
+
+/* Set the grid area to place the views & watching within the pre-defined cell in the grid layout. */
 .ad-details-views-watching {
   grid-area: productViews;
 }
@@ -1640,14 +1559,7 @@ product header (e.g. in computers-5348130689-details page) and in advertisements
   margin-right: 0.5rem;
 }
 
-/* 
-   Styling for the product description container.
-   - 'grid-area: productDesc;' positions the container within a specific grid area.
-   - 'border: 1px solid var(--primary-color);' adds a 1px solid border using the primary color variable.
-   - 'border-radius: 1rem;' rounds the corners of the container.
-   - 'padding: 2rem;' provides 2rem of space inside the container.
-   - 'margin: 0 2rem 0 2rem;' sets a margin of 0 on top and bottom, and 2rem on the left and right.
-*/
+/* Set the grid area to place the product description the pre-defined cell in the grid layout. Make its border circular and add color on them. Add padding and margin on right and left */
 .product-desc {
   grid-area: productDesc;
   border: 1px solid var(--primary-color);
@@ -1724,14 +1636,7 @@ to a darker shade of the primary color, and applying a scale transformation for 
   transform: scale(1.1);
 }
 
-/* 
-   Styling for a container of buttons within the ad description section.
-   - The container uses flexbox to create a horizontal layout.
-   - 'flex-flow: row nowrap;' ensures that the buttons are in a single row.
-   - 'column-gap: 1rem;' sets a 1rem gap between the buttons.
-   - 'justify-items: center;' horizontally centers the buttons within the container.
-   - 'align-items: center;' vertically centers the buttons within the container.
-*/
+/* Set the display to flex in order to organize its content in the horizontal axis, with some spaces between its items. Align also its items to the center */
 .ad-desc-buttons {
   display: flex;
   flex-flow: row nowrap;
@@ -1741,7 +1646,7 @@ to a darker shade of the primary color, and applying a scale transformation for 
 }
 
 /* Styles for the product details;
-Set a border, a box shadow and rounded corners and set the margin and padding. Define the grid layout with the help of the grid-templat-area of the product*/
+Set a border, a box shadow and rounded corners and set the margin and padding. Define the grid layout with the help of the grid-template-area of the product */
 .product-details {
   grid-area: productDetails;
   border: 1px solid gainsboro;
@@ -1758,48 +1663,31 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   column-gap: 2rem;
 }
 
-/* 
-   Styling for the heading (h2) within the product details section.
-   - 'grid-area: detailsHeading;' positions the heading within the specified grid area.
-*/
+/* Set the grid area to position the product details heading within the specified grid cell */
 .product-details h2 {
   grid-area: detailsHeading;
 }
 
-/* 
-   Styling for the carousel component.
-   - 'grid-area: carousel;' assigns the carousel to a specific grid area.
-*/
+/* Set the grid area to position the carousel within the specified grid cell */
 .carousel {
   grid-area: carousel;
 }
 
-/* 
-   Styling for paragraphs within the product details section.
-   - 'grid-area: generalParagraph;' places paragraphs in the designated grid area.
-   - 'margin-top: 0rem;' removes top margin for consistent spacing.
-*/
+/* Set the grid area to position the paragraph within the specified grid cell and remove the top margin */
 .product-details > p {
   grid-area: generalParagraph;
   margin-top: 0rem;
 }
 
-/* 
-   Styling for unordered lists within the product details section.
-   - 'grid-area: specificBulletPoints;' positions lists in the specified grid area.
-*/
+/* Set the grid area to position the list within the specified grid cell */
 .product-details > ul {
   grid-area: specificBulletPoints;
 }
 
-
 /* ----------------------- Carousel --------------------- */
 
 /* 
-   Styling for the carousel slider wrapper, containing the entire carousel.
-   - 'position: relative;' establishes a positioning context for child elements.
-   - 'max-width: 25rem;' sets the maximum width of the carousel wrapper.
-   - 'margin: 0 auto;' centers the carousel horizontally within its parent container.
+   Styles for the carousel slider wrapper, containing the entire carousel. Set a relative position that establishes a positioning context for child elements.Define the maximum width of the carousel wrapper and the margins.
 */
 .carousel-slider-wrapper {
   position: relative;
@@ -1807,7 +1695,7 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   margin: 0 auto;
 }
 
-/* 
+/* Create a flex container for the carousel items.
    Styling for the main carousel slider.
    - 'display: flex;' creates a flex container for the carousel items.
    - 'overflow-x: auto;' allows horizontal scrolling when the content exceeds the container width.
