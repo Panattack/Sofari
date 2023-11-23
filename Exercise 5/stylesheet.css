@@ -244,7 +244,8 @@ main {
   margin-top: 14rem;
 }
 
-/* Customize the coordinates of footer and decorate its color.Make it flex to organize its content on the vertical axis and center it with margin auto */footer {
+/* Customize the coordinates of footer and decorate its color.Make it flex to organize its content on the vertical axis and center it with margin auto */
+footer {
   position: relative;
   grid-area: footer;
   background-color: var(--secondary-color);
@@ -1669,27 +1670,34 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
 }
 
 /* Set the grid area to position the paragraph within the specified grid cell and remove the top margin */
-.product-details > p {
+.product-details>p {
   grid-area: generalParagraph;
   margin-top: 0rem;
 }
 
 /* Set the grid area to position the list within the specified grid cell */
-.product-details > ul {
+.product-details>ul {
   grid-area: specificBulletPoints;
 }
 
 /* ----------------------- Carousel --------------------- */
 
+/* Styles for the carousel slider wrapper, containing the entire carousel. Set a relative position 
+that establishes a positioning context for child elements.Define the maximum width of the carousel
+wrapper and the margins. */
 .carousel-slider-wrapper {
   position: relative;
   max-width: 25rem;
   margin: 0 auto;
 }
 
+/* Create a flex container for the carousel items; Allow horizontal scrolling when the content 
+exceeds the container width and enables a smooth scrolling behavior (using scroll-behavior attribute)
+and a smooth snapping (using scroll-snap-type) to each carousel item;
+Apply a subtle box shadow and round the corners of the carousel; 
+Lastly, hide the scrollbar on specific browsers */
 .carousel-slider {
   display: flex;
-  /* aspect-ratio: 	702 / 943; */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -1706,6 +1714,12 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   display: none;
 }
 
+/* 
+Styles for the main carousel slider images;
+Ensure that each image takes the full width of its container and enable a smooth snapping 
+to the start of each image. Maintain the aspect ratio while covering the entire space (using object-fit attribute).
+Set the dimensions for the images.
+*/
 .carousel-slider img {
   flex: 0 0 100%;
   scroll-snap-align: start;
@@ -1714,13 +1728,10 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   height: 30rem;
 }
 
-/* .carousel-slider img:target {
-  scroll-margin-top: 1rem;
-  /* Reset scroll margin for targeted image 
-  scroll-padding-top: 0;
-  /* Reset scroll padding for targeted image 
-} */
-
+/* Styles for the navigation indicators of the carousel slider;
+Create a flex container for the navigation items and add a gap between the items;
+Position the navigation absolutely, at the specified coordinates;
+Center the navigation (using transform attribute) and ensure it appears above the slider (using z-index attribute) */
 .carousel-slider-nav {
   display: flex;
   column-gap: 1rem;
@@ -1728,9 +1739,12 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
-  /* z-index: 1; */
+  z-index: 1;
 }
 
+/* Styles for each individual navigation indicator;
+Make indicators have a circular shape and a white color with a slightly transparent appearance;
+Add a smooth transition effect on opacity change */
 .carousel-slider-nav a {
   width: 0.5rem;
   height: 0.5rem;
@@ -1740,6 +1754,7 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   transition: opacity ease 250ms;
 }
 
+/* Make the indicator fully opaque on hover */
 .carousel-slider-nav a:hover {
   opacity: 1;
 }
@@ -1786,8 +1801,8 @@ sections for a visual separation */
 }
 
 /* Styles for the container of the product specifications;
-Set the width, define a border with a light color and round the corners, set a margin and a padding 
-and apply a box shadow */
+Set the grid area to place the product specifications table within the specified grid cell;
+Define a border with a light color and round the corners, set a padding and apply a box shadow */
 .product-specs {
   grid-area: productSpecs;
   border: 1px solid gainsboro;
@@ -1805,15 +1820,13 @@ Collapse the borders and round the corners, set the width to 100% and define a b
   margin-bottom: 1rem;
 }
 
+/* Styles for table rows within the table;
+Transform table rows into grid containers and define two columns with a 2:1 ratio;
+Center items vertically within each grid row */
 .spec-table tr {
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: center;
-}
-
-.spec-table th,
-.spec-table td {
-  text-align: left;
 }
 
 /* Styles for both table header (th) and table data cells (td) in the product specifications table;
@@ -1826,7 +1839,7 @@ and align the content to the left */
   text-align: left;
 }
 
-/* Style alternating row colors for the product specifications table*/
+/* Style alternating row colors for the product specifications table */
 .spec-table tr:nth-child(even) {
   background-color: var(--secondary-color);
 }
