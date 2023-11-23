@@ -79,12 +79,18 @@
 
                         <label for="city">City</label>
                         <input type="text" id="city" name="city" maxlength="20" placeholder="e.g. Nea Ionia"
-                            autocomplete="address-level2" required>
+                            autocomplete="address-level2" list="cities-list" required>
+                        <datalist id="cities-list">
+                            <option value="Athens"></option>
+                            <option value="Larisa"></option>
+                            <option value="Thessalonikh"></option>
+                            <option value="Lamia"></option>
+                            <option value="Tripoli"></option>
+                        </datalist>
 
                         <label for="postal_code">ZIP or postal code: </label>
-                        <input type="text" id="postal_code" name="postal_code" maxlength="5" 
-                            placeholder="e.g. 12345" pattern="[0-9]{5}" 
-                            title="Please enter a valid postal code. Every code has 5 digits (0-9)"
+                        <input type="text" id="postal_code" name="postal_code" maxlength="5" placeholder="e.g. 12345"
+                            pattern="[0-9]{5}" title="Please enter a valid postal code. Every code has 5 digits (0-9)"
                             autocomplete="postal-code" required>
 
                         <label for="country">Country: </label>
@@ -615,20 +621,22 @@
                     <summary>Login Data</summary>
                     <p>
                         <label for="username">Username: </label>
-                        <input type="text" id="username" name="username" maxlength="20" 
-                            pattern="[A-Za-z_0-9]+" title="Please enter a valid username, containing only letters A-Z and a-z, digits 0-9 and the underscore character _"
+                        <input type="text" id="username" name="username" maxlength="20" pattern="[A-Za-z_0-9]+"
+                            title="Please enter a valid username, containing only letters A-Z and a-z, digits 0-9 and the underscore character _"
                             placeholder="Enter your username" autocomplete="username" required>
                     </p>
 
                     <p>
                         <label for="password">Password: </label>
                         <input type="password" id="password" name="password" maxlength="20" minlength="6"
-                            pattern="(.*[#@$&*%]+.*)*" title="Please enter a valid password, consisting of 6 up to 20 characters and at least one special character (#, @, $, &, * or %)"
+                            pattern="(.*[#@$&*%]+.*)*"
+                            title="Please enter a valid password, consisting of 6 up to 20 characters and at least one special character (#, @, $, &, * or %)"
                             placeholder="Enter your password" autocomplete="current-password" required>
 
                         <label for="confirm_password">Confirm password: </label>
-                        <input type="password" id="confirm_password" name="confirm_password" maxlength="20" minlength="6" 
-                            pattern="(.*[#@$&*%]+.*)*" title="Please enter a valid password, consisting of 6 up to 20 characters and at least one special character (#, @, $, &, * or %)"
+                        <input type="password" id="confirm_password" name="confirm_password" maxlength="20"
+                            minlength="6" pattern="(.*[#@$&*%]+.*)*"
+                            title="Please enter a valid password, consisting of 6 up to 20 characters and at least one special character (#, @, $, &, * or %)"
                             placeholder="Enter your password again" autocomplete="current_password" required>
                     </p>
                 </details>
@@ -714,9 +722,9 @@
                         <!-- Question 2: Current Job Position (Dropdown Selection) -->
                         <label for="job_position">2. What is your current job position?</label>
                         <input type="text" id="job_position" name="job_position" maxlength="30"
-                            placeholder="Enter your current job position" autocomplete="on" list="jobs">
+                            placeholder="Enter your current job position" list="job-list">
 
-                        <datalist id="jobs">
+                        <datalist id="job-list">
                             <option value="Commerce"></option>
                             <option value="Construction"></option>
                             <option value="Entrepreneurship"></option>
@@ -726,6 +734,7 @@
                             <option value="Office Support"></option>
                             <option value="Sports"></option>
                         </datalist>
+
                     </p>
 
                     <p>
@@ -809,56 +818,6 @@
                 <button type="reset" form="sign_up" value="Reset">Reset</button>
             </div>
         </form>
-
-        <!-- <aside class="faq">
-        <h2>FAQs</h2>
-        <details>
-            <summary>What products do you offer?</summary>
-            <p>We offer a wide range of products including properties, household items, vehicles, job vacancies,
-                technology
-                products, and sports gear.</p>
-        </details>
-
-        <details>
-            <summary>How can I purchase items on your website?</summary>
-            <p>To purchase items, simply browse our platform, select the desired product, and follow the checkout
-                process.
-                You can make secure payments online.</p>
-        </details>
-
-        <details>
-            <summary>Are there any job vacancies available?</summary>
-            <p>We regularly update our job vacancies. Please check our LinkedIn profile for the latest opportunities
-                and application details.</p>
-        </details>
-
-        <details>
-            <summary>How do I contact customer support?</summary>
-            <p>You can contact our customer support team through our "Contact Us" page. We are available to assist you
-                with
-                any questions or concerns you may have.</p>
-        </details>
-
-        <details>
-            <summary>Is my personal information secure?</summary>
-            <p>Yes, we take the security of your personal information seriously. Our website employs industry-standard
-                encryption and security measures to protect your data.</p>
-        </details>
-
-        <details>
-            <summary>How can I track my order?</summary>
-            <p>Once your order is dispatched, you will receive a tracking number and a link to track your order. You can
-                check the status of your delivery in real-time.</p>
-        </details>
-
-        <details>
-            <summary>What payment methods do you accept?</summary>
-            <p>We accept various payment methods, including credit cards, debit cards, and online payment services. You
-                can
-                view the available payment options during the checkout process.</p>
-        </details>
-
-    </aside> -->
 
         <footer>
             <div id="upper-footer">
