@@ -2030,4 +2030,44 @@ img {
 }
 
 /* Double column layout for tablets */
-@media (max-width: 768px) {}
+@media (min-width:481px) and (max-width: 768px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3rem;
+    min-height: 100vh;
+  }
+
+  .upper-header>img {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  .wrapper-index {
+    row-gap: 0;
+    grid-template-areas:
+      'header header'
+      'introduction header'
+      'testimonials testimonials'
+      'footer footer'
+    ;
+  }
+
+  #introduction {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  #introduction>div {
+    box-shadow: none;
+    border: none;
+    position: static;
+    max-width: 100%;
+  }
+
+  #introduction>div>h2 {
+    align-self: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding: 0.5rem;
+    width: fit-content;
+  }
+}
