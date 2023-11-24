@@ -29,7 +29,7 @@
 
 
 /*------------------------General settings------------------------*/
-/* Makes the scroll smoother */
+/* Make the scroll smoother */
 html {
   scroll-behavior: smooth;
 }
@@ -500,6 +500,7 @@ Set the z-index to make it pop above the other content */
     'footer footer footer'
   ;
 }
+
 /*The wrapper of the motorcycles.html & computers.html. The template is the header to be on the top of the page. The filters will be on the second row on the left column, the advertisements on the second column in the middle and the supplementary content on the second column on the right column. Last the footer on the third row 
       1      2       3
 1   Header on all columns
@@ -1674,46 +1675,42 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
 }
 
 /* Set the grid area to position the paragraph within the specified grid cell and remove the top margin */
-.product-details > p {
+.product-details>p {
   grid-area: generalParagraph;
   margin-top: 0rem;
 }
 
 /* Set the grid area to position the list within the specified grid cell */
-.product-details > ul {
+.product-details>ul {
   grid-area: specificBulletPoints;
 }
 
 /* ----------------------- Carousel --------------------- */
 
-/* 
-   Styles for the carousel slider wrapper, containing the entire carousel. Set a relative position that establishes a positioning context for child elements.Define the maximum width of the carousel wrapper and the margins.
-*/
+/* Styles for the carousel slider wrapper, containing the entire carousel. Set a relative position 
+that establishes a positioning context for child elements.Define the maximum width of the carousel
+wrapper and the margins. */
 .carousel-slider-wrapper {
   position: relative;
   max-width: 25rem;
   margin: 0 auto;
 }
 
-/* Create a flex container for the carousel items.
-   Styling for the main carousel slider.
-   - 'display: flex;' creates a flex container for the carousel items.
-   - 'overflow-x: auto;' allows horizontal scrolling when the content exceeds the container width.
-   - 'scroll-snap-type: x mandatory;' enables smooth snapping to each carousel item.
-   - 'scroll-behavior: smooth;' adds smooth scrolling behavior.
-   - 'box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);' applies a subtle box shadow.
-   - 'border-radius: 0.5rem;' rounds the corners of the carousel.
-   - '-ms-overflow-style: none;' and 'scrollbar-width: none;' hide the scrollbar on Microsoft browsers.
-*/
+/* Create a flex container for the carousel items; Allow horizontal scrolling when the content 
+exceeds the container width and enables a smooth scrolling behavior (using scroll-behavior attribute)
+and a smooth snapping (using scroll-snap-type) to each carousel item;
+Apply a subtle box shadow and round the corners of the carousel; 
+Lastly, hide the scrollbar on specific browsers */
 .carousel-slider {
   display: flex;
-  /* aspect-ratio: 702 / 943; */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
   border-radius: 0.5rem;
+  /* Hide scrollbar IE and Edge */
   -ms-overflow-style: none;
+  /* Hide scrollbar Firefox */
   scrollbar-width: none;
 }
 
@@ -1724,11 +1721,10 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
 }
 
 /* 
-   Styling for the main carousel slider images.
-   - 'flex: 0 0 100%;' ensures each image takes the full width of its container.
-   - 'scroll-snap-align: start;' enables smooth snapping to the start of each image.
-   - 'object-fit: cover;' maintains the aspect ratio while covering the entire space.
-   - 'width: 20rem;' and 'height: 30rem;' set fixed dimensions for the images.
+Styles for the main carousel slider images;
+Ensure that each image takes the full width of its container and enable a smooth snapping 
+to the start of each image. Maintain the aspect ratio while covering the entire space (using object-fit attribute).
+Set the dimensions for the images.
 */
 .carousel-slider img {
   flex: 0 0 100%;
@@ -1738,16 +1734,10 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   height: 30rem;
 }
 
-/* 
-   Styling for the navigation indicators of the carousel slider.
-   - 'display: flex;' creates a flex container for the navigation items.
-   - 'column-gap: 1rem;' adds a 1rem gap between the navigation items.
-   - 'position: absolute;' positions the navigation at the specified coordinates.
-   - 'bottom: 1.25rem;' places the navigation 1.25rem from the bottom.
-   - 'left: 50%;' centers the navigation horizontally.
-   - 'transform: translateX(-50%);' precisely centers the navigation using a transform.
-   - 'z-index: 1;' ensures the navigation appears above the slider.
-*/
+/* Styles for the navigation indicators of the carousel slider;
+Create a flex container for the navigation items and add a gap between the items;
+Position the navigation absolutely, at the specified coordinates;
+Center the navigation (using transform attribute) and ensure it appears above the slider (using z-index attribute) */
 .carousel-slider-nav {
   display: flex;
   column-gap: 1rem;
@@ -1758,14 +1748,9 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   z-index: 1;
 }
 
-/* 
-   Styling for each individual navigation indicator.
-   - 'width: 0.5rem;' and 'height: 0.5rem;' set the dimensions of each indicator.
-   - 'border-radius: 50%;' creates a circular shape.
-   - 'background-color: #fff;' sets the background color to white.
-   - 'opacity: 0.6;' provides a slightly transparent appearance.
-   - 'transition: opacity ease 250ms;' adds a smooth transition effect on opacity change.
-*/
+/* Styles for each individual navigation indicator;
+Make indicators have a circular shape and a white color with a slightly transparent appearance;
+Add a smooth transition effect on opacity change */
 .carousel-slider-nav a {
   width: 0.5rem;
   height: 0.5rem;
@@ -1775,10 +1760,7 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   transition: opacity ease 250ms;
 }
 
-/* 
-   Hover effect for the navigation indicators.
-   - 'opacity: 1;' makes the indicator fully opaque on hover.
-*/
+/* Make the indicator fully opaque on hover */
 .carousel-slider-nav a:hover {
   opacity: 1;
 }
@@ -1826,8 +1808,8 @@ sections for a visual separation */
 }
 
 /* Styles for the container of the product specifications;
-Set the width, define a border with a light color and round the corners, set a margin and a padding 
-and apply a box shadow */
+Set the grid area to place the product specifications table within the specified grid cell;
+Define a border with a light color and round the corners, set a padding and apply a box shadow */
 .product-specs {
   grid-area: productSpecs;
   border: 1px solid gainsboro;
@@ -1845,27 +1827,14 @@ Collapse the borders and round the corners, set the width to 100% and define a b
   margin-bottom: 1rem;
 }
 
-/* 
-   Styling for table rows within the specification table.
-   - 'display: grid;' transforms table rows into grid containers.
-   - 'grid-template-columns: 2fr 1fr;' defines two columns with a 2:1 ratio.
-   - 'align-items: center;' centers content vertically within each grid row.
-*/
+/* Styles for table rows within the table;
+Transform table rows into grid containers and define two columns with a 2:1 ratio;
+Center items vertically within each grid row */
 .spec-table tr {
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: center;
 }
-
-/* 
-   Styling for table header cells (th) and data cells (td) in the specification table.
-   - 'text-align: left;' ensures text is left-aligned within both headers and data cells.
-*/
-.spec-table th,
-.spec-table td {
-  text-align: left;
-}
-
 
 /* Styles for both table header (th) and table data cells (td) in the product specifications table;
 Set a solid line at the bottom to separate rows, add a padding around the content inside cells
@@ -1877,7 +1846,7 @@ and align the content to the left */
   text-align: left;
 }
 
-/* Style alternating row colors for the product specifications table*/
+/* Style alternating row colors for the product specifications table */
 .spec-table tr:nth-child(even) {
   background-color: var(--secondary-color);
 }

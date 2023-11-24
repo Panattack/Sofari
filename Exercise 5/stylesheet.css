@@ -917,7 +917,7 @@ a background color, align the social media icons (i.e. text) to the center */
 }
 
 
-/* ------------------------- Form Page ----------------------------- */
+/* ------------------------- Form Pages (Contact form and Sign-up form) ----------------------------- */
 
 /* Styles for the overall form providing a clean appearance; Set a white background, a subtle border, rounded corners, padding inside, a box shadow for a lifted 3D effect, and a margin around the form. Make it flex in order to organize its content on the vertical axis */
 form {
@@ -1006,6 +1006,19 @@ form textarea:focus {
   outline: none;
   box-shadow: 0 0 5px var(--primary-color);
 }
+
+/* Change the border color and box-shadow for invalid inputs tomake them evident */
+/* form input:invalid {
+  border-color: var(--primary-color-faded);
+  outline: none;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+form input:valid {
+  border: none;
+  outline: none;
+  box-shadow: none;
+} */
 
 /* Styles for buttons within the form; Set a transparent border, fixed height and width, rounded corners and a cursor */
 form button {
