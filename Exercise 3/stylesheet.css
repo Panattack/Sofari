@@ -125,12 +125,13 @@ body {
   padding: 1rem 1rem 1rem 3rem;
 }
 
-/* Set the settings of the layout in flex, width and position of search bar */
+/* Set the settings of the layout in flex, width and padding and position of search bar */
 #search-bar {
   position: relative;
   display: flex;
   flex: 0 1 30rem;
   min-width: 17.3rem;
+  padding: 0.5rem;
 }
 
 /* Set the layout, padding, position and width of the search icon inside the search bar */
@@ -1222,14 +1223,9 @@ Set a smaller font size that that of the current price, make it black, reduce th
   background-color: var(--primary-color-dark);
 }
 
-/* Set the grid area in order to position the filters to the specified cell. Make its display flex to center organize its content on the vertical axis and align its items to the start of the cell */
+/* Set the grid area in order to position the filters to the specified cell. */
 .filters {
   grid-area: filters;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: start;
-  justify-content: start;
-  margin-left: 1rem;
   box-sizing: border-box;
 }
 

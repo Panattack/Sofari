@@ -120,12 +120,13 @@ body {
   padding: 1rem 1rem 1rem 3rem;
 }
 
-/* Set the settings of the layout, width and position of search bar */
+/* Set the settings of the layout in flex, width and padding and position of search bar */
 #search-bar {
   position: relative;
   display: flex;
   flex: 0 1 30rem;
   min-width: 17.3rem;
+  padding: 0.5rem;
 }
 
 /* Set the layout, padding, position and width of the search icon inside the search bar */
@@ -1231,14 +1232,9 @@ Set a smaller font size that that of the current price, make it black, reduce th
   background-color: var(--primary-color-dark);
 }
 
-/* Set the grid area in order to position the filters to the specified cell. Make its display flex to center organize its content on the vertical axis and align its items to the start of the cell */
+/* Set the grid area in order to position the filters to the specified cell. */
 .filters {
   grid-area: filters;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: start;
-  justify-content: start;
-  margin-left: 1rem;
   box-sizing: border-box;
 }
 
@@ -1246,6 +1242,7 @@ Set a smaller font size that that of the current price, make it black, reduce th
 Add padding and a subtle top border for separation and set the width to 100% to expand the
 border */
 .filters>details {
+  flex: 0 1 auto;
   border-top: 1px solid gainsboro;
   padding: 1rem;
   width: 100%;
@@ -1437,11 +1434,10 @@ Add a subtle border for each label, round the corners and add padding */
   height: 25rem;
 }
 
-/* Align the advertisement details across the horizntal and vertical axis and define a width;Set the display to grid and define the layout using the template. */
+/* Align the advertisement details across the horizntal and vertical axis;Set the display to grid and define the layout using the template. */
 .ad-details {
   align-self: center;
   justify-self: left;
-  width: 38rem;
   display: grid;
   grid-template-columns: minmax(auto, 1fr) minmax(auto, 1fr);
   grid-template-areas:
@@ -1682,15 +1678,17 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   grid-area: carousel;
 }
 
-/* Set the grid area to position the paragraph within the specified grid cell and remove the top margin */
+/* Set the grid area to position the paragraph within the specified grid cell and remove the margin. Set the alignment for the paragraphs describing the product characteristics */
 .product-details>p {
   grid-area: generalParagraph;
-  margin-top: 0rem;
+  margin: 0;
+  text-align: justify;
 }
 
-/* Set the grid area to position the list within the specified grid cell */
+/* Set the grid area to position the list within the specified grid cell and remove the default margin */
 .product-details>ul {
   grid-area: specificBulletPoints;
+  margin: 0;
 }
 
 /* ----------------------- Carousel --------------------- */
@@ -1770,11 +1768,6 @@ Add a smooth transition effect on opacity change */
 /* Make the indicator fully opaque on hover */
 .carousel-slider-nav a:hover {
   opacity: 1;
-}
-
-/* Set the alignment for the paragraphs describing the product characteristics */
-.product-details p {
-  text-align: justify;
 }
 
 /* Remove the default text decoration for the anchor links within product details section 
