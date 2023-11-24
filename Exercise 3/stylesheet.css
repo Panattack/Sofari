@@ -1072,12 +1072,11 @@ Set the display to column nowrap flex and set a gap between the details elements
 }
 
 /* Styles for the summary within faq details; 
-Apply a background color, round the corners, set a padding, set the width and define a smooth color transition (on hover); Left-align the text, remove the default icons and set the cursor to pointer */
+Apply a background color, round the corners, set a padding, and define a smooth color transition (on hover); Left-align the text, remove the default icons and set the cursor to pointer */
 .faq summary {
   background-color: var(--secondary-color);
   border-radius: 0.5rem;
   padding: 0.6rem;
-  width: 100%;
   transition: background-color 0.3s;
   text-align: left;
   list-style-type: none;

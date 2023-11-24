@@ -785,24 +785,25 @@ ul.subcategories li a:hover {
 
 /*------------------------About Us Page------------------------*/
 
-/* Set the layout for the team members so that will be in the same row, align in the center along with their content */
+/* Set the layout for the team members so that will be in the same row, align in the center along with their content.  Define gaps for the flex items */
 .members {
   grid-area: members;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  column-gap: 2rem;
+  row-gap: 2rem;
 }
 
 /* Styles for the profiles of the team members; Set their position to relative to affect position settings 
-of the elements that are descendants; Set width and height, make corners rounded, set margins, hide any overflow
+of the elements that are descendants; Set width and height, make corners rounded, hide any overflow
 and display the profiles next to each other using flex */
 .profile {
   position: relative;
   width: 25rem;
   height: auto;
   overflow: hidden;
-  margin: 2rem 2rem 2rem 2rem;
   border-radius: 1rem;
   display: flex;
 }
@@ -1080,12 +1081,11 @@ Set the display to column nowrap flex and set a gap between the details elements
 }
 
 /* Styles for the summary within faq details; 
-Apply a background color, round the corners, set a padding, set the width and define a smooth color transition(on hover); Left-align the text, remove the default icons and set the cursor to pointer */
+Apply a background color, round the corners, set a padding, and define a smooth color transition(on hover); Left-align the text, remove the default icons and set the cursor to pointer */
 .faq summary {
   background-color: var(--secondary-color);
   border-radius: 0.5rem;
   padding: 0.6rem;
-  width: 100%;
   transition: background-color 0.3s;
   text-align: left;
   list-style-type: none;
