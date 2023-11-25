@@ -1889,8 +1889,29 @@ ensure a smooth transition in border-radius when switching between open and clos
   border-radius: 0rem;
 }
 
-@media (max-width: 400px) {
+/* -------------------- Responsive Layout -------------------- */
+/* Set the max width of every image to 10-% so that the scale of every image will change depending on the screen, filling the width of the container if possible */
+img {
+  max-width: 100%;
+}
 
+/* Single column layout for phones */
+@media (max-width: 480px) {
+
+  /* #navbar>ul>li>a{
+    display: none;
+  }
+
+  #navbar>ul>li>span{
+    display: inline-block;
+  } */
+
+  /* Set padding fot the logo */
+  .upper-header>img {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  /* Set one column for the grid layout with a row gap to visualize a phone. Also set the minimum height of to the 100 of viewport */
   .wrapper {
     display: grid;
     grid-template-columns: 1fr;
@@ -1898,6 +1919,7 @@ ensure a smooth transition in border-radius when switching between open and clos
     min-height: 100vh;
   }
 
+  /* For the index html define the layout on one column without row gaps between the items of the grid */
   .wrapper-index {
     row-gap: 0;
     grid-template-areas:
@@ -1908,6 +1930,29 @@ ensure a smooth transition in border-radius when switching between open and clos
     ;
   }
 
+  /* Set the display to column in order to organize the image and the introduction text on the vertical axis */
+  #introduction {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  /* Set the introduction border without borders, shadows, override the position absolute to static and set the maximum witdth to 100% to its parent */
+  #introduction>div {
+    box-shadow: none;
+    border: none;
+    position: static;
+    max-width: 100%;
+  }
+
+  /* Underline the header of the introduction text, center it and add some padding */
+  #introduction>div>h2 {
+    align-self: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding: 0.5rem;
+    width: fit-content;
+  }
+
+  /* Define the grid layout of the categories on one column */
   .wrapper-categories {
     grid-template-areas:
       'header'
@@ -1916,11 +1961,13 @@ ensure a smooth transition in border-radius when switching between open and clos
     ;
   }
 
+  /* Set the number of columns of the categoris on one with row gaps between them*/
   .ad-categories {
     grid-template-columns: 1fr;
     row-gap: 2rem;
   }
 
+  /* Define the grid layout of the about us in html */
   .wrapper-about-us {
     grid-template-areas:
       'header'
@@ -1929,6 +1976,7 @@ ensure a smooth transition in border-radius when switching between open and clos
     ;
   }
 
+  /* Define the grid layout of the contact in html */
   .wrapper-contact {
     grid-template-areas:
       'header'
@@ -1938,8 +1986,13 @@ ensure a smooth transition in border-radius when switching between open and clos
     ;
   }
 
+  /*Add border radius around the faq */
+  .faq {
+    border-radius: 1rem 1rem 1rem 1rem;
+  }
+
+  /* Define the grid layout of the advertisements */
   .wrapper-advertisements {
-    column-gap: 4rem;
     grid-template-areas:
       'header'
       'filters'
@@ -1949,6 +2002,31 @@ ensure a smooth transition in border-radius when switching between open and clos
     ;
   }
 
+  /* Set a limit on the width of the content inside the column, define the grid layout and some gap between them */
+  .ad-product {
+    grid-template-columns: minmax(auto, 1fr);
+    grid-template-areas:
+      'productTitle'
+      'productImage'
+      'productPrice'
+      'productDesc'
+      'productDetails'
+      'productButton';
+    row-gap: 0.5rem;
+  }
+
+  /* Center the image of the advertisement(product) */
+  .ad-product img {
+    align-self: center;
+    justify-self: center;
+  }
+
+  /* Center the price of the advertisement(product) */
+  .ad-info-price {
+    justify-self: center;
+  }
+
+  /* Define the grid layout for the specific computer product to one column */
   .wrapper-computer {
     grid-template-areas:
       'header'
@@ -1958,7 +2036,142 @@ ensure a smooth transition in border-radius when switching between open and clos
       'productSpecs'
       'footer';
   }
+
+  /* Add some space right and left on the details of the ad of the product and its image also */
+  .ad-details, .product-header>img {
+    width: 90%;
+  }
+
+  /* Define the grid layout for the details section of the product, set a limit to the width of the items and some row gap between them */
+  .product-details {
+    grid-template-areas:
+      'detailsHeading'
+      'carousel'
+      'generalParagraph'
+      'specificBulletPoints';
+    grid-template-columns: minmax(auto, 1fr);
+    row-gap: 2rem;
+  }
 }
 
+/* Double column layout for tablets */
+@media (min-width:481px) and (max-width: 960px) {
+  /* Set the wrapper display to grid, organize its content in two columns to visuale a tablet.Set the minimum height of to the 100 of viewport and add some gap between them */
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3rem;
+    min-height: 100vh;
+  }
 
-@media (max-width: 700px) {}
+    /* Set padding fot the logo */
+  .upper-header>img {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  /* For the index html define the layout on two columns without row gaps between the items of the grid */
+  .wrapper-index {
+    row-gap: 0;
+    grid-template-areas:
+      'header header'
+      'introduction header'
+      'testimonials testimonials'
+      'footer footer'
+    ;
+  }
+
+    /* Set the display to column in order to organize the image and the introduction text on the vertical axis */
+  #introduction {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+    /* Set the introduction border without borders, shadows, override the position absolute to static and set the maximum witdth to 100% to its parent */
+  #introduction>div {
+    box-shadow: none;
+    border: none;
+    position: static;
+    max-width: 100%;
+  }
+
+    /* Underline the header of the introduction text, center it and add some padding */
+  #introduction>div>h2 {
+    align-self: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding: 0.5rem;
+    width: fit-content;
+  }
+
+    /* Define the grid layout of the categories on two columns */
+  .wrapper-categories {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'header header'
+      'categories categories'
+      'footer footer'
+    ;
+  }
+
+  /* Define the grid layout of the categories of the advertisement */
+  .ad-categories {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+  }
+
+  /* Define the grid layout on two columns */
+  .wrapper-about-us {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'header header'
+      'members members'
+      'footer footer'
+    ;
+  }
+
+  /* Define the grid layout of the contact page, with the report form to have more space than the faq */
+  .wrapper-contact {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      'header header'
+      'reportProblemForm faq'
+      'footer footer'
+    ;
+  }
+
+  /* Define the grid layout on two columns with some gap vertically between them. The advertisement of the products have more space than the supplementary content*/
+  .wrapper-advertisements {
+    column-gap: 4rem;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      'header header'
+      'filters filters'
+      'products supplementaryContent'
+      'footer footer'
+    ;
+  }
+
+    /* Define only two columns for the grid layout of the ad product and organize the layout using the grid template area.Add some gap between them*/
+  .ad-product {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'productTitle productTitle'
+      'productImage productImage'
+      'productPrice productPrice'
+      'productDesc productDesc'
+      'productDetails productDetails'
+      'productButton productButton';
+    row-gap: 0.5rem;
+  }
+
+  /* Define only two columns for the grid layout of the specific computer page and organize the layout using the grid template area */
+  .wrapper-computer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'header header'
+      'productHeader productHeader'
+      'productDesc productDesc'
+      'productDetails productDetails'
+      'productSpecs productSpecs'
+      'footer footer';
+  }
+}
