@@ -42,7 +42,16 @@
 
     <div class="members">
       <article class="profile">
-        <img src="../Resources/Images/alviona-profile.png" alt="Alviona Mancho">
+        
+        <img srcset="../Resources/Images/alviona-profile_LR.jpg 320w,
+        ../Resources/Images/alviona-profile_MR.jpg 768w,
+        ../Resources/Images/alviona-profile_HR.jpg 1920w" 
+        sizes="(max-width: 480px) 100vw,
+        (max-width: 960px) 100vw,
+        100vw"
+        src="../Resources/Images/alviona-profile_MR.jpg" 
+        alt="Alviona Mancho">
+
         <div class="profile-details">
           <header>
             <h3>Alviona</h3>
@@ -66,7 +75,16 @@
       </article>
 
       <article class="profile">
-        <img src="../Resources/Images/panos-profile.png" alt="Panagiotis Triantafillidis">
+        
+        <img srcset="../Resources/Images/panos-profile_LR.jpg 320w,
+        ../Resources/Images/panos-profile_MR.jpg 768w,
+        ../Resources/Images/panos-profile_HR.jpg 1920w" 
+        sizes="(max-width: 480px) 100vw,
+        (max-width: 960px) 100vw,
+        100vw"
+        src="../Resources/Images/panos-profile_MR.jpg" 
+        alt="Panagiotis Triantafillidis">
+        
         <div class="profile-details">
           <header>
             <h3>Panagiotis</h3>
@@ -90,7 +108,8 @@
 
     </div>
 
-    <button class="add-cart-float-button"><span class="fas fa-shopping-cart"></span></button>
+    <button class="float-button add-cart-float-button"><span class="fas fa-shopping-cart"></span></button>
+    <button class="float-button sign-up-float-button"> <span class="fas fa-user-plus"></span></button>
 
     <footer>
       <div id="upper-footer">

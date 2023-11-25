@@ -402,14 +402,11 @@ black and add smoothness to the transition */
 }
 
 /* Styles for the content of the floating button;
-Set the position of the add-to-cart floating button to fixed and set the bottom and right to suitable 
-coordinates; Define the color, width and height of the button and make it circular 
+Set the position of the add-to-cart floating button to fixed;
+Define the color, width and height of the button and make it circular 
 Set the z-index to make it pop above the other content */
-.add-cart-float-button {
+.float-button {
   position: fixed;
-  bottom: 3rem;
-  right: 2rem;
-  background-color: var(--primary-color);
   color: white;
   border: none;
   width: 2.5rem;
@@ -420,9 +417,28 @@ Set the z-index to make it pop above the other content */
   z-index: 2;
 }
 
+/* Set the bottom and right to suitable coordinates for the add-cart-float-button */
+.add-cart-float-button{
+  bottom: 3rem;
+  right: 1rem;
+  background-color: var(--primary-color);
+}
+
+/* Set the bottom and right to suitable coordinates for the sign-up-float-button */
+.sign-up-float-button {
+  bottom: 3rem;
+  left: 1rem;
+  background-color: var(--tertiary-color);
+}
+
 /* Set a darker background color after hovering on the add-card floating button */
 .add-cart-float-button:hover {
   background-color: var(--primary-color-dark);
+}
+
+/* Set a darker background color after hovering on the sign-up floating button */
+.sign-up-float-button:hover {
+  background-color: black;
 }
 
 /* The general wrapper, defined for all the webpages. Every page will have 3 columns with the same space as the 'Holy Grail', the same row gap and a minimum heigh of the viewport. Basically we define the same layout on every page with different content */
@@ -498,6 +514,20 @@ Set the z-index to make it pop above the other content */
   ;
 }
 
+/* The wrapper of the signUpForm.html. The template is the header to be on the top of the page. The report form will be on the second row in the middle. Last the footer on the third row 
+      1      2       3
+1   Header on all columns
+
+2     - |signUpForm| -
+
+3   Footer on all columns */
+.wrapper-sign-up {
+  grid-template-areas:
+  'header header header'
+  '. signUpForm .'
+  'footer footer footer';
+}
+
 /*The wrapper of the motorcycles.html & computers.html. The template is the header to be on the top of the page. The filters will be on the second row on the left column, the advertisements on the second column in the middle and the supplementary content on the second column on the right column. Last the footer on the third row 
       1      2       3
 1   Header on all columns
@@ -542,11 +572,6 @@ Set the z-index to make it pop above the other content */
 /* Define the grid area to help set it in the grid layout */
 #introduction {
   grid-area: introduction;
-}
-
-/* Set the width image on the introduction */
-#introduction img {
-  width: 100%;
 }
 
 /* Apply frosted glass effect on introduction text, set its position with top, right, set the width given the width of the parent in percentage and add some styling. Also make it flex to organize the content on the vertical axis */
@@ -730,7 +755,7 @@ and horizontally. The rotateY(0deg) ensures that the front face is initially vis
   transform: rotateY(180deg);
 }
 
-/* Set the width and height of the images whithin the advertisements categories cards to 100% and round the corners */
+/* Set the width and height of the images within the advertisements categories cards to 100% and round the corners */
 .ad-card img {
   width: 100%;
   height: 100%;
@@ -922,8 +947,15 @@ a background color, align the social media icons (i.e. text) to the center */
 /* ------------------------- Form Pages (Contact form and Sign-up form) ----------------------------- */
 
 /* Styles for the overall form providing a clean appearance; Set a white background, a subtle border, rounded corners, padding inside, a box shadow for a lifted 3D effect, and a margin around the form. Make it flex in order to organize its content on the vertical axis */
+#report_problem {
+  grid-area: reportProblemForm;
+}
+
+#sign_up {
+  grid-area: signUpForm;
+}
+
 form {
-  /* grid-area: reportProblemForm; */
   justify-self: center;
   align-self: start;
   background-color: white;
@@ -1000,6 +1032,16 @@ form textarea:hover {
   border-color: var(--primary-color);
 }
 
+/* Change the border color and box-shadow for invalid inputs to make them evident */
+form input:not([type="checkbox"]):not([type="radio"]):invalid {
+  border-color: rgb(223, 15, 15);
+}
+
+/* Change the border color and box-shadow for valid inputs to make them evident */
+form input:not([type="checkbox"]):not([type="radio"]):valid {
+  border-color: green;
+}
+
 /* When input elements are in focus the border color changes, the default outline is removed, and a box shadow is added for a focused appearance */
 form input:not([type="checkbox"]):not([type="radio"]):focus,
 form select:focus,
@@ -1008,19 +1050,6 @@ form textarea:focus {
   outline: none;
   box-shadow: 0 0 5px var(--primary-color);
 }
-
-/* Change the border color and box-shadow for invalid inputs tomake them evident */
-/* form input:invalid {
-  border-color: var(--primary-color-faded);
-  outline: none;
-  box-shadow: 0 0 5px var(--primary-color);
-}
-
-form input:valid {
-  border: none;
-  outline: none;
-  box-shadow: none;
-} */
 
 /* Styles for buttons within the form; Set a transparent border, fixed height and width, rounded corners and a cursor */
 form button {
@@ -1058,6 +1087,11 @@ form button[type="reset"]:hover {
   background-color: var(--primary-color-dark);
   border: 1px solid var(--primary-color-dark);
   color: white;
+}
+
+/* Set the cursor to pointer */
+form details>summary {
+  cursor: pointer;
 }
 
 /* Styles for the faq section next to the contact form;
