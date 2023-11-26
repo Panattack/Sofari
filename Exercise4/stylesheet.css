@@ -510,7 +510,7 @@ Set the z-index to make it pop above the other content */
 
 3   Footer on all columns */
 .wrapper-advertisements {
-  column-gap: 4rem;
+  column-gap: 1rem;
   grid-template-areas:
     'header header header'
     'filters products supplementaryContent'
@@ -1112,7 +1112,7 @@ Make the advertisements be on flex to organize the its content on the vertical a
 /* Customize the product advertisement with a background color and box shadow, set a padding and a margin and round the corners. Also define the grid layout. Set a limit for the width of the content on the second column */
 .ad-product {
   display: grid;
-  grid-template-columns: auto minmax(auto, 2fr) auto;
+  grid-template-columns: auto 2fr 1fr;
   grid-template-areas:
     'productImage productTitle productPrice'
     'productImage productDesc productDesc'
@@ -1645,7 +1645,7 @@ Set a border, a box shadow and rounded corners and set the padding. Define the g
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   display: grid;
-  grid-template-columns: minmax(auto, 3fr) minmax(auto, 1fr);
+  grid-template-columns: minmax(auto, 3fr) auto;
   grid-template-areas:
     'detailsHeading detailsHeading'
     'generalParagraph carousel'
@@ -2129,7 +2129,7 @@ img {
 
   /* Define the grid layout on two columns with some gap vertically between them. The advertisement of the products have more space than the supplementary content*/
   .wrapper-advertisements {
-    column-gap: 4rem;
+    column-gap: 1rem;
     grid-template-columns: 2fr 1fr;
     grid-template-areas:
       'header header'
@@ -2161,5 +2161,16 @@ img {
       'productDetails productDetails'
       'productSpecs productSpecs'
       'footer footer';
+  }
+
+  /* Define the grid layout for the details section of the product, set a limit to the width of the items and some row gap between them */
+  .product-details {
+    grid-template-areas:
+      'detailsHeading detailsHeading'
+      'carousel carousel'
+      'generalParagraph generalParagraph'
+      'specificBulletPoints specificBulletPoints';
+    grid-template-columns: minmax(auto, 1fr) auto;
+    row-gap: 2rem;
   }
 }
