@@ -741,7 +741,7 @@ rounded corners, padding inside, a box shadow for a lifted 3D effect, and a marg
   padding: 1rem;
   width: fit-content;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  margin: 6rem;
+  margin: 0rem 6rem 6rem 6rem;
 
   float: left;
 }
