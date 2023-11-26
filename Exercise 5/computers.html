@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../Resources/Images/web_logo.png" type="image">
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="general-purpose-scripts.js" type="text/javascript"></script>
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- External fonts -->
@@ -288,7 +289,8 @@
         <section class="ads-products">
 
             <article class="ad-product">
-                <img src="../Resources/Images/dell-inspiron.jpg" alt="Dell Inspiron 5502 15.6”: i5-1135G7 / 8GB / 256GB">
+                <img src="../Resources/Images/dell-inspiron.jpg"
+                    alt="Dell Inspiron 5502 15.6”: i5-1135G7 / 8GB / 256GB">
                 <header class="ad-product-title">
                     <h2>Dell Inspiron 5502 15.6”: i5-1135G7 / 8GB / 256GB</h2>
                     <span class="ad-details-code"><b>Code:</b> 5373442308</span>
@@ -417,7 +419,9 @@
             </section>
         </aside>
         <button class="float-button add-cart-float-button"><span class="fas fa-shopping-cart"></span></button>
-        <button class="float-button sign-up-float-button"> <span class="fas fa-user-plus"></span></button>
+        <button class="float-button sign-up-float-button" onclick="redirectToPage('signUpForm.html')">
+            <span class="fas fa-user-plus"></span>
+        </button>
 
         <footer>
             <div id="upper-footer">
