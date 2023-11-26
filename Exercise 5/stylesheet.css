@@ -577,8 +577,8 @@ Set the z-index to make it pop above the other content */
 /* Apply frosted glass effect on introduction text, set its position with top, right, set the width given the width of the parent in percentage and add some styling. Also make it flex to organize the content on the vertical axis */
 #introduction>div {
   position: absolute;
-  top: 20%;
-  right: 5%;
+  top: 22%;
+  right: 1%;
   max-width: calc(30rem + 20vw);
   backdrop-filter: blur(16px) saturate(130%);
   background-color: rgba(255, 255, 255, 0.40);

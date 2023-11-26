@@ -390,8 +390,8 @@ coordinates; Define the color, width and height of the button and make it circul
 /* Apply frosted glass effect on introduction text */
 #introduction>div {
   position: absolute;
-  top: 20%;
-  right: 5%;
+  top: 22%;
+  right: 1%;
   max-width: 27%;
 
   backdrop-filter: blur(16px) saturate(130%);
