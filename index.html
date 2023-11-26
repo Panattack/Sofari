@@ -21,11 +21,14 @@
         ul {
             display: flex;
             flex-direction: column;
-            list-style-type: none;
             row-gap: 1rem;
         }
 
-        li a {
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav li a {
             background-color: #8bc5cb;
             padding: 1rem 2rem 1rem 2rem;
             border-radius: 0.5rem;
@@ -34,8 +37,17 @@
             color: black;
         }
 
-        li a:hover {
+        nav li a:hover {
             background-color: #56a0a8;
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid gainsboro;
+            text-align: left;
+            padding: 1rem;
+            border-collapse: collapse;
         }
     </style>
 </head>
@@ -43,18 +55,72 @@
 <body>
     <nav>
         <ul>
-            <li><a href="../Web-Dev/Exercise 1/index.html">Exercise 1</a><span class="fas fa-home"></span></li>
-            <li><a href="../Web-Dev/Exercise 2/index.html">Exercise 2</a><span class="fas fa-home"></span></li>
-            <li><a href="../Web-Dev/Exercise 3/index.html">Exercise 3</a><span class="fas fa-home"></span></li>
-            <li><a href="../Web-Dev/Exercise 4/index.html">Exercise 4</a><span class="fas fa-home"></span></li>
+            <li><a href="../Web-Dev/Exercise 1/index.html">Exercise 1</a></li>
+            <li><a href="../Web-Dev/Exercise 2/index.html">Exercise 2</a></li>
+            <li><a href="../Web-Dev/Exercise 3/index.html">Exercise 3</a></li>
+            <li><a href="../Web-Dev/Exercise 4/index.html">Exercise 4</a></li>
+            <li><a href="../Web-Dev/Exercise 5/index.html">Exercise 5</a></li>
         </ul>
     </nav>
+
+    <section>
+        <h1>Team</h1>
+
+        <table>
+            <tr>
+                <th>Alviona Mancho</th>
+                <td>3200098</td>
+            </tr>
+            <tr>
+                <th>Panagiotis Triantafillidis</th>
+                <td>3200199</td>
+            </tr>
+        </table>
+    </section>
 
     <section>
         <h1>Attributions</h1>
         Homepage Image by <a
             href="https://www.freepik.com/free-photo/young-beautiful-woman-having-online-meeting_18954789.htm#page=8&query=couch%20laptop&position=12&from_view=search&track=ais">Freepik</a>
 
+    </section>
+
+    <section>
+        <h1>Notes</h1>
+        <ul>
+            <li><b>Exercise 1:</b> In this part, emphasis is given to the semantic elements of HTML and their
+                usage. Classes have been included in some elements, mainly div, with the purpose of assigning meaning,
+                and not for formatting purposes as done in the following sections.</li>
+            <li><b>Exercise 2:</b> We focus on formatting elements using CSS rules. It's worth noting that for a
+                basic layout involving multiple columns, <b>float</b> has been employed. Flex properties are used in
+                specific
+                instances; however, it's important to mention that their usage is not emphasized in this part</li>
+            <li><b>Exercise 3:</b> In this part, advanced layout techniques are employed using flex and grid.
+                All pages have the same general layout of three columns.
+                This corresponds to the so-called <i>Holy Grail</i> layout <a
+                    title="David Lark, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
+                    href="https://commons.wikimedia.org/wiki/File:HolyGrail.svg"><img width="512" alt="HolyGrail"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HolyGrail.svg/512px-HolyGrail.svg.png"></a>
+            </li>
+            <li><b>Exercise 4:</b> We emphasize responsiveness by using media queries to manage the layout on mobile
+                devices, tablets and desktops.
+                For the selection of breakpoints, we consulted relevant online sources. As an example, we provide the
+                following <a
+                    href="https://www.altamira.ai/blog/common-screen-sizes-for-responsive-web-design">article</a>.</li>
+            <li><b>Exercise 5:</b>In the final part, we complete the website with a sign-up form, the entries of which
+                are
+                validated through appropriate properties of the input element, as well as through JavaScript code.
+                Essentially, with JavaScript code, we validate inputs that cannot be validated through properties of the
+                input element.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Validation</h1>
+        <ul>
+            <li>For <a href="https://validator.w3.org">Html</a></li>
+            <li>For <a href="https://jigsaw.w3.org/css-validator">CSS</a></li>
+        </ul>
     </section>
 
 </body>
