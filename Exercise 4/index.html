@@ -43,7 +43,16 @@
     </header>
 
     <section id="introduction">
-      <img src="../Resources/Images/index1.jpg" alt="Woman sitting on sofa">
+      
+      <img srcset="../Resources/Images/index1_LR.jpg 320w,
+      ../Resources/Images/index1_MR.jpg 768w,
+      ../Resources/Images/index1_HR.jpg 1920w" 
+      sizes="(max-width: 480px) 100vw,
+      (max-width: 960px) 100vw,
+      100vw"
+      src="../Resources/Images/index1_MR.jpg" 
+      alt="Woman sitting on sofa">
+      
       <div>
         <h2>Why Choose Sofari</h2>
         <p>At Sofari, we're dedicated to <em>simplifying</em> your shopping and browsing experience from the comfort of
@@ -114,7 +123,7 @@
     </section>
 
 
-    <button class="add-cart-float-button"><span class="fas fa-shopping-cart"></span></button>
+    <button class="float-button add-cart-float-button"><span class="fas fa-shopping-cart"></span></button>
 
     <footer>
       <div id="upper-footer">
