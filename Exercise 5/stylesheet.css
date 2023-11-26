@@ -579,8 +579,7 @@ Set the z-index to make it pop above the other content */
   position: absolute;
   top: 20%;
   right: 5%;
-  max-width: 27%;
-
+  max-width: calc(30rem + 20vw);
   backdrop-filter: blur(16px) saturate(130%);
   background-color: rgba(255, 255, 255, 0.40);
   border-radius: 1rem;
@@ -1156,9 +1155,10 @@ Make the advertisements be on flex to organize the its content on the vertical a
   display: block;
 }
 
-/* Customize the product advertisement with a background color and box shadow, set a padding and a margin and round the corners. Also define the grid layout */
+/* Customize the product advertisement with a background color and box shadow, set a padding and a margin and round the corners. Also define the grid layout. Set a limit for the width of the content on the second column */
 .ad-product {
   display: grid;
+  grid-template-columns: auto minmax(auto, 2fr) auto;
   grid-template-areas:
     'productImage productTitle productPrice'
     'productImage productDesc productDesc'
@@ -1166,7 +1166,6 @@ Make the advertisements be on flex to organize the its content on the vertical a
   justify-items: start;
   align-items: start;
   column-gap: 1rem;
-  grid-template-columns: auto 1fr auto;
   border: 1px solid gainsboro;
   border-radius: 1rem;
   padding: 2rem;
@@ -1457,18 +1456,20 @@ Add a subtle border for each label, round the corners and add padding */
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  gap: 2rem;
 }
 
-/* Set a left margin for the product image in the product header and round its corners */
+/* Set a left margin for the product image in the product header and round its corners. Shrink the width and automate the height of the image */
 .product-header>img {
   align-self: center;
   justify-self: right;
   border-radius: 0.5rem;
   width: 38rem;
-  height: 25rem;
+  height: auto;
+  flex: 0 1 auto;
 }
 
-/* Align the advertisement details across the horizntal and vertical axis;Set the display to grid and define the layout using the template. */
+/* Align the advertisement details across the horizntal and vertical axis;Set the display to grid and define the layout using the template. Set a limit for the content of the columns */
 .ad-details {
   align-self: center;
   justify-self: left;
@@ -1685,7 +1686,7 @@ to a darker shade of the primary color, and applying a scale transformation for 
 }
 
 /* Styles for the product details;
-Set a border, a box shadow and rounded corners and set the margin and padding. Define the grid layout with the help of the grid-template-area of the product */
+Set a border, a box shadow and rounded corners and set the margin and padding. Define the grid layout with the help of the grid-template-area of the product. Set limit for the width of the content of the columns to be responsive */
 .product-details {
   grid-area: productDetails;
   border: 1px solid gainsboro;
@@ -1694,7 +1695,7 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   padding: 2rem;
   display: grid;
   margin: 0 2rem 0 2rem;
-  grid-template-columns: 1fr, auto;
+  grid-template-columns: minmax(auto, 3fr) minmax(auto, 1fr);
   grid-template-areas:
     'detailsHeading detailsHeading'
     'generalParagraph carousel'
@@ -2072,7 +2073,8 @@ img {
   }
 
   /* Add some space right and left on the details of the ad of the product and its image also */
-  .ad-details, .product-header>img {
+  .ad-details,
+  .product-header>img {
     width: 90%;
   }
 
@@ -2090,6 +2092,7 @@ img {
 
 /* Double column layout for tablets */
 @media (min-width:481px) and (max-width: 960px) {
+
   /* Set the wrapper display to grid, organize its content in two columns to visuale a tablet.Set the minimum height of to the 100 of viewport and add some gap between them */
   .wrapper {
     display: grid;
@@ -2098,7 +2101,7 @@ img {
     min-height: 100vh;
   }
 
-    /* Set padding fot the logo */
+  /* Set padding fot the logo */
   .upper-header>img {
     padding: 1rem 1rem 1rem 1rem;
   }
@@ -2114,13 +2117,13 @@ img {
     ;
   }
 
-    /* Set the display to column in order to organize the image and the introduction text on the vertical axis */
+  /* Set the display to column in order to organize the image and the introduction text on the vertical axis */
   #introduction {
     display: flex;
     flex-flow: column nowrap;
   }
 
-    /* Set the introduction border without borders, shadows, override the position absolute to static and set the maximum witdth to 100% to its parent */
+  /* Set the introduction border without borders, shadows, override the position absolute to static and set the maximum witdth to 100% to its parent */
   #introduction>div {
     box-shadow: none;
     border: none;
@@ -2128,7 +2131,7 @@ img {
     max-width: 100%;
   }
 
-    /* Underline the header of the introduction text, center it and add some padding */
+  /* Underline the header of the introduction text, center it and add some padding */
   #introduction>div>h2 {
     align-self: center;
     border-bottom: 2px solid var(--primary-color);
@@ -2136,9 +2139,8 @@ img {
     width: fit-content;
   }
 
-    /* Define the grid layout of the categories on two columns */
+  /* Define the grid layout of the categories on two columns */
   .wrapper-categories {
-    grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'header header'
       'categories categories'
@@ -2152,9 +2154,12 @@ img {
     row-gap: 2rem;
   }
 
+  .ad-card {
+    width: 80%;
+  }
+
   /* Define the grid layout on two columns */
   .wrapper-about-us {
-    grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'header header'
       'members members'
@@ -2184,7 +2189,7 @@ img {
     ;
   }
 
-    /* Define only two columns for the grid layout of the ad product and organize the layout using the grid template area.Add some gap between them*/
+  /* Define only two columns for the grid layout of the ad product and organize the layout using the grid template area.Add some gap between them*/
   .ad-product {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -2199,7 +2204,6 @@ img {
 
   /* Define only two columns for the grid layout of the specific computer page and organize the layout using the grid template area */
   .wrapper-computer {
-    grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'header header'
       'productHeader productHeader'
