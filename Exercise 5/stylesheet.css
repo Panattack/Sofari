@@ -27,7 +27,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-
 /*------------------------General settings------------------------*/
 
 /* Set the color of the scrollbar thumb (the draggable part) */
@@ -60,6 +59,7 @@
   /* Muted background color for selected text */
 }
 
+/* Sets the color gray for the selected item (e.g text) */
 ::selection {
   background-color: #d8d8d8;
   /* Muted background color for selected text */
@@ -684,7 +684,7 @@ make the name appear as handwritten */
 
 /*------------------------Advertisements Page------------------------*/
 
-/* Define the grid area of the ad-categories to help on setting the grid layout, set the space between it's content and center its items */
+/* Define the grid area of the ad-categories to help on setting the grid layout with 3 columns on each row, set the space between it's content and center its items */
 .ad-categories {
   grid-area: categories;
   display: grid;
@@ -829,6 +829,7 @@ and display the profiles next to each other using flex */
   width: 25rem;
   height: auto;
   overflow: hidden;
+  flex: 0 1 auto;
   border-radius: 1rem;
   display: flex;
 }
@@ -1272,13 +1273,11 @@ Set a smaller font size that that of the current price, make it black, reduce th
 }
 
 /* Styles for details elements within the filters;
-Add padding and a subtle top border for separation and set the width to 100% to expand the
-border */
+Add padding and a subtle top border for separation and make it grow and shrink */
 .filters>details {
   flex: 0 1 auto;
   border-top: 1px solid gainsboro;
   padding: 1rem;
-  width: 100%;
 }
 
 /* Styles for the summary of the details within the filters;
@@ -1447,7 +1446,6 @@ Add a subtle border for each label, round the corners and add padding */
   list-style: none;
 }
 
-
 /* ------------------------- Specific computer Page  ----------------------------- */
 
 /* Set the grid area for the product header in order to position it to the specified grid cell. Make its display flex to organize its items to the horizontal axis with space around them */
@@ -1469,7 +1467,7 @@ Add a subtle border for each label, round the corners and add padding */
   flex: 0 1 auto;
 }
 
-/* Align the advertisement details across the horizntal and vertical axis;Set the display to grid and define the layout using the template. Set a limit for the content of the columns */
+/* Align the advertisement details across the horizntal and vertical axis;Set the display to grid and define the layout using the template. Set a limit for the content of the columns and ad some gap between the grid items. Last, make it grow and shrink */
 .ad-details {
   align-self: center;
   justify-self: left;
@@ -1482,6 +1480,7 @@ Add a subtle border for each label, round the corners and add padding */
     'productButton productButton'
     'productViews productViews';
   row-gap: 1rem;
+  flex: 0 1 auto;
 }
 
 /* Set the display of all spans within the advertisement details to block */
@@ -1599,13 +1598,12 @@ product header (e.g. in computers-5348130689-details page) and in advertisements
   margin-right: 0.5rem;
 }
 
-/* Set the grid area to place the product description the pre-defined cell in the grid layout. Make its border circular and add color on them. Add padding and margin on right and left */
+/* Set the grid area to place the product description the pre-defined cell in the grid layout. Make its border circular and add color on them. Add padding. */
 .product-desc {
   grid-area: productDesc;
   border: 1px solid var(--primary-color);
   border-radius: 1rem;
   padding: 2rem;
-  margin: 0 2rem 0 2rem;
 }
 
 /* Common styles for contact button in the product description section and add-to-cart buttons;
@@ -1686,7 +1684,7 @@ to a darker shade of the primary color, and applying a scale transformation for 
 }
 
 /* Styles for the product details;
-Set a border, a box shadow and rounded corners and set the margin and padding. Define the grid layout with the help of the grid-template-area of the product. Set limit for the width of the content of the columns to be responsive */
+Set a border, a box shadow and rounded corners and set the padding. Define the grid layout with the help of the grid-template-area of the product. Set limit for the width of the content of the columns to be responsive */
 .product-details {
   grid-area: productDetails;
   border: 1px solid gainsboro;
@@ -1694,7 +1692,6 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   display: grid;
-  margin: 0 2rem 0 2rem;
   grid-template-columns: minmax(auto, 3fr) minmax(auto, 1fr);
   grid-template-areas:
     'detailsHeading detailsHeading'
@@ -2088,6 +2085,15 @@ img {
     grid-template-columns: minmax(auto, 1fr);
     row-gap: 2rem;
   }
+
+  /* Define the grid layout for the sign up form to one column */
+  .wrapper-sign-up {
+    grid-template-areas: 
+    'header'
+    'signUpForm'
+    'footer'
+    ;
+  }
 }
 
 /* Double column layout for tablets */
@@ -2211,5 +2217,14 @@ img {
       'productDetails productDetails'
       'productSpecs productSpecs'
       'footer footer';
+  }
+
+  /* Define the grid layout for the specific computer product to two column */
+  .wrapper-sign-up {
+    grid-template-areas:
+      'header header'
+      'signUpForm signUpForm'
+      'footer footer'
+    ;
   }
 }

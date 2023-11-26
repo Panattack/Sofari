@@ -658,7 +658,7 @@ make the name appear as handwritten */
 
 /*------------------------Advertisements Page------------------------*/
 
-/* Define the grid area of the ad-categories to help on setting the grid layout, set the space between it's content and center its items */
+/* Define the grid area of the ad-categories to help on setting the grid layout with 3 columns on each row, set the space between it's content and center its items */
 .ad-categories {
   grid-area: categories;
   display: grid;
@@ -1226,13 +1226,11 @@ Set a smaller font size that that of the current price, make it black, reduce th
 }
 
 /* Styles for details elements within the filters;
-Add padding and a subtle top border for separation and set the width to 100% to expand the
-border */
+Add padding and a subtle top border for separation and make it grow and shrink */
 .filters>details {
   flex: 0 1 auto;
   border-top: 1px solid gainsboro;
   padding: 1rem;
-  /* width: 100%; */
 }
 
 /* Styles for the summary of the details within the filters;
@@ -1401,7 +1399,6 @@ Add a subtle border for each label, round the corners and add padding */
   list-style: none;
 }
 
-
 /* ------------------------- Specific computer Page  ----------------------------- */
 
 /* Set the grid area for the product header in order to position it to the specified grid cell. Make its display flex to organize its items to the horizontal axis with space around them */
@@ -1423,7 +1420,7 @@ Add a subtle border for each label, round the corners and add padding */
   flex: 0 1 auto;
 }
 
-/* Align the advertisement details across the horizntal and vertical axis; Set the display to grid and define the layout using the template. Set a limit for the content of the columns */
+/* Align the advertisement details across the horizntal and vertical axis; Set the display to grid and define the layout using the template. Set a limit for the content of the columns and ad some gap between the grid items. Last, make it grow and shrink */
 .ad-details {
   align-self: center;
   justify-self: left;
@@ -1554,13 +1551,12 @@ product header (e.g. in computers-5348130689-details page) and in advertisements
   margin-right: 0.5rem;
 }
 
-/* Set the grid area to place the product description the pre-defined cell in the grid layout. Make its border circular and add color on them. Add padding and margin on right and left */
+/* Set the grid area to place the product description the pre-defined cell in the grid layout. Make its border circular and add color on them. Add padding. */
 .product-desc {
   grid-area: productDesc;
   border: 1px solid var(--primary-color);
   border-radius: 1rem;
   padding: 2rem;
-  /* margin: 0 2rem 0 2rem; */
 }
 
 /* Common styles for contact button in the product description section and add-to-cart buttons;
@@ -1641,7 +1637,7 @@ to a darker shade of the primary color, and applying a scale transformation for 
 }
 
 /* Styles for the product details;
-Set a border, a box shadow and rounded corners and set the margin and padding. Define the grid layout with the help of the grid-template-area of the product. Set limit for the width of the content of the columns to be responsive */
+Set a border, a box shadow and rounded corners and set the padding. Define the grid layout with the help of the grid-template-area of the product. Set limit for the width of the content of the columns to be responsive */
 .product-details {
   grid-area: productDetails;
   border: 1px solid gainsboro;
@@ -1649,7 +1645,6 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   display: grid;
-  /* margin: 0 2rem 0 2rem; */
   grid-template-columns: minmax(auto, 3fr) minmax(auto, 1fr);
   grid-template-areas:
     'detailsHeading detailsHeading'
@@ -1671,7 +1666,7 @@ Set a border, a box shadow and rounded corners and set the margin and padding. D
 /* Set the grid area to position the paragraph within the specified grid cell and remove the margin. Set the alignment for the paragraphs describing the product characteristics */
 .product-details>p {
   grid-area: generalParagraph;
-  margin: 0rem;
+  margin: 0;
   text-align: justify;
 }
 

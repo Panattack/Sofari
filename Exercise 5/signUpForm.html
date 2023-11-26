@@ -72,7 +72,7 @@
                     <label for="street_address">Street address: </label>
                     <input type="text" id="street_address" name="street_address" maxlength="50"
                         placeholder="e.g. Eleutherias 12" pattern="([A-Z][a-z]* )+[0-9]+"
-                        title="Please enter a valid street address e.g. Eleutherias 12" autocomplete="street-address"
+                        title="Please enter a valid street address e.g. Eleutherias 12" autocomplete="address-level1"
                         required>
 
                     <label for="city">City</label>
@@ -93,7 +93,6 @@
 
                     <label for="country">Country: </label>
                     <select id="country" name="country" autocomplete="country" enterkeyhint="done" required>
-                        <option></option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Åland Islands</option>
                         <option value="AL">Albania</option>
@@ -350,7 +349,7 @@
 
                 <p>
                     <label for="phone_prefix">Choose your country prefix: </label>
-                    <select id="phone_prefix" name="phone_prefix" autocomplete="phone_prefix" enterkeyhint="done"
+                    <select id="phone_prefix" name="phone_prefix" autocomplete="on" enterkeyhint="done"
                         required>
                         <option value="93">Afghanistan +93</option>
                         <option value="358">Aland Islands +358</option>
@@ -632,7 +631,7 @@
                     <input type="password" id="confirm_password" name="confirm_password" maxlength="20" minlength="6"
                         pattern="(.*[#@$&*%]+.*)*"
                         title="Please enter a valid password, consisting of 6 up to 20 characters and at least one special character (#, @, $, &, * or %)"
-                        placeholder="Enter your password again" autocomplete="current_password" required>
+                        placeholder="Enter your password again" autocomplete="on" required>
                 </p>
 
             </fieldset>
@@ -713,7 +712,7 @@
                         <!-- Question 2: Current Job Position (Dropdown Selection) -->
                         <label for="job_position">2. What is your current job position?</label>
                         <input type="text" id="job_position" name="job_position" maxlength="30"
-                            placeholder="Enter your current job position" list="job-list" autocomplete="job_position">
+                            placeholder="Enter your current job position" list="job-list" autocomplete="on">
 
                         <datalist id="job-list">
                             <option value="Commerce"></option>
@@ -731,22 +730,22 @@
                     <p>
                         <!-- Question 3: Preferred way of working (Checkbox Selection) -->
                         <label>3. Which is your preferred way of working?</label>
-                    <div class="checkboxes">
-                        <div class="checkbox-input-label-pair">
-                            <input type="checkbox" id="on_site" name="preference_way_of_work" value="on_site">
-                            <label for="on_site">On-Site</label>
-                        </div>
+                        <div class="checkboxes">
+                            <div class="checkbox-input-label-pair">
+                                <input type="checkbox" id="on_site" name="preference_way_of_work" value="on_site">
+                                <label for="on_site">On-Site</label>
+                            </div>
 
-                        <div class="checkbox-input-label-pair">
-                            <input type="checkbox" id="remote" name="preference_way_of_work" value="remote">
-                            <label for="remote">Remote</label>
-                        </div>
+                            <div class="checkbox-input-label-pair">
+                                <input type="checkbox" id="remote" name="preference_way_of_work" value="remote">
+                                <label for="remote">Remote</label>
+                            </div>
 
-                        <div class="checkbox-input-label-pair">
-                            <input type="checkbox" id="hybrid" name="preference_way_of_work" value="hybrid">
-                            <label for="hybrid">Hybrid</label>
+                            <div class="checkbox-input-label-pair">
+                                <input type="checkbox" id="hybrid" name="preference_way_of_work" value="hybrid">
+                                <label for="hybrid">Hybrid</label>
+                            </div>
                         </div>
-                    </div>
                     </p>
                 </details>
 
@@ -763,7 +762,7 @@
 
                         <div class="checkbox-input-label-pair">
                             <input type="checkbox" id="vehicle_automobiles" name="vehicle_types" value="automobiles">
-                            <label for="vehicle_automobile">Automobiles</label>
+                            <label for="vehicle_automobiles">Automobiles</label>
                         </div>
 
                         <div class="checkbox-input-label-pair">
@@ -796,7 +795,7 @@
                         <!-- Question 5: Additional Interests -->
                         <label for="additional_interests">5. Any other specific preferences or interests you would like
                             to mention?</label>
-                        <textarea id="additionalInterests" name="additionalInterests" maxlength="100" rows="4"
+                        <textarea id="additional_interests" name="additionalInterests" maxlength="100" rows="4"
                             cols="50"></textarea>
                     </p>
                 </details>

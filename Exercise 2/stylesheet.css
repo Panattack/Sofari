@@ -56,7 +56,7 @@ body {
   font-family: 'Manjari', sans-serif;
 }
 
-/* Set the background color of the header and organize the layout of its content. Last add rounded borders to the bottom of the header.Make it fixed to always be on the top */
+/* Set the background color of the header and organize the layout of its content. Last add rounded borders to the bottom of the header. Make it fixed to always be on the top */
 .top-header {
   background-color: var(--primary-color);
   background-size: cover;
@@ -123,7 +123,7 @@ body {
   margin-right: 5rem;
 }
 
-/* Remove default unordered list style settings (bullets) for the navigation bar */
+/* Remove default unordered list style settings (bullets) for the navigation bar, make any overflow hidden and make zero the padding and margin */
 #navbar>ul {
   list-style-type: none;
   margin: 0;
@@ -152,7 +152,7 @@ set a right margin to add a slight space between them and center the items verti
   transition: background-color 0.1s;
 }
 
-/* Change the link color on hover on navigation bar */
+/* Change the link color on hover on navigation bar and make its border circular */
 #navbar li a:hover {
   color: white;
   background-color: var(--tertiary-color);
@@ -176,7 +176,7 @@ set a right margin to add a slight space between them and center the items verti
 }
 
 /* Styles for the history navigation bar, including its background color, box shadow for a subtle elevation effect, 
-padding from the top, border, wifth to 100% of it's parent, and a high z-index for layering*/
+padding from the top, border, wifth to 100% of it's parent, and a high z-index for layering */
 .history-nav {
   background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -200,11 +200,6 @@ Remove default list styles, set margin and padding to zero and hide any overflow
   float: left;
   margin-right: 1rem;
 }
-
-/* .history-nav li::before {
-content: "\f061"; 
-font-family: "Font Awesome 5 Free";
-} */
 
 /* Styles for the anchor links within list items;
 Set them as block elements, remove default text decoration and set their color to black with a slightly reduced opacity */
@@ -483,7 +478,6 @@ make the name appear as handwritten */
   font-family: 'Reenie Beanie';
   font-size: 2rem;
 }
-
 
 /*------------------------Advertisements Page------------------------*/
 
@@ -1112,6 +1106,7 @@ Add a subtle border for each label, round the corners and add padding */
   justify-content: space-between;
 }
 
+/* Add box shadow, padding to the supplementary content. Also make its width 20% of its parent and set it next to each other for a three columns layout */
 .supplementary-content {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
@@ -1120,22 +1115,26 @@ Add a subtle border for each label, round the corners and add padding */
   float: left;
 }
 
+/* Add zero padding to the list of the tips and the latest trends */
 .latest-trends ul,
 .tips ul {
   padding: 0;
 }
 
+/* Add margin top to the elements of the tips and the latest trends */
 .latest-trends li,
 .tips li {
   margin-top: 1rem;
 }
 
+/* Delete the bullets of the elements of the list, set a background color and make its border circular*/
 .latest-trends li {
   list-style-type: none;
   background-color: rgb(216, 216, 216);
   border-radius: 0.5rem;
 }
 
+/* Set a background colorand a color, make its border circular, add some padding around it */
 .latest-trends li a {
   background-color: var(--secondary-color);
   color: black;
@@ -1153,12 +1152,12 @@ Add a subtle border for each label, round the corners and add padding */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+/* Delete the default bullets of the elements of the tip */
 .tips li {
   border-bottom: 1px solid gainsboro;
   padding: 0.2rem;
   list-style: none;
 }
-
 
 /* ------------------------- Specific computer Page  ----------------------------- */
 
