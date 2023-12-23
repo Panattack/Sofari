@@ -1,3 +1,5 @@
+const generalUrl = "https://wiki-ads.onrender.com/"
+
 let myHeaders = new Headers();
 myHeaders.append('Accept', 'application/json');
 
@@ -12,12 +14,14 @@ function fillTemplate() {
     // Get the category id from the url of the page
     const urlParams = new URLSearchParams(window.location.search);
     const categoryId = urlParams.get('id');
-    let url = `https://wiki-ads.onrender.com/ads?category=${categoryId}`;
+    let url = `${generalUrl}ads?category=${categoryId}`;
 
+    // Fetch the advertisements of the specified category
     fetch(url, init)
     .then(response => response.json())
-    .then(obj => {
-        console.log(obj);
+    .then(adsList => {
+        console.log(adsList);
+
         // Load the template
         let ads = document.getElementById('category-template').textContent;
         window.templates = {};
