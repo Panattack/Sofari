@@ -721,9 +721,9 @@ using a 3D effect and a smooth transformation */
 
 /* Perform the card flip on hover; select the inner content of the card and rotate it around the Y-axis 
 by 180 degrees, creating a flip effect */
-.ad-card:hover .ad-card-inner {
+/* .ad-card:hover .ad-card-inner {
   transform: rotateY(180deg);
-}
+} */
 
 /* Common styles for both the front and back faces of the card; hide the back face when not facing the viewer, 
 add a border-radius and a box-shadow for a subtle 3D effect */

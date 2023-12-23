@@ -12,21 +12,21 @@ function fillTemplate() {
     // Get the category id from the url of the page
     const urlParams = new URLSearchParams(window.location.search);
     const categoryId = urlParams.get('id');
-    let url = `https://wiki-ads.onrender.com/ads?category=${categoryId}`;
+    let url = `https://wiki-ads.onrender.com/ads?subcategory=${categoryId}`;
 
     fetch(url, init)
     .then(response => response.json())
-    .then(adsCategories => {
-        console.log(adsCategories);
+    .then(subAds => {
+        console.log(subAds);
         // Load the template
-        let ads = document.getElementById('category-template').textContent;
+        let ads = document.getElementById('subcategory-template').textContent;
         window.templates = {};
         window.templates.ads = Handlebars.compile(ads);
 
         // Fill the template
         let contentAds = document.getElementById("example");
         let htmlContent = templates.ads({
-            array: adsCategories
+            array: subAds
         });
         contentAds.innerHTML = htmlContent;
     })
