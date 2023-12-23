@@ -1,6 +1,4 @@
-// Fetch data
-
-generalUrl = "https://wiki-ads.onrender.com/"
+const generalUrl = "https://wiki-ads.onrender.com/"
 
 let myHeaders = new Headers();
 myHeaders.append('Accept', 'application/json');
@@ -11,19 +9,18 @@ let init = {
 }
 
 // index.html
-
 window.addEventListener('load', fillTemplate);
 
 function fillTemplate() {
     // Fetch all categories
-    let url = generalUrl + "categories"
+    let url = `${generalUrl}categories`
 
     fetch(url, init)
         .then(response => response.json())
         .then(categoriesList => {
 
             // Fetch all subcategories
-            let url = generalUrl + "subcategories"
+            let url = `${generalUrl}subcategories`
             return fetch(url, init)
                 .then(response => response.json())
                 .then(subcategoriesList => {
