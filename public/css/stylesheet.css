@@ -685,7 +685,7 @@ make the name appear as handwritten */
 /*------------------------Advertisements Page------------------------*/
 
 /* Define the grid area of the ad-categories to help on setting the grid layout with 3 columns on each row, set the space between it's content and center its items */
-.ad-categories {
+#ad-categories {
   grid-area: categories;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -702,7 +702,7 @@ set perspective to make the card flip look more realistic */
 .ad-card {
   perspective: 60rem;
   width: 20rem;
-  height: 20rem;
+  height: 25rem;
   border-radius: 1rem;
   overflow: hidden;
   padding: 0.4rem;
@@ -721,9 +721,21 @@ using a 3D effect and a smooth transformation */
 
 /* Perform the card flip on hover; select the inner content of the card and rotate it around the Y-axis 
 by 180 degrees, creating a flip effect */
-/* .ad-card:hover .ad-card-inner {
+.ad-card:hover .ad-card-inner {
   transform: rotateY(180deg);
-} */
+}
+
+#ad-categories .ad-card-front img {
+  width: 8rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+}
+
+#ad-categories .ad-card-back img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
 
 /* Common styles for both the front and back faces of the card; hide the back face when not facing the viewer, 
 add a border-radius and a box-shadow for a subtle 3D effect */
@@ -745,6 +757,9 @@ and horizontally. The rotateY(0deg) ensures that the front face is initially vis
   align-items: center;
   justify-content: center;
   transform: rotateY(0deg);
+
+  background-image: url(../../Resources/Images/grey-background.jpg);
+  background-size: cover;
 }
 
 /* More specific styles fot the front face of the card;  use flexbox to organize the content vertically. The rotateY(180deg) ensures that the back face is initially hidden */
@@ -755,11 +770,11 @@ and horizontally. The rotateY(0deg) ensures that the front face is initially vis
 }
 
 /* Set the width and height of the images within the advertisements categories cards to 100% and round the corners */
-.ad-card img {
+/* .ad-card img {
   width: 100%;
   height: 100%;
   border-radius: 1rem;
-}
+} */
 
 /* Set the font size, margin, position, background color, padding, and border-radius to create a styled heading 
 at the top of the back face of the card using a different background color */
@@ -1143,7 +1158,7 @@ Apply a background color, round the corners, set a padding, and define a smooth 
 
 /* Styles for the product advertisements;
 Make the advertisements be on flex to organize the its content on the vertical axis and define the borders like a box and set the grid area to help on the grid layout of the grid template area of the advertisement page */
-.ads-products {
+#ads-category-products {
   grid-area: products;
   display: flex;
   flex-flow: column nowrap;
@@ -1152,7 +1167,7 @@ Make the advertisements be on flex to organize the its content on the vertical a
 }
 
 /* For every span tag within the product advertisement, set the display to block in order to place it in a new row of its own */
-.ads-products>.ad-product>div>span {
+#ads-category-products>.ad-product>div>span {
   display: block;
 }
 
@@ -1253,7 +1268,7 @@ Set a smaller font size that that of the current price, make it black, reduce th
 }
 
 /* Define the grid area to position the element to the specified cell. Make its borders circular and set the width to fit on the content. Center the element to the left of the horizontal axis andset a background color */
-.ads-products>.ad-product .add-cart-button {
+#ads-category-products>.ad-product .add-cart-button {
   grid-area: productButton;
   border-radius: 2rem;
   width: fit-content;
@@ -1262,7 +1277,7 @@ Set a smaller font size that that of the current price, make it black, reduce th
 }
 
 /* On hover, change the color of the add-to-cart button within the product advertisement */
-.ads-products>.ad-product .add-cart-button:hover {
+#ads-category-products>.ad-product .add-cart-button:hover {
   background-color: var(--primary-color-dark);
 }
 
@@ -1594,7 +1609,7 @@ Set a smaller font size that that of the current price, make it black, reduce th
 product header (e.g. in computers-5348130689-details page) and in advertisements pages
 (e.g. in computers and motorcycles pages)*/
 .product-header .fas,
-.ads-products .fas {
+#ads-category-products .fas {
   margin-right: 0.5rem;
 }
 
@@ -1994,7 +2009,7 @@ img {
   }
 
   /* Set the number of columns of the categoris on one with row gaps between them*/
-  .ad-categories {
+  #ad-categories {
     grid-template-columns: 1fr;
     row-gap: 2rem;
   }
@@ -2155,7 +2170,7 @@ img {
   }
 
   /* Define the grid layout of the categories of the advertisement */
-  .ad-categories {
+  #ad-categories {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 2rem;
   }

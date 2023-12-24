@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <title>Sofari: Advertisements</title>
+  <title>Sofari: About us</title>
   <meta charset="UTF-8">
-  <meta name="description" content="All categories of advertisements offered by Sofari">
-  <meta name="keywords" content="property, home, furniture, vehicle, job vacancy, technology, sports gear">
+  <meta name="description" content="The team of Sofari company.">
+  <meta name="keywords" content="team, alviona mancho, panagiotis triantafillidis">
   <meta name="author" content="Alviona Mancho, Panagiotis Triantafillidis">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="../Resources/Images/web_logo.png" type="image/png">
@@ -18,42 +18,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
-
   <script src="js/general-purpose-scripts.js" type="text/javascript"></script>
-
-  <script id="index-template" type="text/x-handlebars-template">
-    {{#each array}}
-    <div class="ad-card" id="ad-card-{{this.id}}">
-      <div class="ad-card-inner">
-        <div class="ad-card-front">
-            <img src="https://wiki-ads.onrender.com/{{this.img_url}}" alt="{{this.title}}">
-        </div>
-        <div class="ad-card-back">
-          <h2>{{this.title}}</h2>
-          <nav>
-            <ul class="subcategories">
-              <li>
-                <a href="category.html?id={{this.id}}">
-                  <img src="https://wiki-ads.onrender.com/{{this.img_url}}" alt="{{this.title}}">
-                </a>
-              </li>
-              {{#each this.subcategories}}
-              <li><a href="subcategory.html?id={{this.id}}">{{title}}</a></li>
-              {{/each}}
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-  </script>
 </head>
 
 <body>
-
-  <div class="wrapper wrapper-categories">
+  <div class="wrapper wrapper-about-us">
     <header class="top-header">
       <div class="upper-header">
         <img class="logo" src="../Resources/Svg/logo.svg" alt="Sofari">
@@ -72,20 +41,72 @@
           </ul>
         </nav>
       </div>
-
-      <div class="lower-header">
-        <div class="history-nav">
-          <ul>
-            <li><a href="home.html"><span class="fas fa-home"></span></a></li>
-            <li>Advertisements</li>
-          </ul>
-        </div>
-      </div>
     </header>
 
-    <section id="ad-categories"></section>
+    <div class="members">
+      <article class="profile">
+
+        <img srcset="../Resources/Images/alviona-profile_LR.jpg 320w,
+        ../Resources/Images/alviona-profile_MR.jpg 768w,
+        ../Resources/Images/alviona-profile_HR.jpg 1920w" sizes="(max-width: 480px) 100vw,
+        (max-width: 960px) 100vw,
+        100vw" src="../Resources/Images/alviona-profile_MR.jpg" alt="Alviona Mancho">
+
+        <div class="profile-details">
+          <header>
+            <h3>Alviona</h3>
+            <span class="role">Web Developer</span>
+          </header>
+          <p class="description">I'm a 22 y.o. senior undergraduate student at Athens University of Economics and
+            Business
+            <a href="https://www.aueb.gr/en/"><strong>AUEB</strong></a>, studying C.S. <a
+              href="https://www.dept.aueb.gr/en/infotech-overview-en"><strong>dept. of Informatics</strong></a>.<br>
+            I'm mostly interested in Theoretical C.S., Artificial Intelligence & Data Science <br>
+            Eager to participate in the development of exciting new technologies, and, hopefully, to contribute to the
+            advancement of computer science in the near future.
+          </p>
+        </div>
+        <ul class="social-media">
+          <li><a href="#" class="fab fa-twitter"></a></li>
+          <li><a href="#" class="fab fa-facebook"></a></li>
+          <li><a href="https://www.linkedin.com/in/alviona-mancho" class="fab fa-linkedin"></a></li>
+          <li><a href="mailto:alviona.mancho@gmail.com" class="fas fa-envelope"></a></li>
+        </ul>
+      </article>
+
+      <article class="profile">
+
+        <img srcset="../Resources/Images/panos-profile_LR.jpg 320w,
+        ../Resources/Images/panos-profile_MR.jpg 768w,
+        ../Resources/Images/panos-profile_HR.jpg 1920w" sizes="(max-width: 480px) 100vw,
+        (max-width: 960px) 100vw,
+        100vw" src="../Resources/Images/panos-profile_MR.jpg" alt="Panagiotis Triantafillidis">
+
+        <div class="profile-details">
+          <header>
+            <h3>Panagiotis</h3>
+            <span class="role">Web Developer</span>
+          </header>
+          <p class="description">I'm a 22 y.o. senior undergraduate student at Athens University of Economics and
+            Business
+            <a href="https://www.aueb.gr/en/"><strong>AUEB</strong></a>, studying C.S. <a
+              href="https://www.dept.aueb.gr/en/infotech-overview-en"><strong>dept. of Informatics</strong></a>.<br>
+            I'm mostly interested in Software Engineering, Artificial Intelligence & Game Development.<br>
+            Practising and implementing new ideas into reality is my goal.
+          </p>
+        </div>
+        <ul class="social-media">
+          <li><a href="#" class="fab fa-twitter"></a></li>
+          <li><a href="#" class="fab fa-facebook"></a></li>
+          <li><a href="https://www.linkedin.com/in/panos-triantafillidis-709aa927b/" class="fab fa-linkedin"></a></li>
+          <li><a href="mailto:triantpanos30@gmail.com" class="fas fa-envelope"></a></li>
+        </ul>
+      </article>
+
+    </div>
 
     <button class="float-button add-cart-float-button"><span class="fas fa-shopping-cart"></span></button>
+
     <button class="float-button sign-up-float-button" onclick="redirectToPage('signUpForm.html')">
       <span class="fas fa-user-plus"></span>
     </button>

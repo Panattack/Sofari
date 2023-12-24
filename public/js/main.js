@@ -36,12 +36,12 @@ function fillTemplate() {
                     window.templates.categories = Handlebars.compile(categories);
 
                     // Fill the template
-                    let contentTemplate = document.getElementById("example");
+                    let adCategoriesSection = document.getElementById("ad-categories");
 
                     let htmlContent = templates.categories({
                         array: categoriesList
                     });
-                    contentTemplate.innerHTML = htmlContent;
+                    adCategoriesSection.innerHTML = htmlContent;
 
                 })
         })

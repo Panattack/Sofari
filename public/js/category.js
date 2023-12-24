@@ -28,11 +28,11 @@ function fillTemplate() {
         window.templates.ads = Handlebars.compile(ads);
 
         // Fill the template
-        let contentAds = document.getElementById("example");
+        let adsCategoryProducts = document.getElementById("ads-category-products");
         let htmlContent = templates.ads({
-            array: adsCategories
+            array: adsList
         });
-        contentAds.innerHTML = htmlContent;
+        adsCategoryProducts.innerHTML = htmlContent;
     })
     .catch(error => {
         console.error('Error fetching data:', error);
