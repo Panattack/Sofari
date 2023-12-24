@@ -560,10 +560,7 @@ Set the z-index to make it pop above the other content */
 .wrapper-computer {
   grid-template-areas:
     'header header header'
-    '. productHeader .'
-    'productDesc productDesc productDesc'
-    'productDetails productDetails productDetails'
-    '. productSpecs .'
+    'SubAdsList SubAdsList SubAdsList'
     'footer footer footer';
 }
 
@@ -1463,6 +1460,19 @@ Add a subtle border for each label, round the corners and add padding */
 
 /* ------------------------- Specific computer Page  ----------------------------- */
 
+#ad-subcategories {
+  grid-area: SubAdsList;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.SubProduct {
+  background-color: var(--secondary-color);
+  border-radius: 1rem;
+}
+
 /* Set the grid area for the product header in order to position it to the specified grid cell. Make its display flex to organize its items to the horizontal axis with space around them */
 .product-header {
   grid-area: productHeader;
@@ -1710,8 +1720,8 @@ Set a border, a box shadow and rounded corners and set the padding. Define the g
   grid-template-columns: minmax(auto, 3fr) auto;
   grid-template-areas:
     'detailsHeading detailsHeading'
-    'generalParagraph carousel'
-    'specificBulletPoints carousel';
+    'carousel carousel'
+    'specificBulletPoints specificBulletPoints';
   column-gap: 2rem;
 }
 

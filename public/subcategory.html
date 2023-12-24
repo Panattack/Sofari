@@ -1,20 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <title>Sofari: Subcategory</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Advertisements of subcategory">
+    <meta name="keywords" content="ads, subcategory">
+    <meta name="author" content="Alviona Mancho, Panagiotis Triantafillidis">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../Resources/Images/web_logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/stylesheet.css">
     <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
-    <script type="text/javascript" src="../js/subcategory.js"></script>
+    <script src="../js/general-purpose-scripts.js" type="text/javascript"></script>
+    <script src="../js/subcategory.js" type="text/javascript"></script>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- External fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script id="subcategoryLink-template" type="text/x-handlebars-template">
+        <a href="#">{{subcategory}}</a>
+    </script>
     <script id="subcategory-template" type="text/x-handlebars-template">
         {{#each array}}
-            <p>{{this.title}}, {{this.description}}, {{getFirstImage this.images}}, {{this.cost}}</p>
+            <section class="SubProduct">
+                <section class="product-header">
+                    <img src="https://wiki-ads.onrender.com/{{this.images.[0]}}" alt="Photo 1">
+
+                    <article class="ad-details">
+                        <header class="ad-details-title">
+                            <h2>{{this.title}}</h2>
+                            <span class="ad-details-code">Code: {{this.id}}</span>
+                        </header>
+
+                        <div class="ad-details-badges">
+                            <span class="certified">Certified</span>
+                            <span class="shipping">Shipping options</span>
+                        </div>
+
+                        <span class="ad-details-price">{{this.cost}}€</span>
+
+                        <div class="ad-details-posted-editted-location">
+                            <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time
+                                    datetime="2023-09-02">September 2, 2023</time></span>
+                            <span class="ad-details-editted"><span class="fas fa-pencil-alt"></span>Editted: <time
+                                    datetime="2023-10-05">October 5, 2023</time></span>
+                            <span class="ad-details-location"><span class="fas fa-map-marker"></span>Crete</span>
+                        </div>
+
+                        <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping
+                            cart</button>
+
+                        <div class="ad-details-views-watching">
+                            <span class="ad-details-views"><span class="fas fa-eye"></span>67 views</span>
+                            <span class="ad-details-watching"><span class="fas fa-eye"></span>6 watching</span>
+                        </div>
+                    </article>
+
+                </section>
+
+                <section class="product-desc">
+                    <h2>Description</h2>
+                    <p>{{this.description}}</p>
+
+                    <div class="ad-desc-buttons">
+                        <button class="contact-button">Contact Owner</button>
+                        <button class="add-favorite-button"><span class="far fa-heart"></span></button>
+                    </div>
+
+                </section>
+
+                <section class="product-details">
+                    <h2>Details</h2>
+                    <div class="carousel">
+                        <div class="carousel-slider-wrapper">
+                            <div class="carousel-slider">
+                                {{#each this.images}}
+                                    <img id="slide-{{@index}}" src="https://wiki-ads.onrender.com/{{this}}">
+                                {{/each}}
+                            </div>
+                            <div class="carousel-slider-nav">
+                                {{#each this.images}}
+                                <a href="#slide-{{@index}}"></a>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="product-specs">
+                    <h2>Specifications</h2>
+                    <details open>
+                        <summary>General Features</summary>
+                        <table class="spec-table">
+                            <tbody>
+                                {{#each this.mapFeatures}}
+                                    <tr>
+                                        <th>{{this.[0]}}</th>
+                                        <td>{{this.[1]}}</td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </details>
+
+                </section>
+            </section>
         {{/each}}
     </script>
-
-    <script>
-        // Define Handlebars helper function to get the first element from an array
-        Handlebars.registerHelper('getFirstImage', function(images) {
-            return images && images.length > 0 ? images[0] : 'No Image';
-        });
-    </script>
 </head>
-<body id="example"></body>
+
+<body>
+    <div class="wrapper wrapper-computer">
+        <header class="top-header">
+            <div class="upper-header">
+                <img class="logo" src="../Resources/Svg/logo.svg" alt="Sofari">
+
+                <div id="search-bar">
+                    <img class="search-icon" src="../Resources/Svg/search.svg" alt="Search Icon" />
+                    <input placeholder="Explore the world of possibilities..." type="search">
+                </div>
+
+                <nav id="navbar">
+                    <ul>
+                        <li><a href="home.html">Home</a><span class="fas fa-home"></span></li>
+                        <li><a href="index.html">Advertisements</a><span class="fas fa-shopping-bag"></span></li>
+                        <li><a href="aboutUs.html">About Us</a><span class="fas fa-comments"></span></li>
+                        <li><a href="contact.html">Contact</a><span class="fas fa-address-card"></span></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="lower-header">
+                <div class="history-nav">
+                    <ul>
+                        <li><a href="home.html"><span class="fas fa-home"></span></a></li>
+                        <li><a href="index.html">Advertisements</a></li>
+                        <li id="Subcategory"></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        <section id="ad-subcategories"></section>
+
+        <button class="float-button add-cart-float-button"><span class="fas fa-shopping-cart"></span></button>
+        <button class="float-button sign-up-float-button" onclick="redirectToPage('signUpForm.html')">
+            <span class="fas fa-user-plus"></span>
+        </button>
+
+        <footer>
+            <div id="upper-footer">
+                <div>
+                    <h2>About Us</h2>
+                    <p>Sofari connects consumers with diverse product offerings in an immersive and interactive manner.
+                        What
+                        you're looking for is just a few clicks away!</p>
+
+                    <ul id="social-media">
+                        <li><a href="https://www.facebook.com" class="fab fa-facebook-square"></a></li>
+                        <li><a href="https://www.instagram.com" class="fab fa-instagram"></a></li>
+                        <li><a href="https://twitter.com" class="fab fa-twitter"></a></li>
+                        <li><a href="https://www.linkedin.com" class="fab fa-linkedin"></a></li>
+                        <li><a href="https://open.spotify.com" class="fab fa-spotify"></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2>Contact Us</h2>
+                    <address>
+                        <strong>Sofari</strong><br>
+                        <span>Eleutherias 12, Nea Ionia</span><br>
+                        <span>Athens, Greece 14231</span><br>
+                        <span>Phone: </span><a href="tel:+302101234567">(+30) 210-123-4567</a><br>
+                        <span>Email: </span><a href="mailto:sofari@gmail.com">sofari@gmail.com</a>
+                    </address>
+                </div>
+
+
+                <div>
+                    <h2>Legal info</h2>
+                    <ul id="policy">
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookies Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="lower-footer">
+                <small>
+                    Copyright © 2023 <a href="index.html"> Sofari Retail S.A</a>. All Rights Reserved.
+                </small>
+            </div>
+
+        </footer>
+    </div>
+</body>
+
 </html>
