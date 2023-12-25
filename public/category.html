@@ -28,35 +28,44 @@
     </script>
 
     <script id="subcategory-filter-template" type="text/x-handlebars-template">
-        <input type="radio" id="subcat0" name="subcategory" value="All" checked>
-        <label for="subcat0">All</label><br>
+        <div class="subcategory-input-label-pair">
+            <input type="radio" id="subcat0" name="subcategory" value="All" checked>
+            <label for="subcat0">All</label>
+        </div>
         {{#each array}}
-        <input type="radio" id="subcat{{this.id}}" name="subcategory" value="{{this.title}}">
-        <label for="subcat{{this.id}}">{{this.title}}</label><br>
+        <div class="subcategory-input-label-pair">
+            <input type="radio" id="subcat{{this.id}}" name="subcategory" value="{{this.title}}">
+            <label for="subcat{{this.id}}">{{this.title}}</label>
+        </div>
         {{/each}}
     </script>
 
     <script id="category-template" type="text/x-handlebars-template">
-        {{#each array}}
-        <article class="ad-product">
-            <img src="https://wiki-ads.onrender.com/{{this.images.[0]}}" alt="{{this.title}}">
-            <header class="ad-product-title">
-                <a href="#">
-                    <h2>{{this.title}}</h2>
-                </a>
-                <span class="ad-details-code"><b>Code: </b>{{this.id}}</span>
-            </header>
+        {{#if empty}}
+        <p style="text-align: center;">No results. More coming soon.</p>
+        {{/if}}
+        {{#unless empty}}
+            {{#each array}}
+            <article class="ad-product">
+                <img src="https://wiki-ads.onrender.com/{{this.images.[0]}}" alt="{{this.title}}">
+                <header class="ad-product-title">
+                    <a href="#">
+                        <h2>{{this.title}}</h2>
+                    </a>
+                    <span class="ad-details-code"><b>Code: </b>{{this.id}}</span>
+                </header>
 
-            <span class="ad-info-price">{{this.cost}}<sup>€</sup></span>
-            <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
-            <p class="ad-mini-description">{{this.description}}</p>
-            <div class="ad-details-posted-location">
-                <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time
-                        datetime="2023-09-02">September 2, 2023</time></span>
-                <!-- <span class="ad-details-location"><span class="fas fa-map-marker"></span>Crete</span> -->
-            </div>
-        </article>
-        {{/each}}
+                <span class="ad-info-price">{{this.cost}}<sup>€</sup></span>
+                <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+                <p class="ad-mini-description">{{this.description}}</p>
+                <div class="ad-details-posted-location">
+                    <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time
+                            datetime="2023-09-02">September 2, 2023</time></span>
+                    <!-- <span class="ad-details-location"><span class="fas fa-map-marker"></span>Crete</span> -->
+                </div>
+            </article>
+            {{/each}}
+        {{/unless}}
     </script>
 
     <script id="trends-template" type="text/x-handlebars-template">
@@ -118,26 +127,10 @@
 
 
         <aside class="filters">
-
-            <!-- <details open>
-                <summary>Type</summary>
-                <div class="checkboxes">
-                    <div class="checkbox-input-label-pair">
-                        <input type="checkbox" id="laptop-filter" name="type-filter" value="Laptop">
-                        <label for="laptop-filter">Laptop</label>
-                    </div>
-                    <div class="checkbox-input-label-pair">
-                        <input type="checkbox" id="desktop-filter" name="desktop-filter" value="Desktop">
-                        <label for="desktop-filter">Desktops</label>
-                    </div>
-                </div>
-            </details> -->
-
             <details open>
                 <summary>Filter by subcategory</summary>
-                <div id="subcategory-input-label-pair"></div>
+                <div id="subcategory-filter"></div>
             </details>
-
         </aside>
 
         <section id="ads-category-products"></section>

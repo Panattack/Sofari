@@ -32,11 +32,11 @@ function fillTemplate() {
             window.templates.subcategoryFilterTemplate = Handlebars.compile(subcategoryFilterTemplate);
 
             //Fill the template
-            let subcategoryPair = document.getElementById("subcategory-input-label-pair")
+            let subcategoryFilter = document.getElementById("subcategory-filter")
             let subcategoryPairContent = templates.subcategoryFilterTemplate({
                 array: subcategoriesList
             });
-            subcategoryPair.innerHTML = subcategoryPairContent;
+            subcategoryFilter.innerHTML = subcategoryPairContent;
 
         });
 
@@ -57,7 +57,8 @@ function fillTemplate() {
             let adsCategoryProducts = document.getElementById("ads-category-products");
 
             let htmlContent = templates.adsTemplate({
-                array: advertisements
+                array: advertisements,
+                empty: advertisements.length==0
             });
             adsCategoryProducts.innerHTML = htmlContent;
         })
@@ -86,7 +87,6 @@ function fillTemplate() {
     let trendsContent = window.templates.trendsTemplate({
         array: tips_trends["trends"],
         empty: !tips_trends || !tips_trends["trends"] || tips_trends["trends"].length === 0
-
     });
     trends.innerHTML = trendsContent;
 
@@ -116,7 +116,7 @@ function fillTemplate() {
 document.addEventListener("DOMContentLoaded", filterAds)
 
 function filterAds() {
-    var div = document.getElementById('subcategory-input-label-pair');
+    var div = document.getElementById('subcategory-filter');
 
     div.addEventListener('click', function (event) {
         var clickedElement = event.target;
@@ -137,8 +137,11 @@ function filterAds() {
                 // Use a regex to extract the number of the subcategory, given that it is in the form x...xd...d where x: letters, d: digits
                 clickedId = clickedId.match(/\d+/g)[0]
 
+                advertisementsToReturn = clickedId != 0 ? advertisements.filter(item => item["subcategory_id"] == clickedId) : advertisements
+
                 let htmlContent = templates.adsTemplate({
-                    array: clickedId != 0 ? advertisements.filter(item => item["subcategory_id"] == clickedId) : advertisements
+                    array: advertisementsToReturn,
+                    empty: advertisementsToReturn.length == 0
                 });
                 adsCategoryProducts.innerHTML = htmlContent;
             }

@@ -67,7 +67,8 @@
 
 /* Set a common accent color for all checkbox and range input elements on the website */
 input[type="checkbox"],
-input[type="range"] {
+input[type="range"],
+input[type="radio"] {
   accent-color: var(--primary-color);
 }
 
@@ -418,7 +419,7 @@ Set the z-index to make it pop above the other content */
 }
 
 /* Set the bottom and right to suitable coordinates for the add-cart-float-button */
-.add-cart-float-button{
+.add-cart-float-button {
   bottom: 3rem;
   right: 1rem;
   background-color: var(--primary-color);
@@ -523,9 +524,9 @@ Set the z-index to make it pop above the other content */
 3   Footer on all columns */
 .wrapper-sign-up {
   grid-template-areas:
-  'header header header'
-  '. signUpForm .'
-  'footer footer footer';
+    'header header header'
+    '. signUpForm .'
+    'footer footer footer';
 }
 
 /*The wrapper of the motorcycles.html & computers.html. The template is the header to be on the top of the page. The filters will be on the second row on the left column, the advertisements on the second column in the middle and the supplementary content on the second column on the right column. Last the footer on the third row 
@@ -679,7 +680,7 @@ make the name appear as handwritten */
   margin-top: 0;
 }
 
-/*------------------------Advertisements Page------------------------*/
+/*------------------------Advertisements (Index) Page------------------------*/
 
 /* Define the grid area of the ad-categories to help on setting the grid layout with 3 columns on each row, set the space between it's content and center its items */
 #ad-categories {
@@ -1323,14 +1324,14 @@ Set the font weight to bold, add padding and margin and set the cursor to pointe
 }
 
 /* Set the display to flex to order the content of the checkboxes to vertical axis with a row gap between them */
-.checkboxes {
+#subcategory-filter {
   display: flex;
   flex-flow: column nowrap;
   row-gap: 0.2rem;
 }
 
 /* Set the display to flex to center the content on the horizontal axis with a column gap */
-.checkbox-input-label-pair {
+.subcategory-input-label-pair {
   display: flex;
   flex-flow: row nowrap;
   column-gap: 0.5rem;
@@ -1342,58 +1343,12 @@ input[type="checkbox"] {
   margin-top: 0rem;
 }
 
-/* Set the cursor to pointer when hover on the checkboxes and their labels */
+/* Set the cursor to pointer when hover on the checkboxes or radio buttons and their labels */
 input[type="checkbox"],
-input[type="checkbox"]+label {
+input[type="checkbox"]+label,
+input[type="radio"],
+input[type="radio"]+label {
   cursor: pointer;
-}
-
-/* Styles for the price range slider */
-.price-range {
-  position: relative;
-}
-
-/* Styles for the min and max price labels as defined by the price range slider;
-Add a subtle border for each label, round the corners and add padding */
-.price-range>.price-labels>.min-price-label,
-.price-range>.price-labels>.max-price-label {
-  font-weight: normal;
-  border: 1px solid gainsboro;
-  padding: 0.5rem;
-  border-radius: 0.2rem;
-}
-
-/* Define the margin on top of the price labels */
-.price-labels {
-  margin-top: 1rem;
-}
-
-/* Customize the price slider width and height, make the opacity transition smooth and set a background color */
-.slider {
-  width: 100%;
-  height: 0.6rem;
-  border-radius: 0.3rem;
-  background: gainsboro;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-/* Restore the color opacity of the slider on hover */
-.slider:hover {
-  opacity: 1;
-}
-
-/* Change the cursor to pointer on hover on the thumb of the slider */
-.slider::-webkit-slider-thumb {
-  cursor: pointer;
-}
-
-/* Display the price-labels container as flex and distribute the labels using equal spacing between them  */
-.price-labels {
-  display: flex;
-  justify-content: space-between;
 }
 
 /* Define the grid area for the grid layout on the general grid of the page, set display flex to order the content on the vertical axis, make the border circular . Add some padding and gap between its items*/
@@ -2113,10 +2068,10 @@ img {
 
   /* Define the grid layout for the sign up form to one column */
   .wrapper-sign-up {
-    grid-template-areas: 
-    'header'
-    'signUpForm'
-    'footer'
+    grid-template-areas:
+      'header'
+      'signUpForm'
+      'footer'
     ;
   }
 }
