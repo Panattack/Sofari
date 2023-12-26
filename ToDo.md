@@ -3,5 +3,5 @@ Questions:
 - Errors control
 
 To Do:
-- CSS for filters (subcategories)
 - CSS for subcategory.html
+- urls, use 'join' instead of hardcoding

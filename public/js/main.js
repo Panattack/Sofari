@@ -1,5 +1,3 @@
-const generalUrl = "https://wiki-ads.onrender.com/"
-
 let myHeaders = new Headers();
 myHeaders.append('Accept', 'application/json');
 
@@ -8,7 +6,6 @@ let init = {
     headers: myHeaders
 }
 
-// index.html
 window.addEventListener('load', fillTemplate);
 
 function fillTemplate() {
@@ -30,18 +27,8 @@ function fillTemplate() {
                         category["subcategories"] = subcategoriesList.filter(item => item["category_id"] === category.id)
                     })
 
-                    // Load the template
-                    let categories = document.getElementById('index-template').textContent;
-                    window.templates = {};
-                    window.templates.categories = Handlebars.compile(categories);
-
-                    // Fill the template
-                    let adCategoriesSection = document.getElementById("ad-categories");
-
-                    let htmlContent = templates.categories({
-                        array: categoriesList
-                    });
-                    adCategoriesSection.innerHTML = htmlContent;
+                    templateHandler = new TemplateHandler("index-template", "ad-categories");
+                    templateHandler.fillTemplate({ array: categoriesList });
 
                 })
         })
