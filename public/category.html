@@ -125,6 +125,33 @@
             </div>
         </header>
 
+        <form id="login" name="login">
+            <fieldset>
+                <legend>Login</legend>
+
+                <p>
+                    <label for="username">Username: </label>
+                    <input type="text" id="username" name="username" maxlength="20" pattern="[A-Za-z_0-9]+"
+                        title="Please enter a valid username, containing only letters A-Z and a-z, digits 0-9 and the underscore character _"
+                        placeholder="Enter your username" autocomplete="username" required>
+                </p>
+
+                <p>
+                    <label for="password">Password: </label>
+                    <input type="password" id="password" name="password" maxlength="20" minlength="6"
+                        pattern="(.*[#@$&*%]+.*)*"
+                        title="Please enter a valid password, consisting of 6 up to 20 characters and at least one special character (#, @, $, &, * or %)"
+                        placeholder="Enter your password" autocomplete="current-password" required>
+                </p>
+            </fieldset>
+
+            <!-- Submit Button -->
+            <div class="buttons">
+                <button type="submit" form="login" value="Submit" id="login-btn">Submit</button>
+                <button type="reset" form="login" value="Reset">Reset</button>
+            </div>
+        </form>
+
 
         <aside class="filters">
             <details open>
@@ -155,7 +182,8 @@
             <div id="upper-footer">
                 <div>
                     <h2>About Us</h2>
-                    <p>Sofari connects consumers with diverse product offerings in an immersive and interactive manner.
+                    <p>Sofari connects consumers with diverse product offerings in an immersive and interactive
+                        manner.
                         What
                         you're looking for is just a few clicks away!</p>
 

@@ -5,3 +5,4 @@ Questions:
 To Do:
 - CSS for subcategory.html
 - urls, use 'join' instead of hardcoding
+- LS status code on failure? 401? 

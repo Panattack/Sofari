@@ -1,16 +1,20 @@
-let myHeaders = new Headers();
-myHeaders.append('Accept', 'application/json');
+let headers = new Headers();
+headers.append('Accept', 'application/json');
 
 let init = {
     method: "GET",
-    headers: myHeaders
+    headers: headers
 }
 
-let advertisements = undefined
+let advertisements = undefined;
 
 window.addEventListener('load', fillTemplate);
 
 function fillTemplate() {
+
+    // Add handler for click event on submit of login form
+    let loginBtn = document.getElementById("login-btn");
+    loginBtn.addEventListener('click', postTheForm);
 
     // Get the category id from the url of the page
     const urlParams = new URLSearchParams(window.location.search);
@@ -18,7 +22,7 @@ function fillTemplate() {
 
     // Get the category name from the url of the page
     const categoryName = urlParams.get('category');
-    
+
     // Set the title of the document
     document.title = `Sofari: ${categoryName}`
 
@@ -85,7 +89,7 @@ function fillTemplate() {
 }
 
 // Filter the ads according to the selected subcategory
-document.addEventListener("DOMContentLoaded", filterAds)
+document.addEventListener("DOMContentLoaded", filterAds);
 
 function filterAds() {
     let div = document.getElementById('subcategory-filter');
@@ -113,3 +117,28 @@ function filterAds() {
         }
     });
 };
+
+function postTheForm(event) {
+    event.preventDefault();
+
+    let form = document.getElementById("login");
+    let formData = new FormData(form);
+
+    let headers = new Headers();
+    headers.append("Content-Type", "application/x-www-form-urlencoded");
+
+    let formStr = new URLSearchParams(formData).toString();
+
+    console.log(formStr)
+
+    let init = {
+        method: "POST",
+        "headers": headers,
+        body: formStr
+    }
+
+    fetch('/ls', init)
+        .then(response => response.json())
+        .then(sessionId => {console.log(sessionId)})
+        .catch(error => { console.log(error) })
+}
