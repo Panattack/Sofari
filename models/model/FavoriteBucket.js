@@ -4,9 +4,9 @@ class FavoriteBucket {
         this.favorites = [];
     }
 
-    get User() {return this.user;}
+    get getUser() {return this.user;}
 
-    set User(user) {this.user = user;}
+    set setUser(user) {this.user = user;}
 
     addToFavorites(advertisement){
         foundAdv = this.favorites.some(ads => advertisement.equals(ads));

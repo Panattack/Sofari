@@ -1,27 +1,30 @@
-class FavoriteBucketMemoryDAO {
+const FavoriteBucketDAO = require("../dao/FavoriteBucketDAO");
+
+class FavoriteBucketMemoryDAO extends FavoriteBucketDAO{
 
     static favorites = [];
 
     findAll() {
-        return favorites;
+        return FavoriteBucketMemoryDAO.favorites;
     }
 
     findAdsByUser(user) {
-        foundFavorites = favorites.filter(bucket => bucket.user.equals(user));
-        return foundFavorites;
+        return FavoriteBucketMemoryDAO.favorites.filter(bucket => bucket.user.equals(user));
     }
 
     delete(bucket) {
-        foundBucket = favorites.filter(list => list.User.equals(bucket.User));
-        if (foundBucket.length !== 0) {
+        let foundBucket = FavoriteBucketMemoryDAO.favorites.find(list => list.User.equals(bucket.User));
+        if (foundBucket !== undefined) {
             favorites.delete(foundBucket);
         }
     }
 
     save(bucket) {
-        foundBucket = favorites.filter(list => list.User.equals(bucket.User));
+        let foundBucket = FavoriteBucketMemoryDAO.favorites.filter(list => list.User.equals(bucket.User));
         if (foundBucket.length === 0) {
-            favorites.push(foundBucket);
+            favorites.push(bucket);
         }
     }
 }
+
+module.exports = FavoriteBucketMemoryDAO;

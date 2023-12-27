@@ -1,33 +1,41 @@
+const Initializer = require("../dao/Initializer")
+const DAOFactory = require("../dao/DAOFactory")
+
 class MemoryInitializer extends Initializer {
     constructor() {
-        process.env.daofactory = '.MemoryDAOFactory';
+        super();
+        process.env.daofactory = 'MemoryDAOFactory';
     }
     eraseData() {
-        allUsers = getUserDAO().findAll();
+
+        let allUsers = this.getUserDAO.findAll();
         allUsers.forEach(element => {
-            this.getUserDAO().delete(element);
+            this.getUserDAO.delete(element);
         });
 
-        allAdvertisements = this.getAdvertisementDAO().findAll();
+        let allAdvertisements = this.getAdvertisementDAO.findAll();
         allAdvertisements.forEach(element => {
-            this.getAdvertisementDAO().delete(element);
+            this.getAdvertisementDAO.delete(element);
         });
 
-        allFavoriteBuckets = this.getFavoriteBucketDAO().findAll();
+        let allFavoriteBuckets = this.getFavoriteBucketDAO.findAll();
         allFavoriteBuckets.forEach(element => {
-            this.getFavoriteBucketDAO().delete(element);
+            this.getFavoriteBucketDAO.delete(element);
         });
     }
 
     get getUserDAO() {
-        return DAOFactory.getFactory().getUserDAO();
+        return DAOFactory.getFactory().getUserDAO;
     }
 
     get getAdvertisementDAO() {
-        return DAOFactory.getFactory().getUserDAO();
+        return DAOFactory.getFactory().getUserDAO;
     }
 
     get getFavoriteBucketDAO() {
-        return DAOFactory.getFactory().getFavoriteBucketDAO();
+        return DAOFactory.getFactory().getFavoriteBucketDAO;
     }
 }
+
+
+module.exports = MemoryInitializer;

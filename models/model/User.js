@@ -1,21 +1,21 @@
 class User {
-    constructor(username, password, sessionId) {
+    constructor(username, password) {
         this.username = username;
         this.password = password;
-        this.sessionId = sessionId;
+        this.sessionId = undefined;
     }
 
-    get username() {return this.username;}
+    get getUsername() {return this.username;}
 
-    set username(username) {this.username = username;}
+    set setUsername(name) {this.username = name;}
 
-    get password() {return this.password;}
+    get getPassword() {return this.password;}
 
-    set password(password) {this.password = password;}
+    set setPassword(password) {this.password = password;}
 
-    get sessionId() {return this.sessionId;}
+    get getSessionId() {return this.sessionId;}
     
-    set sessionId(sessionId) {this.sessionId = sessionId;}
+    set setSessionId(sessionId) {this.sessionId = sessionId;}
 
     equals(other) {
         if (other == null) {
@@ -30,3 +30,5 @@ class User {
     }
 
 }
+
+module.exports = User

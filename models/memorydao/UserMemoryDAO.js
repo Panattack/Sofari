@@ -1,29 +1,36 @@
+const UserDAO = require("../dao/UserDAO")
+
 class UserMemoryDAO extends UserDAO {
 
     static users = [];
 
     findAll() {
-        return this.entities;
+        return UserMemoryDAO.users;
     }
 
     findUserByUsername(username) {
-        User = entities.filter(item => item.username === username);
-        return User;
+        return UserMemoryDAO.users.filter(item => item.username === username);
+    }
+
+    findUserByUsernameAndPassword(username, password) {
+        return UserMemoryDAO.users.find(item => item.username === username && item.password === password);
     }
 
     delete(user) {
-        foundUser = entities.filter(userEntity => user.equals(userEntity));
-        if (foundUser.length !== 0)
+        let foundUser = UserMemoryDAO.users.find(userEntity => user.equals(userEntity));
+        if (foundUser !== undefined)
         {
-            entities.delete(foundUser);
+            UserMemoryDAO.users.delete(foundUser);
         }
     }
 
     save(user) {
-        foundUser = entities.filter(userEntity => user.equals(userEntity));
+        let foundUser = UserMemoryDAO.users.filter(userEntity => user.equals(userEntity));
         if (foundUser.length === 0)
         {
-            entities.push(foundUser);
+            UserMemoryDAO.users.push(user);
         }
     }
 }
+
+module.exports = UserMemoryDAO;

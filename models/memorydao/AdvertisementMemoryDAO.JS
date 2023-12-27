@@ -1,29 +1,33 @@
+const AdvertisementDAO = require("../dao/AdvertisementDAO");
+
 class AdvertisementMemoryDAO extends AdvertisementDAO {
 
     static ads = [];
 
     findAll() {
-        return this.ads;
+        return AdvertisementMemoryDAO.ads;
     }
 
     findAdsById(id) {
-        foundAd = ads.filter(ad => id === ad.id);
+        foundAd = AdvertisementMemoryDAO.ads.filter(ad => id === ad.getId);
         return foundAd;
     }
 
     delete(ad) {
-        foundAd = ads.filter(adEntity => ad.equals(adEntity));
-        if (foundAd.length != 0)
+        foundAd = AdvertisementMemoryDAO.ads.find(adEntity => ad.equals(adEntity));
+        if (foundAd !== undefined)
         {
-            ads.delete(foundAd);
+            AdvertisementMemoryDAO.ads.delete(foundAd);
         }
     }
 
     save(ad) {
-        foundAd = ads.filter(adEntity => ad.equals(adEntity));
+        foundAd = AdvertisementMemoryDAO.ads.filter(adEntity => ad.equals(adEntity));
         if (foundAd.length === 0)
         {
-            ads.push(foundAd);
+            AdvertisementMemoryDAO.ads.push(ad);
         }
     }
 }
+
+module.exports = AdvertisementMemoryDAO;

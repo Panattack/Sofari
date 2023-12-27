@@ -3,6 +3,10 @@ const path = require('path')
 const app = express()
 const port = 8080
 
+const MemoryInitializer = require('./models/memorydao/MemoryInitializer')
+const initializer = new MemoryInitializer();
+initializer.prepareData()
+
 app.listen(port)
 
 
@@ -39,9 +43,8 @@ app.post('/ls', function (req, res) {
     let username = req.body.username;
     let password = req.body.password;
 
-    const usersList = JSON.parse(users);
-
-    if (usersList.some(user => user.username === username && user.password === password)) {
+    let userDAO = initializer.getUserDAO;
+    if (userDAO.findUserByUsernameAndPassword(username, password) !== undefined) {
         res.status(200).send({ "sessionId": uuidv4() })
     } else {
         /* 
@@ -50,51 +53,14 @@ app.post('/ls', function (req, res) {
             for the requested resource.
         */
         res.status(401).send()
+
     }
 })
 
 
 app.post('/afs', function (req, res) {
 
-    let id = req.body.id;
-
-    res.status(200).send({ "id": "1" })
+    let body = req.body;
+    res.status(200).send({ "id": id });
 
 })
-
-
-
-var users = `[
-    {
-        "username": "user1",
-        "password": "Pass@123"
-    },
-    {
-        "username": "john_doe",
-        "password": "Secret_456"
-    },
-    {
-        "username": "alice_007",
-        "password": "$SecurePass!"
-    },
-    {
-        "username": "test_user",
-        "password": "MyP@ssword123"
-    },
-    {
-        "username": "admin",
-        "password": "Adm1n_P@ss"
-    },
-    {
-        "username": "user123",
-        "password": "P@ssw0rd789"
-    },
-    {
-        "username": "demo_user",
-        "password": "&DemoPass*2022"
-    },
-    {
-        "username": "example",
-        "password": "%Pass1234@"
-    }
-]`

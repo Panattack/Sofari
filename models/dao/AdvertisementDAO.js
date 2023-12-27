@@ -8,3 +8,5 @@ class AdvertisementDAO {
 
     save(ads) {};
 }
+
+module.exports = AdvertisementDAO;

@@ -8,3 +8,5 @@ class FavoriteBucketDAO {
 
     save(bucket) {};
 }
+
+module.exports = FavoriteBucketDAO;

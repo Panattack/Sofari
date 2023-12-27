@@ -7,9 +7,9 @@ class Advertisement {
         this.imageUrl = imageUrl;
     }
 
-    get id() {return this.id;}
+    get getId() {return this.id;}
 
-    set id(id) {this.id = id;}
+    set setId(id) {this.id = id;}
 
     equals(other) {
         if (other == null) {

@@ -4,7 +4,11 @@ class UserDAO {
 
     findUserByUsername(username) {};
 
+    findUserByUsernameAndPassword(username, password) {};
+
     delete(user) {};
 
     save(user) {};
 }
+
+module.exports = UserDAO;
