@@ -1,7 +1,7 @@
 const DAOFactory = require("../dao/DAOFactory");
 const UserMemoryDAO = require("../memorydao/UserMemoryDAO");
 const FavoriteBucketMemoryDAO = require("../memorydao/FavoriteBucketMemoryDAO");
-const AdvertisementMemoryDAO = require("../memorydao/AdvertisementMemoryDAO")
+const AdvertisementMemoryDAO = require("./AdvertisementMemoryDAO")
 
 class MemoryDAOFactory extends DAOFactory {
     constructor() {
