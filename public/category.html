@@ -56,7 +56,19 @@
                 </header>
 
                 <span class="ad-info-price">{{this.cost}}<sup>€</sup></span>
-                <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+                
+                <div class="ad-desc-buttons">
+                    <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+
+                    <button class="add-favorite-button" 
+                    data-ad-id="{{this.id}}" 
+                    data-ad-title="{{this.title}}" data-ad-desc="{{this.description}}" 
+                    data-ad-cost="{{this.cost}}"
+                    data-ad-url="{{this.images.[0]}}" onclick="addToFavourites('{{this.id}}', '{{this.title}}', '{{this.description}}', '{{this.cost}}', '{{this.images.[0]}}')">
+                    <span class="far fa-heart"></span>
+                    </button>
+                </div>
+
                 <p class="ad-mini-description">{{this.description}}</p>
                 <div class="ad-details-posted-location">
                     <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time
@@ -91,7 +103,6 @@
             {{/each}}
         {{/unless}}
     </script>
-
 </head>
 
 <body>
@@ -121,36 +132,47 @@
                         <li><a href="index.html">Advertisements</a></li>
                         <li id="category"></li>
                     </ul>
+                    <button id="login-form-btn"><i class="fas fa-user"></i> Login</button>
                 </div>
             </div>
         </header>
 
-        <form id="login" name="login">
-            <fieldset>
-                <legend>Login</legend>
+        <div id="overlay">
+            <div class="login-form">
+                <span id="close-login-form-btn"><i class="fas fa-times"></i></span>
+                <form id="login" name="login">
+                    <fieldset>
+                        <legend>Login</legend>
 
-                <p>
-                    <label for="username">Username: </label>
-                    <input type="text" id="username" name="username" maxlength="20" pattern="[A-Za-z_0-9]+"
-                        title="Please enter a valid username, containing only letters A-Z and a-z, digits 0-9 and the underscore character _"
-                        placeholder="Enter your username" autocomplete="username" required>
-                </p>
+                        <span class="auth-fail"></span>
 
-                <p>
-                    <label for="password">Password: </label>
-                    <input type="password" id="password" name="password" maxlength="20" minlength="6"
-                        pattern="(.*[#@$&*%]+.*)*"
-                        title="Please enter a valid password, consisting of 6 up to 20 characters and at least one special character (#, @, $, &, * or %)"
-                        placeholder="Enter your password" autocomplete="current-password" required>
-                </p>
-            </fieldset>
+                        <p>
+                            <label for="username">Username: </label>
+                            <input type="text" id="username" name="username" maxlength="20" pattern="[A-Za-z_0-9]+"
+                                title="Please enter a valid username, containing only letters A-Z and a-z, digits 0-9 and the underscore character _"
+                                placeholder="Enter your username" autocomplete="username" required>
+                        </p>
 
-            <!-- Submit Button -->
-            <div class="buttons">
-                <button type="submit" form="login" value="Submit" id="login-btn">Submit</button>
-                <button type="reset" form="login" value="Reset">Reset</button>
+                        <p>
+                            <label for="password">Password: </label>
+                            <input type="password" id="password" name="password" maxlength="20" minlength="6"
+                                pattern="(.*[#@$&*%]+.*)*"
+                                title="Please enter a valid password, consisting of 6 up to 20 characters and at least one special character (#, @, $, &, * or %)"
+                                placeholder="Enter your password" autocomplete="current-password" required>
+                        </p>
+                    </fieldset>
+
+                    <!-- Submit Button -->
+                    <div class="buttons">
+                        <button type="submit" form="login" value="Submit" id="login-submit-btn">Submit</button>
+                        <button type="reset" form="login" value="Reset">Reset</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
+
+        <span id="success-login-pop-up-msg"><i class="fas fa-check-circle"></i>Successfull login</span>
+
 
 
         <aside class="filters">

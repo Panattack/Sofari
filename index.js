@@ -42,15 +42,24 @@ app.post('/ls', function (req, res) {
     const usersList = JSON.parse(users);
 
     if (usersList.some(user => user.username === username && user.password === password)) {
-        res.status(200).send({"sessionId": uuidv4()})
+        res.status(200).send({ "sessionId": uuidv4() })
     } else {
         /* 
             The HyperText Transfer Protocol (HTTP) 401 Unauthorized response status code indicates 
             that the client request has not been completed because it lacks valid authentication credentials 
             for the requested resource.
         */
-        res.status(401)
+        res.status(401).send()
     }
+})
+
+
+app.post('/afs', function (req, res) {
+
+    let id = req.body.id;
+
+    res.status(200).send({ "id": "1" })
+
 })
 
 

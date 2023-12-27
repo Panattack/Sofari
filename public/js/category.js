@@ -1,3 +1,5 @@
+let user = { username: undefined, sessionId: undefined }
+
 let headers = new Headers();
 headers.append('Accept', 'application/json');
 
@@ -10,10 +12,46 @@ let advertisements = undefined;
 
 window.addEventListener('load', fillTemplate);
 
+function openLoginForm() {
+    document.getElementById("overlay").style.display = 'flex';
+
+    // Prevent scrolling
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLoginForm() {
+    document.getElementById("overlay").style.display = 'none';
+
+    let loginForm = document.getElementById("login");
+    loginForm.reset();
+
+    let authFail = document.querySelector(".auth-fail");
+    authFail.innerHTML = ``;
+
+    // Enable scrolling again
+    document.body.style.overflow = '';
+}
+
+function showPopupMsg() {
+    let popup = document.getElementById("success-login-pop-up-msg")
+
+    popup.style.display = 'flex'
+
+    setTimeout(function () {
+        popup.style.display = 'none';
+    }, 1500);
+}
+
 function fillTemplate() {
+    // Add click event handlers for the login-form buttons
+    let loginFormBtn = document.getElementById("login-form-btn");
+    loginFormBtn.addEventListener('click', openLoginForm);
+
+    let closeLoginFormBtn = document.getElementById("close-login-form-btn");
+    closeLoginFormBtn.addEventListener('click', closeLoginForm);
 
     // Add handler for click event on submit of login form
-    let loginBtn = document.getElementById("login-btn");
+    let loginBtn = document.getElementById("login-submit-btn");
     loginBtn.addEventListener('click', postTheForm);
 
     // Get the category id from the url of the page
@@ -138,7 +176,54 @@ function postTheForm(event) {
     }
 
     fetch('/ls', init)
-        .then(response => response.json())
-        .then(sessionId => {console.log(sessionId)})
+        .then(response => {
+            if (response.ok) {
+                closeLoginForm()
+                showPopupMsg()
+                return response.json()
+            }
+
+            let authFail = document.querySelector(".auth-fail")
+            authFail.innerHTML = `<i class="fas fa-exclamation-circle"></i> Authentication failed`
+            throw new Error("Authentication Failed");
+        })
+        .then(sessionId => {
+            console.log(sessionId);
+            user.sessionId = sessionId;
+            user.username = document.getElementById("username").value
+        })
         .catch(error => { console.log(error) })
+}
+
+
+function addToFavourites(id, title, desc, cost, imgUrl) {
+
+    if (user.sessionId === undefined) {
+        console.log("Please Login");
+    } else {
+
+        let body = {
+            "id": id,
+            "title": title,
+            "desc": desc,
+            "cost": cost,
+            "img": imgUrl,
+            "username": user.username,
+            "sessionId": user.sessionId
+        }
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        let init = {
+            method: "POST",
+            "headers": headers,
+            "body": body
+        }
+
+        fetch('/afs', init)
+            .then(response => response.json())
+            .then(msg => console.log(msg))
+            .catch(error => { console.log(error) })
+    }
 }

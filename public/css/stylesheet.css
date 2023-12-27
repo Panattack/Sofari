@@ -205,13 +205,17 @@ set a right margin to add a slight space between them and center the items verti
 }
 
 /* Styles for the history navigation bar, including its background color, box shadow for a subtle elevation effect, 
-padding, margin from the top, border, position as fixed at the top creating a sticky navigation effect, and a high z-index for layering */
+padding, margin from the top, border, position as fixed at the top creating a sticky navigation effect, and a high z-index for layering
+Set the display to flex and proper align the history navigation list relatively to the login-button */
 .history-nav {
   background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 1rem 1rem 0.5rem 1rem;
   border: 2px solid white;
   width: 100%;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Styles for the unordered list within the history navigation;
@@ -1153,6 +1157,68 @@ Apply a background color, round the corners, set a padding, and define a smooth 
 }
 
 /* ------------------------- Computers & Motorcycles Page  ----------------------------- */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+#success-login-pop-up-msg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  color: green;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.login-form {
+  position: relative;
+}
+
+#login {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+#login-form-btn {
+  border: none;
+  background-color: white;
+}
+
+#close-login-form-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.auth-fail {
+  color: rgb(223, 15, 15);
+}
 
 /* Styles for the product advertisements;
 Make the advertisements be on flex to organize the its content on the vertical axis and define the borders like a box and set the grid area to help on the grid layout of the grid template area of the advertisement page */
@@ -1413,24 +1479,32 @@ input[type="radio"]+label {
   list-style: none;
 }
 
-/* ------------------------- Specific computer Page  ----------------------------- */
+/* ------------------------- Subcategory Advertisements Page  ----------------------------- */
 
 #ad-subcategories {
   grid-area: SubAdsList;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 5rem;
 }
 
 .SubProduct {
-  background-color: var(--secondary-color);
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 1rem;
+
+  border: 1px solid gainsboro;
   border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+
+  margin: 1rem;
 }
 
 /* Set the grid area for the product header in order to position it to the specified grid cell. Make its display flex to organize its items to the horizontal axis with space around them */
 .product-header {
-  grid-area: productHeader;
+  /* grid-area: productHeader; */
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -1629,10 +1703,10 @@ description, giving it a slight zoom effect */
   transform: scale(1.1);
 }
 
-/* Styles for the add-to-favorite button in the product description;
+/* Styles for the add-to-favorite button;
 Set a circular shape, white background, an icon color and a border and transition properties 
 for a smooth transformation effect */
-.product-desc .add-favorite-button {
+.add-favorite-button {
   background-color: white;
   border: 1px solid var(--primary-color);
   border-radius: 50%;
@@ -1647,7 +1721,7 @@ for a smooth transformation effect */
 
 /* Set the hover effect for the add-to-favorite button, changing its color to white, background color
 to a darker shade of the primary color, and applying a scale transformation for a zoom effect */
-.product-desc .add-favorite-button:hover {
+.add-favorite-button:hover {
   color: white;
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
@@ -1665,7 +1739,7 @@ to a darker shade of the primary color, and applying a scale transformation for 
 
 /* Styles for the product details;
 Set a border, a box shadow and rounded corners and set the padding. Define the grid layout with the help of the grid-template-area of the product. Set limit for the width of the content of the columns to be responsive */
-.product-details {
+/* .product-details {
   grid-area: productDetails;
   border: 1px solid gainsboro;
   border-radius: 1rem;
@@ -1678,30 +1752,30 @@ Set a border, a box shadow and rounded corners and set the padding. Define the g
     'carousel carousel'
     'specificBulletPoints specificBulletPoints';
   column-gap: 2rem;
-}
+} */
 
 /* Set the grid area to position the product details heading within the specified grid cell */
-.product-details h2 {
+/* .product-details h2 {
   grid-area: detailsHeading;
-}
+} */
 
 /* Set the grid area to position the carousel within the specified grid cell */
-.carousel {
+/* .carousel {
   grid-area: carousel;
-}
+} */
 
 /* Set the grid area to position the paragraph within the specified grid cell and remove the margin. Set the alignment for the paragraphs describing the product characteristics */
-.product-details>p {
+/* .product-details>p {
   grid-area: generalParagraph;
   margin: 0;
   text-align: justify;
-}
+} */
 
 /* Set the grid area to position the list within the specified grid cell and remove the default margin */
-.product-details>ul {
+/* .product-details>ul {
   grid-area: specificBulletPoints;
   margin: 0;
-}
+} */
 
 /* ----------------------- Carousel --------------------- */
 
@@ -1784,31 +1858,32 @@ Add a smooth transition effect on opacity change */
 
 /* Remove the default text decoration for the anchor links within product details section 
 and specify another text color */
-.product-details p a {
+/* .product-details p a {
   text-decoration: none;
   color: #1d8bf2;
-}
+} */
 
 /* Change the color to a lighter one for already visited links */
-.product-details p a:visited {
+/* .product-details p a:visited {
   color: #62adf3
-}
+} */
 
 /* Change the color on hover */
-.product-details p a:hover {
+/* .product-details p a:hover {
   color: var(--primary-color-dark);
-}
+} */
 
 /* Add a padding and a bottom border to show some movement for active links */
-.product-details p a:active {
+/* .product-details p a:active {
   padding: 0rem 0.2rem;
   border-bottom: 2px solid var(--primary-color-dark);
-}
+} */
 
 /* Remove the default text decoration for the abbreviations within product details section */
-.product-details abbr {
+/* .product-details abbr {
   text-decoration: none;
-}
+} */
+*/
 
 /* Add a bottom border to h2 headings in the product description, product details, and specifications 
 sections for a visual separation */
@@ -1823,10 +1898,11 @@ Set the grid area to place the product specifications table within the specified
 Define a border with a light color and round the corners, set a padding and apply a box shadow */
 .product-specs {
   grid-area: productSpecs;
-  border: 1px solid gainsboro;
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid gainsboro;
+  border-radius: 1rem; */
+  /* padding-left: 2rem;
+  padding-right: 2rem; */
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
 }
 
 /* Styles for the product specifications table;
@@ -1835,7 +1911,7 @@ Collapse the borders and round the corners, set the width to 100% and define a b
   border-collapse: collapse;
   border-radius: 1rem;
   width: 100%;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 /* Styles for table rows within the table;
