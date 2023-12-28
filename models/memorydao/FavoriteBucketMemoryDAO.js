@@ -13,10 +13,7 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO{
     }
 
     delete(bucket) {
-        let foundBucket = FavoriteBucketMemoryDAO.favorites.find(list => list.User.equals(bucket.User));
-        if (foundBucket !== undefined) {
-            favorites.delete(foundBucket);
-        }
+        FavoriteBucketMemoryDAO.favorites = FavoriteBucketMemoryDAO.favorites.filter(list => !list.User.equals(bucket.User));
     }
 
     save(bucket) {

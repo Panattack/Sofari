@@ -14,11 +14,7 @@ class AdvertisementMemoryDAO extends AdvertisementDAO {
     }
 
     delete(ad) {
-        foundAd = AdvertisementMemoryDAO.ads.find(adEntity => ad.equals(adEntity));
-        if (foundAd !== undefined)
-        {
-            AdvertisementMemoryDAO.ads.delete(foundAd);
-        }
+        AdvertisementMemoryDAO.ads = AdvertisementMemoryDAO.ads.filter(adEntity => !ad.equals(adEntity));
     }
 
     save(ad) {

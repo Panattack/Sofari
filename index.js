@@ -42,12 +42,19 @@ app.post('/ls', function (req, res) {
 
     let username = req.body.username;
     let password = req.body.password;
+    let sessionId = req.body.sessionId;
 
     let userDAO = initializer.getUserDAO;
-    if (userDAO.findUserByUsernameAndPassword(username, password) !== undefined) {
+    user = userDAO.findUserByUsernameAndPassword(username, password);
+    if (user !== undefined) {
+        // Delete old user profile
+        userDAO.delete(user);
+        // Update the user profile and store it
+        user.sessionId = sessionId;
+        userDAO.save(user);
         res.status(200).send({ "sessionId": uuidv4() })
     } else {
-        /* 
+        /*
             The HyperText Transfer Protocol (HTTP) 401 Unauthorized response status code indicates 
             that the client request has not been completed because it lacks valid authentication credentials 
             for the requested resource.

@@ -17,11 +17,7 @@ class UserMemoryDAO extends UserDAO {
     }
 
     delete(user) {
-        let foundUser = UserMemoryDAO.users.find(userEntity => user.equals(userEntity));
-        if (foundUser !== undefined)
-        {
-            UserMemoryDAO.users.delete(foundUser);
-        }
+        UserMemoryDAO.users = UserMemoryDAO.users.filter(userEntity => !user.equals(userEntity));
     }
 
     save(user) {
