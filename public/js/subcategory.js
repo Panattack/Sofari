@@ -1,11 +1,3 @@
-let myHeaders = new Headers();
-myHeaders.append('Accept', 'application/json');
-
-let init = {
-    method: "GET",
-    headers: myHeaders
-}
-
 window.addEventListener('load', fillTemplate);
 
 function fillTemplate() {
@@ -27,6 +19,14 @@ function fillTemplate() {
     templateHandler.fillTemplate({ subcategory: subCategory });
 
     // Fetch the advertisements of the specified subcategory
+    let myHeaders = new Headers();
+    myHeaders.append('Accept', 'application/json');
+
+    let init = {
+        method: "GET",
+        headers: myHeaders
+    }
+
     fetch(url, init)
         .then(response => response.json())
         .then(subAds => {

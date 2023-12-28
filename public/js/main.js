@@ -1,16 +1,16 @@
-let myHeaders = new Headers();
-myHeaders.append('Accept', 'application/json');
-
-let init = {
-    method: "GET",
-    headers: myHeaders
-}
-
 window.addEventListener('load', fillTemplate);
 
 function fillTemplate() {
     // Fetch all categories
     let url = `${generalUrl}categories`
+
+    let myHeaders = new Headers();
+    myHeaders.append('Accept', 'application/json');
+
+    let init = {
+        method: "GET",
+        headers: myHeaders
+    }
 
     fetch(url, init)
         .then(response => response.json())

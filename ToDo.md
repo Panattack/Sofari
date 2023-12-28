@@ -7,3 +7,5 @@ To Do:
 - urls, use 'join' instead of hardcoding
 - LS status code on failure? 401? 
 - message when fetched no subcategory products
+- the login form is not validated
+- logout

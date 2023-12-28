@@ -1,48 +1,8 @@
 let user = { username: undefined, sessionId: undefined }
-
-let headers = new Headers();
-headers.append('Accept', 'application/json');
-
-let init = {
-    method: "GET",
-    headers: headers
-}
-
 let advertisements = undefined;
 
-window.addEventListener('load', fillTemplate);
 
-function openLoginForm() {
-    document.getElementById("overlay").style.display = 'flex';
-
-    // Prevent scrolling
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLoginForm() {
-    document.getElementById("overlay").style.display = 'none';
-
-    let loginForm = document.getElementById("login");
-    loginForm.reset();
-
-    let authFail = document.querySelector(".auth-fail");
-    authFail.innerHTML = ``;
-
-    // Enable scrolling again
-    document.body.style.overflow = '';
-}
-
-function showPopupMsg() {
-    let popup = document.getElementById("success-login-pop-up-msg")
-
-    popup.style.display = 'flex'
-
-    setTimeout(function () {
-        popup.style.display = 'none';
-    }, 1500);
-}
-
-function fillTemplate() {
+window.addEventListener('load', function () {
     // Add click event handlers for the login-form buttons
     let loginFormBtn = document.getElementById("login-form-btn");
     loginFormBtn.addEventListener('click', openLoginForm);
@@ -52,7 +12,7 @@ function fillTemplate() {
 
     // Add handler for click event on submit of login form
     let loginBtn = document.getElementById("login-submit-btn");
-    loginBtn.addEventListener('click', postTheForm);
+    loginBtn.addEventListener('click', postLoginForm);
 
     // Get the category id from the url of the page
     const urlParams = new URLSearchParams(window.location.search);
@@ -68,6 +28,14 @@ function fillTemplate() {
 
 
     // Fetch the subcategories of the specified category
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+
+    let init = {
+        method: "GET",
+        headers: headers
+    }
+
     fetch(urlSubcategories, init)
         .then(response => response.json())
         .then(subcategoriesList => {
@@ -124,11 +92,12 @@ function fillTemplate() {
 
     templateHandler = new TemplateHandler("category-link-template", "category");
     templateHandler.fillTemplate({ category: categoryName });
-}
+});
 
 // Filter the ads according to the selected subcategory
 document.addEventListener("DOMContentLoaded", filterAds);
 
+// Auxilliary functions
 function filterAds() {
     let div = document.getElementById('subcategory-filter');
 
@@ -156,7 +125,7 @@ function filterAds() {
     });
 };
 
-function postTheForm(event) {
+function postLoginForm(event) {
     event.preventDefault();
 
     let form = document.getElementById("login");
@@ -179,7 +148,7 @@ function postTheForm(event) {
         .then(response => {
             if (response.ok) {
                 closeLoginForm()
-                showPopupMsg()
+                showPopupMsg("success-login-pop-up-msg")
                 return response.json()
             }
 
@@ -195,11 +164,10 @@ function postTheForm(event) {
         .catch(error => { console.log(error) })
 }
 
-
 function addToFavourites(id, title, desc, cost, imgUrl) {
 
     if (user.sessionId === undefined) {
-        console.log("Please Login");
+        showPopupMsg("fail-addToFav-pop-up-msg");
     } else {
 
         let body = {
@@ -226,4 +194,24 @@ function addToFavourites(id, title, desc, cost, imgUrl) {
             .then(msg => console.log(msg))
             .catch(error => { console.log(error) })
     }
+}
+
+function openLoginForm() {
+    document.querySelector(".overlay").style.display = 'flex';
+
+    // Prevent scrolling
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLoginForm() {
+    document.querySelector(".overlay").style.display = 'none';
+
+    let loginForm = document.getElementById("login");
+    loginForm.reset();
+
+    let authFail = document.querySelector(".auth-fail");
+    authFail.innerHTML = ``;
+
+    // Enable scrolling again
+    document.body.style.overflow = '';
 }

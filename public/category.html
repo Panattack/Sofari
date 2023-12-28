@@ -58,7 +58,7 @@
                 <span class="ad-info-price">{{this.cost}}<sup>€</sup></span>
                 
                 <div class="ad-desc-buttons">
-                    <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to shopping cart</button>
+                    <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to cart</button>
 
                     <button class="add-favorite-button" 
                     data-ad-id="{{this.id}}" 
@@ -137,7 +137,7 @@
             </div>
         </header>
 
-        <div id="overlay">
+        <div class="overlay">
             <div class="login-form">
                 <span id="close-login-form-btn"><i class="fas fa-times"></i></span>
                 <form id="login" name="login">
@@ -171,9 +171,13 @@
             </div>
         </div>
 
-        <span id="success-login-pop-up-msg"><i class="fas fa-check-circle"></i>Successfull login</span>
+        <div class="overlay">
+            <span id="success-login-pop-up-msg" class="pop-up"><i class="fas fa-check-circle"></i> Successfull login</span>
+        </div>
 
-
+        <div class="overlay">
+            <span id="fail-addToFav-pop-up-msg" class="pop-up"><i class="fas fa-exclamation-circle"></i> Login first</span>
+        </div>
 
         <aside class="filters">
             <details open>
