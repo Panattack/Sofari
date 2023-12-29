@@ -6,6 +6,8 @@ class UserDAO {
 
     findUserByUsernameAndPassword(username, password) {};
 
+    findUserByUsernameAndSessionId(username, sessionId) {};
+
     delete(user) {};
 
     save(user) {};

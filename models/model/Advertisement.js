@@ -23,3 +23,5 @@ class Advertisement {
         return this.id === other.id;
     }
 }
+
+module.exports = Advertisement;

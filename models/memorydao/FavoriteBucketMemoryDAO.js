@@ -8,8 +8,9 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO{
         return FavoriteBucketMemoryDAO.favorites;
     }
 
-    findAdsByUser(user) {
-        return FavoriteBucketMemoryDAO.favorites.filter(bucket => bucket.user.equals(user));
+    findFavoritesByUser(user) {
+        console.log(FavoriteBucketMemoryDAO.favorites)
+        return FavoriteBucketMemoryDAO.favorites.find(bucket => bucket.getUser.equals(user));
     }
 
     delete(bucket) {
@@ -19,7 +20,7 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO{
     save(bucket) {
         let foundBucket = FavoriteBucketMemoryDAO.favorites.filter(list => list.User.equals(bucket.User));
         if (foundBucket.length === 0) {
-            favorites.push(bucket);
+            FavoriteBucketMemoryDAO.favorites.push(bucket);
         }
     }
 }

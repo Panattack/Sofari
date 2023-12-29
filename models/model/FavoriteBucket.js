@@ -9,14 +9,14 @@ class FavoriteBucket {
     set setUser(user) {this.user = user;}
 
     addToFavorites(advertisement){
-        foundAdv = this.favorites.some(ads => advertisement.equals(ads));
+        const foundAdv = this.favorites.some(ads => advertisement.equals(ads));
+
         if (foundAdv) {
-            // Throw exception
-            return "Problem";
-        }
-        else {
+            throw new Error('Advertisement already exists in favorites');
+        } else {
             this.favorites.push(advertisement);
-            return "OK";
         }
     }
 }
+
+module.exports = FavoriteBucket;

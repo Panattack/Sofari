@@ -9,11 +9,15 @@ class UserMemoryDAO extends UserDAO {
     }
 
     findUserByUsername(username) {
-        return UserMemoryDAO.users.filter(item => item.username === username);
+        return UserMemoryDAO.users.filter(item => item.getUsername === username);
     }
 
     findUserByUsernameAndPassword(username, password) {
-        return UserMemoryDAO.users.find(item => item.username === username && item.password === password);
+        return UserMemoryDAO.users.find(item => item.getUsername === username && item.getPassword === password);
+    }
+
+    findUserByUsernameAndSessionId(username, sessionId) {
+        return UserMemoryDAO.users.find(item => item.getUsername === username && item.getSessionId === sessionId);
     }
 
     delete(user) {
@@ -21,10 +25,15 @@ class UserMemoryDAO extends UserDAO {
     }
 
     save(user) {
-        let foundUser = UserMemoryDAO.users.filter(userEntity => user.equals(userEntity));
-        if (foundUser.length === 0)
+        let foundUser = UserMemoryDAO.users.find(userEntity => user.equals(userEntity));
+        if (foundUser === undefined)
         {
             UserMemoryDAO.users.push(user);
+        }
+        else
+        {
+            // Update the user
+            foundUser.update(user);
         }
     }
 }

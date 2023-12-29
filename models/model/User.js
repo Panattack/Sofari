@@ -5,6 +5,12 @@ class User {
         this.sessionId = undefined;
     }
 
+    update(user) {
+        this.username = user.username;
+        this.password = user.password;
+        this.sessionId = user.sessionId;
+    }
+
     get getUsername() {return this.username;}
 
     set setUsername(name) {this.username = name;}

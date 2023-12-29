@@ -156,21 +156,20 @@ function postLoginForm(event) {
             authFail.innerHTML = `<i class="fas fa-exclamation-circle"></i> Authentication failed`
             throw new Error("Authentication Failed");
         })
-        .then(sessionId => {
-            console.log(sessionId);
-            user.sessionId = sessionId;
-            user.username = document.getElementById("username").value
+        .then(sessionObj => {
+            user.sessionId = sessionObj.sessionId;
+            user.username = formData.get("username");
         })
         .catch(error => { console.log(error) })
 }
 
-function addToFavourites(id, title, desc, cost, imgUrl) {
+function addToFavourites(button, id, title, desc, cost, imgUrl) {
 
     if (user.sessionId === undefined) {
         showPopupMsg("fail-addToFav-pop-up-msg");
     } else {
 
-        let body = {
+        let body = JSON.stringify({
             "id": id,
             "title": title,
             "desc": desc,
@@ -178,7 +177,7 @@ function addToFavourites(id, title, desc, cost, imgUrl) {
             "img": imgUrl,
             "username": user.username,
             "sessionId": user.sessionId
-        }
+        })
 
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -190,8 +189,22 @@ function addToFavourites(id, title, desc, cost, imgUrl) {
         }
 
         fetch('/afs', init)
-            .then(response => response.json())
-            .then(msg => console.log(msg))
+            .then(response => {
+                if (response.ok) {
+                    button.toggleAttribute("favourited");
+                    // return response.json();
+                }
+
+                // Login was required, client side didn't catch it
+                if (response.status === 401) {
+                    showPopupMsg("fail-addToFav-pop-up-msg");
+                    throw new Error("Authentication Failed");
+                }
+                // Conflict, advertisement already in favourites list
+                else if (response.status === 409) {
+                    throw new Error("Already in favourites list");
+                }
+            })
             .catch(error => { console.log(error) })
     }
 }
