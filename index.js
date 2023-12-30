@@ -72,12 +72,10 @@ app.post('/afs', function (req, res) {
     console.log(user);
     if (user === undefined) {
         res.status(401).send();
-    }
-    else {
+    } else {
         let bucket = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
         let advertisement = new Advertisement(body.id, body.title, body.description, body.cost, body.imageUrl);
 
-        console.log(bucket);
         if (bucket === undefined) {
             // First time adding an advertisement
             let favorite = new FavoriteBucket(user);
@@ -97,4 +95,18 @@ app.post('/afs', function (req, res) {
         
     }
     console.log("ok");
+})
+
+app.get('/frs', function (req, res) {
+
+    let user = initializer.getUserDAO.findUserByUsernameAndSessionId(req.query.username, req.query.sessionId);
+
+    if (user === undefined) {
+        res.status(401).send();
+    } else {
+        let bucket = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
+        
+        listOfAdvertisements = JSON.stringify(bucket);
+        res.status(200).send(listOfAdvertisements);
+    }
 })
