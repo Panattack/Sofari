@@ -569,6 +569,13 @@ Set the z-index to make it pop above the other content */
     'footer footer footer';
 }
 
+.wrapper-favourites {
+  grid-template-areas:
+    'header header header'
+    'favouritesList favouritesList favouritesList'
+    'footer footer footer';
+}
+
 /*------------------------Home Page------------------------*/
 
 /* Define the grid area to help set it in the grid layout */
@@ -1215,9 +1222,11 @@ Apply a background color, round the corners, set a padding, and define a smooth 
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
-#login-form-btn {
+#login-form-btn,
+#view-favourites-btn {
   border: none;
   background-color: white;
+  font-size: 1rem;
 }
 
 #close-login-form-btn {
@@ -1341,18 +1350,27 @@ Set a smaller font size that that of the current price, make it black, reduce th
   font-size: 1rem;
 }
 
+#ads-category-products>.ad-product .ad-desc-buttons {
+  grid-area: productButton;
+  justify-self: self-end;
+}
+
 /* Define the grid area to position the element to the specified cell. Make its borders circular and set the width to fit on the content. Center the element to the left of the horizontal axis andset a background color */
 #ads-category-products>.ad-product .add-cart-button {
-  grid-area: productButton;
   border-radius: 2rem;
   width: fit-content;
   background-color: var(--primary-color);
-  justify-self: self-end;
+
 }
 
 /* On hover, change the color of the add-to-cart button within the product advertisement */
 #ads-category-products>.ad-product .add-cart-button:hover {
   background-color: var(--primary-color-dark);
+}
+
+#ads-category-products>.ad-product .add-favorite-button[favourited] {
+  background-color: #0077B5;
+  padding: 2rem;
 }
 
 /* Set the grid area in order to position the filters to the specified cell. */
@@ -1987,6 +2005,11 @@ ensure a smooth transition in border-radius when switching between open and clos
   border-radius: 0rem;
 }
 
+/* -------------------- Favorite Ads page -------------------- */
+.ads-favourite-products {
+  grid-area: favouritesList;
+}
+
 /* -------------------- Responsive Layout -------------------- */
 /* Set the max width of every image to 10-% so that the scale of every image will change depending on the screen, filling the width of the container if possible */
 img {
@@ -2160,6 +2183,14 @@ img {
       'footer'
     ;
   }
+
+  .wrapper-favourites {
+    grid-template-areas:
+      'header'
+      'favouritesList'
+      'footer'
+    ;
+  }
 }
 
 /* Double column layout for tablets */
@@ -2301,6 +2332,14 @@ img {
     grid-template-areas:
       'header header'
       'signUpForm signUpForm'
+      'footer footer'
+    ;
+  }
+
+  .wrapper-favourites {
+    grid-template-areas:
+      'header header'
+      'favouritesList favouritesList'
       'footer footer'
     ;
   }

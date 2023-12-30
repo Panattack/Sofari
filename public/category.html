@@ -64,7 +64,7 @@
                     data-ad-id="{{this.id}}" 
                     data-ad-title="{{this.title}}" data-ad-desc="{{this.description}}" 
                     data-ad-cost="{{this.cost}}"
-                    data-ad-url="{{this.images.[0]}}" onclick="addToFavourites('{{this.id}}', '{{this.title}}', '{{this.description}}', '{{this.cost}}', '{{this.images.[0]}}')">
+                    data-ad-url="{{this.images.[0]}}" onclick="addToFavourites(this, '{{this.id}}', '{{this.title}}', '{{this.description}}', '{{this.cost}}', '{{this.images.[0]}}')">
                     <span class="far fa-heart"></span>
                     </button>
                 </div>
@@ -132,7 +132,10 @@
                         <li><a href="index.html">Advertisements</a></li>
                         <li id="category"></li>
                     </ul>
-                    <button id="login-form-btn"><i class="fas fa-user"></i> Login</button>
+                    <div>
+                        <button id="login-form-btn"><i class="fas fa-user"></i></button>
+                        <button id="view-favourites-btn"><i class="fas fa-heart"></i></button>
+                    </div>
                 </div>
             </div>
         </header>
@@ -172,11 +175,13 @@
         </div>
 
         <div class="overlay">
-            <span id="success-login-pop-up-msg" class="pop-up"><i class="fas fa-check-circle"></i> Successfull login</span>
+            <span id="success-login-pop-up-msg" class="pop-up"><i class="fas fa-check-circle"></i> Successfull
+                login</span>
         </div>
 
         <div class="overlay">
-            <span id="fail-addToFav-pop-up-msg" class="pop-up"><i class="fas fa-exclamation-circle"></i> Login first</span>
+            <span id="fail-addToFav-pop-up-msg" class="pop-up"><i class="fas fa-exclamation-circle"></i> Login
+                first</span>
         </div>
 
         <aside class="filters">

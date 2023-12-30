@@ -3,7 +3,7 @@ let advertisements = undefined;
 
 
 window.addEventListener('load', function () {
-    // Add click event handlers for the login-form buttons
+    // Add click event handlers for the login-form buttons (open and close)
     let loginFormBtn = document.getElementById("login-form-btn");
     loginFormBtn.addEventListener('click', openLoginForm);
 
@@ -13,6 +13,14 @@ window.addEventListener('load', function () {
     // Add handler for click event on submit of login form
     let loginBtn = document.getElementById("login-submit-btn");
     loginBtn.addEventListener('click', postLoginForm);
+
+    // Add click event handler for the view-favourites button
+    let viewFavouritesBtn = document.getElementById("view-favourites-btn");
+    viewFavouritesBtn.addEventListener('click', function(){
+    console.log(user)
+        redirectToPage(`favorite-ads.html?username=${user.username}&sessionId=${user.sessionId}`)
+    });
+
 
     // Get the category id from the url of the page
     const urlParams = new URLSearchParams(window.location.search);
@@ -202,6 +210,7 @@ function addToFavourites(button, id, title, desc, cost, imgUrl) {
                 }
                 // Conflict, advertisement already in favourites list
                 else if (response.status === 409) {
+                    button.toggleAttribute("favourited");
                     throw new Error("Already in favourites list");
                 }
             })
