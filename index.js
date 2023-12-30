@@ -68,13 +68,13 @@ app.post('/afs', function (req, res) {
 
     let body = req.body;
     let user = initializer.getUserDAO.findUserByUsernameAndSessionId(body.username, body.sessionId);
-    
+
     console.log(user);
     if (user === undefined) {
         res.status(401).send();
     } else {
         let bucket = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
-        let advertisement = new Advertisement(body.id, body.title, body.description, body.cost, body.imageUrl);
+        let advertisement = new Advertisement(body.id, body.title, body.desc, body.cost, body.img);
 
         if (bucket === undefined) {
             // First time adding an advertisement
@@ -92,7 +92,7 @@ app.post('/afs', function (req, res) {
                 res.status(409).send("Conflict: Error finding favorites");
             }
         }
-        
+
     }
     console.log("ok");
 })
@@ -104,9 +104,10 @@ app.get('/frs', function (req, res) {
     if (user === undefined) {
         res.status(401).send();
     } else {
-        let bucket = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
-        
-        listOfAdvertisements = JSON.stringify(bucket);
-        res.status(200).send(listOfAdvertisements);
+        let favouritesList = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
+        favouritesList = favouritesList === undefined ? [] : favouritesList.getFavorites;
+
+        console.log(JSON.stringify(favouritesList))
+        res.status(200).send(JSON.stringify(favouritesList));
     }
 })

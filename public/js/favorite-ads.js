@@ -22,7 +22,13 @@ window.addEventListener('load', function () {
         }
 
         fetch(`/frs?username=${username}&sessionId=${sessionId}`, init)
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    console.log("FETCHED")
+                    return response.json()
+                }
+                throw new Error("Authentication Failed");
+            })
             .then(favouritesList => {
 
                 //Fill the template for the filters

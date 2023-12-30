@@ -572,7 +572,7 @@ Set the z-index to make it pop above the other content */
 .wrapper-favourites {
   grid-template-areas:
     'header header header'
-    'favouritesList favouritesList favouritesList'
+    '. favouritesList .'
     'footer footer footer';
 }
 
@@ -1239,14 +1239,17 @@ Apply a background color, round the corners, set a padding, and define a smooth 
   color: rgb(223, 15, 15);
 }
 
-/* Styles for the product advertisements;
-Make the advertisements be on flex to organize the its content on the vertical axis and define the borders like a box and set the grid area to help on the grid layout of the grid template area of the advertisement page */
-#ads-category-products {
-  grid-area: products;
+.ads-products {
   display: flex;
   flex-flow: column nowrap;
   row-gap: 1rem;
   box-sizing: border-box;
+}
+
+/* Styles for the product advertisements;
+Make the advertisements be on flex to organize the its content on the vertical axis and define the borders like a box and set the grid area to help on the grid layout of the grid template area of the advertisement page */
+#ads-category-products {
+  grid-area: products;
 }
 
 /* For every span tag within the product advertisement, set the display to block in order to place it in a new row of its own */
@@ -1350,25 +1353,25 @@ Set a smaller font size that that of the current price, make it black, reduce th
   font-size: 1rem;
 }
 
-#ads-category-products>.ad-product .ad-desc-buttons {
+ .ad-desc-buttons {
   grid-area: productButton;
   justify-self: self-end;
 }
 
 /* Define the grid area to position the element to the specified cell. Make its borders circular and set the width to fit on the content. Center the element to the left of the horizontal axis andset a background color */
-#ads-category-products>.ad-product .add-cart-button {
+ .add-cart-button {
   border-radius: 2rem;
   width: fit-content;
   background-color: var(--primary-color);
 
 }
 
-/* On hover, change the color of the add-to-cart button within the product advertisement */
-#ads-category-products>.ad-product .add-cart-button:hover {
+/* On hover, change the color of the add-to-cart button */
+.add-cart-button:hover {
   background-color: var(--primary-color-dark);
 }
 
-#ads-category-products>.ad-product .add-favorite-button[favourited] {
+.add-favorite-button[favourited] {
   background-color: #0077B5;
   padding: 2rem;
 }
@@ -1549,7 +1552,7 @@ input[type="radio"]+label {
   flex: 0 1 auto;
 }
 
-/* Align the advertisement details across the horizntal and vertical axis;Set the display to grid and define the layout using the template. Set a limit for the content of the columns and ad some gap between the grid items. Last, make it grow and shrink */
+/* Align the advertisement details across the horizontal and vertical axis;Set the display to grid and define the layout using the template. Set a limit for the content of the columns and ad some gap between the grid items. Last, make it grow and shrink */
 .ad-details {
   align-self: center;
   justify-self: left;
@@ -1654,10 +1657,9 @@ Set a smaller font size that that of the current price, make it black, reduce th
   justify-self: start;
 }
 
-/* Span the add-cart-button to two columns of the grid; Round its corners */
-.ad-details .add-cart-button {
+/* Span the add-cart-button to two columns of the grid; */
+.ad-details .ad-desc-buttons {
   grid-column: span 2;
-  border-radius: 2rem;
 }
 
 /* Set the grid area to place the views & watching within the pre-defined cell in the grid layout. */
@@ -2006,7 +2008,7 @@ ensure a smooth transition in border-radius when switching between open and clos
 }
 
 /* -------------------- Favorite Ads page -------------------- */
-.ads-favourite-products {
+#ads-favourite-products {
   grid-area: favouritesList;
 }
 
