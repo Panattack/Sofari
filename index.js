@@ -59,9 +59,10 @@ app.post('/ls', function (req, res) {
 })
 
 app.post('/afs', function (req, res) {
-    const { username, sessionId, id, title, description, cost, imageUrl } = req.body;
+    const { username, sessionId, id, title, desc, cost, img } = req.body;
+    
     try {
-        const result = FavoriteService.addToFavorites(username, sessionId, { id, title, description, cost, imageUrl });
+        const result = FavoriteService.addToFavorites(username, sessionId, { id, title, desc, cost, img });
         res.status(200).send(result);
     } catch (error) {
         res.status(409).send(error.message);
