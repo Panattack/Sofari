@@ -8,7 +8,6 @@ Questions:
 To Do:
 - carousel in subcategories page
 - urls, use 'join' instead of hardcoding
-- the login form is not validated
 - images of all ads, object-fit property
 
 

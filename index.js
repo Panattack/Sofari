@@ -5,7 +5,7 @@ const port = 8080
 
 const MemoryInitializer = require('./models/memorydao/MemoryInitializer')
 const AuthenticationService = require('./models/services/AuthenticationService');
-const FavoriteService = require('./models/services/FavoritesService');
+const FavoriteService = require('./models/services/FavoriteService');
 const initializer = new MemoryInitializer();
 initializer.prepareData()
 
@@ -65,7 +65,7 @@ app.post('/afs', function (req, res) {
         const result = FavoriteService.addToFavorites(username, sessionId, { id, title, desc, cost, img });
         res.status(200).send(result);
     } catch (error) {
-        res.status(409).send(error.message);
+        res.status(error.getStatus).send(error.message);
     }
 });
 
@@ -75,6 +75,6 @@ app.get('/frs', function (req, res) {
         const result = FavoriteService.retrieveFavorites(username, sessionId);
         res.status(200).send(result);
     } catch (error) {
-        res.status(401).send(error.message);
+        res.status(error.getStatus).send(error.message);
     }
 });

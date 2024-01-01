@@ -136,38 +136,43 @@ function postLoginForm(event) {
     event.preventDefault();
 
     let form = document.getElementById("login");
-    let formData = new FormData(form);
 
-    let headers = new Headers();
-    headers.append("Content-Type", "application/x-www-form-urlencoded");
+    if (form.checkValidity())
+    {
+        let formData = new FormData(form);
+        let headers = new Headers();
+        headers.append("Content-Type", "application/x-www-form-urlencoded");
 
-    let formStr = new URLSearchParams(formData).toString();
+        let formStr = new URLSearchParams(formData).toString();
 
-    console.log(formStr)
+        console.log(formStr)
 
-    let init = {
-        method: "POST",
-        "headers": headers,
-        body: formStr
+        let init = {
+            method: "POST",
+            "headers": headers,
+            body: formStr
+        }
+
+        fetch('/ls', init)
+            .then(response => {
+                if (response.ok) {
+                    closeLoginForm()
+                    showPopupMsg("success-login-pop-up-msg")
+                    return response.json()
+                }
+
+                let authFail = document.querySelector(".auth-fail")
+                authFail.innerHTML = `<i class="fas fa-exclamation-circle"></i> Authentication failed`
+                throw new Error("Authentication Failed");
+            })
+            .then(sessionObj => {
+                user.sessionId = sessionObj.sessionId;
+                user.username = formData.get("username");
+            })
+            .catch(error => { console.log(error) })
+    } else {
+        form.reportValidity();
     }
-
-    fetch('/ls', init)
-        .then(response => {
-            if (response.ok) {
-                closeLoginForm()
-                showPopupMsg("success-login-pop-up-msg")
-                return response.json()
-            }
-
-            let authFail = document.querySelector(".auth-fail")
-            authFail.innerHTML = `<i class="fas fa-exclamation-circle"></i> Authentication failed`
-            throw new Error("Authentication Failed");
-        })
-        .then(sessionObj => {
-            user.sessionId = sessionObj.sessionId;
-            user.username = formData.get("username");
-        })
-        .catch(error => { console.log(error) })
 }
 
 function addToFavourites(button, id, title, desc, cost, imgUrl) {

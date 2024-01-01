@@ -13,11 +13,11 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO{
     }
 
     delete(bucket) {
-        FavoriteBucketMemoryDAO.favorites = FavoriteBucketMemoryDAO.favorites.filter(list => !list.User.equals(bucket.User));
+        FavoriteBucketMemoryDAO.favorites = FavoriteBucketMemoryDAO.favorites.filter(list => !list.getUser.equals(bucket.getUser));
     }
 
     save(bucket) {
-        let foundBucket = FavoriteBucketMemoryDAO.favorites.filter(list => list.User.equals(bucket.User));
+        let foundBucket = FavoriteBucketMemoryDAO.favorites.filter(list => list.getUser.equals(bucket.getUser));
         if (foundBucket.length === 0) {
             FavoriteBucketMemoryDAO.favorites.push(bucket);
         }

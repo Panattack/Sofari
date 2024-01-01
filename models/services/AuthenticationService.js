@@ -21,7 +21,6 @@ class AuthenticationService {
     return null; // Authentication failed
   }
 
-  // You can add more authentication-related methods here based on your needs
 }
 
 module.exports = AuthenticationService;
