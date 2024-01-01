@@ -39,7 +39,10 @@ function fillTemplate() {
 
             // Fill the template for the advertisements of the specified subcategory
             templateHandler = new TemplateHandler("subcategory-template", "ad-subcategories");
-            templateHandler.fillTemplate({ array: subAds });
+            templateHandler.fillTemplate({
+                array: subAds,
+                empty: subAds.length === 0
+            });
         })
         .catch(error => {
             console.error('Error fetching data:', error);

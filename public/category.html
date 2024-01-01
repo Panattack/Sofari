@@ -56,6 +56,8 @@
                 </header>
 
                 <span class="ad-info-price">{{this.cost}}<sup>€</sup></span>
+
+                <span id="add-to-favourites-inline-pop-up-msg-{{this.id}}" class="pop-up-inline"></span>
                 
                 <div class="ad-desc-buttons">
                     <button class="add-cart-button"><span class="fas fa-shopping-cart"></span>Add to cart</button>
@@ -147,7 +149,7 @@
                     <fieldset>
                         <legend>Login</legend>
 
-                        <span class="auth-fail"></span>
+                        <span class="auth-fail failure"></span>
 
                         <p>
                             <label for="username">Username: </label>
@@ -175,12 +177,12 @@
         </div>
 
         <div class="overlay">
-            <span id="success-login-pop-up-msg" class="pop-up"><i class="fas fa-check-circle"></i> Successfull
+            <span id="success-login-pop-up-msg" class="pop-up success"><i class="fas fa-check-circle"></i> Successfull
                 login</span>
         </div>
 
         <div class="overlay">
-            <span id="fail-addToFav-pop-up-msg" class="pop-up"><i class="fas fa-exclamation-circle"></i> Login
+            <span id="fail-addToFav-pop-up-msg" class="pop-up failure"><i class="fas fa-exclamation-circle"></i> Login
                 first</span>
         </div>
 

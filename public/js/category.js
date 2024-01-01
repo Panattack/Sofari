@@ -16,8 +16,8 @@ window.addEventListener('load', function () {
 
     // Add click event handler for the view-favourites button
     let viewFavouritesBtn = document.getElementById("view-favourites-btn");
-    viewFavouritesBtn.addEventListener('click', function(){
-    console.log(user)
+    viewFavouritesBtn.addEventListener('click', function () {
+        console.log(user)
         redirectToPage(`favorite-ads.html?username=${user.username}&sessionId=${user.sessionId}`)
     });
 
@@ -32,10 +32,9 @@ window.addEventListener('load', function () {
     // Set the title of the document
     document.title = `Sofari: ${categoryName}`
 
+    // Fetch the subcategories of the specified category
     let urlSubcategories = `${generalUrl}categories/${categoryId}/subcategories`;
 
-
-    // Fetch the subcategories of the specified category
     let headers = new Headers();
     headers.append('Accept', 'application/json');
 
@@ -199,8 +198,7 @@ function addToFavourites(button, id, title, desc, cost, imgUrl) {
         fetch('/afs', init)
             .then(response => {
                 if (response.ok) {
-                    button.toggleAttribute("favourited");
-                    // return response.json();
+                    showInlinePopupMsg(`add-to-favourites-inline-pop-up-msg-${id}`, "Added!")
                 }
 
                 // Login was required, client side didn't catch it
@@ -210,7 +208,7 @@ function addToFavourites(button, id, title, desc, cost, imgUrl) {
                 }
                 // Conflict, advertisement already in favourites list
                 else if (response.status === 409) {
-                    button.toggleAttribute("favourited");
+                    showInlinePopupMsg(`add-to-favourites-inline-pop-up-msg-${id}`, "Already in favourites list!")
                     throw new Error("Already in favourites list");
                 }
             })

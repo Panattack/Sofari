@@ -26,6 +26,10 @@
         <a href="#">{{subcategory}}</a>
     </script>
     <script id="subcategory-template" type="text/x-handlebars-template">
+        {{#if empty}}
+        <p style="text-align: center;">No results. More coming soon.</p>
+        {{/if}}
+        {{#unless empty}}
         {{#each array}}
             <section class="SubProduct">
                 <section class="product-header">
@@ -110,11 +114,12 @@
                 </section>
             </section>
         {{/each}}
+        {{/unless}}
     </script>
 </head>
 
 <body>
-    <div class="wrapper wrapper-computer">
+    <div class="wrapper wrapper-subcategory">
         <header class="top-header">
             <div class="upper-header">
                 <img class="logo" src="../Resources/Svg/logo.svg" alt="Sofari">

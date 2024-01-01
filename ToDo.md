@@ -1,13 +1,19 @@
 Questions:
 - 2 Fetches that are not concurrent in main.js
 - Errors control, status codes control
+- LS status code on failure? 401? 
+
+
 
 To Do:
-- CSS for subcategory.html, + wrapper (grid)
-- urls, use 'join' instead of hardcoding
-- LS status code on failure? 401? 
-- message when fetched no subcategory products
-- the login form is not validated
-- logout
 - carousel in subcategories page
-- add-to-cart button in subcategories list
+- urls, use 'join' instead of hardcoding
+- the login form is not validated
+- images of all ads, object-fit property
+
+
+
+Supplementary
+- logout
+- mongoDB
+- random dates

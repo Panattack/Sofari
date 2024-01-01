@@ -23,6 +23,7 @@
     <script type="text/javascript" src="js/favorite-ads.js"></script>
 
     <script id="favourites-template" type="text/x-handlebars-template">
+        <h1>My favourite ads <i class="fas fa-heart"></i></h1>
         {{#if empty}}
         <p style="text-align: center;">Nothing here.</p>
         {{/if}}
@@ -76,6 +77,14 @@
         </header>
 
         <section id="ads-favourite-products" class="ads-products"></section>
+
+        <div class="overlay">
+            <span id="fail-viewFav-pop-up-msg" class="pop-up failure">
+                <span><i class="fas fa-exclamation-circle"></i> Login is required to view this page.</span>
+                <!-- Redirect to the previous page (according to history) -->
+                <button class="ok-btn" onclick="javascript:history.go(-1)">OK</button> 
+            </span>
+        </div>
 
         <button class="float-button add-cart-float-button"><span class="fas fa-shopping-cart"></span></button>
         <button class="float-button sign-up-float-button" onclick="redirectToPage('signUpForm.html')">

@@ -4,12 +4,10 @@ function redirectToPage(pageUrl) {
     window.location.href = pageUrl
 }
 
-function showPopupMsg(id) {
+function showPopupMsg(id, delay_ms = 1000) {
     let popupList = document.querySelectorAll(".overlay")
 
     popup = Array.from(popupList).find(popup => popup.firstElementChild.getAttribute("id") === id)
-
-    console.log(popup)
 
     if (popup) {
         popup.style.display = 'flex';
@@ -17,13 +15,31 @@ function showPopupMsg(id) {
         // Prevent scrolling
         document.body.style.overflow = 'hidden';
 
-        setTimeout(function () {
-            popup.style.display = 'none';
+        if (delay_ms !== null) {
+            setTimeout(function () {
+                popup.style.display = 'none';
 
-            // Enable scrolling again
-            document.body.style.overflow = '';
+                // Enable scrolling again
+                document.body.style.overflow = '';
 
-        }, 1000);
+            }, delay_ms);
+        }
+    }
+}
+
+function showInlinePopupMsg(id, text, delay_ms = 1000) {
+    popup = document.getElementById(id);
+    
+    if (popup) {
+        popup.textContent = text;
+        popup.style.display = 'block';
+
+        if (delay_ms !== null) {
+            setTimeout(function () {
+                popup.textContent = '';
+                popup.style.display = 'none';
+            }, delay_ms);
+        }
     }
 }
 

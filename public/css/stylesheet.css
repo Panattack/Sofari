@@ -44,6 +44,13 @@
   width: 0.3rem;
 }
 
+/* Specify a text selection color */
+::-moz-selection {
+  /* Code for Firefox*/
+  background-color: #d8d8d8;
+  /* Muted background color for selected text */
+}
+
 /* Make specific words and phrases appear as highlighted, using another color and rounded border */
 .highlight {
   background-color: var(--primary-color-faded);
@@ -52,12 +59,85 @@
   padding: 0.2rem;
 }
 
-/* Specify a text selection color */
-::-moz-selection {
-  /* Code for Firefox*/
-  background-color: #d8d8d8;
-  /* Muted background color for selected text */
+.failure {
+  color: rgb(223, 15, 15);
 }
+
+.success {
+  color: green;
+}
+
+button {
+  cursor: pointer;
+}
+
+.ok-btn {
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.ok-btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.pop-up {
+  background-color: white;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  animation: popupAnimation 0.3s ease-out;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.pop-up-inline {
+  background-color: #484747;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+  display: none;
+
+  animation: popupAnimation 0.3s ease-out;
+}
+
+/* .pop-up-inline:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 24px solid #333;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #333;
+  border-bottom: 20px solid transparent;
+  right: 0; 
+  top: -24px; 
+} */
 
 /* Sets the color gray for the selected item (e.g text) */
 ::selection {
@@ -70,6 +150,10 @@ input[type="checkbox"],
 input[type="range"],
 input[type="radio"] {
   accent-color: var(--primary-color);
+}
+
+input[type="radio"] {
+  margin: 0;
 }
 
 /* Set the font family for the text of the body in every page. Also hide the overflow of the page */
@@ -549,25 +633,20 @@ Set the z-index to make it pop above the other content */
   ;
 }
 
-/* The wrapper of the specific computer product. The template is the header to be on the top of the page. The production header to be on the second row in the middle. The production description on the third column. The product details on the fourth column. The product specifications in the middle of the fifth column. Last the footer on the sixth column 
+/* The wrapper of the specific subcategory advertisements. The template is the header to be on the top of the page. The list of the subcategory's advertisements will extent at all columns and the footer will cover the third row. 
       1      2       3
 1   Header on all columns
 
-2     - | ProductHeader | -
+2   SubcategoryAds on all columns
 
-3   Product Description on all columns
-
-4   Product Details on all columns
-
-5     - | Product Specifications | -
-
-6   Footer on all columns */
-.wrapper-computer {
+3   Footer on all columns */
+.wrapper-subcategory {
   grid-template-areas:
     'header header header'
     'SubAdsList SubAdsList SubAdsList'
     'footer footer footer';
 }
+
 
 .wrapper-favourites {
   grid-template-areas:
@@ -1164,36 +1243,6 @@ Apply a background color, round the corners, set a padding, and define a smooth 
 }
 
 /* ------------------------- Computers & Motorcycles Page  ----------------------------- */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.pop-up {
-  background-color: white;
-  border: gainsboro;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-  padding: 1.5rem;
-  text-align: center;
-  border-radius: 0.5rem;
-  animation: popupAnimation 0.3s ease-out;
-}
-
-#success-login-pop-up-msg {
-  color: green;
-}
-
-#fail-addToFav-pop-up-msg {
-  color: rgb(223, 15, 15);
-}
 
 /* Keyframes for the pop-up animation */
 @keyframes popupAnimation {
@@ -1233,10 +1282,6 @@ Apply a background color, round the corners, set a padding, and define a smooth 
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-}
-
-.auth-fail {
-  color: rgb(223, 15, 15);
 }
 
 .ads-products {
@@ -1353,18 +1398,17 @@ Set a smaller font size that that of the current price, make it black, reduce th
   font-size: 1rem;
 }
 
- .ad-desc-buttons {
+.ad-desc-buttons {
   grid-area: productButton;
   justify-self: self-end;
 }
 
 /* Define the grid area to position the element to the specified cell. Make its borders circular and set the width to fit on the content. Center the element to the left of the horizontal axis andset a background color */
- .add-cart-button {
+/* .add-cart-button {
   border-radius: 2rem;
   width: fit-content;
   background-color: var(--primary-color);
-
-}
+} */
 
 /* On hover, change the color of the add-to-cart button */
 .add-cart-button:hover {
@@ -1542,13 +1586,16 @@ input[type="radio"]+label {
   gap: 2rem;
 }
 
-/* Set a left margin for the product image in the product header and round its corners. Shrink the width and automate the height of the image */
+/* Set a left margin for the product image in the product header and round its corners. Shrink the width and automate the height of the image
+Set the max-height to prevent very high images from downgrading the appearance, and set object-fit to cover */
 .product-header>img {
   align-self: center;
   justify-self: right;
   border-radius: 0.5rem;
   width: 38rem;
   height: auto;
+  max-height: 30rem;
+  object-fit: cover;
   flex: 0 1 auto;
 }
 
@@ -1658,9 +1705,9 @@ Set a smaller font size that that of the current price, make it black, reduce th
 }
 
 /* Span the add-cart-button to two columns of the grid; */
-.ad-details .ad-desc-buttons {
+/* .ad-details .ad-desc-buttons {
   grid-column: span 2;
-}
+} */
 
 /* Set the grid area to place the views & watching within the pre-defined cell in the grid layout. */
 .ad-details-views-watching {
@@ -1698,6 +1745,7 @@ Set a color background, padding and margin, no border, and a smooth transformati
   color: white;
   padding: 0.8rem 1.6rem;
   border: none;
+  border-radius: 2rem;
   cursor: pointer;
   transition: transform 0.2s;
   display: inline-block;
@@ -1928,6 +1976,10 @@ Set the grid area to place the product specifications table within the specified
 Define a border with a light color and round the corners, set a padding and apply a box shadow */
 .product-specs {
   grid-area: productSpecs;
+  align-self: self-start;
+  width: 50%;
+  min-width: fit-content;
+  justify-self: center;
   /* border: 1px solid gainsboro;
   border-radius: 1rem; */
   /* padding-left: 2rem;
@@ -2010,6 +2062,10 @@ ensure a smooth transition in border-radius when switching between open and clos
 /* -------------------- Favorite Ads page -------------------- */
 #ads-favourite-products {
   grid-area: favouritesList;
+}
+
+#ads-favourite-products h1 .fa-heart {
+  color: var(--primary-color);
 }
 
 /* -------------------- Responsive Layout -------------------- */
@@ -2149,14 +2205,11 @@ img {
     justify-self: center;
   }
 
-  /* Define the grid layout for the specific computer product to one column */
-  .wrapper-computer {
+  /* Define the grid layout for the subcategory advertisements page to one column */
+  .wrapper-subcategory {
     grid-template-areas:
       'header'
-      'productHeader'
-      'productDesc'
-      'productDetails'
-      'productSpecs'
+      'SubAdsList'
       'footer';
   }
 
@@ -2308,13 +2361,10 @@ img {
   }
 
   /* Define only two columns for the grid layout of the specific computer page and organize the layout using the grid template area */
-  .wrapper-computer {
+  .wrapper-subcategory {
     grid-template-areas:
       'header header'
-      'productHeader productHeader'
-      'productDesc productDesc'
-      'productDetails productDetails'
-      'productSpecs productSpecs'
+      'SubAdsList SubAdsList'
       'footer footer';
   }
 
