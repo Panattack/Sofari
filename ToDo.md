@@ -9,3 +9,5 @@ To Do:
 - message when fetched no subcategory products
 - the login form is not validated
 - logout
+- carousel in subcategories page
+- add-to-cart button in subcategories list
