@@ -4,8 +4,8 @@ const app = express()
 const port = 8080
 
 const MemoryInitializer = require('./models/memorydao/MemoryInitializer')
-const Advertisement = require('./models/model/Advertisement')
-const FavoriteBucket = require('./models/model/FavoriteBucket')
+const AuthenticationService = require('./models/services/AuthenticationService');
+const FavoriteService = require('./models/services/FavoritesService');
 const initializer = new MemoryInitializer();
 initializer.prepareData()
 
@@ -42,17 +42,11 @@ app.get('/', function (req, res) {
 
 app.post('/ls', function (req, res) {
 
-    let username = req.body.username;
-    let password = req.body.password;
-    let sessionId = uuidv4();
+    const { username, password } = req.body;
+    const result = AuthenticationService.authenticate(username, password);
 
-    let userDAO = initializer.getUserDAO;
-    user = userDAO.findUserByUsernameAndPassword(username, password);
-    if (user !== undefined) {
-        // Update the user profile
-        user.setSessionId = sessionId;
-        userDAO.save(user);
-        res.status(200).send({ "sessionId": sessionId })
+    if (result) {
+        res.status(200).send({ "sessionId": result.sessionId });
     } else {
         /*
             The HyperText Transfer Protocol (HTTP) 401 Unauthorized response status code indicates 
@@ -65,49 +59,22 @@ app.post('/ls', function (req, res) {
 })
 
 app.post('/afs', function (req, res) {
-
-    let body = req.body;
-    let user = initializer.getUserDAO.findUserByUsernameAndSessionId(body.username, body.sessionId);
-
-    console.log(user);
-    if (user === undefined) {
-        res.status(401).send();
-    } else {
-        let bucket = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
-        let advertisement = new Advertisement(body.id, body.title, body.desc, body.cost, body.img);
-
-        if (bucket === undefined) {
-            // First time adding an advertisement
-            let favorite = new FavoriteBucket(user);
-            favorite.addToFavorites(advertisement);
-            initializer.getFavoriteBucketDAO.save(favorite);
-        } else {
-            try {
-                bucket.addToFavorites(advertisement);
-                // If the operation is successful and no error is thrown
-                res.status(200).send("Operation successful");
-            } catch (error) {
-                // If an error occurs
-                console.error("Error:", error);
-                res.status(409).send("Conflict: Error finding favorites");
-            }
-        }
-
+    const { username, sessionId, id, title, desc, cost, img } = req.body;
+    
+    try {
+        const result = FavoriteService.addToFavorites(username, sessionId, { id, title, desc, cost, img });
+        res.status(200).send(result);
+    } catch (error) {
+        res.status(409).send(error.message);
     }
-    console.log("ok");
-})
+});
 
 app.get('/frs', function (req, res) {
-
-    let user = initializer.getUserDAO.findUserByUsernameAndSessionId(req.query.username, req.query.sessionId);
-
-    if (user === undefined) {
-        res.status(401).send();
-    } else {
-        let favouritesList = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
-        favouritesList = favouritesList === undefined ? [] : favouritesList.getFavorites;
-
-        console.log(JSON.stringify(favouritesList))
-        res.status(200).send(JSON.stringify(favouritesList));
+    const { username, sessionId } = req.query;
+    try {
+        const result = FavoriteService.retrieveFavorites(username, sessionId);
+        res.status(200).send(result);
+    } catch (error) {
+        res.status(401).send(error.message);
     }
-})
+});

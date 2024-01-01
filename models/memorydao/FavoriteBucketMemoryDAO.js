@@ -9,7 +9,6 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO{
     }
 
     findFavoritesByUser(user) {
-        console.log(FavoriteBucketMemoryDAO.favorites)
         return FavoriteBucketMemoryDAO.favorites.find(bucket => bucket.getUser.equals(user));
     }
 
