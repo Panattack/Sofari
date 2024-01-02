@@ -126,19 +126,6 @@ button {
   animation: popupAnimation 0.3s ease-out;
 }
 
-/* .pop-up-inline:before {
-  content: "";
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  border-left: 24px solid #333;
-  border-right: 12px solid transparent;
-  border-top: 12px solid #333;
-  border-bottom: 20px solid transparent;
-  right: 0; 
-  top: -24px; 
-} */
-
 /* Sets the color gray for the selected item (e.g text) */
 ::selection {
   background-color: #d8d8d8;
@@ -501,7 +488,6 @@ Set the z-index to make it pop above the other content */
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   z-index: 2;
 }
@@ -1154,14 +1140,13 @@ form textarea:focus {
   box-shadow: 0 0 5px var(--primary-color);
 }
 
-/* Styles for buttons within the form; Set a transparent border, fixed height and width, rounded corners and a cursor */
+/* Styles for buttons within the form; Set a transparent border, fixed height and width and rounded corners */
 form button {
   border: 1px solid transparent;
   height: 2.4rem;
   line-height: 2.4rem;
   width: 6.3rem;
   border-radius: 1.2rem;
-  cursor: pointer;
 }
 
 /* More specific styles for the submit button within the form;
@@ -1255,13 +1240,13 @@ Apply a background color, round the corners, set a padding, and define a smooth 
   }
 }
 
-.close-btn {
+/* .close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 20px;
   cursor: pointer;
-}
+} */
 
 .login-form {
   position: relative;
@@ -1281,7 +1266,9 @@ Apply a background color, round the corners, set a padding, and define a smooth 
 #close-login-form-btn {
   position: absolute;
   top: 0.5rem;
-  right: 0.5rem;
+  right: 0.7rem;
+
+  cursor: pointer;
 }
 
 .ads-products {
@@ -1346,6 +1333,7 @@ of the images and align it to the left. Make circular borders and set the grid a
   align-self: start;
   width: 13rem;
   height: 10rem;
+  object-fit: cover;
   border-radius: 0.5rem;
 }
 
@@ -1413,11 +1401,6 @@ Set a smaller font size that that of the current price, make it black, reduce th
 /* On hover, change the color of the add-to-cart button */
 .add-cart-button:hover {
   background-color: var(--primary-color-dark);
-}
-
-.add-favorite-button[favourited] {
-  background-color: #0077B5;
-  padding: 2rem;
 }
 
 /* Set the grid area in order to position the filters to the specified cell. */
@@ -1588,7 +1571,7 @@ input[type="radio"]+label {
 
 /* Set a left margin for the product image in the product header and round its corners. Shrink the width and automate the height of the image
 Set the max-height to prevent very high images from downgrading the appearance, and set object-fit to cover */
-.product-header>img {
+.product-header img {
   align-self: center;
   justify-self: right;
   border-radius: 0.5rem;
@@ -1746,7 +1729,6 @@ Set a color background, padding and margin, no border, and a smooth transformati
   padding: 0.8rem 1.6rem;
   border: none;
   border-radius: 2rem;
-  cursor: pointer;
   transition: transform 0.2s;
   display: inline-block;
   margin: 1rem 0rem;
@@ -1791,7 +1773,6 @@ for a smooth transformation effect */
   width: 2rem;
   height: 2rem;
   text-align: center;
-  cursor: pointer;
   font-size: 1rem;
   transition: transform 0.2s;
   color: var(--primary-color);
@@ -1815,160 +1796,40 @@ to a darker shade of the primary color, and applying a scale transformation for 
   align-items: center;
 }
 
-/* Styles for the product details;
-Set a border, a box shadow and rounded corners and set the padding. Define the grid layout with the help of the grid-template-area of the product. Set limit for the width of the content of the columns to be responsive */
-/* .product-details {
-  grid-area: productDetails;
-  border: 1px solid gainsboro;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: minmax(auto, 3fr) auto;
-  grid-template-areas:
-    'detailsHeading detailsHeading'
-    'carousel carousel'
-    'specificBulletPoints specificBulletPoints';
-  column-gap: 2rem;
-} */
-
-/* Set the grid area to position the product details heading within the specified grid cell */
-/* .product-details h2 {
-  grid-area: detailsHeading;
-} */
-
-/* Set the grid area to position the carousel within the specified grid cell */
-/* .carousel {
-  grid-area: carousel;
-} */
-
-/* Set the grid area to position the paragraph within the specified grid cell and remove the margin. Set the alignment for the paragraphs describing the product characteristics */
-/* .product-details>p {
-  grid-area: generalParagraph;
-  margin: 0;
-  text-align: justify;
-} */
-
-/* Set the grid area to position the list within the specified grid cell and remove the default margin */
-/* .product-details>ul {
-  grid-area: specificBulletPoints;
-  margin: 0;
-} */
-
 /* ----------------------- Carousel --------------------- */
-
-/* Styles for the carousel slider wrapper, containing the entire carousel. Set a relative position 
-that establishes a positioning context for child elements.Define the maximum width of the carousel
-wrapper and the margins. */
-.carousel-slider-wrapper {
+.carousel-wrapper {
   position: relative;
-  max-width: 25rem;
-  margin: 0 auto;
 }
 
-/* Create a flex container for the carousel items; Allow horizontal scrolling when the content 
-exceeds the container width and enables a smooth scrolling behavior (using scroll-behavior attribute)
-and a smooth snapping (using scroll-snap-type) to each carousel item;
-Apply a subtle box shadow and round the corners of the carousel; 
-Lastly, hide the scrollbar on specific browsers */
-.carousel-slider {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+.carousel-control-btn {
+  backdrop-filter: blur(16px) saturate(130%);
+  background-color: rgba(255, 255, 255, 0.40);
+  border: none;
+  outline: none;
   border-radius: 0.5rem;
-  -ms-overflow-style: none;
-  /* Hide scrollbar IE and Edge */
-  scrollbar-width: none;
-  /* Hide scrollbar Firefox */
-}
+  box-shadow: 0.1rem 0.1rem 1rem rgba(93, 105, 121, 0.3);
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.carousel-slider::-webkit-scrollbar {
-  display: none;
-}
+  padding: 0.4rem 1rem 0 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Manjari', sans-serif;
+  color: whitesmoke;
 
-/* 
-Styles for the main carousel slider images;
-Ensure that each image takes the full width of its container and enable a smooth snapping 
-to the start of each image. Maintain the aspect ratio while covering the entire space (using object-fit attribute).
-Set the dimensions for the images.
-*/
-.carousel-slider img {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  object-fit: cover;
-  width: 20rem;
-  height: 30rem;
-}
-
-/* Styles for the navigation indicators of the carousel slider;
-Create a flex container for the navigation items and add a gap between the items;
-Position the navigation absolutely, at the specified coordinates;
-Center the navigation (using transform attribute) and ensure it appears above the slider (using z-index attribute) */
-.carousel-slider-nav {
-  display: flex;
-  column-gap: 1rem;
   position: absolute;
-  bottom: 1.25rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
 }
 
-/* Styles for each individual navigation indicator;
-Make indicators have a circular shape and a white color with a slightly transparent appearance;
-Add a smooth transition effect on opacity change */
-.carousel-slider-nav a {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background-color: #fff;
-  opacity: 0.6;
-  transition: opacity ease 250ms;
+.carousel-control-btn:hover {
+  background-color: #111;
 }
 
-/* Make the indicator fully opaque on hover */
-.carousel-slider-nav a:hover {
-  opacity: 1;
+.carousel-next-btn {
+  right: 1rem;
+  bottom: 1rem;
 }
 
-/* Remove the default text decoration for the anchor links within product details section 
-and specify another text color */
-/* .product-details p a {
-  text-decoration: none;
-  color: #1d8bf2;
-} */
-
-/* Change the color to a lighter one for already visited links */
-/* .product-details p a:visited {
-  color: #62adf3
-} */
-
-/* Change the color on hover */
-/* .product-details p a:hover {
-  color: var(--primary-color-dark);
-} */
-
-/* Add a padding and a bottom border to show some movement for active links */
-/* .product-details p a:active {
-  padding: 0rem 0.2rem;
-  border-bottom: 2px solid var(--primary-color-dark);
-} */
-
-/* Remove the default text decoration for the abbreviations within product details section */
-/* .product-details abbr {
-  text-decoration: none;
-} */
-*/
-
-/* Add a bottom border to h2 headings in the product description, product details, and specifications 
-sections for a visual separation */
-.product-desc>h2,
-.product-details>h2,
-.product-specs>h2 {
-  border-bottom: 1px solid gainsboro;
+.carousel-prev-btn {
+  left: 1rem;
+  bottom: 1rem;
 }
 
 /* Styles for the container of the product specifications;
@@ -2195,10 +2056,12 @@ img {
   }
 
   /* Center the image of the advertisement(product) */
-  .ad-product img {
+  /* .ad-product img {
     align-self: center;
     justify-self: center;
-  }
+
+    obj
+  } */
 
   /* Center the price of the advertisement(product) */
   .ad-info-price {

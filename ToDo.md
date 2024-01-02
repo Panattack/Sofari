@@ -3,16 +3,9 @@ Questions:
 - Errors control, status codes control
 - LS status code on failure? 401? 
 
-
-
-To Do:
-- carousel in subcategories page
-- urls, use 'join' instead of hardcoding
-- images of all ads, object-fit property
-
-
-
-Supplementary
+ToDo / Supplementary
 - logout
 - mongoDB
 - random dates
+- urls, use 'join' instead of hardcoding
+- dataset approach in one of the services (instead of parameter passing)

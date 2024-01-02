@@ -33,7 +33,14 @@
         {{#each array}}
             <section class="SubProduct">
                 <section class="product-header">
-                    <img src="https://wiki-ads.onrender.com/{{this.images.[0]}}" alt="Photo 1">
+                    <div class="carousel-wrapper">
+                        <div class="carousel">
+                            <img src="https://wiki-ads.onrender.com/{{this.images.[0]}}" id="subproduct-img-{{this.id}}" alt="Photo 1">
+                        </div>
+
+                        <button class="carousel-control-btn carousel-prev-btn" data-ad-id="{{this.id}}"><</button>
+                        <button class="carousel-control-btn carousel-next-btn" data-ad-id="{{this.id}}">></button>
+                    </div>
 
                     <article class="ad-details">
                         <header class="ad-details-title">
