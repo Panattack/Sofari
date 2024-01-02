@@ -176,6 +176,8 @@ function addToFavourites(button, id, title, desc, cost, imgUrl) {
         showPopupMsg("fail-addToFav-pop-up-msg");
     } else {
 
+        console.log(user)
+
         let body = JSON.stringify({
             "id": id,
             "title": title,

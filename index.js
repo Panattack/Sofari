@@ -11,9 +11,6 @@ initializer.prepareData()
 
 app.listen(port)
 
-
-const { v4: uuidv4 } = require('uuid');
-
 /* 
     Serve static content from directory "public",
     it will be accessible under path /, 
