@@ -13,7 +13,7 @@ class DAOFactory {
             }
 
             try {
-                DAOFactory.factory = new (require('../memorydao/' + className))();
+                DAOFactory.factory = new (require(className))();
             } catch (e) {
                 throw new Error(`Error initializing DAOFactory: ${e.message}`);
             }

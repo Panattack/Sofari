@@ -6,30 +6,30 @@ class MemoryInitializer extends Initializer {
         super();
         process.env.daofactory = 'MemoryDAOFactory';
     }
-    eraseData() {
+    // eraseData() {
 
-        let allUsers = this.getUserDAO.findAll();
-        allUsers.forEach(element => {
-            this.getUserDAO.delete(element);
-        });
+    //     let allUsers = this.getUserDAO.findAll();
+    //     allUsers.forEach(element => {
+    //         this.getUserDAO.delete(element);
+    //     });
 
-        let allAdvertisements = this.getAdvertisementDAO.findAll();
-        allAdvertisements.forEach(element => {
-            this.getAdvertisementDAO.delete(element);
-        });
+    //     let allAdvertisements = this.getAdvertisementDAO.findAll();
+    //     allAdvertisements.forEach(element => {
+    //         this.getAdvertisementDAO.delete(element);
+    //     });
 
-        let allFavoriteBuckets = this.getFavoriteBucketDAO.findAll();
-        allFavoriteBuckets.forEach(element => {
-            this.getFavoriteBucketDAO.delete(element);
-        });
-    }
+    //     let allFavoriteBuckets = this.getFavoriteBucketDAO.findAll();
+    //     allFavoriteBuckets.forEach(element => {
+    //         this.getFavoriteBucketDAO.delete(element);
+    //     });
+    // }
 
     get getUserDAO() {
         return DAOFactory.getFactory().getUserDAO;
     }
 
     get getAdvertisementDAO() {
-        return DAOFactory.getFactory().getUserDAO;
+        return DAOFactory.getFactory().getAdvertisementDAO;
     }
 
     get getFavoriteBucketDAO() {

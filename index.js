@@ -3,15 +3,15 @@ const path = require('path')
 const app = express()
 const port = 8080
 
-const MemoryInitializer = require('./models/memorydao/MemoryInitializer')
+const Initializer = require('./models/dao/Initializer')
 const AuthenticationService = require('./models/services/AuthenticationService');
 const FavoriteService = require('./models/services/FavoriteService');
-const initializer = new MemoryInitializer();
-initializer.prepareData()
+const initializer = new Initializer("../mongodao/MongoDAOFactory", "Sofari", "qwerty1234567", "sofari.7brfe1w.mongodb.net/");
+initializer.prepareData();
 
 app.listen(port)
 
-/* 
+/*
     Serve static content from directory "public",
     it will be accessible under path /, 
     e.g. http://localhost:8080/index.html

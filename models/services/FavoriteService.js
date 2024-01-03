@@ -16,7 +16,6 @@ class FavoriteService {
             // First time adding an advertisement
             bucket = new FavoriteBucket(user);
             bucket.addToFavorites(advertisement);
-            console.log(1)
             initializer.getFavoriteBucketDAO.save(bucket);
             console.log(initializer.getFavoriteBucketDAO.findAll())
       } else {

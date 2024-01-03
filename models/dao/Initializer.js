@@ -1,14 +1,27 @@
 const User = require("../model/User");
+const DAOFactory = require("../dao/DAOFactory")
 
 class Initializer {
-    eraseData() {};
-    get getUserDAO() {};
-    get getAdvertisementDAO() {};
-    get getFavoriteBucketDAO() {};
+    constructor(factoryPath, username = null, password = null, host = null) {
+        process.env.daofactory = factoryPath;
+        process.env.username = username;
+        process.env.password = password;
+        process.env.host = host;
+    }
+
+    get getUserDAO() {
+        return DAOFactory.getFactory().getUserDAO;
+    }
+
+    get getAdvertisementDAO() {
+        return DAOFactory.getFactory().getAdvertisementDAO;
+    }
+
+    get getFavoriteBucketDAO() {
+        return DAOFactory.getFactory().getFavoriteBucketDAO;
+    }
 
     prepareData() {
-        this.eraseData();
-
         this.getUserDAO.save(new User("Alviona", "1234567*"));
         this.getUserDAO.save(new User("Panos", "qwerty*"));
         this.getUserDAO.save(new User("user1", "Pass@123"));

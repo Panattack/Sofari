@@ -109,21 +109,3 @@ function changeSlide(event, code) {
     }
     
 }
-
-
-    // function changeSlide(event, code) {
-    //     // event.target.style.display = 'none'
-    //     const id = +event.target.dataset.adId;
-    
-    //     let index = (carousel_indices.get(id) + code) % carousel_images.get(id).length;
-    //     carousel_indices.set(id, index);
-    
-    //     // console.log(index)
-    //     // console.log(carousel_indices.get(id))
-    //     // console.log(carousel_images.get(id)[index])
-    //     // console.log(carousel_images.get(id).length)
-    
-    //     let subproductImg = document.getElementById(`subproduct-img-${id}`);
-    //     subproductImg.setAttribute("src", `https://wiki-ads.onrender.com/${carousel_images.get(id)[index]}`);
-    //     subproductImg.setAttribute("Alt", `Photo ${++index}`)
-    // }
