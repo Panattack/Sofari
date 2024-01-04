@@ -22,6 +22,7 @@ class Initializer {
     }
 
     prepareData() {
+        // DAOFactory.getFactory()
         this.getUserDAO.save(new User("Alviona", "1234567*"));
         this.getUserDAO.save(new User("Panos", "qwerty*"));
         this.getUserDAO.save(new User("user1", "Pass@123"));

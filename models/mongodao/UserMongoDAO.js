@@ -1,8 +1,10 @@
 const UserDAO = require("../dao/UserDAO")
+const User = require("../model/User")
 
 class UserMongoDAO extends UserDAO {
 
     constructor(client){
+        super();
         this.client = client;
     }
 
@@ -11,42 +13,42 @@ class UserMongoDAO extends UserDAO {
     }
 
     findUser(query, func){
-        return client
+        // console.log(this.client)
+        this.client
             .connect()
             .then(() => {
-                let collection = client.db("Sofari").collection("User");
+                let collection = this.client.db("Sofari").collection("User");
 
                 let options = {
                     projection: {
                         _id:0, username: 1, password: 1, sessionId: 1
                     }
                 }
-
-                let users = func(query,options).toArray();
+                let users = collection.find(query,options);
                 return users;
             }
             )
-            .then(users => {
-                users.forEach(fetchedUser => {
-                    let user = new User(fetchedUser.username, fetchedUser.password);
-                    user.setSessionId = fetchedUser.sessionId;
-                    fetchedUser = user;
-                });
-                return users;
-            })
+            // .then(users => {
+            //     users.forEach(fetchedUser => {
+            //         let user = new User(fetchedUser.username, fetchedUser.password);
+            //         user.setSessionId = fetchedUser.sessionId;
+            //         fetchedUser = user;
+            //     });
+            //     return users;
+            // })
             .catch(err => console.log(err))
-            .finally(() => client.close())
+            .finally(() => this.client.close())
     }
 
     findUserByUsername(username) {
-        let collection = client.db("Sofari").collection("User");
+        let collection = this.client.db("Sofari").collection("User");
         let func = collection.findOne.bind(collection);
         let user = this.findUser({username: username}, func);
         return user;
     }
 
     findUserByUsernameAndPassword(username, password) {
-        let collection = client.db("Sofari").collection("User");
+        let collection = this.client.db("Sofari").collection("User");
         let func = collection.findOne.bind(collection);
         let user = this.findUser({username: username, password: password}, func);
         return user;
@@ -61,17 +63,18 @@ class UserMongoDAO extends UserDAO {
     }
 
     save(user) {
-        let collection = client.db("Sofari").collection("User");
+        
+        let collection = this.client.db("Sofari").collection("User");
         let func = collection.findOne.bind(collection);
-        let user = this.findUser({username: user.getUsername, password: user.getPassword}, func);
-        if (user !== null){
-            client
-                .then(() => {
-                    let collection = client.db("Sofari").collection("User");
-                    collection.insertOne({username: user.getUsername, password: user.getPassword})
-                }
-                )
-        }
+        let fetchedUser = this.findUser({username: user.getUsername, password: user.getPassword}, func);
+        console.log(fetchedUser)
+        // if (fetchedUser !== null){
+        //     this.client.connect().then(() => {
+        //             let collection = client.db("Sofari").collection("User");
+        //             collection.insertOne({username: fetchedUser.getUsername, password: fetchedUser.getPassword})
+        //         }
+        //         )
+        // }
     }
 }
 

@@ -1,6 +1,8 @@
 class DAOFactory {
     static factory = null;
 
+    constructor(){}
+
     get getUserDAO() { };
     get getAdvertisementsDAO() { };
     get getFavoriteBucketDAO() { };
