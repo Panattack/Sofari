@@ -8,9 +8,11 @@ class UserDAO {
 
     findUserByUsernameAndSessionId(username, sessionId) {};
 
-    delete(user) {};
-
     save(user) {};
+
+    update(user) {};
+
+    delete(user) {};
 }
 
 module.exports = UserDAO;
