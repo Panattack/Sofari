@@ -6,7 +6,7 @@ const port = 8080
 const Initializer = require('./models/dao/Initializer')
 const AuthenticationService = require('./models/services/AuthenticationService');
 const FavoriteService = require('./models/services/FavoriteService');
-const initializer = new Initializer("../mongodao/MongoDAOFactory", "Sofari", "qwerty1234567", "sofari.7brfe1w.mongodb.net/");
+const initializer = new Initializer("../mongodao/MongoDAOFactory", "sofari", "qwerty1234567", "sofari.7brfe1w.mongodb.net/");
 initializer.prepareData();
 
 app.listen(port)
