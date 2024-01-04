@@ -1,45 +1,53 @@
 const UserDAO = require("../dao/UserDAO")
 const User = require("../model/User")
+const MongoClientConnector = require("../mongodao/MongoClientConnector")
 
 class UserMongoDAO extends UserDAO {
 
-    constructor(client){
+    constructor(){
         super();
-        this.client = client;
+        // this.client = client;
     }
 
     findAll() {
         return this.findUser({});
     }
 
-    findUser(query, func){
-        // console.log(this.client)
-        this.client
-            .connect()
+    findUser(client, query, func) {
+        
+        return client.connect()
             .then(() => {
-                let collection = this.client.db("Sofari").collection("User");
-
-                let options = {
+    
+                const options = {
                     projection: {
-                        _id:0, username: 1, password: 1, sessionId: 1
+                        _id: 0,
+                        username: 1,
+                        password: 1,
+                        sessionId: 1
                     }
+                };
+                let result = func(query, options);
+                return result instanceof Promise ? result : result.toArray();
+            })
+            .then(users => {
+                if (!(users instanceof Array)) {
+                    users = users === null ? [] : [users];
                 }
-                let users = collection.find(query,options);
-                return users;
-            }
-            )
-            // .then(users => {
-            //     users.forEach(fetchedUser => {
-            //         let user = new User(fetchedUser.username, fetchedUser.password);
-            //         user.setSessionId = fetchedUser.sessionId;
-            //         fetchedUser = user;
-            //     });
-            //     return users;
-            // })
-            .catch(err => console.log(err))
-            .finally(() => this.client.close())
-    }
 
+                users.forEach(fetchedUser => {
+                    const user = new User(fetchedUser.username, fetchedUser.password);
+                    user.setSessionId = fetchedUser.sessionId;
+                    fetchedUser = user;
+                });
+                return users;
+            })
+            .catch(err => {
+                console.error(err);
+                throw err;
+            })
+            .finally(() => client.close());
+    }
+    
     findUserByUsername(username) {
         let collection = this.client.db("Sofari").collection("User");
         let func = collection.findOne.bind(collection);
@@ -63,11 +71,10 @@ class UserMongoDAO extends UserDAO {
     }
 
     save(user) {
-        
-        let collection = this.client.db("Sofari").collection("User");
+        let client = MongoClientConnector.getClient();
+        let collection = client.db("Sofari").collection("User");
         let func = collection.findOne.bind(collection);
-        let fetchedUser = this.findUser({username: user.getUsername, password: user.getPassword}, func);
-        console.log(fetchedUser)
+        let fetchedUser = this.findUser(client, {username: user.getUsername, password: user.getPassword}, func);
         // if (fetchedUser !== null){
         //     this.client.connect().then(() => {
         //             let collection = client.db("Sofari").collection("User");
