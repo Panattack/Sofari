@@ -1,8 +1,43 @@
 const FavoriteBucketDAO = require("../dao/FavoriteBucketDAO");
+const MongoClientConnector = require("../mongodao/MongoClientConnector")
 
 class FavoriteBucketMemoryDAO extends FavoriteBucketDAO{
 
-    static favorites = [];
+    findFavoriteBucket(client, query, func) {
+        return client.connect()
+            .then(() => {
+                const options = {
+                    projection: {
+                        _id: 0,
+                        username: 1,
+                        password: 1,
+                        favorites: 1
+                    }
+                };
+                let result = func(query, options);
+                return result instanceof Promise ? result : result.toArray();
+            })
+            .then(users => {
+                if (!(users instanceof Array)) {
+                    users = users === null ? [] : [users];
+                }
+
+                users.forEach(fetchedUser => {
+                    const user = new User(fetchedUser.username, fetchedUser.password);
+                    user.setSessionId = fetchedUser.sessionId;
+                    fetchedUser = user;
+                });
+
+                return users;
+            })
+            .catch((err) => {
+                console.error(err);
+                throw err;
+            })
+            .finally(() => {
+                client.close();
+            });
+    }
 
     findAll() {
         return FavoriteBucketMemoryDAO.favorites;

@@ -41,23 +41,26 @@ app.post('/ls', function (req, res) {
 
     const { username, password } = req.body;
     const result = AuthenticationService.authenticate(username, password);
-
-    if (result) {
-        res.status(200).send({ "sessionId": result.sessionId });
-    } else {
-        /*
-            The HyperText Transfer Protocol (HTTP) 401 Unauthorized response status code indicates 
-            that the client request has not been completed because it lacks valid authentication credentials 
-            for the requested resource.
-        */
-        res.status(401).send();
-
-    }
+    console.log(result)
+    result.
+        then(answer => {
+            if (answer !== null) {
+                res.status(200).send({ "sessionId": result.sessionId });
+            }
+            else {
+                /*
+                The HyperText Transfer Protocol (HTTP) 401 Unauthorized response status code indicates 
+                that the client request has not been completed because it lacks valid authentication credentials 
+                for the requested resource.
+                */
+                res.status(401).send();
+            }
+        })
 })
 
 app.post('/afs', function (req, res) {
     const { username, sessionId, id, title, desc, cost, img } = req.body;
-    
+
     try {
         const result = FavoriteService.addToFavorites(username, sessionId, { id, title, desc, cost, img });
         res.status(200).send(result);

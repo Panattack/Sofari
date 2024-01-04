@@ -4,9 +4,8 @@ const MongoClientConnector = require("../mongodao/MongoClientConnector")
 
 class UserMongoDAO extends UserDAO {
 
-    constructor(){
+    constructor() {
         super();
-        // this.client = client;
     }
 
     findAll() {
@@ -14,10 +13,8 @@ class UserMongoDAO extends UserDAO {
     }
 
     findUser(client, query, func) {
-        
         return client.connect()
             .then(() => {
-    
                 const options = {
                     projection: {
                         _id: 0,
@@ -39,49 +36,92 @@ class UserMongoDAO extends UserDAO {
                     user.setSessionId = fetchedUser.sessionId;
                     fetchedUser = user;
                 });
+
                 return users;
             })
-            .catch(err => {
+            .catch((err) => {
                 console.error(err);
                 throw err;
             })
-            .finally(() => client.close());
+            .finally(() => {
+                client.close();
+            });
     }
-    
+
     findUserByUsername(username) {
-        let collection = this.client.db("Sofari").collection("User");
+        let client = MongoClientConnector.getClient();
+        let collection = client.db("Sofari").collection("User");
         let func = collection.findOne.bind(collection);
-        let user = this.findUser({username: username}, func);
-        return user;
+        let fetchedUser = this.findUser(client, { username: username }, func);
+        return fetchedUser;
     }
 
     findUserByUsernameAndPassword(username, password) {
-        let collection = this.client.db("Sofari").collection("User");
+        let client = MongoClientConnector.getClient();
+        let collection = client.db("Sofari").collection("User");
         let func = collection.findOne.bind(collection);
-        let user = this.findUser({username: username, password: password}, func);
-        return user;
+        let fetchedUser = this.findUser(client, { username: username, password: password }, func);
+        return fetchedUser;
     }
 
     findUserByUsernameAndSessionId(username, sessionId) {
-        
+        let client = MongoClientConnector.getClient();
+        let collection = client.db("Sofari").collection("User");
+        let func = collection.findOne.bind(collection);
+        let fetchedUser = this.findUser(client, { username: username, sessionId: sessionId }, func);
+        return fetchedUser;
     }
 
     delete(user) {
-        
+
     }
 
     save(user) {
         let client = MongoClientConnector.getClient();
         let collection = client.db("Sofari").collection("User");
-        let func = collection.findOne.bind(collection);
-        let fetchedUser = this.findUser(client, {username: user.getUsername, password: user.getPassword}, func);
-        // if (fetchedUser !== null){
-        //     this.client.connect().then(() => {
-        //             let collection = client.db("Sofari").collection("User");
-        //             collection.insertOne({username: fetchedUser.getUsername, password: fetchedUser.getPassword})
-        //         }
-        //         )
-        // }
+
+        client
+            .connect()
+            .then(() => {
+
+                return collection.insertOne(user);
+            })
+            .then(res => {
+                if (res.acknowledged) {
+                    let documentId = res.insertedId
+                    console.log(`Created document ${documentId}`)
+                }
+            })
+            .catch(err => console.log(err))
+            .finally(() => client.close())
+    }
+
+    update(username, password, sessionId) {
+        let client = MongoClientConnector.getClient();
+        let collection = client.db("Sofari").collection("User");
+
+        return client
+            .connect()
+            .then(() => {
+                let filter = {
+                    username: username,
+                    password: password
+                }
+                let update = {
+                    $set: {
+                        sessionId: sessionId
+                    }
+                }
+                return collection.updateOne(filter, update);
+            })
+            .then(res => {
+                if (res.acknowledged) {
+                    let count = res.matchedCount;
+                    console.log(`Updated ${count} documents`)
+                }
+                return res;
+            })
+            .catch(err => console.log(err))
     }
 }
 
