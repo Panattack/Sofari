@@ -1,48 +1,62 @@
 // favoriteService.js
 const Advertisement = require('../model/Advertisement');
 const FavoriteBucket = require('../model/FavoriteBucket')
-const MemoryInitializer = require('../memorydao/MemoryInitializer');
+const Initializer = require('../dao/Initializer');
 const CustomError = require('../model/CustomError')
-const initializer = new MemoryInitializer();
+const initializer = new Initializer();
 
 class FavoriteService {
+
   static addToFavorites(username, sessionId, advertisementData) {
     const promiseUser = initializer.getUserDAO.findUserByUsernameAndSessionId(username, sessionId);
 
-    promiseUser
+    let user = null;
+    return promiseUser
       .then(users => {
         if (users.length > 0) {
-          const advertisement = new Advertisement(advertisementData.id, advertisementData.title, advertisementData.desc, advertisementData.cost, advertisementData.img);
+          user = users[0]; //One user should have been fetched as the username and sessionId pair is unique for each user
+          return initializer.getFavoriteBucketDAO.findFavoritesByUsernameAndPassword(user.getUsername, user.getPassword);
 
-          let promiseFavorite = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
         } else {
           throw new CustomError("Unauthorized: User not found", 401);
         }
       })
+      .then(buckets => {
 
-    // if (user) {
-    //   let bucket = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
-    //   const advertisement = new Advertisement(advertisementData.id, advertisementData.title, advertisementData.desc, advertisementData.cost, advertisementData.img);
-    //   if (!bucket) {
-    //     // First time adding an advertisement
-    //     bucket = new FavoriteBucket(user);
-    //     bucket.addToFavorites(advertisement);
-    //     initializer.getFavoriteBucketDAO.save(bucket);
-    //   } else {
-    //     try {
-    //       bucket.addToFavorites(advertisement);
-    //       // If the operation is successful and no error is thrown
-    //       return { message: "Operation successful" };
-    //     } catch (error) {
-    //       // If an error occurs
-    //       throw new CustomError("Conflict: Error finding favorites", 409);
-    //     }
-    //   }
-    // } else {
-    //   // Unauthorized - User not found
-    //   throw new CustomError("Unauthorized: User not found", 401);
-    // }
+        const advertisement = new Advertisement(advertisementData.id, advertisementData.title, advertisementData.desc, advertisementData.cost, advertisementData.img);
+
+        if (buckets.length > 0) { // The user has already a FavoriteBucket
+          const bucket = buckets[0];  // Each user can only have one FavoriteBucket
+
+          // Add the new advertisement (if it is not a duplicate of an already existing one)
+          bucket.addToFavorites(advertisement);
+
+          return initializer.getFavoriteBucketDAO.update(bucket.getUsername, bucket.getPassword, bucket.getFavorites);
+
+        } else { // First time adding an advertisement to FavoriteBucket
+          const bucket = new FavoriteBucket(user.getUsername, user.getPassword);
+
+          bucket.addToFavorites(advertisement);
+
+          return initializer.getFavoriteBucketDAO.save(bucket);
+        }
+      })
+      .then(ack => {
+        if (ack) {
+          return { message: "Operation successful" };
+        } else {
+          throw new CustomError("Conflict: Error updating/saving favorites", 409);
+        }
+      })
+      .catch(error => {
+        if (error instanceof CustomError) {
+          throw error;
+        } else {
+          throw new CustomError(error.message, 500);
+        }
+      });
   }
+
 
   static retrieveFavorites(username, sessionId) {
     const user = initializer.getUserDAO.findUserByUsernameAndSessionId(username, sessionId);

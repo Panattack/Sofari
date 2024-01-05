@@ -1,22 +1,29 @@
 class FavoriteBucket {
-    constructor(user) {
-        this.user = user;
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
         this.favorites = [];
     }
 
-    get getUser() { return this.user; }
+    get getUsername() { return this.username; }
 
-    set setUser(user) { this.user = user; }
+    set setUsername(username) { this.username = username; }
+
+    get getPassword() { return this.password; }
+
+    set setPassword(password) { this.password = password; }
 
     get getFavorites() { return this.favorites; }
 
     set setFavorites(favorites) { this.favorites = favorites; }
 
     addToFavorites(advertisement) {
-        const foundAdv = this.favorites.some(ads => advertisement.equals(ads));
+        const foundAdv = this.favorites.some(ad => advertisement.equals(ad));
+
+        console.log(foundAdv);
 
         if (foundAdv) {
-            throw new Error('Advertisement already exists in favorites');
+            throw new CustomError("Conflict: Error finding favorites", 409);
         } else {
             this.favorites.push(advertisement);
         }

@@ -2,11 +2,13 @@ class FavoriteBucketDAO {
 
     findAll() {};
 
-    findFavoritesByUser(user) {};
+    findFavoritesByUsernameAndPassword(username, password) {};
 
     delete(bucket) {};
 
     save(bucket) {};
+
+    update(username, password, favorites) {};
 }
 
 module.exports = FavoriteBucketDAO;
