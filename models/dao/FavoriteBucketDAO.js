@@ -1,10 +1,6 @@
 class FavoriteBucketDAO {
 
-    findAll() {};
-
     findFavoritesByUsernameAndPassword(username, password) {};
-
-    delete(bucket) {};
 
     save(bucket) {};
 

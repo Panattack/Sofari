@@ -5,19 +5,6 @@ class UserMemoryDAO extends UserDAO {
 
     static users = [];
 
-    findAll() {
-        return new Promise(UserMemoryDAO.users);
-    }
-
-    findUserByUsername(username) {
-        return new Promise(UserMemoryDAO.users.filter(item => item.getUsername === username));
-    }
-
-    findUserByUsernameAndPassword(username, password) {
-        return new Promise()
-            .then(UserMemoryDAO.users.find(item => item.getUsername === username && item.getPassword === password));
-    }
-
     findUserByUsernameAndSessionId(username, sessionId) {
         return new Promise((resolve, reject) => {
             let result = UserMemoryDAO.users.find(item => item.getUsername === username && item.getSessionId === sessionId);
@@ -56,9 +43,6 @@ class UserMemoryDAO extends UserDAO {
             resolve(ack);
         })
         .catch(err => console.log(err));
-    }
-
-    delete(user) {
     }
 
 }

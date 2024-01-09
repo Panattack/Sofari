@@ -57,3 +57,11 @@ class TemplateHandler {
         contentOfTemplate.innerHTML = templates.template(contentObject);
     }
 }
+
+function preprocessingAds(advertisements) {
+    advertisements.forEach(element => {
+        element.title = element.title.replaceAll("'", "\'");
+        element.description = element.description.replaceAll("'", "\`");
+    });
+    return advertisements;
+}

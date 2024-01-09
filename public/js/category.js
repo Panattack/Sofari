@@ -63,7 +63,7 @@ window.addEventListener('load', function () {
     fetch(urlCategory, init)
         .then(response => response.json())
         .then(adsList => {
-            advertisements = adsList;
+            advertisements = preprocessingAds(adsList);
 
             //Fill the template for the advertisements of the specified category
             templateHandler = new TemplateHandler("category-template", "ads-category-products");

@@ -49,6 +49,8 @@ window.addEventListener('load', function () {
 
             // Fill the template for the advertisements of the specified subcategory
             templateHandler = new TemplateHandler("subcategory-template", "ad-subcategories");
+
+            subAds = preprocessingAds(subAds);
             templateHandler.fillTemplate({
                 array: subAds,
                 empty: subAds.length === 0

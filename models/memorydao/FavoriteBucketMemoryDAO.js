@@ -4,10 +4,6 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO {
 
     static favorites = [];
 
-    findAll() {
-        return new Promise(FavoriteBucketMemoryDAO.favorites);
-    }
-
     findFavoritesByUsernameAndPassword(username, password) {
         return new Promise((resolve, reject) => {
             let buckets = FavoriteBucketMemoryDAO.favorites.find(bucket => bucket.getUsername === username && bucket.getPassword === password);
@@ -46,8 +42,6 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO {
         })
     }
 
-    delete(bucket) {
-    }
 }
 
 module.exports = FavoriteBucketMemoryDAO;

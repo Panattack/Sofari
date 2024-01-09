@@ -20,10 +20,6 @@ class FavoriteBucketMongoDAO extends FavoriteBucketDAO {
         return this._findFavoriteBucket(client, { username: username, password: password }, func);
     }
 
-    delete(bucket) {
-
-    }
-
     save(bucket) {
         let client = MongoClientConnector.getClient();
         let collection = client.db("Sofari").collection("FavoriteBucket");
