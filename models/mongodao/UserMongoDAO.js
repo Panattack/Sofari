@@ -80,7 +80,7 @@ class UserMongoDAO extends UserDAO {
         let client = MongoClientConnector.getClient();
         let collection = client.db("Sofari").collection("User");
 
-        client
+        return client
             .connect()
             .then(() => {
 
@@ -91,6 +91,7 @@ class UserMongoDAO extends UserDAO {
                     let documentId = res.insertedId
                     console.log(`Created document ${documentId}`)
                 }
+                return res;
             })
             .catch(err => console.log(err))
             .finally(() => client.close())
@@ -122,6 +123,7 @@ class UserMongoDAO extends UserDAO {
                 return res;
             })
             .catch(err => console.log(err))
+            .finally(() => client.close())
     }
 }
 

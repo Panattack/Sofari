@@ -6,7 +6,7 @@ const port = 8080
 const Initializer = require('./models/dao/Initializer')
 const AuthenticationService = require('./models/services/AuthenticationService');
 const FavoriteService = require('./models/services/FavoriteService');
-const initializer = new Initializer("../mongodao/MongoDAOFactory", "sofari", "qwerty1234567", "sofari.7brfe1w.mongodb.net/");
+const initializer = new Initializer("../memorydao/MemoryDAOFactory", "sofari", "qwerty1234567", "sofari.7brfe1w.mongodb.net/");
 initializer.prepareData();
 
 app.listen(port)
@@ -41,11 +41,10 @@ app.post('/ls', function (req, res) {
 
     const { username, password } = req.body;
     const result = AuthenticationService.authenticate(username, password);
-    console.log(result)
-    result.
-        then(answer => {
-            if (answer !== null) {
-                res.status(200).send({ "sessionId": result.sessionId });
+    result
+        .then(sessionId => {
+            if (sessionId !== null) {
+                res.status(200).send({ "sessionId": sessionId });
             }
             else {
                 /*
@@ -60,13 +59,15 @@ app.post('/ls', function (req, res) {
 
 app.post('/afs', function (req, res) {
     const { username, sessionId, id, title, desc, cost, img } = req.body;
+    const result = FavoriteService.addToFavorites(username, sessionId, { id, title, desc, cost, img });
 
-    try {
-        const result = FavoriteService.addToFavorites(username, sessionId, { id, title, desc, cost, img });
-        res.status(200).send(result);
-    } catch (error) {
-        res.status(error.getStatus).send(error.message);
-    }
+    result
+        .then(message => {
+            res.status(200).send(message);
+        })
+        .catch(error => {
+            res.status(error.getStatus).send(error.message);
+        })
 });
 
 app.get('/frs', function (req, res) {

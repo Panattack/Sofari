@@ -137,8 +137,7 @@ function postLoginForm(event) {
 
     let form = document.getElementById("login");
 
-    if (form.checkValidity())
-    {
+    if (form.checkValidity()) {
         let formData = new FormData(form);
         let headers = new Headers();
         headers.append("Content-Type", "application/x-www-form-urlencoded");
@@ -217,6 +216,12 @@ function addToFavourites(button, id, title, desc, cost, imgUrl) {
                 else if (response.status === 409) {
                     showInlinePopupMsg(`add-to-favourites-inline-pop-up-msg-${id}`, "Already in favourites list!")
                     throw new Error("Already in favourites list");
+                }
+                // Some internal server error (possibly due to network or database problems etc...)
+                else if (response.status === 500) {
+                    console.log("HI")
+                    showInlinePopupMsg(`add-to-favourites-inline-pop-up-msg-${id}`, "Try Again!")
+                    throw new Error("Internal Server Error");
                 }
             })
             .catch(error => { console.log(error) })

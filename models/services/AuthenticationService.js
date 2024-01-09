@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
-const MemoryInitializer = require('../memorydao/MemoryInitializer');
-const initializer = new MemoryInitializer();
+const Initializer = require('../dao/Initializer');
+const initializer = new Initializer();
 
 class AuthenticationService {
   static generateToken() {
@@ -12,15 +12,13 @@ class AuthenticationService {
     let id = AuthenticationService.generateToken();
     let promise = initializer.getUserDAO.update(username, password, id);
 
-    return promise.
-      then(res => {
-        if (res.acknowledged) {
-          return id;
-        }
-        else {
-          return null;
-        }
-      })
+    return promise.then(res => {
+      if (res) {
+        return id;
+      } else {
+        return null;
+      }
+    });
   }
 
 }

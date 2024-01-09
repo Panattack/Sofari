@@ -1,12 +1,17 @@
 class FavoriteBucket {
-    constructor(user) {
-        this.user = user;
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
         this.favorites = [];
     }
 
-    get getUser() { return this.user; }
+    get getUsername() { return this.username; }
 
-    set setUser(user) { this.user = user; }
+    set setUser(username) { this.username = username; }
+
+    get getPassword() { return this.password; }
+
+    set setPassword(password) { this.password = password; }
 
     get getFavorites() { return this.favorites; }
 

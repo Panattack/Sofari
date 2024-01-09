@@ -1,45 +1,61 @@
 const UserDAO = require("../dao/UserDAO")
+const User = require("../model/User")
 
 class UserMemoryDAO extends UserDAO {
 
     static users = [];
 
     findAll() {
-        return UserMemoryDAO.users;
+        return new Promise(UserMemoryDAO.users);
     }
 
     findUserByUsername(username) {
-        return UserMemoryDAO.users.filter(item => item.getUsername === username);
+        return new Promise(UserMemoryDAO.users.filter(item => item.getUsername === username));
     }
 
     findUserByUsernameAndPassword(username, password) {
-        return UserMemoryDAO.users.find(item => item.getUsername === username && item.getPassword === password);
+        return new Promise()
+            .then(UserMemoryDAO.users.find(item => item.getUsername === username && item.getPassword === password));
     }
 
     findUserByUsernameAndSessionId(username, sessionId) {
-        return UserMemoryDAO.users.find(item => item.getUsername === username && item.getSessionId === sessionId);
+        return new Promise((resolve, reject) => {
+            let result = UserMemoryDAO.users.find(item => item.getUsername === username && item.getSessionId === sessionId);
+            let userArray = [];
+            userArray.push(result);
+            resolve(userArray);
+        });
     }
 
     save(user) {
-        let foundUser = UserMemoryDAO.users.find(userEntity => user.equals(userEntity));
-        if (foundUser === undefined) {
-            UserMemoryDAO.users.push(user);
-        }
-        else {
-            this.update(user);
-        }
+        return new Promise((resolve, reject) => {
+            let ack = 0;
+            let foundUser = UserMemoryDAO.users.find(userEntity => user.equals(userEntity));
+            if (foundUser === undefined) {
+                UserMemoryDAO.users.push(user);
+                ack++;
+            }
+            return resolve(ack);
+        });
     }
 
-    update(user) {
-        let foundUserIndex = UserMemoryDAO.users.findIndex(userEntity => user.equals(userEntity));
-        if (foundUserIndex !== undefined) {
-            let foundUser = UserMemoryDAO.users[foundUserIndex];
-            foundUser.update(user)
-        }
+    update(username, password, sessionId) {
+        return new Promise((resolve, reject) => {
+            let ack = 0;
+            let user = new User(username, password)
+            user.setSessionId = sessionId;
+            let foundUserIndex = UserMemoryDAO.users.findIndex(userEntity => user.equals(userEntity));
+            if (foundUserIndex !== -1) {
+                let foundUser = UserMemoryDAO.users[foundUserIndex];
+                foundUser.update(user);
+                ack++;
+            }
+            resolve(ack);
+        })
+        .catch(err => console.log(err));
     }
 
     delete(user) {
-        UserMemoryDAO.users = UserMemoryDAO.users.filter(userEntity => !user.equals(userEntity));
     }
 
 }
