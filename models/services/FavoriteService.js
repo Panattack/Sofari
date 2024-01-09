@@ -15,6 +15,8 @@ class FavoriteService {
         if (users.length > 0) {
           user = users[0]; //One user should have been fetched as the username and sessionId pair is unique for each user
           return initializer.getFavoriteBucketDAO.findFavoritesByUsernameAndPassword(user.getUsername, user.getPassword);
+          user = users[0]; //One user should have been fetched as the username and sessionId pair is unique for each user
+          return initializer.getFavoriteBucketDAO.findFavoritesByUsernameAndPassword(user.getUsername, user.getPassword);
 
         } else {
           throw new CustomError("Unauthorized: User not found", 401);
@@ -23,7 +25,6 @@ class FavoriteService {
       .then(buckets => {
 
         const advertisement = new Advertisement(advertisementData.id, advertisementData.title, advertisementData.desc, advertisementData.cost, advertisementData.img);
-        console.log(buckets)
         if (buckets.length > 0) { // The user has already a FavoriteBucket
           const bucket = buckets[0];  // Each user can only have one FavoriteBucket
 

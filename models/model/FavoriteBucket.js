@@ -7,7 +7,7 @@ class FavoriteBucket {
 
     get getUsername() { return this.username; }
 
-    set setUser(username) { this.username = username; }
+    set setUsername(username) { this.username = username; }
 
     get getPassword() { return this.password; }
 
@@ -18,10 +18,12 @@ class FavoriteBucket {
     set setFavorites(favorites) { this.favorites = favorites; }
 
     addToFavorites(advertisement) {
-        const foundAdv = this.favorites.some(ads => advertisement.equals(ads));
+        const foundAdv = this.favorites.some(ad => advertisement.equals(ad));
+
+        console.log(foundAdv);
 
         if (foundAdv) {
-            throw new Error('Advertisement already exists in favorites');
+            throw new CustomError("Conflict: Error finding favorites", 409);
         } else {
             this.favorites.push(advertisement);
         }

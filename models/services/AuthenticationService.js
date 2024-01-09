@@ -9,16 +9,18 @@ class AuthenticationService {
   }
 
   static authenticate(username, password) {
-    let id = AuthenticationService.generateToken();
-    let promise = initializer.getUserDAO.update(username, password, id);
+    let sessionId = AuthenticationService.generateToken();
+    let promise = initializer.getUserDAO.update(username, password, sessionId);
 
-    return promise.then(res => {
-      if (res) {
-        return id;
-      } else {
-        return null;
-      }
-    });
+    return promise
+      .then(ack => {
+        if (ack) {
+          return sessionId;
+        }
+        else {
+          return null;
+        }
+      })
   }
 
 }
