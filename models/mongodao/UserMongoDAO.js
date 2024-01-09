@@ -4,36 +4,11 @@ const MongoClientConnector = require("../mongodao/MongoClientConnector")
 
 class UserMongoDAO extends UserDAO {
 
-    findAll() {
-        let client = MongoClientConnector.getClient();
-        let collection = client.db("Sofari").collection("User");
-        let func = collection.find.bind(collection);
-        return this._findUser(client, {}, func);
-    }
-
-    findUserByUsername(username) {
-        let client = MongoClientConnector.getClient();
-        let collection = client.db("Sofari").collection("User");
-        let func = collection.findOne.bind(collection);
-        return this._findUser(client, { username: username }, func);
-    }
-
-    findUserByUsernameAndPassword(username, password) {
-        let client = MongoClientConnector.getClient();
-        let collection = client.db("Sofari").collection("User");
-        let func = collection.findOne.bind(collection);
-        return this._findUser(client, { username: username, password: password }, func);
-    }
-
     findUserByUsernameAndSessionId(username, sessionId) {
         let client = MongoClientConnector.getClient();
         let collection = client.db("Sofari").collection("User");
         let func = collection.findOne.bind(collection);
         return this._findUser(client, { username: username, sessionId: sessionId }, func);
-    }
-
-    delete(user) {
-
     }
 
     save(user) {

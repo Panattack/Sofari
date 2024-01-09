@@ -13,10 +13,6 @@ class Initializer {
         return DAOFactory.getFactory().getUserDAO;
     }
 
-    get getAdvertisementDAO() {
-        return DAOFactory.getFactory().getAdvertisementDAO;
-    }
-
     get getFavoriteBucketDAO() {
         return DAOFactory.getFactory().getFavoriteBucketDAO;
     }
@@ -34,8 +30,6 @@ class Initializer {
         this.getUserDAO.save(new User("demo_user", "P@ssw0rd789"));
         this.getUserDAO.save(new User("example", "%Pass1234@"));
         this.getUserDAO.save(new User("Alviona", "qwerty*"));
-
-        
     }
 }
 

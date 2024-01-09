@@ -4,7 +4,6 @@ class DAOFactory {
     constructor(){}
 
     get getUserDAO() { };
-    get getAdvertisementsDAO() { };
     get getFavoriteBucketDAO() { };
 
     static getFactory() {

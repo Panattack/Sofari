@@ -6,13 +6,6 @@ const CustomError = require("../model/CustomError");
 
 class FavoriteBucketMongoDAO extends FavoriteBucketDAO {
 
-    findAll() {
-        let client = MongoClientConnector.getClient();
-        let collection = client.db("Sofari").collection("FavoriteBucket");
-        let func = collection.find.bind(collection);
-        return this._findFavoriteBucket(client, {}, func);
-    }
-
     findFavoritesByUsernameAndPassword(username, password) {
         let client = MongoClientConnector.getClient();
         let collection = client.db("Sofari").collection("FavoriteBucket");
