@@ -1,3 +1,5 @@
+const CustomError = require("./CustomError")
+
 class FavoriteBucket {
     constructor(username, password) {
         this.username = username;
@@ -19,8 +21,6 @@ class FavoriteBucket {
 
     addToFavorites(advertisement) {
         const foundAdv = this.favorites.some(ad => advertisement.equals(ad));
-
-        console.log(foundAdv);
 
         if (foundAdv) {
             throw new CustomError("Conflict: Error finding favorites", 409);

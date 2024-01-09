@@ -22,7 +22,10 @@ class UserMemoryDAO extends UserDAO {
         return new Promise((resolve, reject) => {
             let result = UserMemoryDAO.users.find(item => item.getUsername === username && item.getSessionId === sessionId);
             let userArray = [];
-            userArray.push(result);
+
+            if (result !== undefined)
+                userArray.push(result);
+
             resolve(userArray);
         });
     }

@@ -6,7 +6,16 @@ const port = 8080
 const Initializer = require('./models/dao/Initializer')
 const AuthenticationService = require('./models/services/AuthenticationService');
 const FavoriteService = require('./models/services/FavoriteService');
-const initializer = new Initializer("../memorydao/MemoryDAOFactory", "sofari", "qwerty1234567", "sofari.7brfe1w.mongodb.net/");
+
+// Read from the third argument and onwards
+/* 
+    factoryPath : "../memorydao/MemoryDAOFactory" or "../mongodao/MongoDAOFactory"
+    username : "" or "sofari"
+    password : "" or "qwerty1234567"
+    host : "" or "sofari.7brfe1w.mongodb.net/"
+*/
+const args = process.argv.slice(2);
+const initializer = new Initializer(args[0], args[1], args[2], args[3]);
 initializer.prepareData();
 
 app.listen(port)
@@ -72,10 +81,13 @@ app.post('/afs', function (req, res) {
 
 app.get('/frs', function (req, res) {
     const { username, sessionId } = req.query;
-    try {
-        const result = FavoriteService.retrieveFavorites(username, sessionId);
-        res.status(200).send(result);
-    } catch (error) {
-        res.status(error.getStatus).send(error.message);
-    }
+    const result = FavoriteService.retrieveFavorites(username, sessionId);
+
+    result
+        .then(favoriteList => {
+            res.status(200).send(favoriteList);
+        })
+        .catch(error => {
+            res.status(error.getStatus).send(error.message);
+        })
 });

@@ -15,15 +15,11 @@ class FavoriteService {
         if (users.length > 0) {
           user = users[0]; //One user should have been fetched as the username and sessionId pair is unique for each user
           return initializer.getFavoriteBucketDAO.findFavoritesByUsernameAndPassword(user.getUsername, user.getPassword);
-          user = users[0]; //One user should have been fetched as the username and sessionId pair is unique for each user
-          return initializer.getFavoriteBucketDAO.findFavoritesByUsernameAndPassword(user.getUsername, user.getPassword);
-
         } else {
           throw new CustomError("Unauthorized: User not found", 401);
         }
       })
       .then(buckets => {
-
         const advertisement = new Advertisement(advertisementData.id, advertisementData.title, advertisementData.desc, advertisementData.cost, advertisementData.img);
         if (buckets.length > 0) { // The user has already a FavoriteBucket
           const bucket = buckets[0];  // Each user can only have one FavoriteBucket
@@ -35,7 +31,6 @@ class FavoriteService {
 
         } else { // First time adding an advertisement to FavoriteBucket
           const bucket = new FavoriteBucket(user.getUsername, user.getPassword);
-
           bucket.addToFavorites(advertisement);
 
           return initializer.getFavoriteBucketDAO.save(bucket);
@@ -57,19 +52,24 @@ class FavoriteService {
       });
   }
 
-
   static retrieveFavorites(username, sessionId) {
-    const user = initializer.getUserDAO.findUserByUsernameAndSessionId(username, sessionId);
+    const promiseUser = initializer.getUserDAO.findUserByUsernameAndSessionId(username, sessionId);
 
-    if (user !== undefined) {
-      let favouritesList = initializer.getFavoriteBucketDAO.findFavoritesByUser(user);
-      favouritesList = favouritesList === undefined ? [] : favouritesList.getFavorites;
-
-      return JSON.stringify(favouritesList);
-    } else {
-      // Unauthorized - User not found
-      throw new CustomError("Unauthorized: User not found", 401);
-    }
+    return promiseUser
+      .then(users => {
+        if (users.length > 0) {
+          let user = users[0];
+          return initializer.getFavoriteBucketDAO.findFavoritesByUsernameAndPassword(username, user.getPassword);
+        }
+        else {
+          throw new CustomError("Unauthorized: User not found", 401);
+        }
+      })
+      .then(buckets => {
+        let favouritesList = buckets.length === 0 ? [] : buckets[0].getFavorites;
+        return JSON.stringify(favouritesList);
+      })
+      .catch(error => {throw error;})
   }
 
 }
