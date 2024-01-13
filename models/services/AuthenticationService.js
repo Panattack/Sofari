@@ -21,8 +21,14 @@ class AuthenticationService {
           return null;
         }
       })
+      .catch(error => {
+        if (error instanceof CustomError) {
+          throw error;
+        } else {
+          throw new CustomError(error.message, 500);
+        }
+      });
   }
-
 }
 
 module.exports = AuthenticationService;

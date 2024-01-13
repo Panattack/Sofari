@@ -38,7 +38,7 @@ class FavoriteService {
       })
       .then(ack => {
         if (ack) {
-          return { message: "Operation successful" };
+          return ack;
         } else {
           throw new CustomError("Conflict: Error updating/saving favorites", 409);
         }
@@ -66,7 +66,10 @@ class FavoriteService {
         }
       })
       .then(buckets => {
-        let favouritesList = buckets.length === 0 ? [] : buckets[0].getFavorites;
+        if(buckets.length === 0) {
+          throw new CustomError("Not Found: No favourites list found", 404)
+        }
+        let favouritesList = buckets[0].getFavorites;
         return JSON.stringify(favouritesList);
       })
       .catch(error => {throw error;})

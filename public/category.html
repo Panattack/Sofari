@@ -29,13 +29,13 @@
 
     <script id="subcategory-filter-template" type="text/x-handlebars-template">
         <div class="subcategory-input-label-pair">
-            <input type="radio" id="subcat0" name="subcategory" value="All" checked>
-            <label for="subcat0">All</label>
+            <input type="radio" id="subcatAll" name="subcategory" value="All" checked>
+            <label for="subcatAll">All</label>
         </div>
         {{#each array}}
         <div class="subcategory-input-label-pair">
-            <input type="radio" id="subcat{{this.id}}" name="subcategory" value="{{this.title}}">
-            <label for="subcat{{this.id}}">{{this.title}}</label>
+            <input type="radio" id="subcat{{@index}}" name="subcategory" value="{{this.title}}" data-ad-id="{{this.id}}">
+            <label for="subcat{{@index}}">{{this.title}}</label>
         </div>
         {{/each}}
     </script>
@@ -62,9 +62,10 @@
 
                     <button class="add-favorite-button" 
                     data-ad-id="{{this.id}}" 
-                    data-ad-title="{{this.title}}" data-ad-desc="{{this.description}}" 
+                    data-ad-title="{{this.title}}" 
+                    data-ad-desc="{{this.description}}" 
                     data-ad-cost="{{this.cost}}"
-                    data-ad-url="{{this.images.[0]}}" onclick="addToFavourites(this, '{{this.id}}', '{{this.title}}', '{{this.description}}', '{{this.cost}}', '{{this.images.[0]}}')">
+                    data-ad-url="{{this.images.[0]}}">
                     <span class="far fa-heart"></span>
                     </button>
                 </div>
@@ -73,7 +74,6 @@
                 <div class="ad-details-posted-location">
                     <span class="ad-details-posted"><span class="fas fa-paper-plane"></span>Posted: <time
                             datetime="2023-09-02">September 2, 2023</time></span>
-                    <!-- <span class="ad-details-location"><span class="fas fa-map-marker"></span>Crete</span> -->
                 </div>
             </article>
             {{/each}}

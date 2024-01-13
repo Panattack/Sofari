@@ -43,8 +43,10 @@ window.addEventListener('load', function () {
                 ad.mapFeatures = splitedFeatures.map(str => str.split(':'));
 
                 // Initialize the indices for the image carousels
-                carousel_indices.set(ad.id, 0);
-                carousel_images.set(ad.id, ad.images);
+                if (ad.images.length > 1) {
+                    carousel_indices.set(ad.id, 0);
+                    carousel_images.set(ad.id, ad.images);
+                }
             });
 
             // Fill the template for the advertisements of the specified subcategory
@@ -63,6 +65,11 @@ window.addEventListener('load', function () {
                 btn.addEventListener("click", function (event) {
                     changeSlide(event, Codes.nextSlide)
                 })
+
+                // If there are too few images to make a carousel, don't display the carousel buttons
+                if (!carousel_indices.has(+btn.dataset.adId)) {
+                    btn.style.display = "none";
+                }
             })
 
             let prevtBtnList = document.querySelectorAll(".carousel-prev-btn");
@@ -71,6 +78,11 @@ window.addEventListener('load', function () {
                 btn.addEventListener("click", function (event) {
                     changeSlide(event, Codes.prevSlide)
                 })
+
+                // If there are too few images to make a carousel, don't display the carousel buttons
+                if (!carousel_indices.has(+btn.dataset.adId)) {
+                    btn.style.display = "none";
+                }
             })
         })
         .catch(error => {
@@ -78,15 +90,12 @@ window.addEventListener('load', function () {
         });
 });
 
-// document.addEventListener("DOMContentLoaded", function());
-
-
 function changeSlide(event, code) {
     // Reference the control button that was clicked
     let controlBtn = event.target;
 
     // Reference the other control button (either next or previous)
-    alterControlBtn = controlBtn.previousElementSibling != null && controlBtn.previousElementSibling.classList.contains("carousel-control-btn") ? controlBtn.previousElementSibling: controlBtn.nextElementSibling;
+    alterControlBtn = controlBtn.previousElementSibling != null && controlBtn.previousElementSibling.classList.contains("carousel-control-btn") ? controlBtn.previousElementSibling : controlBtn.nextElementSibling;
 
     // Get the advertisement's id
     const id = +controlBtn.dataset.adId;
@@ -94,7 +103,7 @@ function changeSlide(event, code) {
     // Get the advertisement's carousel index
     let index = carousel_indices.get(id);
 
-    if (index + code >= 0 && index + code < carousel_images.get(id).length){
+    if (index + code >= 0 && index + code < carousel_images.get(id).length) {
         // Make the control buttons appear if the index remains within the range
         controlBtn.style.display = "inline";
         alterControlBtn.style.display = "inline";
@@ -105,9 +114,8 @@ function changeSlide(event, code) {
         let subproductImg = document.getElementById(`subproduct-img-${id}`);
         subproductImg.setAttribute("src", `https://wiki-ads.onrender.com/${carousel_images.get(id)[index]}`);
         subproductImg.setAttribute("Alt", `Photo ${++index}`);
-    }else{
+    } else {
         // Make the control button that was clicked disappear as the index is no longer within the range
         controlBtn.style.display = "none";
     }
-    
 }

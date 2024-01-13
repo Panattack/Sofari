@@ -17,10 +17,8 @@ window.addEventListener('load', function () {
     // Add click event handler for the view-favourites button
     let viewFavouritesBtn = document.getElementById("view-favourites-btn");
     viewFavouritesBtn.addEventListener('click', function () {
-        console.log(user)
-        redirectToPage(`favorite-ads.html?username=${user.username}&sessionId=${user.sessionId}`)
+        redirectToPage(`favorite-ads.html?username=${user.username}&sessionId=${user.sessionId}`);
     });
-
 
     // Get the category id from the url of the page
     const urlParams = new URLSearchParams(window.location.search);
@@ -72,6 +70,9 @@ window.addEventListener('load', function () {
                 empty: advertisements.length == 0
             });
 
+            // Add click event handlers for all add-to-favourites buttons
+            let addToFavouritesBtnList = document.querySelectorAll(".add-favorite-button")
+            addToFavouritesBtnList.forEach(btn => btn.addEventListener('click', addToFavourites))
         })
         .catch(error => {
             console.error('Error fetching data:', error);
@@ -112,15 +113,12 @@ function filterAds() {
         let clickedElement = event.target;
 
         if (clickedElement.type === "radio" && clickedElement.name === "subcategory") {
-            let clickedId = clickedElement.id;
-            console.log('Clicked Radio Button ID:', clickedId);
+            let clickedAdId = clickedElement.dataset.adId;
 
             if (advertisements !== undefined) {
 
-                // Use a regex to extract the number of the subcategory, given that it is in the form x...xd...d where x: letters, d: digits
-                clickedId = clickedId.match(/\d+/g)[0]
-
-                advertisementsToReturn = clickedId != 0 ? advertisements.filter(item => item["subcategory_id"] == clickedId) : advertisements
+                // clickedAdId is undefined iff the "All" radio button was clicked
+                advertisementsToReturn = clickedAdId !== undefined ? advertisements.filter(item => item["subcategory_id"] == clickedAdId) : advertisements
 
                 templateHandler = new TemplateHandler("category-template", "ads-category-products");
                 templateHandler.fillTemplate({
@@ -152,17 +150,27 @@ function postLoginForm(event) {
             body: formStr
         }
 
-        fetch('/ls', init)
+        fetch('/login', init)
             .then(response => {
+                // Successful login
                 if (response.ok) {
                     closeLoginForm()
                     showPopupMsg("success-login-pop-up-msg")
                     return response.json()
                 }
+                // Authentication Failed
+                else if (response.status === 401) {
+                    let authFail = document.querySelector(".auth-fail")
+                    authFail.innerHTML = `<i class="fas fa-exclamation-circle"></i> Authentication failed`
+                    throw new Error("Authentication Failed");
 
-                let authFail = document.querySelector(".auth-fail")
-                authFail.innerHTML = `<i class="fas fa-exclamation-circle"></i> Authentication failed`
-                throw new Error("Authentication Failed");
+                    // Some internal server error (possibly due to network or database problems etc...)
+                } else if (response.status === 500) {
+                    let authFail = document.querySelector(".auth-fail")
+                    authFail.innerHTML = `<i class="fas fa-exclamation-circle"></i> Please try again, it was our fault...`
+                    throw new Error("Internal Server Error");
+                }
+
             })
             .then(sessionObj => {
                 user.sessionId = sessionObj.sessionId;
@@ -174,7 +182,19 @@ function postLoginForm(event) {
     }
 }
 
-function addToFavourites(button, id, title, desc, cost, imgUrl) {
+function addToFavourites(event) {
+
+    // In case the 'click' was caught from an inner <span> or other tag, take the corresponding button
+    let button = event.target.type === "button" ? event.target : event.target.closest("button");
+
+    const id = button.dataset.adId;
+    const title = button.dataset.adTitle;
+    const desc = button.dataset.adDesc;
+    const cost = button.dataset.adCost;
+    const imgUrl = button.dataset.adUrl;
+
+    console.log(button)
+    console.log(id, title, desc, cost, imgUrl)
 
     if (user.sessionId === undefined) {
         showPopupMsg("fail-addToFav-pop-up-msg");
@@ -201,9 +221,10 @@ function addToFavourites(button, id, title, desc, cost, imgUrl) {
             "body": body
         }
 
-        fetch('/afs', init)
+        fetch('/favourites/add', init)
             .then(response => {
                 if (response.ok) {
+                    console.log(response.status)
                     showInlinePopupMsg(`add-to-favourites-inline-pop-up-msg-${id}`, "Added!")
                 }
 

@@ -1,21 +1,31 @@
-const express = require('express')
-const path = require('path')
-const app = express()
-const port = 8080
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = 8080;
 
-const Initializer = require('./models/dao/Initializer')
+const Initializer = require('./models/dao/Initializer');
 const AuthenticationService = require('./models/services/AuthenticationService');
 const FavoriteService = require('./models/services/FavoriteService');
 
 // Read from the third argument and onwards
 /* 
-    factoryPath : "../memorydao/MemoryDAOFactory" or "../mongodao/MongoDAOFactory"
     username : "" or "sofari"
     password : "" or "qwerty1234567"
     host : "" or "sofari.7brfe1w.mongodb.net/"
 */
 const args = process.argv.slice(2);
-const initializer = new Initializer(args[0], args[1], args[2], args[3]);
+let initializer;
+
+if (args.length === 0) {
+    initializer = new Initializer("../memorydao/MemoryDAOFactory");
+} else if (args.length === 3) {
+    initializer = new Initializer("../mongodao/MongoDAOFactory", args[0], args[1], args[2]);
+} else {
+    console.log("You have not provided the required credentials for mongoDB. You need to give the username, password and host.");
+    process.exit();
+}
+
+
 initializer.prepareData();
 
 app.listen(port)
@@ -45,8 +55,7 @@ app.get('/', function (req, res) {
     })
 })
 
-
-app.post('/ls', function (req, res) {
+app.post('/login', function (req, res) {
 
     const { username, password } = req.body;
     const result = AuthenticationService.authenticate(username, password);
@@ -56,30 +65,28 @@ app.post('/ls', function (req, res) {
                 res.status(200).send({ "sessionId": sessionId });
             }
             else {
-                /*
-                The HyperText Transfer Protocol (HTTP) 401 Unauthorized response status code indicates 
-                that the client request has not been completed because it lacks valid authentication credentials 
-                for the requested resource.
-                */
                 res.status(401).send();
             }
         })
+        .catch(error => {
+            res.status(error.getStatus).send(error.message);
+        })
 })
 
-app.post('/afs', function (req, res) {
+app.post('/favourites/add', function (req, res) {
     const { username, sessionId, id, title, desc, cost, img } = req.body;
     const result = FavoriteService.addToFavorites(username, sessionId, { id, title, desc, cost, img });
 
     result
-        .then(message => {
-            res.status(200).send(message);
+        .then(ack => {
+            res.status(ack).send();
         })
         .catch(error => {
             res.status(error.getStatus).send(error.message);
         })
 });
 
-app.get('/frs', function (req, res) {
+app.get('/favourites/retrieve', function (req, res) {
     const { username, sessionId } = req.query;
     const result = FavoriteService.retrieveFavorites(username, sessionId);
 

@@ -21,7 +21,7 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO {
             let ack = 0;
             let foundBucket = FavoriteBucketMemoryDAO.favorites.filter(list => list.getPassword === bucket.getPassword && list.getUsername === list.getUsername);
             if (foundBucket.length === 0) {
-                ack++;
+                ack = 201; // Created
                 FavoriteBucketMemoryDAO.favorites.push(bucket);
             }
             resolve(ack);
@@ -35,7 +35,7 @@ class FavoriteBucketMemoryDAO extends FavoriteBucketDAO {
             let result = FavoriteBucketMemoryDAO.favorites.find(bucket => bucket.getUsername === username && bucket.getPassword === password);
             if (result !== undefined) {
                 result.setFavorites = favorites;
-                ack++;
+                ack = 204; // No Content
             }
 
             resolve(ack);

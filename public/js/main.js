@@ -1,6 +1,5 @@
-window.addEventListener('load', fillTemplate);
+window.addEventListener('load', function(){
 
-function fillTemplate() {
     // Fetch all categories
     let url = `${generalUrl}categories`
 
@@ -35,4 +34,4 @@ function fillTemplate() {
         .catch(error => {
             console.log(error);
         });
-}
+})

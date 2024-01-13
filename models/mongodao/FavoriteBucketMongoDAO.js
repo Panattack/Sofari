@@ -27,6 +27,7 @@ class FavoriteBucketMongoDAO extends FavoriteBucketDAO {
                 if (res.acknowledged) {
                     let documentId = res.insertedId
                     console.log(`Created document ${documentId}`)
+                    return 201; // Created
                 }
                 return res.acknowledged;
             })
@@ -56,6 +57,10 @@ class FavoriteBucketMongoDAO extends FavoriteBucketDAO {
                 if (res.acknowledged) {
                     let count = res.matchedCount;
                     console.log(`Updated ${count} documents`)
+                }
+
+                if(res.matchedCount > 0){
+                    return 204; // No Content
                 }
                 return res.matchedCount > 0;
             })
@@ -101,9 +106,8 @@ class FavoriteBucketMongoDAO extends FavoriteBucketDAO {
 
                 return bucketsRes;
             })
-            .catch((err) => {
-                console.error(err);
-                throw err;
+            .catch((error) => {
+                throw new CustomError("Internal Server Error: Error finding favorites in Database", 500);
             })
             .finally(() => {
                 client.close();

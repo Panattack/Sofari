@@ -28,7 +28,7 @@ class UserMongoDAO extends UserDAO {
                 }
                 return res.acknowledged;
             })
-            .catch(err => console.log(err))
+            .catch((error) => { throw error })
             .finally(() => client.close())
     }
 
@@ -57,7 +57,7 @@ class UserMongoDAO extends UserDAO {
                 }
                 return res.matchedCount > 0;
             })
-            .catch(err => console.log(err))
+            .catch((error) => { throw error })
             .finally(() => client.close())
     }
 
@@ -93,9 +93,8 @@ class UserMongoDAO extends UserDAO {
 
                 return usersRes;
             })
-            .catch((err) => {
-                console.error(err);
-                throw err;
+            .catch((error) => {
+                throw new CustomError("Internal Server Error: Error finding favorites in Database", 500);
             })
             .finally(() => {
                 client.close();

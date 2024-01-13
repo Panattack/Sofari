@@ -1569,17 +1569,17 @@ input[type="radio"]+label {
   gap: 2rem;
 }
 
-/* Set a left margin for the product image in the product header and round its corners. Shrink the width and automate the height of the image
-Set the max-height to prevent very high images from downgrading the appearance, and set object-fit to cover */
+
 .product-header img {
   align-self: center;
   justify-self: right;
   border-radius: 0.5rem;
   width: 38rem;
-  height: auto;
-  max-height: 30rem;
-  object-fit: cover;
+  height: 30rem;
+  object-fit: cover; /* contain */
   flex: 0 1 auto;
+  /* backdrop-filter: blur(16px) saturate(130%);
+  background-color: #333; */
 }
 
 /* Align the advertisement details across the horizontal and vertical axis;Set the display to grid and define the layout using the template. Set a limit for the content of the columns and ad some gap between the grid items. Last, make it grow and shrink */

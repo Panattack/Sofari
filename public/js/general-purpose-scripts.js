@@ -4,13 +4,21 @@ function redirectToPage(pageUrl) {
     window.location.href = pageUrl
 }
 
-function showPopupMsg(id, delay_ms = 1000) {
+function showPopupMsg(id, messageText = undefined, delay_ms = 1000) {
     let popupList = document.querySelectorAll(".overlay")
 
     popup = Array.from(popupList).find(popup => popup.firstElementChild.getAttribute("id") === id)
 
     if (popup) {
         popup.style.display = 'flex';
+
+        if (messageText !== undefined) {
+            let span = popup.querySelector('span > span > span')
+
+            if (span) {
+                span.textContent = messageText;
+            }  
+        }
 
         // Prevent scrolling
         document.body.style.overflow = 'hidden';
@@ -29,7 +37,7 @@ function showPopupMsg(id, delay_ms = 1000) {
 
 function showInlinePopupMsg(id, text, delay_ms = 1000) {
     popup = document.getElementById(id);
-    
+
     if (popup) {
         popup.textContent = text;
         popup.style.display = 'block';
