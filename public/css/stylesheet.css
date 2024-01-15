@@ -59,18 +59,23 @@
   padding: 0.2rem;
 }
 
+/* Define a common red color for all elements referring to failure */
 .failure {
   color: rgb(223, 15, 15);
 }
 
+/* Define a common green color for all elements referring to sucess */
 .success {
   color: green;
 }
 
+/* Set the pointer to cursor for all buttons */
 button {
   cursor: pointer;
 }
 
+/* Styles for a typical "OK" button that appears in pop-up messages (which are flex containers);
+Set a subtle border with rounded corners, background color and padding and properly align it inside its flex container*/
 .ok-btn {
   border: none;
   background-color: var(--primary-color);
@@ -81,10 +86,18 @@ button {
   align-self: flex-end;
 }
 
+/* Change the button's color on hover */
 .ok-btn:hover {
   background-color: var(--primary-color-dark);
 }
 
+/*--------------------- Styles for the pop-up messages ----------------------*/
+
+/* Styles for the outer container of the (non inline) pop-up messages; 
+The messages are initially hidden; When they become visible, the container covers the entire window and 
+it is displayed on top of any other visible elements; A low opacity black background color is applied to make 
+the pop-up message stand out more and the pop-up message will appear in the center of the window 
+(both horizontally and vertically) */
 .overlay {
   display: none;
   position: fixed;
@@ -98,6 +111,8 @@ button {
   z-index: 10;
 }
 
+/* Styles for the pop-up message itself; 
+The animation is defined below; The pop-up message is a column flex container for its inner elements */
 .pop-up {
   background-color: white;
   border: none;
@@ -112,6 +127,9 @@ button {
   row-gap: 0.5rem;
 }
 
+/* Styles for pop-up messages that do not cover the whole window but rather appear in a specific position,
+relevant to the element that they refer to; 
+They are initially hidden; The animation is defined below*/
 .pop-up-inline {
   background-color: #484747;
   color: white;
@@ -126,7 +144,20 @@ button {
   animation: popupAnimation 0.3s ease-out;
 }
 
-/* Sets the color gray for the selected item (e.g text) */
+/* Keyframes for the pop-up animation */
+@keyframes popupAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*---------------------------------------------------------------------------*/
+
+/* Set the color gray for the selected item (e.g text) */
 ::selection {
   background-color: #d8d8d8;
   /* Muted background color for selected text */
@@ -139,6 +170,7 @@ input[type="radio"] {
   accent-color: var(--primary-color);
 }
 
+/* Zero the margin of radio input elements on the website */
 input[type="radio"] {
   margin: 0;
 }
@@ -520,7 +552,6 @@ Set the z-index to make it pop above the other content */
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  /* grid-template-rows: auto, 1fr, auto; */
   row-gap: 3rem;
   min-height: 100vh;
 }
@@ -633,7 +664,13 @@ Set the z-index to make it pop above the other content */
     'footer footer footer';
 }
 
+/* The wrapper of the favourite advertisements. The template is the header to be on the top of the page. The list of the user's favourite advertisements will only cover the second column. 
+      1      2       3
+1   Header on all columns
 
+2   - |favouritesList| -
+
+3   Footer on all columns */
 .wrapper-favourites {
   grid-template-areas:
     'header header header'
@@ -799,12 +836,16 @@ by 180 degrees, creating a flip effect */
   transform: rotateY(180deg);
 }
 
+/* Styles for the category image in the front of the card;
+Set a common width and height and round the corners */
 #ad-categories .ad-card-front img {
   width: 8rem;
   height: 7rem;
   border-radius: 0.5rem;
 }
 
+/* Styles for the category image in the back of the card;
+Set a common width and height and make the image circular */
 #ad-categories .ad-card-back img {
   width: 3rem;
   height: 3rem;
@@ -842,13 +883,6 @@ and horizontally. The rotateY(0deg) ensures that the front face is initially vis
   flex-flow: column nowrap;
   transform: rotateY(180deg);
 }
-
-/* Set the width and height of the images within the advertisements categories cards to 100% and round the corners */
-/* .ad-card img {
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-} */
 
 /* Set the font size, margin, position, background color, padding, and border-radius to create a styled heading 
 at the top of the back face of the card using a different background color */
@@ -1033,26 +1067,35 @@ a background color, align the social media icons (i.e. text) to the center */
 }
 
 
-/* ------------------------- Form Pages (Contact form and Sign-up form) ----------------------------- */
+/* --------------- Forms (Contact form and Sign-up form pages, Login form of Index page) --------------- */
 
-/* Styles for the overall form providing a clean appearance; Set a white background, a subtle border, rounded corners, padding inside, a box shadow for a lifted 3D effect, and a margin around the form. Make it flex in order to organize its content on the vertical axis */
+/* Styles for the overall report form providing a clean appearance; Set a white background, a subtle border, 
+rounded corners, padding inside, a box shadow for a lifted 3D effect, and a margin around the form. 
+Make it flex in order to organize its content on the vertical axis */
 #report_problem {
   grid-area: reportProblemForm;
 }
 
+/* Styles for the sign up form; 
+Give it a name as a grid area to be able to use it in the grid container */
 #sign_up {
   grid-area: signUpForm;
 }
 
+/* Common styles for all forms;
+Properly align the form inside its container; Set the background color and shadow, 
+a subtle border with rounded corners and a padding; Adjust the width according to the content;
+Set the display to flex and organize the contents vertically */
 form {
   justify-self: center;
   align-self: start;
   background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   border: 1px solid gainsboro;
   border-radius: 1rem;
   padding: 1rem;
   width: fit-content;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -1227,35 +1270,20 @@ Apply a background color, round the corners, set a padding, and define a smooth 
   border-left: 1px solid gainsboro;
 }
 
-/* ------------------------- Computers & Motorcycles Page  ----------------------------- */
+/* ------------------------- Specific Category Advertisements Page  ----------------------------- */
 
-/* Keyframes for the pop-up animation */
-@keyframes popupAnimation {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-/* .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
-} */
-
+/* Styles for the login form;
+Set the position to relative to be able to align its content absolutely */
 .login-form {
   position: relative;
 }
 
+/* Style for the login box with a subtle box shadow */
 #login {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
+/* Style for buttons in the login form */
 #login-form-btn,
 #view-favourites-btn {
   border: none;
@@ -1263,6 +1291,7 @@ Apply a background color, round the corners, set a padding, and define a smooth 
   font-size: 1rem;
 }
 
+/* Style for the close button in the login form */
 #close-login-form-btn {
   position: absolute;
   top: 0.5rem;
@@ -1271,11 +1300,14 @@ Apply a background color, round the corners, set a padding, and define a smooth 
   cursor: pointer;
 }
 
+/* Styles for the product advertisements container */
 .ads-products {
   display: flex;
   flex-flow: column nowrap;
   row-gap: 1rem;
   box-sizing: border-box;
+
+  margin-left: 1rem;
 }
 
 /* Styles for the product advertisements;
@@ -1390,13 +1422,6 @@ Set a smaller font size that that of the current price, make it black, reduce th
   grid-area: productButton;
   justify-self: self-end;
 }
-
-/* Define the grid area to position the element to the specified cell. Make its borders circular and set the width to fit on the content. Center the element to the left of the horizontal axis andset a background color */
-/* .add-cart-button {
-  border-radius: 2rem;
-  width: fit-content;
-  background-color: var(--primary-color);
-} */
 
 /* On hover, change the color of the add-to-cart button */
 .add-cart-button:hover {
@@ -1538,7 +1563,10 @@ input[type="radio"]+label {
 }
 
 /* ------------------------- Subcategory Advertisements Page  ----------------------------- */
-
+/* Styles for the subcategories container;
+Set its grid area name, display it as a flex container with a column flow, justify content space-between 
+and provide a gap between items;
+Adjust the margin and padding of the container */
 #ad-subcategories {
   grid-area: SubAdsList;
   display: flex;
@@ -1547,6 +1575,9 @@ input[type="radio"]+label {
   gap: 5rem;
 }
 
+/* Styles for each subproduct container;
+Display it as a flex container with a column flow and define the gap between rows;
+Add borders, border radius, box shadow, and padding for a boxed appearance and set a margin for spacing */
 .SubProduct {
   display: flex;
   flex-flow: column nowrap;
@@ -1560,29 +1591,32 @@ input[type="radio"]+label {
   margin: 1rem;
 }
 
-/* Set the grid area for the product header in order to position it to the specified grid cell. Make its display flex to organize its items to the horizontal axis with space around them */
+/* Styles for the product header;
+ Make its display flex to organize its items to the horizontal axis with space around them */
 .product-header {
-  /* grid-area: productHeader; */
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   gap: 2rem;
 }
 
-
+/* Styles for the product header image;
+Aligning the image to the center vertically and justifying it to the right horizontally;
+Add a border radius for rounded corners; Set a fixed width and height;
+Control how the image fits inside the container using (object-fit property) */
 .product-header img {
   align-self: center;
   justify-self: right;
   border-radius: 0.5rem;
   width: 38rem;
   height: 30rem;
-  object-fit: cover; /* contain */
+  object-fit: cover;
+  /* contain */
   flex: 0 1 auto;
-  /* backdrop-filter: blur(16px) saturate(130%);
-  background-color: #333; */
 }
 
-/* Align the advertisement details across the horizontal and vertical axis;Set the display to grid and define the layout using the template. Set a limit for the content of the columns and ad some gap between the grid items. Last, make it grow and shrink */
+/* Align the advertisement details across the horizontal and vertical axis;Set the display to grid and define the layout using the template; 
+Set a limit for the content of the columns and ad some gap between the grid items. Last, make it grow and shrink */
 .ad-details {
   align-self: center;
   justify-self: left;
@@ -1686,11 +1720,6 @@ Set a smaller font size that that of the current price, make it black, reduce th
   align-self: center;
   justify-self: start;
 }
-
-/* Span the add-cart-button to two columns of the grid; */
-/* .ad-details .ad-desc-buttons {
-  grid-column: span 2;
-} */
 
 /* Set the grid area to place the views & watching within the pre-defined cell in the grid layout. */
 .ad-details-views-watching {
@@ -1797,11 +1826,15 @@ to a darker shade of the primary color, and applying a scale transformation for 
 }
 
 /* ----------------------- Carousel --------------------- */
+
+/* Styles for the carousel wrapper; Set its position to relative */
 .carousel-wrapper {
   position: relative;
 }
 
+/* Styles for the carousel control buttons */
 .carousel-control-btn {
+  /* Apply a backdrop filter for blur effect and background color with transparency */
   backdrop-filter: blur(16px) saturate(130%);
   background-color: rgba(255, 255, 255, 0.40);
   border: none;
@@ -1809,52 +1842,51 @@ to a darker shade of the primary color, and applying a scale transformation for 
   border-radius: 0.5rem;
   box-shadow: 0.1rem 0.1rem 1rem rgba(93, 105, 121, 0.3);
 
+  /* Add padding, font size, weight, family, and color for styling */
   padding: 0.4rem 1rem 0 1rem;
   font-size: 2rem;
   font-weight: bold;
   font-family: 'Manjari', sans-serif;
   color: whitesmoke;
 
+  /* Set position to absolute for precise placement */
   position: absolute;
 }
 
+/* Hover effect for carousel control buttons */
 .carousel-control-btn:hover {
   background-color: #111;
 }
 
+/* Styles for the next button in the carousel, positioning it to the right and bottom */
 .carousel-next-btn {
   right: 1rem;
   bottom: 1rem;
 }
 
+/* Styles for the previous button in the carousel, positioning it to the left and bottom */
 .carousel-prev-btn {
   left: 1rem;
   bottom: 1rem;
 }
+/* ------------------------------------------------------- */
 
 /* Styles for the container of the product specifications;
-Set the grid area to place the product specifications table within the specified grid cell;
-Define a border with a light color and round the corners, set a padding and apply a box shadow */
+Set the grid area to place the product specifications table within the specified grid cell; */
 .product-specs {
   grid-area: productSpecs;
   align-self: self-start;
   width: 50%;
   min-width: fit-content;
   justify-self: center;
-  /* border: 1px solid gainsboro;
-  border-radius: 1rem; */
-  /* padding-left: 2rem;
-  padding-right: 2rem; */
-  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
 }
 
 /* Styles for the product specifications table;
-Collapse the borders and round the corners, set the width to 100% and define a bottom margin */
+Collapse the borders and round the corners, set the width to 100% */
 .spec-table {
   border-collapse: collapse;
   border-radius: 1rem;
   width: 100%;
-  /* margin-bottom: 1rem; */
 }
 
 /* Styles for table rows within the table;
@@ -1920,16 +1952,22 @@ ensure a smooth transition in border-radius when switching between open and clos
   border-radius: 0rem;
 }
 
-/* -------------------- Favorite Ads page -------------------- */
+/* -------------------- Favourite Ads page -------------------- */
+
+/* Styles for the container of the user's favourite advertisements;
+Set the grid area to place the advertisements within the specified grid cell; */
 #ads-favourite-products {
   grid-area: favouritesList;
+  margin: 1rem;
 }
 
+/* Set the color of the heart icon that appears in the heading of the page */
 #ads-favourite-products h1 .fa-heart {
   color: var(--primary-color);
 }
 
 /* -------------------- Responsive Layout -------------------- */
+
 /* Set the max width of every image to 10-% so that the scale of every image will change depending on the screen, filling the width of the container if possible */
 img {
   max-width: 100%;
@@ -1937,14 +1975,6 @@ img {
 
 /* Single column layout for phones */
 @media (max-width: 480px) {
-
-  /* #navbar>ul>li>a{
-    display: none;
-  }
-
-  #navbar>ul>li>span{
-    display: inline-block;
-  } */
 
   /* Set padding fot the logo */
   .upper-header>img {
@@ -2026,7 +2056,7 @@ img {
     ;
   }
 
-  /*Add border radius around the faq */
+  /* Add border radius around the faq */
   .faq {
     border-radius: 1rem 1rem 1rem 1rem;
   }
@@ -2054,14 +2084,6 @@ img {
       'productButton';
     row-gap: 0.5rem;
   }
-
-  /* Center the image of the advertisement(product) */
-  /* .ad-product img {
-    align-self: center;
-    justify-self: center;
-
-    obj
-  } */
 
   /* Center the price of the advertisement(product) */
   .ad-info-price {
@@ -2102,6 +2124,7 @@ img {
     ;
   }
 
+  /* Define the grid layout for the favourite advertisements page to one column */
   .wrapper-favourites {
     grid-template-areas:
       'header'
@@ -2242,7 +2265,7 @@ img {
     row-gap: 2rem;
   }
 
-  /* Define the grid layout for the specific computer product to two column */
+  /* Define the grid layout for the sign up form to two column */
   .wrapper-sign-up {
     grid-template-areas:
       'header header'
@@ -2251,6 +2274,7 @@ img {
     ;
   }
 
+  /* Define the grid layout for the favourite advertisements page to two column */
   .wrapper-favourites {
     grid-template-areas:
       'header header'

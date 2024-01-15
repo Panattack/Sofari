@@ -25,5 +25,4 @@ class DAOFactory {
     };
 }
 
-
 module.exports = DAOFactory;

@@ -142,8 +142,6 @@ function postLoginForm(event) {
 
         let formStr = new URLSearchParams(formData).toString();
 
-        console.log(formStr)
-
         let init = {
             method: "POST",
             "headers": headers,
@@ -193,14 +191,9 @@ function addToFavourites(event) {
     const cost = button.dataset.adCost;
     const imgUrl = button.dataset.adUrl;
 
-    console.log(button)
-    console.log(id, title, desc, cost, imgUrl)
-
     if (user.sessionId === undefined) {
         showPopupMsg("fail-addToFav-pop-up-msg");
     } else {
-
-        console.log(user)
 
         let body = JSON.stringify({
             "id": id,
@@ -224,7 +217,7 @@ function addToFavourites(event) {
         fetch('/favourites/add', init)
             .then(response => {
                 if (response.ok) {
-                    console.log(response.status)
+                    console.log("Response status code: ", response.status)
                     showInlinePopupMsg(`add-to-favourites-inline-pop-up-msg-${id}`, "Added!")
                 }
 
@@ -240,7 +233,6 @@ function addToFavourites(event) {
                 }
                 // Some internal server error (possibly due to network or database problems etc...)
                 else if (response.status === 500) {
-                    console.log("HI")
                     showInlinePopupMsg(`add-to-favourites-inline-pop-up-msg-${id}`, "Try Again!")
                     throw new Error("Internal Server Error");
                 }
