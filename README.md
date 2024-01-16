@@ -46,3 +46,21 @@ The following calls are supported, and their results are in JSON format:
 - 401 Unauthorized: The user hasn't logged in 
 - 404 Not Found: The user's favourite list has not been initialized yet (the usr has never added any advertisements)
 - 500 Internal Server Error
+
+## Notes:
+1. Filtering of advertisements is supported according to their subcategory (*Bonus 1*).
+2. Connection with MongoDB is supported (*Bonus 2*). The relevant Database is `Sofari`, with two collections `User` and `FavoriteBucket`. The `User` collection contains some predefined users for testing purposes. The `FavoriteBucket` collection is left empty. Indexes were established on both collections to ensure uniqueness and to enhance the performance. More specifically:
+
+    1. **User**: A unique index is created on the (username, password) tuple using the following code snippet: 
+
+    ```js
+    use('Sofari');
+    db.getCollection("User").createIndex({ username: 1, password: 1 },{ unique: true, name: "uniqueUserCredentials" } );
+    ```
+
+    2. **FavoriteBucket** : A unique index is created on the (username, password) tuple using the following code snippet:
+
+    ```js
+    use('Sofari');
+    db.getCollection("FavoriteBucket").createIndex({ username: 1, password: 1 },{ unique: true, name: "uniqueUserCredentials" } );
+    ```
