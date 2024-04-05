@@ -17,6 +17,18 @@ In this part of the project we create a full stack web application. We exploit t
 3. Open your Web Browser and in the search tab/bar write `localhost:8080`
 
 ## Implementation Details 📜
+### External API
+- We use another API to get our products to fill the template.
+- For each API call, we execute a `GET` request.
+- Each answer is in form of a JSON file.
+- The link of the API is: https://wikiads.onrender.com
+- These are the requests:
+    - GET /categories:
+    - GET /categories/:id/subcategories
+    - GET /subcategories
+    - GET /ads?subcategory={id}
+    - GET /ads?category={id}
+    
 ### Supported Calls:
 The following calls are supported, and their results are in JSON format:
 #### *POST /login*
