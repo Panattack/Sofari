@@ -1,7 +1,7 @@
 # REST API & JS
 
 ## Description 📌
-In this part of the project we create a full stack web application. We exploit the frontend from the Exercise 5 from Part 1 and expand it with more pages. Also we introduce our server, which follows the principles of a REST API, written in Javascript. Now the users are able to select their favorite projects from each category as the application will store them in a real database using MongoDB, structured in NoSQL.
+In this part of the project we create a full stack web application. We exploit the frontend from the Task 5 from Part 1 and expand it with more pages. Also we introduce our server, which follows the principles of a REST API, written in Javascript. Now the users are able to select their favorite projects from each category as the application will store them in a real database using MongoDB, structured in NoSQL.
 
 ## Interact with Sofari 💻📱
 ### Execution Guide
@@ -28,7 +28,7 @@ In this part of the project we create a full stack web application. We exploit t
     - GET /subcategories
     - GET /ads?subcategory={id}
     - GET /ads?category={id}
-    
+
 ### Supported Calls:
 The following calls are supported, and their results are in JSON format:
 #### *POST /login*
