@@ -1,3 +1,5 @@
+# HTML & CSS
+
 ## Description 📌
 In the first part, the website includes only static content which is displayed upon opening each page in the Web Browser, without requiring communication with a Web Server to execute functions or dynamically generate web pages. The implementation is done using HTML5, CSS, and JS, where the latter is only used for complex form validation rules.
 > This part is developed in a series of 5 steps/tasks covering different requirements such as structure and content, layout and website style, adaptation to different screens, data input and validation.
