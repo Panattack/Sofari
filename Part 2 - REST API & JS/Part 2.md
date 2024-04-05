@@ -1,9 +1,9 @@
 # REST API & JS
 
-## Description
+## Description 📌
 In this part of the project we create a full stack web application. We exploit the frontend from the Exercise 5 from Part 1 and expand it with more pages. Also we introduce our server, which follows the principles of a REST API, written in Javascript. Now the users are able to select their favorite projects from each category as the application will store them in a real database using MongoDB, structured in NoSQL.
 
-## Interact with Sofari
+## Interact with Sofari 💻📱
 ### Execution Guide
 1. Open the command line from the root directory of the project
 2. Write `nodemon index.js` followed by these arguments:
@@ -16,7 +16,7 @@ In this part of the project we create a full stack web application. We exploit t
 > For example: `nodemon index.js sofari qwerty1234567 sofari.7brfe1w.mongodb.net/`
 3. Open your Web Browser and in the search tab/bar write `localhost:8080`
 
-## Implementation Details
+## Implementation Details 📜
 ### Supported Calls:
 The following calls are supported, and their results are in JSON format:
 #### *POST /login*
