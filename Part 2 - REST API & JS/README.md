@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="../../media/logo_svg.svg" width="200" >
+</div>
+
 # REST API & JS
 
 ## Description 📌
@@ -18,18 +22,16 @@ In this part of the project we create a full stack web application. We exploit t
 
 ## Implementation Details 📜
 ### External API
-- We use another API to get our products to fill the template.
-- For each API call, we execute a `GET` request.
-- Each answer is in form of a JSON file.
-- The link of the API is: https://wikiads.onrender.com
-- These are the requests:
-    - GET /categories:
+- Ads are dynamically loaded from an external API that provides access to categories and subcategories of ads as well as ads of selected categories through appropriate requests.
+- For each API call, an `HTTP GET` request is sent to the server https://wiki-ads.onrender.com.
+- The following calls are supported, and their results are in JSON format:
+    - GET /categories
     - GET /categories/:id/subcategories
     - GET /subcategories
     - GET /ads?subcategory={id}
     - GET /ads?category={id}
 
-### Supported Calls:
+### Internal API
 The following calls are supported, and their results are in JSON format:
 #### *POST /login*
 **Login Service - LS** : Receives necessary user identification information (username, password) from the client. The service returns an appropriate response code in case of successful authentication, along with a JSON object containing a unique session identifier in the following format:
@@ -59,7 +61,7 @@ The following calls are supported, and their results are in JSON format:
 - 404 Not Found: The user's favourite list has not been initialized yet (the usr has never added any advertisements)
 - 500 Internal Server Error
 
-### Notes:
+### Supported Features
 1. Filtering of advertisements is supported according to their subcategory.
 2. Connection with MongoDB is supported. The relevant Database is `Sofari`, with two collections `User` and `FavoriteBucket`. The `User` collection contains some predefined users for testing purposes. The `FavoriteBucket` collection is left empty. Indexes were established on both collections to ensure uniqueness and to enhance the performance. More specifically:
 
