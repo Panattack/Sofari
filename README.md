@@ -1,3 +1,17 @@
+<div align="center">
+    <img src="../media/logo_svg.svg" width="200" >
+</div>
+
+<div align="center">
+    <img src="../media/home_desktop.png" alt="Home" height="230">
+    <img src="../media/ads_desktop.png" alt="Ads" height="230">
+</div>
+<div align="center">
+    <img src="../media/categories_tablet.png" alt="Home" height="240">
+    <img src="../media/login_tablet.png" alt="Ads" height="240">
+    <img src="../media/contact_tablet.png" alt="Ads" height="240">
+</div>
+
 ## Description 📌
 Sofari is a website implementing a simplified version of a classified ads search service. The website includes a series of pages (home, advertisements, about us, contact, etc.) with the main functionality being user login, advertisement display, adding ads to favorites, and communication through contact forms. Ads are categorized into categories, which are further divided into subcategories for easier user navigation based on the topic they are searching for. Each ad is accompanied by the price, description, ismage(s) of the product, technical specifications of the product, and other useful information.
 
