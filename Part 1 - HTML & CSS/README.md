@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="../../media/logo_svg.svg" width="200" >
+</div>
+
 # HTML & CSS
 
 ## Description 📌
@@ -18,9 +22,11 @@ This part is developed in a series of 5 steps/tasks covering different requireme
 
 - **Task 3**: In this task, advanced layout techniques are employed using flex and grid. All pages have the same general layout of three columns. This corresponds to the so-called Holy Grail layout.
 
-<a title="David Lark, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
+<div align="center">
+    <a title="David Lark, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
                         href="https://commons.wikimedia.org/wiki/File:HolyGrail.svg"><img width="300" alt="HolyGrail"
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HolyGrail.svg/512px-HolyGrail.svg.png"></a>
+</div>
 
 - **Task 4**: We emphasize responsiveness by using media queries to manage the layout on mobile devices, tablets and desktops. For the selection of breakpoints, we consulted relevant online sources. As an example, we provide the following <a href="https://www.altamira.ai/blog/common-screen-sizes-for-responsive-web-design">article</a>.
 
